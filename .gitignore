@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.env
+.env.local
+
+Architecture.md
+Handoff.md
+implementation_plan.md
+Memory.md
+PRD.md
+research.md
+Tasks.md
