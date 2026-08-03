@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FarmVest — Phase 0 Visual Style Guide & Design Tokens</title>
+  
+  <!-- Google Fonts: Fraunces, Space Grotesk, Instrument Serif, Inter, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Main Stylesheet -->
+  <script type="module" src="/src/js/main.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+
+  <style>
+    /* Font Option Helper Classes for Preview */
+    .font-opt-a-heading { font-family: 'Fraunces', serif !important; }
+    .font-opt-b-heading { font-family: 'Space Grotesk', sans-serif !important; }
+    .font-opt-c-heading { font-family: 'Instrument Serif', serif !important; }
+    
+    .color-chip {
+      height: 80px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px;
+      font-family: 'Inter', monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+  </style>
+</head>
+<body class="bg-light py-5">
+  <div class="container">
+    
+    <!-- HEADER -->
+    <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm mb-5 border">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div>
+          <span class="badge badge--category mb-2">Phase 0 Foundation</span>
+          <h1 class="font-heading fw-bold mb-1">FarmVest Visual Style Guide</h1>
+          <p class="text-muted mb-0">Interactive Design Tokens, Font Shortlist & Component Library</p>
+        </div>
+        <div>
+          <a href="/index.html" class="btn btn--primary"><i class="fas fa-eye me-2"></i> Preview Home Page</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1. FONT PAIRING OPTIONS -->
+    <section class="bg-white p-4 p-md-5 rounded-4 shadow-sm mb-5 border">
+      <h2 class="h3 fw-bold mb-4"><i class="fas fa-font text-primary me-2"></i>1. Typography Font Pairings</h2>
+      
+      <div class="row g-4">
+        <!-- Option A -->
+        <div class="col-md-4">
+          <div class="p-4 rounded-3 border bg-neutral-50 h-100">
+            <span class="badge bg-primary text-white mb-3">Option A — Trustworthy Earth</span>
+            <h3 class="font-opt-a-heading h2 mb-2">Grow Your Yield</h3>
+            <p class="text-muted text-sm mb-3">Heading: <strong>Fraunces</strong> (Warm organic serif)</p>
+            <div class="p-3 bg-white rounded border">
+              <p class="text-sm text-secondary mb-1">Body & Numbers (Inter):</p>
+              <h4 class="num text-primary h3 mb-0">+16.5% ROI</h4>
+              <small class="text-muted">Target Pool Payout: $1,250.00</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Option B -->
+        <div class="col-md-4">
+          <div class="p-4 rounded-3 border bg-neutral-50 h-100">
+            <span class="badge bg-success text-white mb-3">Option B — Modern Agri-Fintech (Active)</span>
+            <h3 class="font-opt-b-heading h2 mb-2">Grow Your Yield</h3>
+            <p class="text-muted text-sm mb-3">Heading: <strong>Space Grotesk / Plus Jakarta</strong></p>
+            <div class="p-3 bg-white rounded border">
+              <p class="text-sm text-secondary mb-1">Body & Numbers (Inter):</p>
+              <h4 class="num text-primary h3 mb-0">+16.5% ROI</h4>
+              <small class="text-muted">Target Pool Payout: $1,250.00</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Option C -->
+        <div class="col-md-4">
+          <div class="p-4 rounded-3 border bg-neutral-50 h-100">
+            <span class="badge bg-dark text-white mb-3">Option C — Editorial Premium</span>
+            <h3 class="font-opt-c-heading h1 mb-2">Grow Your Yield</h3>
+            <p class="text-muted text-sm mb-3">Heading: <strong>Instrument Serif</strong></p>
+            <div class="p-3 bg-white rounded border">
+              <p class="text-sm text-secondary mb-1">Body & Numbers (Inter):</p>
+              <h4 class="num text-primary h3 mb-0">+16.5% ROI</h4>
+              <small class="text-muted">Target Pool Payout: $1,250.00</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. COLOR PALETTE TOKENS -->
+    <section class="bg-white p-4 p-md-5 rounded-4 shadow-sm mb-5 border">
+      <h2 class="h3 fw-bold mb-4"><i class="fas fa-palette text-primary me-2"></i>2. Color Palette Tokens</h2>
+      
+      <div class="row g-3">
+        <div class="col-6 col-md-3">
+          <div class="color-chip text-white" style="background: #16A34A;">
+            <span>Fresh Grass</span>
+            <span>#16A34A</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="color-chip text-white" style="background: #0F5132;">
+            <span>Deep Evergreen</span>
+            <span>#0F5132</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="color-chip text-white" style="background: #22C55E;">
+            <span>Emerald Glow</span>
+            <span>#22C55E</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="color-chip text-dark" style="background: #F59E0B;">
+            <span>Harvest Amber Gold</span>
+            <span>#F59E0B</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="color-chip text-white" style="background: #0B1320;">
+            <span>Rich Midnight Ink</span>
+            <span>#0B1320</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="color-chip text-white" style="background: #10B981;">
+            <span>Growth Mint</span>
+            <span>#10B981</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="color-chip text-dark" style="background: #F1F5F9;">
+            <span>Slate Light</span>
+            <span>#F1F5F9</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="color-chip text-dark border" style="background: #FFFFFF;">
+            <span>Pure White</span>
+            <span>#FFFFFF</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. BUTTON TOKENS -->
+    <section class="bg-white p-4 p-md-5 rounded-4 shadow-sm mb-5 border">
+      <h2 class="h3 fw-bold mb-4"><i class="fas fa-hand-pointer text-primary me-2"></i>3. Button Components</h2>
+      
+      <div class="d-flex flex-wrap gap-3 align-items-center mb-4">
+        <button class="btn btn--primary">Primary Grass Green</button>
+        <button class="btn btn--accent">Harvest Amber CTA</button>
+        <button class="btn btn--outline">Outline Primary</button>
+        <button class="btn btn--white">White Elevated</button>
+        <button class="btn btn--primary btn--sm">Small Button</button>
+        <button class="btn btn--primary btn--lg">Large Button</button>
+        <button class="btn btn--primary btn--icon"><i class="fas fa-arrow-right"></i></button>
+      </div>
+      
+      <div class="p-4 rounded-3 bg-dark text-white d-flex flex-wrap gap-3 align-items-center">
+        <span class="text-sm me-3 text-muted">Dark Overlay Buttons:</span>
+        <button class="btn btn--accent">Accent Gold</button>
+        <button class="btn btn--outline-white">Outline White</button>
+      </div>
+    </section>
+
+    <!-- 4. BADGES & METRICS -->
+    <section class="bg-white p-4 p-md-5 rounded-4 shadow-sm mb-5 border">
+      <h2 class="h3 fw-bold mb-4"><i class="fas fa-tag text-primary me-2"></i>4. Badges & ROI Indicators</h2>
+      
+      <div class="d-flex flex-wrap gap-3 align-items-center">
+        <span class="badge badge--roi">+16.5% ROI</span>
+        <span class="badge badge--active"><i class="fas fa-circle text-xs me-1"></i>Active Pool</span>
+        <span class="badge badge--pending"><i class="fas fa-clock text-xs me-1"></i>Pending Payout</span>
+        <span class="badge badge--completed"><i class="fas fa-check text-xs me-1"></i>Completed</span>
+        <span class="badge badge--failed"><i class="fas fa-times text-xs me-1"></i>Cancelled</span>
+        <span class="badge badge--category">Greenhouse Cultivation</span>
+      </div>
+    </section>
+
+    <!-- 5. CARD COMPONENT PROTOTYPES -->
+    <section class="bg-white p-4 p-md-5 rounded-4 shadow-sm mb-5 border">
+      <h2 class="h3 fw-bold mb-4"><i class="fas fa-layer-group text-primary me-2"></i>5. Interactive Card Prototypes</h2>
+      
+      <div class="row g-4">
+        <!-- Investment Pool Card Prototype -->
+        <div class="col-md-6 col-lg-4">
+          <div class="project-card">
+            <div class="project-card__thumb">
+              <span class="badge badge--roi project-card__badge">+15.5% ROI</span>
+              <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" alt="Rice farm" />
+            </div>
+            <div class="project-card__content">
+              <h3 class="project-card__title"><a href="#">Commercial Organic Rice Pool</a></h3>
+              <p class="project-card__desc">Solar-drip irrigated Basmati cultivation with direct off-take buyer contracts.</p>
+              <div class="project-card__meta">
+                <div class="project-card__meta-item">
+                  <span>Unit Price</span>
+                  <span>$100 / Unit</span>
+                </div>
+                <div class="project-card__meta-item">
+                  <span>Cycle Term</span>
+                  <span>6 Months</span>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__footer">
+              <span class="text-xs text-muted"><i class="fas fa-clock me-1 text-primary"></i>Filling Fast</span>
+              <a href="#" class="btn btn--primary btn--sm">Invest Pool</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vision Bento Card Prototype -->
+        <div class="col-md-6 col-lg-4">
+          <div class="vision-card">
+            <div class="vision-card__icon"><i class="fas fa-wheat-awn"></i></div>
+            <h3 class="vision-card__title">Premium Tech Inputs</h3>
+            <p class="vision-card__desc">Equipping partner farms with bio-certified seeds, solar irrigation, and IoT telemetry.</p>
+          </div>
+        </div>
+
+        <!-- Testimonial Card Prototype -->
+        <div class="col-md-6 col-lg-4">
+          <div class="feedback-card">
+            <div class="feedback-card__header">
+              <div class="feedback-card__avatar">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Marcus" />
+              </div>
+              <div class="feedback-card__info">
+                <h4 class="feedback-card__name">Marcus Vance</h4>
+                <p class="feedback-card__role">Portfolio Manager from <span>Canada</span></p>
+              </div>
+              <div class="feedback-card__quote-icon"><i class="fas fa-quote-right"></i></div>
+            </div>
+            <p class="feedback-card__text">
+              "FarmVest transformed how I hedge against inflation with full capital transparency."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. INPUT FORMS & CONTROLS -->
+    <section class="bg-white p-4 p-md-5 rounded-4 shadow-sm mb-5 border">
+      <h2 class="h3 fw-bold mb-4"><i class="fas fa-sliders text-primary me-2"></i>6. Form Control Tokens</h2>
+      
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label required">Investment Amount ($)</label>
+            <input type="number" class="form-control" placeholder="e.g. 500" value="500" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="form-label">Payment Gateway</label>
+            <select class="form-select">
+              <option selected>Bank Transfer (Instant ACH)</option>
+              <option>Debit / Credit Card (Visa/Mastercard)</option>
+              <option>Crypto Wallet (USDT / USDC)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
