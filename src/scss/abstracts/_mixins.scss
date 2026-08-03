@@ -1,0 +1,170 @@
+// ============================================================
+// FarmVest Mixins
+// ============================================================
+
+// ---- Responsive breakpoints ----
+@mixin media-up($bp) {
+  @if $bp == sm  { @media (min-width: $breakpoint-sm)  { @content; } }
+  @if $bp == md  { @media (min-width: $breakpoint-md)  { @content; } }
+  @if $bp == lg  { @media (min-width: $breakpoint-lg)  { @content; } }
+  @if $bp == xl  { @media (min-width: $breakpoint-xl)  { @content; } }
+  @if $bp == xxl { @media (min-width: $breakpoint-xxl) { @content; } }
+}
+
+@mixin media-down($bp) {
+  @if $bp == sm  { @media (max-width: ($breakpoint-sm - 0.02px))  { @content; } }
+  @if $bp == md  { @media (max-width: ($breakpoint-md - 0.02px))  { @content; } }
+  @if $bp == lg  { @media (max-width: ($breakpoint-lg - 0.02px))  { @content; } }
+  @if $bp == xl  { @media (max-width: ($breakpoint-xl - 0.02px))  { @content; } }
+  @if $bp == xxl { @media (max-width: ($breakpoint-xxl - 0.02px)) { @content; } }
+}
+
+// ---- Flexbox shortcuts ----
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// ---- Typography ----
+@mixin heading-style {
+  font-family: $font-heading;
+  font-weight: map-get($font-weights, 'bold');
+  color: $fv-neutral-900;
+  line-height: map-get($line-heights, 'tight');
+}
+
+@mixin body-style {
+  font-family: $font-body;
+  font-weight: map-get($font-weights, 'regular');
+  color: $fv-neutral-700;
+  line-height: map-get($line-heights, 'normal');
+}
+
+// ---- Transitions ----
+@mixin transition($props...) {
+  $result: ();
+  @each $prop in $props {
+    $result: append($result, $prop $transition-base, comma);
+  }
+  transition: $result;
+}
+
+// ---- Card hover lift ----
+@mixin hover-lift($distance: -4px) {
+  transition: transform $transition-base, box-shadow $transition-base;
+  
+  &:hover {
+    transform: translateY($distance);
+    box-shadow: $shadow-lg;
+  }
+}
+
+// ---- Truncate text ----
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+// ---- Section spacing ----
+@mixin section-padding {
+  padding-top: $section-py;
+  padding-bottom: $section-py;
+  
+  @include media-down(lg) {
+    padding-top: $section-py-sm;
+    padding-bottom: $section-py-sm;
+  }
+}
+
+// ---- Background image cover ----
+@mixin bg-cover {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// ---- Overlay ----
+@mixin overlay($color: rgba(0,0,0,0.5)) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $color;
+    z-index: 1;
+  }
+  
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// ---- Focus visible ----
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid $fv-primary;
+    outline-offset: 2px;
+  }
+}
+
+// ---- Reduced motion ----
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// ---- Scrollbar styling ----
+@mixin custom-scrollbar($width: 6px) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+  &::-webkit-scrollbar-track {
+    background: $fv-neutral-100;
+    border-radius: $radius-full;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $fv-neutral-300;
+    border-radius: $radius-full;
+    
+    &:hover {
+      background: $fv-neutral-400;
+    }
+  }
+}
+
+// ---- Aspect ratio ----
+@mixin aspect-ratio($width, $height) {
+  aspect-ratio: #{$width} / #{$height};
+  object-fit: cover;
+}
+
+// ---- Gradient text ----
+@mixin gradient-text($from, $to) {
+  background: linear-gradient(135deg, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

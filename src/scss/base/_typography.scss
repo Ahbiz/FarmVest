@@ -1,0 +1,94 @@
+// ============================================================
+// FarmVest Typography
+// Font families are loaded via <link> tags in each page <head>
+// (with preconnect) for non-render-blocking delivery.
+// ============================================================
+
+// ---- Headings ----
+h1, h2, h3,
+.h1, .h2, .h3 {
+  @include heading-style;
+  margin-bottom: space(3);
+}
+
+h4, h5, h6,
+.h4, .h5, .h6 {
+  font-family: $font-body;
+  font-weight: font-weight('bold');
+  color: $fv-neutral-900;
+  line-height: line-height('tight');
+  margin-bottom: space(2);
+}
+
+h1, .h1 { font-size: font-size('h1'); }
+h2, .h2 { font-size: font-size('h2'); }
+h3, .h3 { font-size: font-size('h3'); }
+h4, .h4 { font-size: font-size('h4'); }
+h5, .h5 { font-size: font-size('h5'); }
+h6, .h6 { font-size: font-size('h6'); }
+
+// ---- Body text ----
+body {
+  font-family: $font-body;
+  font-size: font-size('body');
+  font-weight: font-weight('regular');
+  color: $fv-neutral-700;
+  line-height: line-height('normal');
+}
+
+p {
+  margin-bottom: space(3);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ---- Links ----
+a {
+  color: $fv-primary;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $fv-primary-dark;
+  }
+}
+
+// ---- Small / Caption text ----
+small,
+.text-sm {
+  font-size: font-size('sm');
+}
+
+.text-xs {
+  font-size: font-size('xs');
+}
+
+// ---- Font utilities ----
+.font-heading { font-family: $font-heading; }
+.font-body    { font-family: $font-body; }
+.font-mono    { font-family: $font-mono; }
+
+// ---- Weight utilities ----
+.fw-regular  { font-weight: font-weight('regular'); }
+.fw-medium   { font-weight: font-weight('medium'); }
+.fw-semibold { font-weight: font-weight('semibold'); }
+.fw-bold     { font-weight: font-weight('bold'); }
+
+// ---- Color utilities ----
+.text-primary   { color: $fv-primary !important; }
+.text-accent    { color: $fv-accent !important; }
+.text-muted     { color: $fv-neutral-400 !important; }
+.text-dark      { color: $fv-neutral-900 !important; }
+.text-light     { color: $fv-neutral-700 !important; }
+.text-white     { color: $fv-white !important; }
+.text-success   { color: $fv-success !important; }
+.text-danger    { color: $fv-danger !important; }
+
+// ---- Financial numbers ----
+.num {
+  font-family: $font-mono;
+  font-weight: font-weight('bold');
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}

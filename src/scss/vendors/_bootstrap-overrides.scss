@@ -1,0 +1,32 @@
+// ============================================================
+// FarmVest Bootstrap 5 Overrides
+// ============================================================
+
+// ---- Override Bootstrap variables before import ----
+$primary:   $fv-primary;
+$success:   $fv-success;
+$danger:    $fv-danger;
+$info:      $fv-info;
+$warning:   $fv-warning;
+$body-bg:   $fv-neutral-50;
+$body-color: $fv-neutral-700;
+
+$font-family-base: $font-body;
+$headings-font-family: $font-heading;
+
+$border-radius:    $radius-md;
+$border-radius-sm: $radius-sm;
+$border-radius-lg: $radius-lg;
+
+$input-border-color: $fv-neutral-300;
+$input-focus-border-color: $fv-primary;
+$input-focus-box-shadow: 0 0 0 3px rgba($fv-primary, 0.15);
+
+// ---- Container override ----
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);

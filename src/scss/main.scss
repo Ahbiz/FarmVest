@@ -1,0 +1,40 @@
+// ============================================================
+// FarmVest Master SCSS File
+// ============================================================
+
+// 1. Abstracts (Tokens, Functions, Mixins)
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+
+// 2. Vendor Overrides & Bootstrap
+@import 'vendors/bootstrap-overrides';
+@import 'bootstrap/scss/bootstrap';
+
+// 3. Base Styles
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+// 4. Component Styles
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/badges';
+@import 'components/preloader';
+@import 'components/accordion';
+@import 'components/forms';
+@import 'components/toast';
+@import 'components/about-sec';
+@import 'components/offers-sec';
+@import 'components/stats-sec';
+@import 'components/marquee-sec';
+@import 'components/blog-sec';
+
+// 5. Layout Styles
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/hero';
+@import 'layout/sections';
+
+// 6. Page Styles
+@import 'pages/home';

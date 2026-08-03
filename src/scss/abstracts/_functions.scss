@@ -1,0 +1,28 @@
+// ============================================================
+// FarmVest Helper Functions
+// ============================================================
+
+// ---- Get spacing value from map ----
+@function space($key) {
+  @return map-get($spacers, $key);
+}
+
+// ---- Get font size from map ----
+@function font-size($key) {
+  @return map-get($font-sizes, $key);
+}
+
+// ---- Get font weight from map ----
+@function font-weight($key) {
+  @return map-get($font-weights, $key);
+}
+
+// ---- Get line height from map ----
+@function line-height($key) {
+  @return map-get($line-heights, $key);
+}
+
+// ---- Strip units ----
+@function strip-unit($value) {
+  @return calc($value / ($value * 0 + 1));
+}

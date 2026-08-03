@@ -1,0 +1,129 @@
+// ============================================================
+// FarmVest Global Base Styles
+// ============================================================
+
+// ---- CSS Custom Properties ----
+:root {
+  @each $name, $color in $color-map {
+    --fv-#{$name}: #{$color};
+  }
+  
+  --fv-font-heading: #{$font-heading};
+  --fv-font-body: #{$font-body};
+  --fv-font-mono: #{$font-mono};
+  --fv-radius-sm: #{$radius-sm};
+  --fv-radius-md: #{$radius-md};
+  --fv-radius-lg: #{$radius-lg};
+  --fv-radius-xl: #{$radius-xl};
+  --fv-shadow-sm: #{$shadow-sm};
+  --fv-shadow-md: #{$shadow-md};
+  --fv-shadow-lg: #{$shadow-lg};
+  --fv-transition-base: #{$transition-base};
+}
+
+// ---- Body ----
+body {
+  background-color: $fv-neutral-50;
+  overflow-x: hidden;
+}
+
+// ---- Main wrapper ----
+.page-wrapper {
+  overflow: hidden;
+}
+
+// ---- Section defaults ----
+.section {
+  @include section-padding;
+}
+
+.section--white {
+  background-color: $fv-white;
+}
+
+.section--light {
+  background-color: $fv-neutral-100;
+}
+
+.section--dark {
+  background-color: $fv-primary-dark;
+  color: $fv-white;
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: $fv-white;
+  }
+  
+  p {
+    color: rgba($fv-white, 0.8);
+  }
+}
+
+// ---- Section heading pattern ----
+.section-heading {
+  text-align: center;
+  margin-bottom: space(6);
+  
+  &--left {
+    text-align: left;
+  }
+}
+
+.section-heading__label {
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  font-size: font-size('sm');
+  font-weight: font-weight('semibold');
+  color: $fv-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: space(3);
+
+  i {
+    font-size: 1.5em;
+    vertical-align: -0.1em;
+    margin: 0 4px;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: $fv-accent;
+    border-radius: $radius-full;
+  }
+}
+
+.section-heading__title {
+  @include heading-style;
+  margin-bottom: space(3);
+}
+
+.section-heading__desc {
+  font-size: font-size('body');
+  color: $fv-neutral-400;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  .section-heading--left & {
+    margin-left: 0;
+  }
+}
+
+// ---- Background image utility ----
+.bg-img {
+  @include bg-cover;
+}
+
+// ---- Lazy load placeholder ----
+img[loading='lazy'] {
+  opacity: 0;
+  transition: opacity $transition-slow;
+  
+  &.loaded,
+  &[src]:not([src='']) {
+    opacity: 1;
+  }
+}
