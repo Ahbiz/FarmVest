@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 60" width="260" height="60">
+  <g transform="translate(10, 10)">
+    <path d="M5 25 L20 5 L35 25 Z" fill="#00539B"/>
+    <text x="45" y="28" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="22" fill="#00539B" letter-spacing="1">CORTEVA</text>
+    <text x="45" y="40" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="10" fill="#71B737" letter-spacing="2">AGRISCIENCE</text>
+  </g>
+</svg>

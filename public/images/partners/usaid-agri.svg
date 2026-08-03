@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <g transform="translate(10, 10)">
+    <rect width="36" height="36" rx="6" fill="#002F6C"/>
+    <path d="M12 24 L24 12 L24 24 Z" fill="#BA0C2F"/>
+    <text x="48" y="24" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#002F6C">USAID</text>
+    <text x="48" y="36" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#BA0C2F" letter-spacing="1">AGRICULTURE</text>
+  </g>
+</svg>
