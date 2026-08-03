@@ -1,0 +1,309 @@
+// ============================================================
+// FarmVest News & Articles / Blog Insights Section
+// ============================================================
+
+.blog-section {
+  background: #FAF8EE;
+  padding: 110px 0;
+  position: relative;
+
+  @include media-down(md) {
+    padding: 70px 0;
+  }
+
+  .blog-header-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    gap: 24px;
+
+    @include media-down(md) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .blog-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #49A82D;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+
+    i {
+      font-size: 1rem;
+    }
+  }
+
+  .blog-section-title {
+    font-family: $font-heading;
+    font-size: clamp(2.1rem, 3.8vw, 3rem);
+    font-weight: 800;
+    color: #0F4C2C;
+    line-height: 1.16;
+    margin-bottom: 0;
+  }
+
+  .btn-blog-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #0F4C2C;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      background: #52C42B;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(82, 196, 43, 0.3);
+    }
+  }
+
+  // Featured Hero Spotlight Card (Left Side)
+  .blog-card-featured {
+    background: #FFFFFF;
+    border-radius: 24px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      border-color: #52C42B;
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(15, 76, 44, 0.12);
+
+      .featured-img-wrap img {
+        transform: scale(1.06);
+      }
+
+      .btn-read-more {
+        color: #52C42B;
+        i {
+          transform: translateX(4px);
+        }
+      }
+    }
+
+    .featured-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .cat-tag {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: #0F4C2C;
+        color: #FFFFFF;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        padding: 6px 14px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .read-time {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(15, 23, 42, 0.75);
+        backdrop-filter: blur(10px);
+        color: #FFFFFF;
+        font-size: 0.78rem;
+        font-weight: 700;
+        padding: 4px 12px;
+        border-radius: 20px;
+      }
+    }
+
+    .featured-content {
+      padding: 32px 30px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .article-meta {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 0.85rem;
+        color: #64748B;
+        font-weight: 600;
+        margin-bottom: 12px;
+
+        i {
+          color: #52C42B;
+          margin-right: 4px;
+        }
+      }
+
+      .article-title {
+        font-family: $font-heading;
+        font-size: 1.45rem;
+        font-weight: 800;
+        color: #0F172A;
+        line-height: 1.35;
+        margin-bottom: 14px;
+        transition: color 0.3s ease;
+
+        a {
+          color: inherit;
+          text-decoration: none;
+
+          &:hover {
+            color: #0F4C2C;
+          }
+        }
+      }
+
+      .article-excerpt {
+        font-size: 0.98rem;
+        color: #475569;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+
+      .btn-read-more {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #0F4C2C;
+        font-weight: 800;
+        font-size: 0.92rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        i {
+          transition: transform 0.3s ease;
+        }
+      }
+    }
+  }
+
+  // Compact Article Cards (Right Side Stack)
+  .compact-articles-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .blog-card-compact {
+    background: #FFFFFF;
+    border-radius: 22px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+    @include media-down(sm) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &:hover {
+      border-color: #52C42B;
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(15, 76, 44, 0.1);
+
+      .compact-img-wrap img {
+        transform: scale(1.08);
+      }
+    }
+
+    .compact-img-wrap {
+      width: 140px;
+      height: 120px;
+      min-width: 140px;
+      border-radius: 16px;
+      overflow: hidden;
+
+      @include media-down(sm) {
+        width: 100%;
+        height: 180px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+
+    .compact-content {
+      flex: 1;
+
+      .cat-tag-sm {
+        display: inline-block;
+        color: #2D8A4E;
+        font-weight: 800;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+
+      .compact-title {
+        font-family: $font-heading;
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: #0F172A;
+        line-height: 1.35;
+        margin-bottom: 10px;
+
+        a {
+          color: inherit;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #0F4C2C;
+          }
+        }
+      }
+
+      .compact-meta {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 0.8rem;
+        color: #64748B;
+        font-weight: 600;
+
+        i {
+          color: #52C42B;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+}

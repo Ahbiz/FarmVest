@@ -1,0 +1,135 @@
+// ============================================================
+// FarmVest Buttons — Vibrant Grass Green & High Contrast
+// ============================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: space(2);
+  font-family: $font-body;
+  font-weight: font-weight('semibold');
+  font-size: font-size('body');
+  padding: 12px 28px;
+  border-radius: $radius-md;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all $transition-base;
+  white-space: nowrap;
+  @include focus-visible;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+// ---- Primary button ----
+.btn--primary {
+  background: $fv-primary;
+  color: $fv-white;
+  border-color: $fv-primary;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+
+  &:hover {
+    background: darken($fv-primary, 5%);
+    border-color: darken($fv-primary, 5%);
+    color: $fv-white;
+    box-shadow: 0 6px 20px rgba(22, 163, 74, 0.45);
+    transform: translateY(-2px);
+  }
+}
+
+// ---- Accent/CTA button ----
+.btn--accent {
+  background: $fv-accent;
+  color: $fv-neutral-900;
+  border-color: $fv-accent;
+  font-weight: font-weight('bold');
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+
+  &:hover {
+    background: $fv-accent-light;
+    border-color: $fv-accent-light;
+    color: $fv-neutral-900;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.45);
+    transform: translateY(-2px);
+  }
+}
+
+// ---- Outline button ----
+.btn--outline {
+  background: transparent;
+  color: $fv-primary;
+  border-color: $fv-primary;
+
+  &:hover {
+    background: $fv-primary;
+    color: $fv-white;
+    box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
+    transform: translateY(-2px);
+  }
+}
+
+// ---- Outline white (for dark backgrounds) ----
+.btn--outline-white {
+  background: rgba(255, 255, 255, 0.08);
+  color: $fv-white;
+  border-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    background: $fv-white;
+    color: $fv-neutral-900;
+    border-color: $fv-white;
+    transform: translateY(-2px);
+  }
+}
+
+// ---- White button ----
+.btn--white {
+  background: $fv-white;
+  color: $fv-neutral-900;
+  border-color: $fv-white;
+  box-shadow: $shadow-sm;
+
+  &:hover {
+    background: $fv-neutral-100;
+    border-color: $fv-neutral-100;
+    color: $fv-primary;
+  }
+}
+
+// ---- Sizes ----
+.btn--sm {
+  font-size: font-size('sm');
+  padding: 8px 20px;
+}
+
+.btn--lg {
+  font-size: 1.0625rem;
+  padding: 15px 36px;
+}
+
+// ---- Icon button ----
+.btn--icon {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: $radius-full;
+  font-size: 1.25rem;
+}
+
+// ---- Link-style button ----
+.btn--link {
+  background: none;
+  border: none;
+  color: $fv-primary;
+  padding: 0;
+  font-weight: font-weight('bold');
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+  &:hover {
+    color: darken($fv-primary, 10%);
+  }
+}

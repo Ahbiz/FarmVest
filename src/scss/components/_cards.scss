@@ -1,0 +1,775 @@
+// ============================================================
+// FarmVest Cards — Modern Fintech Bento Style
+// ============================================================
+
+// ---- Base card ----
+.card {
+  background: $fv-white;
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  @include hover-lift;
+}
+
+// ---- Project / Investment Pool card ----
+.project-card {
+  background: $fv-white;
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: all $transition-base;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(22, 163, 74, 0.4);
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.1);
+  }
+
+  &__thumb {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform $transition-slow;
+    }
+    
+    &:hover img {
+      transform: scale(1.06);
+    }
+  }
+  
+  &__badge {
+    position: absolute;
+    top: space(3);
+    right: space(3);
+    z-index: 2;
+    box-shadow: $shadow-md;
+  }
+  
+  &__content {
+    padding: space(4);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__title {
+    font-family: $font-heading;
+    font-weight: font-weight('bold');
+    font-size: 1.125rem;
+    color: $fv-neutral-900;
+    margin-bottom: space(2);
+    @include truncate(2);
+    
+    a {
+      color: inherit;
+      transition: color $transition-fast;
+      
+      &:hover {
+        color: $fv-primary;
+      }
+    }
+  }
+  
+  &__desc {
+    font-size: font-size('sm');
+    color: $fv-neutral-700;
+    @include truncate(2);
+    margin-bottom: space(4);
+  }
+  
+  &__meta {
+    @include flex-between;
+    padding-top: space(3);
+    margin-top: auto;
+    border-top: 1px solid $fv-neutral-100;
+    font-size: font-size('sm');
+    
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      
+      span:first-child {
+        color: $fv-neutral-400;
+        font-size: font-size('xs');
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: font-weight('semibold');
+      }
+      
+      span:last-child {
+        color: $fv-neutral-900;
+        font-weight: font-weight('bold');
+        font-family: $font-mono;
+      }
+    }
+  }
+  
+  &__footer {
+    padding: space(3) space(4);
+    background: $fv-neutral-50;
+    border-top: 1px solid $fv-neutral-100;
+    @include flex-between;
+  }
+}
+
+// ---- Vision / Feature Bento Card ----
+.our-vision {
+  background: radial-gradient(circle at 50% 0%, rgba(240, 253, 244, 0.6) 0%, rgba(255, 255, 255, 1) 75%);
+  padding: 100px 0;
+  position: relative;
+
+  @include media-down(md) {
+    padding: 60px 0;
+  }
+}
+
+.vision-card {
+  position: relative;
+  text-align: left;
+  padding: 32px 28px 24px;
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+
+  // Top Accent Gradient Bar
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #16A34A 0%, #D4A03C 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+
+
+  &__icon {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 20px;
+    margin-bottom: 24px;
+    transition: all 0.4s ease;
+
+    i {
+      font-size: 1.6rem;
+      color: #16A34A;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #0F172A;
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+
+  &__desc {
+    font-size: 0.925rem;
+    color: #64748B;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  &__footer-tag {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px dashed #E2E8F0;
+
+    .vision-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #15803D;
+      background: #F0FDF4;
+      padding: 4px 12px;
+      border-radius: 12px;
+
+      i {
+        font-size: 0.75rem;
+        color: #16A34A;
+      }
+    }
+  }
+
+  // Dynamic Hover Transformations
+  &:hover {
+    border-color: rgba(34, 197, 94, 0.4);
+    box-shadow: 0 20px 40px rgba(22, 163, 74, 0.12);
+    transform: translateY(-8px);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .vision-card__icon {
+      background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+      border-color: #16A34A;
+      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+
+      i {
+        color: #FFFFFF;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+// ---- Testimonial Section (Warm Cream Theme) ----
+.testimonial-sec {
+  background: #FAF8EE;
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+
+  @include media-down(md) {
+    padding: 65px 0;
+  }
+
+  // Header Split Row
+  .testimonial-header-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 44px;
+    gap: 24px;
+
+    @include media-down(md) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .testimonial-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #49A82D;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+
+    i {
+      font-size: 1rem;
+    }
+  }
+
+  .testimonial-title {
+    font-family: $font-heading;
+    font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+    font-weight: 800;
+    color: #0B3C1B;
+    line-height: 1.16;
+    margin-bottom: 0;
+  }
+
+  .testimonial-nav-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .testimonial-nav-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #52C42B;
+      color: #FFFFFF;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 6px 16px rgba(82, 196, 43, 0.3);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &:hover {
+        background: #41A221;
+        transform: scale(1.08);
+        box-shadow: 0 10px 22px rgba(82, 196, 43, 0.4);
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        transform: none !important;
+      }
+    }
+  }
+
+  // Slider Container Equal Height Enforcer
+  .testimonial-slider {
+    .swiper-wrapper {
+      display: flex;
+      align-items: stretch; // Forces all cards in row to be 100% equal height!
+    }
+
+    .swiper-slide {
+      height: auto;
+      display: flex;
+    }
+  }
+
+  // Testimonial cards (equal-height, executive layout)
+  .testimonial-card-v2 {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 36px 32px 32px 36px;
+    border: 1px solid rgba(235, 233, 220, 0.8);
+    // Cream halo ring (5px) + soft drop shadow
+    box-shadow: 0 0 0 5px #F5F3E7, 0 12px 36px rgba(15, 76, 44, 0.07);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 360px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    // Oversized watermark quote glyph
+    &::before {
+      content: '\f10e'; // fa-quote-right
+      font-family: 'Font Awesome 6 Free', 'FontAwesome', sans-serif !important;
+      font-weight: 900 !important;
+      position: absolute;
+      left: 21%;
+      top: 25%;
+      font-size: 15rem;
+      line-height: 1;
+      color: rgba(15, 76, 44, 0.04);
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 0;
+
+      @include media-down(md) {
+        font-size: 9rem;
+        left: 12%;
+      }
+    }
+
+    .card-inner-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    // Opening quote icon
+    .quote-mark {
+      font-size: 3rem;
+      color: #5EBE3E;
+      margin-bottom: 22px;
+      line-height: 1;
+
+      i {
+        font-family: 'Font Awesome 6 Free', 'FontAwesome', sans-serif !important;
+        font-weight: 900 !important;
+        color: #5EBE3E !important;
+        transition: color 0.3s ease;
+      }
+    }
+
+    .quote-text {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #0F4C2C;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      transition: color 0.3s ease;
+    }
+
+    // Author name + role
+    .author-bar {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: auto;
+
+      .author-info {
+        flex: 1;
+
+        .author-name {
+          font-weight: 700;
+          font-size: 1.05rem;
+          color: #0F4C2C;
+          margin-bottom: 2px;
+          transition: color 0.3s ease;
+        }
+
+        .author-role {
+          font-size: 0.88rem;
+          color: #737373;
+          font-weight: 400;
+          transition: color 0.3s ease;
+        }
+      }
+    }
+
+    // ---- Hover: invert to deep forest green ----
+    &:hover {
+      transform: translateY(-6px);
+      background: #0F4C2C; // Deep Forest Green
+      border-color: #0F4C2C;
+      box-shadow: 0 0 0 5px #F5F3E7, 0 20px 48px rgba(15, 76, 44, 0.35);
+
+      &::before {
+        color: #145935; // Near-identical shade ~3% lighter than #0F4C2C background
+        transform: scale(1.04);
+      }
+
+      .quote-mark i {
+        color: #5EBE3E !important;
+      }
+
+      .quote-text {
+        color: #FFFFFF !important;
+      }
+
+      .author-bar {
+        .author-name {
+          color: #FFFFFF !important;
+        }
+
+        .author-role {
+          color: rgba(255, 255, 255, 0.78) !important;
+        }
+      }
+    }
+  }
+}
+
+// ---- Blog Card ----
+.blog-card {
+  background: $fv-white;
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  @include hover-lift;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  &__thumb {
+    display: block;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      transition: transform $transition-slow;
+    }
+    
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+  
+  &__body {
+    padding: space(4);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: space(3);
+    font-size: font-size('xs');
+    font-weight: font-weight('semibold');
+    color: $fv-neutral-400;
+    margin-bottom: space(2);
+    
+    i {
+      color: $fv-primary;
+      margin-right: space(1);
+    }
+  }
+  
+  &__title {
+    font-family: $font-heading;
+    font-weight: font-weight('bold');
+    font-size: 1.125rem;
+    color: $fv-neutral-900;
+    margin-bottom: space(2);
+    @include truncate(2);
+    
+    a {
+      color: inherit;
+      &:hover { color: $fv-primary; }
+    }
+  }
+  
+  &__desc {
+    font-size: font-size('sm');
+    color: $fv-neutral-700;
+    @include truncate(3);
+    margin-bottom: space(4);
+  }
+}
+
+// ---- Step / How-it-works card ----
+.step-card {
+  display: flex;
+  align-items: flex-start;
+  gap: space(4);
+  padding: space(4);
+  background: $fv-white;
+  border-radius: $radius-lg;
+  border: 1px solid rgba(203, 213, 225, 0.6);
+  transition: all $transition-base;
+  
+  &:hover {
+    border-color: rgba(22, 163, 74, 0.4);
+    box-shadow: $shadow-md;
+  }
+  
+  &__icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    @include flex-center;
+    background: rgba(22, 163, 74, 0.12);
+    border-radius: $radius-md;
+    color: $fv-primary;
+    font-size: 1.5rem;
+    transition: all $transition-base;
+  }
+  
+  &:hover &__icon {
+    background: $fv-primary;
+    color: $fv-white;
+  }
+  
+  &__title {
+    font-family: $font-heading;
+    font-weight: font-weight('bold');
+    font-size: 1.125rem;
+    color: $fv-neutral-900;
+    margin-bottom: space(1);
+  }
+  
+  &__desc {
+    font-size: font-size('sm');
+    color: $fv-neutral-700;
+    margin-bottom: 0;
+  }
+}
+
+// ---- Creative How-It-Works Process Section (Ultra-Clean Executive Light Theme) ----
+.how-it-works-sec {
+  position: relative;
+  background: #F8FAFC;
+  padding: 120px 0;
+  color: #0F172A;
+  overflow: hidden;
+
+  @include media-down(md) {
+    padding: 70px 0;
+  }
+
+  // Soft Ambient Glow Background Accents
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: rgba(34, 197, 94, 0.08);
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 450px;
+    height: 450px;
+    background: rgba(59, 130, 246, 0.06);
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+
+  .section-heading__label {
+    color: #16A34A !important;
+    font-weight: 800 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .section-heading__title {
+    color: #0F172A !important;
+    font-size: clamp(2.4rem, 3.8vw, 3rem) !important;
+    font-weight: 800 !important;
+    text-shadow: none;
+  }
+
+  .section-heading__desc {
+    color: #475569 !important;
+    font-size: 1.15rem !important;
+    text-shadow: none;
+  }
+
+  // Heroic Farmer Cut-Out with Soft Ambient Glow Halo
+  .farmer-blend-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.18) 0%, rgba(22, 163, 74, 0.04) 60%, transparent 80%);
+      border-radius: 50%;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .farmer-blend-img {
+      position: relative;
+      z-index: 1;
+      max-width: 110%;
+      height: auto;
+      max-height: 600px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12));
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      transform: scale(1.08);
+      transform-origin: bottom center;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &:hover {
+        transform: scale(1.12);
+      }
+    }
+  }
+
+  .process-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  // Executive Crisp Modern White Cards with Subtle Border & Soft Shadows
+  .process-node-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 24px 26px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+      transform: translateX(8px);
+      border-color: rgba(22, 163, 74, 0.4);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08), 0 0 20px rgba(34, 197, 94, 0.08);
+
+      .process-icon-pod {
+        background: #16A34A;
+        color: #FFFFFF;
+        box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+      }
+    }
+
+    .process-icon-pod {
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
+      border-radius: 16px;
+      background: #F0FDF4;
+      border: 1px solid #DCFCE7;
+      color: #16A34A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .process-content {
+      flex: 1;
+
+      .process-header-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 6px;
+      }
+
+      .process-title {
+        font-family: $font-heading;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #0F172A;
+        margin-bottom: 0;
+      }
+
+      .process-step-num {
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: #16A34A;
+        background: #F0FDF4;
+        border: 1px solid #BBF7D0;
+        padding: 3px 12px;
+        border-radius: 20px;
+      }
+
+      .process-desc {
+        font-size: 0.9rem;
+        color: #475569;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+  

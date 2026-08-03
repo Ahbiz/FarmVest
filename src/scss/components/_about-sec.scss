@@ -1,0 +1,216 @@
+// ============================================================
+// FarmVest — About Section (Inspired by Agrigo Layout)
+// ============================================================
+
+.about-agrigo {
+  background-color: #F8FAF5; // Warm organic cream-white
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+
+  @include media-down(md) {
+    padding: 60px 0;
+  }
+
+  // Left & Right Tall Vertical Image Cards
+  .about-img-card {
+    position: relative;
+    width: 100%;
+    height: 520px; // Full tall height matching center content
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    background-color: #E2E8F0;
+
+    @include media-down(lg) {
+      height: 380px;
+    }
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.6s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.04);
+    }
+
+    // Circular Floating ROI Badge on Right Image
+    .roi-float-badge {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #16A34A;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: $font-mono;
+      font-weight: 800;
+      font-size: 0.875rem;
+      box-shadow: 0 8px 24px rgba(22, 163, 74, 0.35);
+      border: 3px solid #FFFFFF;
+      z-index: 2;
+
+      span.rate {
+        font-size: 1rem;
+        line-height: 1.1;
+      }
+      span.lbl {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        opacity: 0.9;
+        font-weight: 700;
+      }
+    }
+  }
+
+  // Center Main Content Block
+  .about-center-content {
+    display: flex;
+    flex-direction: column;
+
+    .about-chip-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #16A34A;
+      font-family: $font-body;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: space(3);
+
+      i {
+        font-size: 0.95rem;
+      }
+    }
+
+    .about-heading-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 800;
+      color: #0F5132; // Deep Evergreen
+      line-height: 1.15;
+      margin-bottom: space(4);
+    }
+
+    .about-heading-desc {
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: #475569;
+      margin-bottom: space(5);
+    }
+
+    // Agrigo Pill CTA Button with Prominent Circle Arrow
+    .btn-agrigo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #16A34A;
+      color: #FFFFFF;
+      font-family: $font-body;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 8px 10px 8px 24px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all $transition-fast;
+      box-shadow: 0 4px 16px rgba(22, 163, 74, 0.25);
+      width: fit-content;
+      margin-bottom: space(6);
+
+      .circle-arrow {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.25);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: #FFFFFF;
+        transition: transform $transition-fast, background $transition-fast;
+
+        i {
+          display: inline-block;
+          line-height: 1;
+        }
+      }
+
+      &:hover {
+        background: #15803D;
+        color: #FFFFFF;
+
+        .circle-arrow {
+          transform: translate(2px, -2px);
+          background: rgba(255, 255, 255, 0.4);
+        }
+      }
+    }
+
+    // 2 Feature Cards Side-by-Side below
+    .about-feature-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: space(4);
+
+      @include media-down(sm) {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-mini-card {
+        background: #FFFFFF;
+        padding: 24px;
+        border-radius: 20px;
+        border: 1px solid rgba(226, 232, 240, 0.8);
+        box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03);
+        transition: all $transition-fast;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+          border-color: #16A34A;
+        }
+
+        .mini-icon {
+          width: 48px;
+          height: 48px;
+          border-radius: 14px;
+          background: #F0FDF4;
+          color: #16A34A;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.25rem;
+          margin-bottom: space(3);
+        }
+
+        .mini-title {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: #0F5132;
+          margin-bottom: 6px;
+        }
+
+        .mini-desc {
+          font-size: 0.875rem;
+          color: #64748B;
+          line-height: 1.5;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,359 @@
+// ============================================================
+// FarmVest — Popular Yield Offers Section
+// ============================================================
+
+.offers-section {
+  background-color: #FFFFFF;
+  padding: 100px 0;
+  position: relative;
+
+  @include media-down(md) {
+    padding: 60px 0;
+  }
+
+  // Section header + navigation (asymmetric split layout)
+  .offers-header-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: space(6);
+    gap: space(4);
+
+    @include media-down(md) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: space(3);
+    }
+  }
+
+  .offers-header-content {
+    max-width: 600px;
+    text-align: left;
+
+    .offers-section-title {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #0F172A;
+      margin-top: space(1);
+      margin-bottom: space(2);
+    }
+
+    .offers-section-desc {
+      font-size: 1.025rem;
+      line-height: 1.65;
+      color: #475569;
+    }
+  }
+
+  .offers-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    @include media-down(sm) {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  // Live Status Pulse Pill
+  .live-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #F0FDF4;
+    border: 1px solid #DCFCE7;
+    border-radius: 30px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #166534;
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.06);
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #22C55E;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulse-green 2s infinite;
+    }
+  }
+
+  @keyframes pulse-green {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+  }
+
+  // Top Nav Arrows
+  .offers-nav-btns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .offer-nav-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      color: #0F5132;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover {
+        background: #16A34A;
+        border-color: #16A34A;
+        color: #FFFFFF;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(22, 163, 74, 0.3);
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        &:hover {
+          background: #F1F5F9;
+          border-color: #E2E8F0;
+          color: #0F5132;
+          transform: none;
+        }
+      }
+    }
+  }
+
+  // Offer Card Styling
+  .offer-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    // Top Image Thumb with ROI Badge
+    .offer-card__thumb {
+      position: relative;
+      height: 220px;
+      width: 100%;
+      overflow: hidden;
+      background: #E2E8F0;
+
+      img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .offer-roi-badge {
+        position: absolute;
+        bottom: 14px;
+        left: 14px;
+        background: #16A34A;
+        color: #FFFFFF;
+        padding: 6px 14px;
+        border-radius: 9999px;
+        font-family: $font-mono;
+        font-weight: 800;
+        font-size: 0.85rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+        transition: all 0.3s ease;
+
+        span.label {
+          font-size: 0.7rem;
+          font-weight: 700;
+          margin-right: 3px;
+        }
+      }
+    }
+
+    // Card Content Area
+    .offer-card__body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      .offer-title {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #0F5132;
+        margin-bottom: space(4);
+        line-height: 1.3;
+        transition: color 0.3s ease;
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+
+      // Price & Invest Now Button Row — Perfect Horizontal Alignment
+      .offer-price-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: space(4);
+        margin-bottom: space(4);
+        border-bottom: 1px solid #F1F5F9;
+        transition: border-color 0.3s ease;
+
+        .price-box {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .label {
+            font-size: 0.75rem;
+            color: #64748B;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 2px;
+            line-height: 1;
+            transition: color 0.3s ease;
+          }
+          .amount {
+            font-family: $font-mono;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #0F5132;
+            line-height: 1.1;
+            transition: color 0.3s ease;
+          }
+        }
+
+        .btn-invest-now {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          border: 1px solid #CBD5E1;
+          color: #0F5132;
+          font-family: $font-body;
+          font-weight: 700;
+          font-size: 0.85rem;
+          padding: 10px 20px;
+          border-radius: 10px;
+          text-decoration: none;
+          line-height: 1;
+          height: fit-content;
+          align-self: center;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: #16A34A;
+            border-color: #16A34A;
+            color: #FFFFFF;
+          }
+        }
+      }
+
+      // Bottom Meta Stats (Units & Term)
+      .offer-meta-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.825rem;
+        color: #64748B;
+        font-weight: 600;
+        margin-top: auto;
+        transition: color 0.3s ease;
+
+        .units {
+          color: #EF4444; // Distinct red highlight for available units
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          transition: color 0.3s ease;
+        }
+
+        .duration {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+      }
+    }
+
+    // Hover: card inverts to solid green
+    &:hover {
+      background: #16A34A;
+      border-color: #16A34A;
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(22, 163, 74, 0.28);
+
+      .offer-card__thumb img {
+        transform: scale(1.08);
+      }
+
+      .offer-roi-badge {
+        background: #FFFFFF;
+        color: #16A34A;
+      }
+
+      .offer-title {
+        color: #FFFFFF;
+      }
+
+      .offer-price-row {
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+
+        .price-box {
+          .label {
+            color: rgba(255, 255, 255, 0.8);
+          }
+          .amount {
+            color: #FFFFFF;
+          }
+        }
+
+        .btn-invest-now {
+          background: #FFFFFF;
+          border-color: #FFFFFF;
+          color: #16A34A;
+          font-weight: 800;
+
+          &:hover {
+            background: #F8FAFC;
+            color: #15803D;
+          }
+        }
+      }
+
+      .offer-meta-row {
+        color: rgba(255, 255, 255, 0.9);
+
+        .units {
+          color: #FEF08A; // High contrast soft yellow text on green card hover
+        }
+      }
+    }
+  }
+}

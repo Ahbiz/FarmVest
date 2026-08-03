@@ -1,0 +1,195 @@
+// ============================================================
+// FarmVest Toast Notifications
+// ============================================================
+
+.toast-container {
+  position: fixed;
+  top: space(4);
+  right: space(4);
+  z-index: $z-toast;
+  display: flex;
+  flex-direction: column;
+  gap: space(2);
+  max-width: 380px;
+  
+  @include media-down(sm) {
+    left: space(3);
+    right: space(3);
+    max-width: 100%;
+  }
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: space(3);
+  padding: space(3) space(4);
+  background: $fv-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  border-left: 4px solid;
+  transform: translateX(120%);
+  opacity: 0;
+  transition: transform $transition-base, opacity $transition-base;
+  
+  &.is-visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  &.is-leaving {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  
+  &--success { border-left-color: $fv-success; }
+  &--error   { border-left-color: $fv-danger; }
+  &--warning { border-left-color: $fv-warning; }
+  &--info    { border-left-color: $fv-info; }
+  
+  &__icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+    
+    .toast--success & { color: $fv-success; }
+    .toast--error &   { color: $fv-danger; }
+    .toast--warning & { color: $fv-warning; }
+    .toast--info &    { color: $fv-info; }
+  }
+  
+  &__body {
+    flex: 1;
+  }
+  
+  &__title {
+    font-weight: font-weight('semibold');
+    font-size: font-size('sm');
+    color: $fv-neutral-900;
+    margin-bottom: 2px;
+  }
+  
+  &__message {
+    font-size: font-size('sm');
+    color: $fv-neutral-400;
+    margin-bottom: 0;
+  }
+  
+  &__close {
+    color: $fv-neutral-400;
+    font-size: 1rem;
+    padding: 0;
+    line-height: 1;
+    flex-shrink: 0;
+    
+    &:hover {
+      color: $fv-neutral-900;
+    }
+  }
+  
+  &__progress {
+    position: absolute;
+    bottom: 0;
+    left: 4px;
+    right: 0;
+    height: 3px;
+    border-radius: 0 0 $radius-lg 0;
+    
+    .toast--success & { background: $fv-success; }
+    .toast--error &   { background: $fv-danger; }
+    .toast--warning & { background: $fv-warning; }
+    .toast--info &    { background: $fv-info; }
+  }
+}
+
+// ---- Cookie Consent ----
+.cookie-consent {
+  position: fixed;
+  bottom: space(4);
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  z-index: $z-toast;
+  background: $fv-white;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-xl;
+  padding: space(4) space(5);
+  max-width: 540px;
+  width: calc(100% - #{space(6)});
+  text-align: center;
+  transition: transform $transition-slow;
+  
+  &.is-visible {
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  &.is-hidden {
+    display: none;
+  }
+  
+  &__icon {
+    width: 48px;
+    height: 48px;
+    @include flex-center;
+    margin: 0 auto space(3);
+    background: rgba($fv-accent, 0.12);
+    border-radius: $radius-full;
+    font-size: 1.5rem;
+    color: $fv-accent;
+  }
+  
+  &__text {
+    font-size: font-size('sm');
+    color: $fv-neutral-700;
+    margin-bottom: space(3);
+    
+    a {
+      color: $fv-primary;
+      text-decoration: underline;
+    }
+  }
+  
+  &__btn {
+    width: 100%;
+  }
+}
+
+// ---- Back to top ----
+.back-to-top {
+  position: fixed;
+  bottom: space(5);
+  right: space(5);
+  z-index: $z-back-to-top;
+  width: 48px;
+  height: 48px;
+  @include flex-center;
+  background: $fv-primary;
+  color: $fv-white;
+  border-radius: $radius-full;
+  font-size: 1.125rem;
+  box-shadow: $shadow-md;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: all $transition-base;
+  cursor: pointer;
+  
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  &:hover {
+    background: $fv-primary-dark;
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+  }
+  
+  @include media-down(sm) {
+    bottom: space(4);
+    right: space(4);
+    width: 40px;
+    height: 40px;
+  }
+}

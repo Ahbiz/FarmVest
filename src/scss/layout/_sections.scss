@@ -1,0 +1,102 @@
+// ============================================================
+// FarmVest Layout — Shared Sections
+// ============================================================
+
+// ---- Why Invest / Video section ----
+.why-invest {
+  &__thumb {
+    position: relative;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include aspect-ratio(4, 3);
+    }
+  }
+
+  &__play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 72px;
+    @include flex-center;
+    background: $fv-accent;
+    color: $fv-neutral-900;
+    border-radius: $radius-full;
+    font-size: 1.5rem;
+    box-shadow: 0 0 0 12px rgba($fv-accent, 0.25);
+    transition: all $transition-base;
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      box-shadow: 0 0 0 20px rgba($fv-accent, 0.35);
+      color: $fv-neutral-900;
+    }
+  }
+
+  &__points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 space(5) 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: space(3);
+
+    @include media-up(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: space(2);
+      font-size: font-size('body');
+      font-weight: font-weight('semibold');
+      color: $fv-neutral-900;
+
+      i {
+        color: $fv-primary;
+        font-size: 1.125rem;
+      }
+    }
+  }
+}
+
+// ---- How it works timeline ----
+.how-it-works {
+  &__timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: space(5);
+  }
+}
+
+// ---- Partner Brands slider ----
+.brand-carousel {
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: space(3);
+
+    img {
+      max-height: 48px;
+      width: auto;
+      filter: grayscale(100%);
+      opacity: 0.55;
+      transition: all $transition-fast;
+
+      &:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+    }
+  }
+}

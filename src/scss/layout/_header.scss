@@ -1,0 +1,239 @@
+// ============================================================
+// FarmVest Layout — Agrigo-Grade Premium Header & Navbar
+// ============================================================
+
+.header {
+  position: relative;
+  z-index: $z-header;
+  width: 100%;
+}
+
+// ---- Top Announcement Bar ----
+.header-top {
+  background-color: #0F4C2A; // Rich Agrigo Deep Forest Green
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include media-down(sm) {
+      justify-content: center;
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: space(2);
+    font-weight: font-weight('medium');
+
+    span.highlight {
+      color: #4ADE80;
+      font-weight: font-weight('bold');
+      text-decoration: underline;
+    }
+
+    @include media-down(sm) {
+      text-align: center;
+    }
+  }
+
+  &__center {
+    display: flex;
+    align-items: center;
+    gap: space(4);
+    color: rgba(255, 255, 255, 0.9);
+
+    i {
+      color: #4ADE80;
+      margin-right: 6px;
+    }
+
+    .dot-separator {
+      color: #4ADE80;
+      font-size: 0.5rem;
+      vertical-align: middle;
+    }
+
+    // Contact details crowd narrow screens — hide below the desktop breakpoint.
+    @include media-down(lg) {
+      display: none;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: space(3);
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none !important;
+      margin: 0;
+      padding: 0;
+
+      &::before { display: none !important; }
+    }
+
+    a {
+      color: #FFFFFF;
+      font-size: 0.875rem;
+      opacity: 0.85;
+      transition: all $transition-fast;
+
+      &:hover {
+        opacity: 1;
+        color: #4ADE80;
+        transform: translateY(-1px);
+      }
+    }
+
+    @include media-down(sm) {
+      display: none;
+    }
+  }
+}
+
+// ---- Main Header & Logo Bar ----
+.header-main {
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: $z-header;
+
+  &.is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    animation: slideDown 300ms ease forwards;
+  }
+}
+
+.navbar {
+  padding: 0;
+
+  // Solid Green Logo Brand Box (Matching Agrigo)
+  .brand-block {
+    background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: background $transition-fast;
+
+    img {
+      height: 38px;
+      width: auto;
+    }
+
+    .brand-text {
+      color: #FFFFFF;
+      font-family: $font-heading;
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+
+      span {
+        color: #FBBF24;
+      }
+    }
+  }
+
+  // Navigation Links
+  .nav-link {
+    font-family: $font-body;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #1E293B;
+    padding: 24px 14px !important;
+    transition: color $transition-fast;
+
+    &:hover,
+    &.active {
+      color: #16A34A;
+    }
+
+    i {
+      font-size: 0.75rem;
+      margin-left: 4px;
+    }
+  }
+}
+
+// Right Action CTA Cluster (Agrigo Dual Button Style)
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  .action-icon-btn {
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    color: #1E293B;
+    font-size: 1.1rem;
+    border-radius: $radius-full;
+    transition: all $transition-fast;
+
+    &:hover {
+      color: #16A34A;
+      background: rgba(22, 163, 74, 0.08);
+    }
+  }
+
+  // Dual Action Button Group (Pill Button + Arrow Box)
+  .cta-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    .btn-cta-main {
+      background: #22C55E;
+      color: #FFFFFF;
+      font-family: $font-body;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 12px 24px;
+      border-radius: 12px 4px 4px 12px;
+      border: none;
+      transition: all $transition-fast;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.35);
+
+      &:hover {
+        background: #16A34A;
+        box-shadow: 0 6px 18px rgba(22, 163, 74, 0.45);
+      }
+    }
+
+    .btn-cta-arrow {
+      background: #16A34A;
+      color: #FFFFFF;
+      width: 44px;
+      height: 44px;
+      @include flex-center;
+      border-radius: 4px 12px 12px 4px;
+      border: none;
+      font-size: 1rem;
+      transition: all $transition-fast;
+
+      &:hover {
+        background: #15803D;
+        transform: translateX(2px);
+      }
+    }
+  }
+}

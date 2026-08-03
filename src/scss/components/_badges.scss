@@ -1,0 +1,51 @@
+// ============================================================
+// FarmVest Badges
+// ============================================================
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: space(1);
+  font-family: $font-body;
+  font-weight: font-weight('semibold');
+  font-size: font-size('xs');
+  padding: 4px 12px;
+  border-radius: $radius-sm;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+// ---- ROI Badge ----
+.badge--roi {
+  background: rgba($fv-accent, 0.9);
+  color: $fv-neutral-900;
+  font-family: $font-mono;
+  backdrop-filter: blur(4px);
+}
+
+// ---- Status badges ----
+.badge--active {
+  background: rgba($fv-success, 0.12);
+  color: $fv-success;
+}
+
+.badge--pending {
+  background: rgba($fv-warning, 0.12);
+  color: $fv-warning;
+}
+
+.badge--completed {
+  background: rgba($fv-info, 0.12);
+  color: $fv-info;
+}
+
+.badge--failed {
+  background: rgba($fv-danger, 0.12);
+  color: $fv-danger;
+}
+
+// ---- Category badge ----
+.badge--category {
+  background: rgba($fv-primary, 0.1);
+  color: $fv-primary;
+}

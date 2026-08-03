@@ -1,0 +1,432 @@
+// ============================================================
+// FarmVest — Performance Statistics & Proof Showcase
+// ============================================================
+
+.platform-stats-proof {
+  background-color: #FAFAF7;
+  padding: 120px 0;
+  position: relative;
+
+  @include media-down(md) {
+    padding: 70px 0;
+  }
+
+  // Top Stat Metric Cards with Animated Gauge Bars
+  .stat-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    padding: 24px 20px;
+    text-align: left;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba(22, 163, 74, 0.3);
+      box-shadow: 0 12px 32px rgba(22, 163, 74, 0.08);
+    }
+
+    .stat-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      width: 100%;
+    }
+
+    .stat-number {
+      font-family: $font-heading;
+      font-size: clamp(1.5rem, 2.2vw, 1.95rem);
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    // Odometer Slot Reel Styles
+    .odometer-num {
+      display: inline-flex;
+      align-items: center;
+      font-family: $font-heading;
+      font-size: clamp(1.5rem, 2.2vw, 1.95rem);
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+      flex-shrink: 1;
+      min-width: 0;
+    }
+
+    .odometer-char {
+      display: inline-block;
+    }
+
+    .odometer-reel {
+      display: inline-block;
+      height: 1.15em;
+      overflow: hidden;
+      position: relative;
+      vertical-align: bottom;
+    }
+
+    .odometer-strip {
+      display: flex;
+      flex-direction: column;
+      transform: translateY(0%);
+      transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+      span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.15em;
+        line-height: 1.15;
+      }
+    }
+
+    .stat-icon-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: #F0FDF4;
+      border: 1px solid #DCFCE7;
+      color: #16A34A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #64748B;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+
+    // Animated Gauge Bar Track & Fill
+    .stat-gauge-track {
+      width: 100%;
+      height: 6px;
+      background: #F1F5F9;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .stat-gauge-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #16A34A 0%, #22C55E 100%);
+      border-radius: 10px;
+      transition: width 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  }
+
+  // Lower Showcase Row
+  .proof-showcase-row {
+    margin-top: 56px;
+  }
+
+  .proof-media-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+    background: #FFFFFF;
+
+    img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    &:hover img {
+      transform: scale(1.03);
+    }
+
+    // Floating ROI Badge
+    .floating-roi-chip {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(12px);
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+      .roi-val {
+        display: block;
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #22C55E;
+      }
+
+      .roi-lbl {
+        display: block;
+        font-size: 0.75rem;
+        color: #94A3B8;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .proof-text-side {
+    padding-left: 24px;
+
+    @include media-down(lg) {
+      padding-left: 0;
+    }
+
+    .proof-mini-title {
+      font-family: $font-heading;
+      font-size: clamp(1.8rem, 2.5vw, 2.25rem);
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 16px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .proof-mini-desc {
+      font-size: 1.025rem;
+      color: #475569;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .proof-greenhouse-preview {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 140px;
+      border: 1px solid #E2E8F0;
+    }
+  }
+
+  // Unified Completed Harvest Showcase Block
+  .completed-proof-showcase {
+    margin-top: 72px;
+    padding-top: 48px;
+    border-top: 1px solid #E2E8F0;
+
+    .completed-showcase-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 32px;
+      gap: 20px;
+
+      @include media-down(md) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .completed-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #166534;
+        background: #F0FDF4;
+        border: 1px solid #BBF7D0;
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+
+      .completed-heading {
+        font-family: $font-heading;
+        font-size: clamp(1.5rem, 2.2vw, 1.85rem);
+        font-weight: 700;
+        color: #0F172A;
+        margin-bottom: 0;
+      }
+
+      .completed-subtext {
+        font-size: 0.95rem;
+        color: #64748B;
+        max-width: 440px;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .completed-harvest-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba(22, 163, 74, 0.4);
+      box-shadow: 0 12px 32px rgba(22, 163, 74, 0.1);
+    }
+
+    .harvest-thumb {
+      position: relative;
+      height: 175px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+
+      .badge-completed {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: #F0FDF4;
+        color: #15803D;
+        border: 1px solid #BBF7D0;
+        font-weight: 700;
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
+
+      .badge-roi-payout {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        background: rgba(15, 23, 42, 0.88);
+        color: #22C55E;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        font-weight: 800;
+        font-size: 0.8rem;
+        padding: 4px 12px;
+        border-radius: 10px;
+      }
+    }
+
+    .harvest-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+
+      .harvest-name {
+        font-family: $font-heading;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #0F172A;
+        margin-bottom: 6px;
+      }
+
+      .harvest-desc {
+        font-size: 0.85rem;
+        color: #64748B;
+        line-height: 1.5;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // 4th Bento CTA Card: "Join The Next Harvest Cycle"
+  .next-harvest-cta-card {
+    background: linear-gradient(145deg, #0F5132 0%, #166534 100%);
+    border-radius: 20px;
+    padding: 32px 28px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(22, 163, 74, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(22, 163, 74, 0.35);
+    }
+
+    .cta-card-top-content {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 24px;
+    }
+
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #FEF08A;
+      background: rgba(254, 240, 138, 0.15);
+      border: 1px solid rgba(254, 240, 138, 0.3);
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .cta-card-title {
+      font-family: $font-heading;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .cta-card-desc {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    .btn {
+      padding: 12px 32px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 50px;
+      white-space: nowrap;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+}
+

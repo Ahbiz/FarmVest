@@ -1,0 +1,88 @@
+// ============================================================
+// FarmVest Preloader — Modern Sleek Glow Logo Pulse
+// ============================================================
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: $z-preloader;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $fv-neutral-900;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+
+  &.is-done {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: space(4);
+  }
+
+  &__logo-box {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 64px;
+      width: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: $radius-full;
+      border: 2px solid transparent;
+      border-top-color: $fv-primary-light;
+      border-right-color: $fv-accent;
+      animation: spinGlow 1.2s linear infinite;
+    }
+  }
+
+  &__text {
+    color: $fv-white;
+    font-family: $font-heading;
+    font-size: 1.25rem;
+    font-weight: font-weight('bold');
+    letter-spacing: 0.05em;
+
+    span {
+      color: $fv-primary-light;
+    }
+  }
+
+  &__progress-bar {
+    width: 160px;
+    height: 3px;
+    background: rgba($fv-white, 0.1);
+    border-radius: $radius-full;
+    overflow: hidden;
+
+    &-inner {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, $fv-primary, $fv-primary-light, $fv-accent);
+      border-radius: $radius-full;
+      transition: width 0.3s ease;
+    }
+  }
+}
+
+@keyframes spinGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

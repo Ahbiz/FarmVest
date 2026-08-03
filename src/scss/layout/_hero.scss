@@ -1,0 +1,451 @@
+// ============================================================
+// FarmVest — Full-Bleed Natural Farmer Hero (Complete Brand Wordmark & Muted Number Brightness)
+// ============================================================
+
+.hero-agroly {
+  position: relative;
+  min-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 0 40px;
+  background-color: #0B1810;
+  color: #FFFFFF;
+  overflow: hidden;
+
+  // Let content define height on smaller / short screens so stats stay in flow.
+  @include media-down(lg) {
+    min-height: auto;
+  }
+
+  // Vignette overlay: Dark left contrast for typography, clear right for natural farmer
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(11, 24, 16, 0.94) 0%, rgba(11, 24, 16, 0.8) 45%, rgba(11, 24, 16, 0.25) 100%),
+                linear-gradient(180deg, rgba(11, 24, 16, 0.7) 0%, transparent 35%);
+    z-index: 1;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
+    z-index: 0;
+  }
+
+  // Floating Glass Header Bar
+  .agroly-nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+
+    // Prominent Brand Logo Badge with Elegant Wordmark
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: all $transition-fast;
+
+      &:hover {
+        transform: translateY(-1px);
+      }
+
+      img {
+        height: 46px;
+        width: 46px;
+        object-fit: contain;
+      }
+
+      .brand-text {
+        font-family: 'Fraunces', serif;
+        font-size: 1.65rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        letter-spacing: -0.02em;
+        line-height: 1;
+
+        span {
+          color: #F59E0B; // Warm Harvest Gold accent
+        }
+      }
+    }
+
+    // Perfectly Centered Glass Floating Navigation Pill
+    .glass-menu-pill {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      list-style: none !important;
+      margin: 0;
+
+      @include media-down(lg) {
+        position: static;
+        transform: none;
+      }
+
+      li {
+        list-style: none !important;
+        padding: 0;
+        margin: 0;
+        &::before { display: none !important; }
+      }
+
+      a {
+        color: rgba(255, 255, 255, 0.85);
+        font-family: $font-body;
+        font-weight: 600;
+        font-size: 0.875rem;
+        padding: 8px 20px;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: all $transition-fast;
+
+        &:hover {
+          color: #FFFFFF;
+          background: rgba(255, 255, 255, 0.15);
+        }
+
+        &.active {
+          background: #FFFFFF;
+          color: #0F5132;
+          font-weight: 700;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+    // Right Action Button
+    .btn-agroly-connect {
+      background: #FFFFFF;
+      color: #0F5132;
+      font-family: $font-body;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 10px 24px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all $transition-fast;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+
+      &:hover {
+        background: #F8FAFC;
+        color: #16A34A;
+        transform: translateY(-1px);
+      }
+    }
+
+    // Hamburger toggle (mobile / tablet)
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background $transition-fast;
+
+      span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        margin: 0 auto;
+        background: #FFFFFF;
+        border-radius: 2px;
+        transition: transform $transition-fast, opacity $transition-fast;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      @include media-down(lg) {
+        display: flex;
+      }
+    }
+  }
+
+  // Hero Content Main Block
+  .hero-natural-content {
+    position: relative;
+    z-index: 5;
+    padding: 60px 0 20px;
+    max-width: 680px;
+
+    @include media-down(md) {
+      padding: 40px 0 16px;
+    }
+
+    .natural-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.75rem, 5.5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.08;
+      color: #FFFFFF;
+      margin-bottom: space(3);
+
+      span.highlight {
+        color: #4ADE80;
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+        font-weight: 500;
+      }
+    }
+
+    .natural-sub {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: space(5);
+
+      span.green-callout {
+        color: #4ADE80;
+        font-weight: 800;
+      }
+    }
+
+    // CTA Buttons Group
+    .natural-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: space(4);
+
+      .btn-invest-solid {
+        background: #16A34A;
+        color: #FFFFFF;
+        font-family: $font-body;
+        font-weight: 800;
+        font-size: 1rem;
+        padding: 14px 36px;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all $transition-fast;
+        box-shadow: 0 6px 20px rgba(22, 163, 74, 0.35);
+
+        &:hover {
+          background: #15803D;
+          transform: translateY(-2px);
+          color: #FFFFFF;
+        }
+      }
+
+      .btn-see-projects {
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(8px);
+        color: #FFFFFF;
+        font-family: $font-body;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 14px 36px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        text-decoration: none;
+        transition: all $transition-fast;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.15);
+          border-color: #FFFFFF;
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+
+  // Original Inline Stats Row Format
+  .hero-bottom-stats-row {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: space(6);
+    padding-top: space(4);
+
+    @include media-down(sm) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: space(3);
+    }
+
+    .stat-col {
+      display: flex;
+      flex-direction: column;
+      padding-right: space(6);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+      &:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+
+      @include media-down(sm) {
+        border-right: none;
+        padding-right: 0;
+      }
+
+      .stat-number {
+        font-family: $font-mono;
+        font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+        font-weight: 800;
+        color: #34D399; // Muted Soft Mint Green
+        line-height: 1;
+        margin-bottom: 6px;
+        text-shadow: none !important;
+      }
+
+      .stat-desc {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.85);
+        margin: 0;
+      }
+    }
+  }
+}
+
+// ============================================================
+// Mobile Navigation Drawer (shared slide-in menu, < lg)
+// ============================================================
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1090;
+  background: rgba(11, 24, 16, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition-base, visibility $transition-base;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  width: min(320px, 84vw);
+  height: 100%;
+  padding: 24px 24px calc(24px + env(safe-area-inset-bottom, 0px));
+  background: #0B1810;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
+  transform: translateX(100%);
+  transition: transform $transition-base;
+  overflow-y: auto;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+
+      img { height: 40px; width: 40px; object-fit: contain; }
+
+      .brand-text {
+        font-family: 'Fraunces', serif;
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #FFFFFF;
+        letter-spacing: -0.02em;
+
+        span { color: #F59E0B; }
+      }
+    }
+
+    .nav-close {
+      width: 40px;
+      height: 40px;
+      @include flex-center;
+      color: #FFFFFF;
+      font-size: 1.25rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background $transition-fast;
+
+      &:hover { background: rgba(255, 255, 255, 0.16); }
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
+
+    li { list-style: none; margin: 0; padding: 0; }
+
+    a {
+      display: block;
+      padding: 14px 16px;
+      font-family: $font-body;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all $transition-fast;
+
+      &:hover {
+        color: #FFFFFF;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      &.active {
+        color: #0F5132;
+        background: #FFFFFF;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__cta {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+  }
+}
