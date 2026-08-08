@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help &amp; Support Hub — FarmVest Investor Center</title>
+  <meta name="description" content="Find answers to common questions about FarmVest investment pools, payouts, insurance, telemetry, and account management." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Stylesheet & scripts -->
+  <script type="module" src="/src/js/main.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+<body class="faq-page">
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader__content">
+      <div class="preloader__logo-box">
+        <img src="/images/logo-white.svg" alt="FarmVest Loading" width="64" height="64" fetchpriority="high" />
+      </div>
+      <div class="preloader__text">Farm<span>Vest</span></div>
+      <div class="preloader__progress-bar">
+        <div class="preloader__progress-bar-inner"></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-wrapper">
+
+    <!-- ============================================================ -->
+    <!-- HERO & GLASS FLOATING NAV BAR -->
+    <!-- ============================================================ -->
+    <section class="hero-agroly inner-page-hero" style="min-height: auto;">
+      <img src="/images/faq-hero.png" class="hero-agroly__bg" alt="Farmer guiding visitors through organic fields" fetchpriority="high" decoding="async" />
+
+      <div class="container position-relative z-2">
+        <!-- Floating glass nav bar -->
+        <nav class="agroly-nav">
+          <a class="brand-logo" href="/index.html" title="FarmVest Home">
+            <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="46" height="46" />
+            <span class="brand-text">Farm<span>Vest</span></span>
+          </a>
+
+          <ul class="glass-menu-pill d-none d-lg-flex">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/projects.html">Yield Pools</a></li>
+            <li><a href="/blog.html">Insights</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+
+          <a href="/auth/register.html" class="btn-agroly-connect d-none d-lg-inline-flex">Start Earning</a>
+
+          <button class="nav-burger d-lg-none" type="button" aria-label="Open navigation menu" aria-controls="mobileNav" aria-expanded="false" data-nav-open>
+            <span></span><span></span><span></span>
+          </button>
+        </nav>
+
+        <!-- Mobile navigation drawer -->
+        <div class="mobile-nav-backdrop" data-nav-close hidden></div>
+        <aside id="mobileNav" class="mobile-nav" aria-hidden="true">
+          <div class="mobile-nav__head">
+            <a class="brand-logo" href="/index.html" title="FarmVest Home">
+              <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="40" height="40" />
+              <span class="brand-text">Farm<span>Vest</span></span>
+            </a>
+            <button class="nav-close" type="button" aria-label="Close navigation menu" data-nav-close>
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+          <ul class="mobile-nav__links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/projects.html">Yield Pools</a></li>
+            <li><a href="/blog.html">Insights</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+          <a href="/auth/register.html" class="btn-agroly-connect mobile-nav__cta">Start Earning</a>
+        </aside>
+
+        <!-- Hero Content -->
+        <div class="pools-hero-content text-center py-5">
+          <div class="pools-hero-breadcrumb mb-3">
+            <a href="/index.html"><i class="fas fa-house me-1"></i> Home</a>
+            <span class="sep">//</span>
+            <span class="current">Investor Support Hub</span>
+          </div>
+          <h1 class="pools-hero-title">
+            Investor Help &amp; <span class="highlight">Support Hub</span>
+          </h1>
+          <p class="pools-hero-sub mx-auto mb-4">
+            Search our knowledge repository or browse topics below to learn how FarmVest secures principal capital, tracks crop telemetry, and automates harvest payouts.
+          </p>
+
+          <!-- Hero Live Search Bar -->
+          <div class="faq-hero-search position-relative mx-auto" style="max-width: 540px;">
+            <div class="input-group input-group-lg rounded-pill overflow-hidden shadow-lg border border-success-subtle">
+              <span class="input-group-text bg-white border-0 text-success ps-4"><i class="fas fa-search"></i></span>
+              <input type="search" id="faqSearchInput" class="form-control bg-white border-0 text-dark font-weight-semibold py-3 pe-4" placeholder="Search questions (e.g. insurance, payouts, minimum share)..." aria-label="Search FAQ questions" autocomplete="off" style="font-size: 0.95rem;" />
+            </div>
+            <!-- Auto-suggestions Dropdown -->
+            <div id="faqSearchSuggestions" class="faq-suggestions-dropdown shadow-lg rounded-4 overflow-hidden d-none"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark overlay -->
+      <div class="about-hero-banner__overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,46,27,0.7) 0%,rgba(11,24,16,0.92) 100%);z-index:1;pointer-events:none;"></div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section py-5" id="faq">
+      <div class="container py-4">
+        <div class="row gy-5">
+
+          <!-- Left Sidebar: Category Filters -->
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="faq-sticky-left sticky-top" style="top: 100px;">
+              <div class="cta-tag mb-3">
+                <i class="fas fa-compass me-1"></i> Topic Categories
+              </div>
+              <h2 class="h3 font-serif fw-bold text-dark mb-3">Explore Answers<br>by Category</h2>
+              <p class="text-muted text-sm mb-4">
+                Select a topic below to narrow down questions, or use the live search above to find instant answers.
+              </p>
+
+              <!-- Category Navigation Pills -->
+              <div class="faq-category-nav d-flex flex-column gap-2" id="faqCatNav">
+                <button class="faq-cat-btn btn btn-outline-success text-start font-weight-bold py-3 px-4 rounded-3 active d-flex align-items-center justify-content-between" type="button" data-faq-cat="all">
+                  <span><i class="fas fa-layer-group me-2"></i> All Questions</span>
+                  <i class="fas fa-chevron-right cat-arrow text-xs"></i>
+                </button>
+                <button class="faq-cat-btn btn btn-outline-success text-start font-weight-bold py-3 px-4 rounded-3 d-flex align-items-center justify-content-between" type="button" data-faq-cat="getting-started">
+                  <span><i class="fas fa-rocket me-2"></i> Getting Started</span>
+                  <i class="fas fa-chevron-right cat-arrow text-xs"></i>
+                </button>
+                <button class="faq-cat-btn btn btn-outline-success text-start font-weight-bold py-3 px-4 rounded-3 d-flex align-items-center justify-content-between" type="button" data-faq-cat="investments">
+                  <span><i class="fas fa-chart-line me-2"></i> Co-Funding &amp; Returns</span>
+                  <i class="fas fa-chevron-right cat-arrow text-xs"></i>
+                </button>
+                <button class="faq-cat-btn btn btn-outline-success text-start font-weight-bold py-3 px-4 rounded-3 d-flex align-items-center justify-content-between" type="button" data-faq-cat="security">
+                  <span><i class="fas fa-shield-halved me-2"></i> Insurance &amp; Security</span>
+                  <i class="fas fa-chevron-right cat-arrow text-xs"></i>
+                </button>
+                <button class="faq-cat-btn btn btn-outline-success text-start font-weight-bold py-3 px-4 rounded-3 d-flex align-items-center justify-content-between" type="button" data-faq-cat="telemetry">
+                  <span><i class="fas fa-tower-cell me-2"></i> Farm Telemetry</span>
+                  <i class="fas fa-chevron-right cat-arrow text-xs"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Accordion Questions & Answers -->
+          <div class="col-lg-8" data-aos="fade-left" data-aos-delay="100">
+            <div class="accordion faq-accordion-container" id="faqAccordionV2">
+
+              <!-- FAQ Item 1 -->
+              <div class="faq-card-v2 mb-3 bg-white border rounded-4 overflow-hidden is-open" data-cat="getting-started" data-aos="fade-up">
+                <button class="faq-card-trigger w-100 p-4 bg-white border-0 text-start d-flex align-items-center justify-content-between gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-success-subtle text-success font-mono fw-bold px-3 py-2 rounded-3">01</span>
+                    <h3 class="h6 font-serif fw-bold text-dark mb-0">What is FarmVest and how does farm co-funding work?</h3>
+                  </div>
+                  <span class="faq-toggle-icon text-success"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordionV2">
+                  <div class="p-4 pt-0 text-muted text-sm border-top border-light">
+                    FarmVest is a licensed agricultural fintech platform that pools investor capital to fund high-yield commercial farming projects. Professional agronomists manage operations, and upon harvest sale, capital and profits are distributed directly into your secure wallet.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 2 -->
+              <div class="faq-card-v2 mb-3 bg-white border rounded-4 overflow-hidden" data-cat="investments" data-aos="fade-up" data-aos-delay="50">
+                <button class="faq-card-trigger collapsed w-100 p-4 bg-white border-0 text-start d-flex align-items-center justify-content-between gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-success-subtle text-success font-mono fw-bold px-3 py-2 rounded-3">02</span>
+                    <h3 class="h6 font-serif fw-bold text-dark mb-0">What returns can I expect and when are payouts made?</h3>
+                  </div>
+                  <span class="faq-toggle-icon text-success"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
+                  <div class="p-4 pt-0 text-muted text-sm border-top border-light">
+                    Historical yields range between 14.8% and 22.4% APY depending on crop category and cycle length (typically 6 to 18 months). Yield payouts are automatically deposited into your FarmVest wallet upon harvest sale completion.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 3 -->
+              <div class="faq-card-v2 mb-3 bg-white border rounded-4 overflow-hidden" data-cat="security" data-aos="fade-up" data-aos-delay="100">
+                <button class="faq-card-trigger collapsed w-100 p-4 bg-white border-0 text-start d-flex align-items-center justify-content-between gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-success-subtle text-success font-mono fw-bold px-3 py-2 rounded-3">03</span>
+                    <h3 class="h6 font-serif fw-bold text-dark mb-0">How is my principal protected against bad weather or crop loss?</h3>
+                  </div>
+                  <span class="faq-toggle-icon text-success"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
+                  <div class="p-4 pt-0 text-muted text-sm border-top border-light">
+                    100% of capital principal in FarmVest yield pools is insured by Grade-A multi-peril crop insurance policies covering drought, flood, pest outbreaks, and extreme weather. In the event of crop damage, insurance payouts reimburse the pool principal.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 4 -->
+              <div class="faq-card-v2 mb-3 bg-white border rounded-4 overflow-hidden" data-cat="getting-started" data-aos="fade-up" data-aos-delay="150">
+                <button class="faq-card-trigger collapsed w-100 p-4 bg-white border-0 text-start d-flex align-items-center justify-content-between gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-success-subtle text-success font-mono fw-bold px-3 py-2 rounded-3">04</span>
+                    <h3 class="h6 font-serif fw-bold text-dark mb-0">What is the minimum amount required to start co-funding?</h3>
+                  </div>
+                  <span class="faq-toggle-icon text-success"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
+                  <div class="p-4 pt-0 text-muted text-sm border-top border-light">
+                    You can start co-funding with as little as $90 per share (e.g. Hydroponic Blueberry Pool). Minimum share amounts vary per crop cycle to ensure accessible entry for all investors.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 5 -->
+              <div class="faq-card-v2 mb-3 bg-white border rounded-4 overflow-hidden" data-cat="investments" data-aos="fade-up" data-aos-delay="180">
+                <button class="faq-card-trigger collapsed w-100 p-4 bg-white border-0 text-start d-flex align-items-center justify-content-between gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-success-subtle text-success font-mono fw-bold px-3 py-2 rounded-3">05</span>
+                    <h3 class="h6 font-serif fw-bold text-dark mb-0">Who buys the harvested crops and how are prices locked in?</h3>
+                  </div>
+                  <span class="faq-toggle-icon text-success"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div id="faqCollapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
+                  <div class="p-4 pt-0 text-muted text-sm border-top border-light">
+                    Before any pool opens for funding, FarmVest executes legally binding wholesale off-take contracts with major grain distributors, food processors, and supermarket chains, locking in guaranteed purchase prices before planting begins.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 6 -->
+              <div class="faq-card-v2 mb-3 bg-white border rounded-4 overflow-hidden" data-cat="telemetry" data-aos="fade-up" data-aos-delay="180">
+                <button class="faq-card-trigger collapsed w-100 p-4 bg-white border-0 text-start d-flex align-items-center justify-content-between gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6" aria-expanded="false">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-success-subtle text-success font-mono fw-bold px-3 py-2 rounded-3">06</span>
+                    <h3 class="h6 font-serif fw-bold text-dark mb-0">Can I track farm operations in real-time?</h3>
+                  </div>
+                  <span class="faq-toggle-icon text-success"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div id="faqCollapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
+                  <div class="p-4 pt-0 text-muted text-sm border-top border-light">
+                    Yes. Every co-funder receives full dashboard access to live IoT telemetry data, satellite soil moisture indexing, drone orthomosaic imagery, and bi-weekly agronomist video logs for their active pools.
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Item 7 -->
+              <div class="faq-card-v2 mb-3 bg-white border rounded-4 overflow-hidden" data-cat="security" data-aos="fade-up" data-aos-delay="180">
+                <button class="faq-card-trigger collapsed w-100 p-4 bg-white border-0 text-start d-flex align-items-center justify-content-between gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse7" aria-expanded="false">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="badge bg-success-subtle text-success font-mono fw-bold px-3 py-2 rounded-3">07</span>
+                    <h3 class="h6 font-serif fw-bold text-dark mb-0">How are capital funds managed and escrowed?</h3>
+                  </div>
+                  <span class="faq-toggle-icon text-success"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div id="faqCollapse7" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
+                  <div class="p-4 pt-0 text-muted text-sm border-top border-light">
+                    All investor capital is held in SEC-regulated, bank-grade escrow accounts. Funds are disbursed to farm managers in milestone-based tranches verified by third-party agricultural auditors.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- No Search Results Container -->
+            <div id="faqNoResults" class="text-center py-5 bg-white border rounded-4 shadow-sm d-none">
+              <div class="mb-3 text-warning"><i class="fas fa-search-minus fa-3x"></i></div>
+              <h3 class="h5 font-serif fw-bold text-dark mb-2">No Matching Questions Found</h3>
+              <p class="text-muted text-sm max-w-md mx-auto mb-4" style="max-width: 420px;">
+                We couldn't find any questions matching your query. Try searching for "insurance", "payouts", "minimum", or reach out to our 24/7 advisory desk.
+              </p>
+              <button type="button" id="faqResetSearchBtn" class="btn btn-success btn-sm rounded-pill px-4">
+                <i class="fas fa-rotate-left me-2"></i>Reset Search &amp; Filters
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CLEAN MODERN 1-ON-1 ADVISORY SUPPORT STRIP -->
+    <!-- ============================================================ -->
+    <section class="faq-support-sec">
+      <div class="container">
+        <div class="faq-support-card">
+          <div class="row align-items-center gy-4">
+            <div class="col-lg-7">
+              <span class="faq-support-tag mb-2">
+                <i class="fas fa-headset me-1"></i> 1-on-1 Advisory Desk
+              </span>
+              <h2 class="faq-support-title">Need 1-on-1 Advisory?</h2>
+              <p class="faq-support-desc mb-0">
+                Speak directly with our AgriFinance advisory desk to review pool terms, principal insurance policies, or custom capital deployment.
+              </p>
+            </div>
+            <div class="col-lg-5 text-lg-end">
+              <div class="d-flex flex-wrap justify-content-lg-end gap-3">
+                <a href="/contact.html" class="btn-support-primary">
+                  <i class="fas fa-arrow-right me-2"></i>Contact Advisory Desk
+                </a>
+                <a href="tel:+18005553276" class="btn-support-outline">
+                  <i class="fas fa-phone me-2"></i>+1 (800) 555-FARM
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4 gy-lg-0">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-item">
+              <a href="/index.html" class="footer-item__logo">
+                <img src="/images/logo-white.svg" alt="FarmVest White Logo" />
+              </a>
+              <p class="footer-item__desc">
+                FarmVest is a high-yield agriculture investment platform empowering global investors to co-fund sustainable farms, earn competitive passive returns, and build a food-secure future.
+              </p>
+              <ul class="social-pill-row">
+                <li><a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" class="social-icon-btn" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
+                <li><a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 col-6">
+            <div class="footer-item">
+              <h4 class="footer-item__title">Navigation</h4>
+              <ul class="footer-menu">
+                <li class="footer-menu__item"><a href="/index.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Home</a></li>
+                <li class="footer-menu__item"><a href="/projects.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Yield Pools</a></li>
+                <li class="footer-menu__item"><a href="/about.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> About Us</a></li>
+                <li class="footer-menu__item"><a href="/blog.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Insights</a></li>
+                <li class="footer-menu__item"><a href="/contact.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Support</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-6">
+            <div class="footer-item">
+              <h4 class="footer-item__title">Active Asset Pools</h4>
+              <ul class="footer-menu">
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-leaf text-xs text-success me-1"></i> Organic Rice Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-drumstick-bite text-xs text-success me-1"></i> Poultry Expansion Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-pepper-hot text-xs text-success me-1"></i> Tomato Hydroponics Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-cow text-xs text-success me-1"></i> Angus Cattle Ranch Pool</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-item">
+              <h4 class="footer-item__title">Headquarters & Support</h4>
+              <ul class="contact-list">
+                <li class="contact-list__item">
+                  <i class="fas fa-location-dot text-success"></i>
+                  <span>100 Innovation Park, AgriTech Way, San Francisco, CA 94105</span>
+                </li>
+                <li class="contact-list__item">
+                  <i class="fas fa-envelope text-success"></i>
+                  <a href="mailto:support@farmvest.com">support@farmvest.com</a>
+                </li>
+                <li class="contact-list__item">
+                  <i class="fas fa-phone text-success"></i>
+                  <a href="tel:+18005553276">+1 (800) 555-FARM</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="footer-bottom__text">
+              Copyright &copy; 2026 <a href="/index.html">FarmVest Inc.</a> All rights reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+            <span class="text-xs text-light me-3"><i class="fas fa-shield-alt text-success me-1"></i> 100% Capital Insured & Bank-Grade SSL</span>
+            <ul class="list-inline d-inline-block mb-0 text-sm">
+              <li class="list-inline-item"><a href="/privacy-policy.html">Privacy Policy</a></li>
+              <li class="list-inline-item me-2 ms-2">|</li>
+              <li class="list-inline-item"><a href="/terms-of-service.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie consent -->
+  <div class="cookie-consent">
+    <div class="cookie-consent__icon"><i class="fas fa-cookie-bite"></i></div>
+    <p class="cookie-consent__text">
+      We use cookies to analyze performance and optimize your investment experience on FarmVest. Read our <a href="/cookie-policy.html">Cookie Policy</a> to learn more.
+    </p>
+    <button type="button" class="btn btn--primary btn--sm cookie-consent__btn">Accept All Cookies</button>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+</body>
+</html>

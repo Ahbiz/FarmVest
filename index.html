@@ -1,1255 +1,2011 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FarmVest — Smart Agriculture & Livestock Investment Platform</title>
-  <meta name="description" content="FarmVest connects smart investors with high-yield, sustainable agricultural and livestock pools. Earn high passive returns backed by real-world farming assets." />
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FarmVest — Smart Agriculture & Livestock Investment Platform</title>
+    <meta
+      name="description"
+      content="FarmVest connects smart investors with high-yield, sustainable agricultural and livestock pools. Earn high passive returns backed by real-world farming assets."
+    />
 
-  <!-- Google Fonts (preconnected, non-render-blocking) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Stylesheet & scripts (icon fonts bundled from npm via main.js) -->
-  <script type="module" src="/src/js/main.js"></script>
-  <link rel="stylesheet" href="/src/scss/main.scss" />
-</head>
-<body class="home-page">
+    <!-- Google Fonts (preconnected, non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    />
 
-  <!-- Preloader -->
-  <div class="preloader">
-    <div class="preloader__content">
-      <div class="preloader__logo-box">
-        <img src="/images/logo-white.svg" alt="FarmVest Loading" width="64" height="64" fetchpriority="high" />
-      </div>
-      <div class="preloader__text">Farm<span>Vest</span></div>
-      <div class="preloader__progress-bar">
-        <div class="preloader__progress-bar-inner"></div>
+    <!-- Stylesheet & scripts (icon fonts bundled from npm via main.js) -->
+    <script type="module" src="/src/js/main.js"></script>
+    <link rel="stylesheet" href="/src/scss/main.scss" />
+  </head>
+  <body class="home-page">
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="preloader__content">
+        <div class="preloader__logo-box">
+          <img
+            src="/images/logo-white.svg"
+            alt="FarmVest Loading"
+            width="64"
+            height="64"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="preloader__text">Farm<span>Vest</span></div>
+        <div class="preloader__progress-bar">
+          <div class="preloader__progress-bar-inner"></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <main class="page-wrapper">
-    <!-- Hero: full-bleed farmer background with glass nav and headline stats -->
-    <section class="hero-agroly">
-      <img src="/images/hero-bg-natural-farmer.png" class="hero-agroly__bg" alt="Agronomist farmer harvesting fresh green crops" fetchpriority="high" decoding="async" />
+    <main class="page-wrapper">
+      <!-- Hero: full-bleed farmer background with glass nav and headline stats -->
+      <section class="hero-agroly">
+        <img
+          src="/images/hero-bg-natural-farmer.png"
+          class="hero-agroly__bg"
+          alt="Agronomist farmer harvesting fresh green crops"
+          fetchpriority="high"
+          decoding="async"
+        />
 
-      <div class="container position-relative z-2">
-        <!-- Floating glass nav bar -->
-        <nav class="agroly-nav">
-          <!-- Brand -->
-          <a class="brand-logo" href="/index.html" title="FarmVest Home">
-            <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="46" height="46" />
-            <span class="brand-text">Farm<span>Vest</span></span>
-          </a>
-
-          <!-- Centered nav pill (desktop) -->
-          <ul class="glass-menu-pill d-none d-lg-flex">
-            <li><a href="/index.html" class="active">Home</a></li>
-            <li><a href="/about.html">About us</a></li>
-            <li><a href="/projects.html">Yield Pools</a></li>
-            <li><a href="/blog.html">Insights</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
-
-          <!-- Primary CTA (desktop) -->
-          <a href="/auth/register.html" class="btn-agroly-connect d-none d-lg-inline-flex">Start Earning</a>
-
-          <!-- Hamburger toggle (mobile / tablet) -->
-          <button
-            class="nav-burger d-lg-none"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-controls="mobileNav"
-            aria-expanded="false"
-            data-nav-open
-          >
-            <span></span><span></span><span></span>
-          </button>
-        </nav>
-
-        <!-- Mobile navigation drawer -->
-        <div class="mobile-nav-backdrop" data-nav-close hidden></div>
-        <aside id="mobileNav" class="mobile-nav" aria-hidden="true">
-          <div class="mobile-nav__head">
+        <div class="container position-relative z-2">
+          <!-- Floating glass nav bar -->
+          <nav class="agroly-nav">
+            <!-- Brand -->
             <a class="brand-logo" href="/index.html" title="FarmVest Home">
-              <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="40" height="40" />
+              <img
+                src="/images/logo-mark-white.svg"
+                alt="FarmVest Mark"
+                width="46"
+                height="46"
+              />
               <span class="brand-text">Farm<span>Vest</span></span>
             </a>
-            <button class="nav-close" type="button" aria-label="Close navigation menu" data-nav-close>
-              <i class="fas fa-times" aria-hidden="true"></i>
+
+            <!-- Centered nav pill (desktop) -->
+            <ul class="glass-menu-pill d-none d-lg-flex">
+              <li><a href="/index.html" class="active">Home</a></li>
+              <li><a href="/about.html">About us</a></li>
+              <li><a href="/projects.html">Yield Pools</a></li>
+              <li><a href="/blog.html">Insights</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+
+            <!-- Primary CTA (desktop) -->
+            <a
+              href="/auth/register.html"
+              class="btn-agroly-connect d-none d-lg-inline-flex"
+              >Start Earning</a
+            >
+
+            <!-- Hamburger toggle (mobile / tablet) -->
+            <button
+              class="nav-burger d-lg-none"
+              type="button"
+              aria-label="Open navigation menu"
+              aria-controls="mobileNav"
+              aria-expanded="false"
+              data-nav-open
+            >
+              <span></span><span></span><span></span>
             </button>
-          </div>
-          <ul class="mobile-nav__links">
-            <li><a href="/index.html" class="active">Home</a></li>
-            <li><a href="/about.html">About us</a></li>
-            <li><a href="/projects.html">Yield Pools</a></li>
-            <li><a href="/blog.html">Insights</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
-          <a href="/auth/register.html" class="btn-agroly-connect mobile-nav__cta">Start Earning</a>
-        </aside>
+          </nav>
 
-        <!-- Headline block -->
-        <div class="hero-natural-content">
-          <h1 class="natural-title">
-            Cultivating Wealth <br>Through Sustainable Agriculture
-          </h1>
-          <p class="natural-sub">
-            <span class="green-callout">18,250+</span> Smart investors earning inflation-protected passive returns backed by real commercial harvest cycles.
-          </p>
-
-          <div class="natural-btn-row">
-            <a href="/auth/register.html" class="btn-invest-solid">Start Co-Funding</a>
-            <a href="/projects.html" class="btn-see-projects">Explore Pools</a>
-          </div>
-        </div>
-
-        <!-- Inline trust stats -->
-        <div class="hero-bottom-stats-row">
-          <div class="stat-col">
-            <div class="stat-number num" data-target="18250" data-suffix="+">0</div>
-            <p class="stat-desc">Registered Investor</p>
-          </div>
-          <div class="stat-col">
-            <div class="stat-number num" data-target="85" data-suffix="+">0</div>
-            <p class="stat-desc">Offering Project</p>
-          </div>
-          <div class="stat-col">
-            <div class="stat-number num" data-target="14.6" data-prefix="$" data-suffix="M">0</div>
-            <p class="stat-desc">Total Investment</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- About FarmVest -->
-    <section class="about-agrigo">
-      <div class="container">
-        <div class="row align-items-center gy-5">
-          
-          <!-- Left Column: Tall Vertical Image Card -->
-          <div class="col-lg-3 col-md-6" data-aos="fade-right">
-            <div class="about-img-card">
-              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80" alt="Agronomist inspecting crop yield" />
-            </div>
-          </div>
-
-          <!-- Center Column: Headline, Copy, Pill CTA Button & 2 Feature Cards -->
-          <div class="col-lg-6" data-aos="fade-up">
-            <div class="about-center-content text-start">
-              <div class="about-chip-label">
-                <i class="fas fa-seedling"></i> ABOUT FARMVEST
-              </div>
-              <h2 class="about-heading-title">
-                Pioneering High-Yield & Insured Agricultural Co-Funding
-              </h2>
-              <p class="about-heading-desc">
-                FarmVest bridges retail investor capital with high-technology commercial farms, empowering growers while delivering inflation-resistant daily returns backed by real-world agricultural assets.
-              </p>
-              
-              <a href="/about.html" class="btn-agrigo-pill mb-4">
-                Learn More About Us <span class="circle-arrow"><i class="bi bi-arrow-up-right"></i></span>
+          <!-- Mobile navigation drawer -->
+          <div class="mobile-nav-backdrop" data-nav-close hidden></div>
+          <aside id="mobileNav" class="mobile-nav" aria-hidden="true">
+            <div class="mobile-nav__head">
+              <a class="brand-logo" href="/index.html" title="FarmVest Home">
+                <img
+                  src="/images/logo-mark-white.svg"
+                  alt="FarmVest Mark"
+                  width="40"
+                  height="40"
+                />
+                <span class="brand-text">Farm<span>Vest</span></span>
               </a>
-
-              <!-- 2 Feature Cards Side-by-Side below -->
-              <div class="about-feature-cards">
-                <div class="feature-mini-card">
-                  <div class="mini-icon">
-                    <i class="fas fa-wheat-awn"></i>
-                  </div>
-                  <h3 class="mini-title">100% Insured Harvests</h3>
-                  <p class="mini-desc">Climate and yield shortfall insurance policies protecting your capital.</p>
-                </div>
-
-                <div class="feature-mini-card">
-                  <div class="mini-icon">
-                    <i class="fas fa-chart-line"></i>
-                  </div>
-                  <h3 class="mini-title">Automated Yield Payouts</h3>
-                  <p class="mini-desc">Real-time telemetry tracking with bi-weekly payout accumulation.</p>
-                </div>
-              </div>
+              <button
+                class="nav-close"
+                type="button"
+                aria-label="Close navigation menu"
+                data-nav-close
+              >
+                <i class="fas fa-times" aria-hidden="true"></i>
+              </button>
             </div>
-          </div>
+            <ul class="mobile-nav__links">
+              <li><a href="/index.html" class="active">Home</a></li>
+              <li><a href="/about.html">About us</a></li>
+              <li><a href="/projects.html">Yield Pools</a></li>
+              <li><a href="/blog.html">Insights</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <a
+              href="/auth/register.html"
+              class="btn-agroly-connect mobile-nav__cta"
+              >Start Earning</a
+            >
+          </aside>
 
-          <!-- Right Column: Tall Vertical Image Card with Floating ROI Badge -->
-          <div class="col-lg-3 col-md-6" data-aos="fade-left">
-            <div class="about-img-card">
-              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" alt="Organic greenhouse crop" />
-              <div class="roi-float-badge">
-                <span class="rate">+16%</span>
-                <span class="lbl">ROI</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured yield pools -->
-    <section class="offers-section">
-      <div class="container">
-        <!-- Header + slider nav -->
-        <div class="offers-header-row" data-aos="fade-up">
-          <div class="offers-header-content">
-            <span class="section-heading__label"><i class="fas fa-leaf me-1"></i> HIGH-YIELD ASSET POOLS <i class="fas fa-leaf ms-1"></i></span>
-            <h2 class="offers-section-title">Featured Projects</h2>
-            <p class="offers-section-desc mb-0">
-              Access verified commercial crop cycles and livestock pools delivering inflation-hedged daily passive returns.
+          <!-- Headline block -->
+          <div class="hero-natural-content">
+            <h1 class="natural-title">
+              Cultivating Wealth <br />Through Sustainable Agriculture
+            </h1>
+            <p class="natural-sub">
+              <span class="green-callout">18,250+</span> Smart investors earning
+              inflation-protected passive returns backed by real commercial
+              harvest cycles.
             </p>
-          </div>
 
-          <div class="offers-header-actions">
-            <div class="live-status-pill">
-              <span class="pulse-dot"></span>
-              <span>6 Active Pools Open</span>
-            </div>
-            <div class="offers-nav-btns">
-              <button type="button" class="offer-nav-btn offer-prev" aria-label="Previous Offer">
-                <i class="fas fa-arrow-left"></i>
-              </button>
-              <button type="button" class="offer-nav-btn offer-next" aria-label="Next Offer">
-                <i class="fas fa-arrow-right"></i>
-              </button>
+            <div class="natural-btn-row">
+              <a href="/auth/register.html" class="btn-invest-solid"
+                >Start Co-Funding</a
+              >
+              <a href="/projects.html" class="btn-see-projects"
+                >Explore Pools</a
+              >
             </div>
           </div>
-        </div>
 
-        <!-- Offers slider -->
-        <div class="swiper offers-slider" data-aos="fade-up" data-aos-delay="150">
-          <div class="swiper-wrapper">
-
-            <!-- Offer Card 1 -->
-            <div class="swiper-slide">
-              <div class="offer-card">
-                <div class="offer-card__thumb">
-                  <span class="offer-roi-badge"><span class="label">ROI</span> 15.5%</span>
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80" alt="Lifetime Organic Fruit Greenhouse" />
-                </div>
-                <div class="offer-card__body">
-                  <h3 class="offer-title"><a href="/project-details.html">Lifetime Organic Fruit Greenhouse</a></h3>
-                  <div class="offer-price-row">
-                    <div class="price-box">
-                      <span class="label">Per Share</span>
-                      <span class="amount">$500.00</span>
-                    </div>
-                    <a href="/project-details.html" class="btn-invest-now">Invest Now</a>
-                  </div>
-                  <div class="offer-meta-row">
-                    <span class="units"><i class="fas fa-cubes"></i> 1,726 units</span>
-                    <span class="duration"><i class="fas fa-clock"></i> 1 year from now</span>
-                  </div>
-                </div>
+          <!-- Inline trust stats -->
+          <div class="hero-bottom-stats-row">
+            <div class="stat-col">
+              <div class="stat-number num" data-target="18250" data-suffix="+">
+                0
               </div>
+              <p class="stat-desc">Registered Investor</p>
             </div>
-
-            <!-- Offer Card 2 -->
-            <div class="swiper-slide">
-              <div class="offer-card">
-                <div class="offer-card__thumb">
-                  <span class="offer-roi-badge"><span class="label">ROI</span> 18.0%</span>
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" alt="Precision Solar Agro-Tech Drone" />
-                </div>
-                <div class="offer-card__body">
-                  <h3 class="offer-title"><a href="/project-details.html">Lifetime Agro-Tech Smart Pool</a></h3>
-                  <div class="offer-price-row">
-                    <div class="price-box">
-                      <span class="label">Per Share</span>
-                      <span class="amount">$204.08</span>
-                    </div>
-                    <a href="/project-details.html" class="btn-invest-now">Invest Now</a>
-                  </div>
-                  <div class="offer-meta-row">
-                    <span class="units"><i class="fas fa-cubes"></i> 3,673 units</span>
-                    <span class="duration"><i class="fas fa-clock"></i> 6 months term</span>
-                  </div>
-                </div>
+            <div class="stat-col">
+              <div class="stat-number num" data-target="85" data-suffix="+">
+                0
               </div>
+              <p class="stat-desc">Offering Project</p>
             </div>
-
-            <!-- Offer Card 3 -->
-            <div class="swiper-slide">
-              <div class="offer-card">
-                <div class="offer-card__thumb">
-                  <span class="offer-roi-badge"><span class="label">ROI</span> 14.5%</span>
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80" alt="Lifetime Renewable Solar Farmland" />
-                </div>
-                <div class="offer-card__body">
-                  <h3 class="offer-title"><a href="/project-details.html">Lifetime Renewable Farmland</a></h3>
-                  <div class="offer-price-row">
-                    <div class="price-box">
-                      <span class="label">Per Share</span>
-                      <span class="amount">$182.37</span>
-                    </div>
-                    <a href="/project-details.html" class="btn-invest-now">Invest Now</a>
-                  </div>
-                  <div class="offer-meta-row">
-                    <span class="units"><i class="fas fa-cubes"></i> 3,280 units</span>
-                    <span class="duration"><i class="fas fa-clock"></i> 3 months term</span>
-                  </div>
-                </div>
+            <div class="stat-col">
+              <div
+                class="stat-number num"
+                data-target="14.6"
+                data-prefix="$"
+                data-suffix="M"
+              >
+                0
               </div>
+              <p class="stat-desc">Total Investment</p>
             </div>
-
-            <!-- Offer Card 4 -->
-            <div class="swiper-slide">
-              <div class="offer-card">
-                <div class="offer-card__thumb">
-                  <span class="offer-roi-badge"><span class="label">ROI</span> 16.5%</span>
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=600&q=80" alt="Commercial Organic Carrot Farming" />
-                </div>
-                <div class="offer-card__body">
-                  <h3 class="offer-title"><a href="/project-details.html">Commercial Organic Carrot Farming</a></h3>
-                  <div class="offer-price-row">
-                    <div class="price-box">
-                      <span class="label">Per Share</span>
-                      <span class="amount">$543.02</span>
-                    </div>
-                    <a href="/project-details.html" class="btn-invest-now">Invest Now</a>
-                  </div>
-                  <div class="offer-meta-row">
-                    <span class="units"><i class="fas fa-cubes"></i> 1,194 units</span>
-                    <span class="duration"><i class="fas fa-clock"></i> 9 months term</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Offer Card 5 -->
-            <div class="swiper-slide">
-              <div class="offer-card">
-                <div class="offer-card__thumb">
-                  <span class="offer-roi-badge"><span class="label">ROI</span> 15.0%</span>
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&q=80" alt="High-Density Wheat Grain Pool" />
-                </div>
-                <div class="offer-card__body">
-                  <h3 class="offer-title"><a href="/project-details.html">Lifetime Oats & Wheat Harvest</a></h3>
-                  <div class="offer-price-row">
-                    <div class="price-box">
-                      <span class="label">Per Share</span>
-                      <span class="amount">$292.72</span>
-                    </div>
-                    <a href="/project-details.html" class="btn-invest-now">Invest Now</a>
-                  </div>
-                  <div class="offer-meta-row">
-                    <span class="units"><i class="fas fa-cubes"></i> 2,727 units</span>
-                    <span class="duration"><i class="fas fa-clock"></i> 1 year from now</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Offer Card 6 -->
-            <div class="swiper-slide">
-              <div class="offer-card">
-                <div class="offer-card__thumb">
-                  <span class="offer-roi-badge"><span class="label">ROI</span> 19.5%</span>
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=600&q=80" alt="Angus Cattle Fattening Ranch" />
-                </div>
-                <div class="offer-card__body">
-                  <h3 class="offer-title"><a href="/project-details.html">Commercial Angus Cattle Ranch</a></h3>
-                  <div class="offer-price-row">
-                    <div class="price-box">
-                      <span class="label">Per Share</span>
-                      <span class="amount">$508.19</span>
-                    </div>
-                    <a href="/project-details.html" class="btn-invest-now">Invest Now</a>
-                  </div>
-                  <div class="offer-meta-row">
-                    <span class="units"><i class="fas fa-cubes"></i> 1,766 units</span>
-                    <span class="duration"><i class="fas fa-clock"></i> 12 months term</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-
-    <!-- Our vision -->
-    <section class="section our-vision">
-      <div class="container">
-        <div class="section-heading" data-aos="fade-up">
-          <span class="section-heading__label"><i class="fas fa-leaf me-1"></i> OUR CORE VISION <i class="fas fa-leaf ms-1"></i></span>
-          <h2 class="section-heading__title">Building High-Yield Agriculture Ecosystems</h2>
-          <p class="section-heading__desc mx-auto">
-            We bridge global investor capital with modern high-yield farming projects to create shared prosperity and sustainable harvests.
-          </p>
-        </div>
-
-        <div class="row gy-4">
-          <!-- Card 1 -->
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="vision-card">
-              <div>
-                <div class="vision-card__icon"><i class="fas fa-hand-holding-dollar"></i></div>
-                <h3 class="vision-card__title">Empower Local Farmers</h3>
-                <p class="vision-card__desc">Direct funding boosts farmer revenues while eliminating exploitative intermediaries.</p>
-              </div>
-              <div class="vision-card__footer-tag">
-                <span class="vision-tag"><i class="fas fa-check-circle me-1"></i> Direct Co-funding</span>
+      <!-- About FarmVest -->
+      <section class="about-agrigo">
+        <div class="container">
+          <div class="row align-items-center gy-5">
+            <!-- Left Column: Tall Vertical Image Card -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-right">
+              <div class="about-img-card">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80"
+                  alt="Agronomist inspecting crop yield"
+                />
               </div>
             </div>
-          </div>
 
-          <!-- Card 2 -->
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-            <div class="vision-card">
-              <div>
-                <div class="vision-card__icon"><i class="fas fa-wheat-awn"></i></div>
-                <h3 class="vision-card__title">Premium Tech Inputs</h3>
-                <p class="vision-card__desc">Equipping partner farms with bio-certified seeds, solar irrigation, and IoT telemetry.</p>
-              </div>
-              <div class="vision-card__footer-tag">
-                <span class="vision-tag"><i class="fas fa-microchip me-1"></i> IoT Telemetry</span>
+            <!-- Center Column: Headline, Copy, Pill CTA Button & 2 Feature Cards -->
+            <div class="col-lg-6" data-aos="fade-up">
+              <div class="about-center-content text-start">
+                <div class="about-chip-label">
+                  <i class="fas fa-seedling"></i> ABOUT FARMVEST
+                </div>
+                <h2 class="about-heading-title">
+                  Pioneering High-Yield & Insured Agricultural Co-Funding
+                </h2>
+                <p class="about-heading-desc">
+                  FarmVest bridges retail investor capital with high-technology
+                  commercial farms, empowering growers while delivering
+                  inflation-resistant daily returns backed by real-world
+                  agricultural assets.
+                </p>
+
+                <a href="/about.html" class="btn-agrigo-pill mb-4">
+                  Learn More About Us
+                  <span class="circle-arrow"
+                    ><i class="bi bi-arrow-up-right"></i
+                  ></span>
+                </a>
+
+                <!-- 2 Feature Cards Side-by-Side below -->
+                <div class="about-feature-cards">
+                  <div class="feature-mini-card">
+                    <div class="mini-icon">
+                      <i class="fas fa-wheat-awn"></i>
+                    </div>
+                    <h3 class="mini-title">100% Insured Harvests</h3>
+                    <p class="mini-desc">
+                      Climate and yield shortfall insurance policies protecting
+                      your capital.
+                    </p>
+                  </div>
+
+                  <div class="feature-mini-card">
+                    <div class="mini-icon">
+                      <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="mini-title">Automated Yield Payouts</h3>
+                    <p class="mini-desc">
+                      Real-time telemetry tracking with bi-weekly payout
+                      accumulation.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Card 3 -->
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-            <div class="vision-card">
-              <div>
-                <div class="vision-card__icon"><i class="fas fa-handshake"></i></div>
-                <h3 class="vision-card__title">Direct Market Access</h3>
-                <p class="vision-card__desc">Guaranteed off-take buyer contracts with global food processors ensure reliable sales.</p>
-              </div>
-              <div class="vision-card__footer-tag">
-                <span class="vision-tag"><i class="fas fa-file-contract me-1"></i> Off-Take Guarantee</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-            <div class="vision-card">
-              <div>
-                <div class="vision-card__icon"><i class="fas fa-leaf"></i></div>
-                <h3 class="vision-card__title">Eco Sustainability</h3>
-                <p class="vision-card__desc">Zero-chemical soil rejuvenation techniques preserving biodiversity for generations.</p>
-              </div>
-              <div class="vision-card__footer-tag">
-                <span class="vision-tag"><i class="fas fa-seedling me-1"></i> ESG Bio-Certified</span>
+            <!-- Right Column: Tall Vertical Image Card with Floating ROI Badge -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-left">
+              <div class="about-img-card">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80"
+                  alt="Organic greenhouse crop"
+                />
+                <div class="roi-float-badge">
+                  <span class="rate">+16%</span>
+                  <span class="lbl">ROI</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Platform performance & proof -->
-    <section class="section platform-stats-proof">
-      <div class="container">
-        <!-- Section Header -->
-        <div class="section-heading text-center mb-5" data-aos="fade-up">
-          <span class="section-heading__label"><i class="fas fa-leaf me-1"></i> VERIFIED PERFORMANCE <i class="fas fa-leaf ms-1"></i></span>
-          <h2 class="section-heading__title">Proven Track Record of Agriculture Yields</h2>
-          <p class="section-heading__desc mx-auto mb-0">
-            Empirical platform metrics backed by real-time satellite telemetry, institutional insurance, and guaranteed off-take contracts.
-          </p>
-        </div>
-
-        <!-- Stat metric cards -->
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="150">
-          <div class="col-6 col-lg-3">
-            <div class="stat-card">
-              <div class="stat-card-top">
-                <div class="stat-number odometer-num" data-value="$42.8M+">$42.8M+</div>
-                <div class="stat-icon-badge"><i class="fas fa-coins"></i></div>
-              </div>
-              <div class="stat-label">Capital Co-Funded</div>
-              <div class="stat-gauge-track">
-                <div class="stat-gauge-fill" data-percent="88"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-6 col-lg-3">
-            <div class="stat-card">
-              <div class="stat-card-top">
-                <div class="stat-number odometer-num" data-value="99.4%">99.4%</div>
-                <div class="stat-icon-badge"><i class="fas fa-shield-halved"></i></div>
-              </div>
-              <div class="stat-label">On-Time Payout Rate</div>
-              <div class="stat-gauge-track">
-                <div class="stat-gauge-fill" data-percent="99.4"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-6 col-lg-3">
-            <div class="stat-card">
-              <div class="stat-card-top">
-                <div class="stat-number odometer-num" data-value="18,400+">18,400+</div>
-                <div class="stat-icon-badge"><i class="fas fa-users"></i></div>
-              </div>
-              <div class="stat-label">Active Investors</div>
-              <div class="stat-gauge-track">
-                <div class="stat-gauge-fill" data-percent="92"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-6 col-lg-3">
-            <div class="stat-card">
-              <div class="stat-card-top">
-                <div class="stat-number odometer-num" data-value="320+">320+</div>
-                <div class="stat-icon-badge"><i class="fas fa-wheat-awn"></i></div>
-              </div>
-              <div class="stat-label">Harvest Cycles Sold</div>
-              <div class="stat-gauge-track">
-                <div class="stat-gauge-fill" data-percent="95"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Telemetry showcase -->
-        <div class="row align-items-center gy-5 proof-showcase-row">
-          <div class="col-lg-7" data-aos="fade-right">
-            <div class="proof-media-card">
-              <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80" alt="FarmVest Real-Time Telemetry & Smart Farming" />
-              <div class="floating-roi-chip">
-                <span class="roi-val">+16.8%</span>
-                <span class="roi-lbl">Avg. Annualized Yield</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-5" data-aos="fade-left">
-            <div class="proof-text-side">
-              <h3 class="proof-mini-title">Institutional Telemetry & Verified Harvests</h3>
-              <p class="proof-mini-desc">
-                Every farm cycle is monitored with IoT telemetry and satellite imagery to verify soil moisture, crop health, and yield timelines before automated payout distribution.
+      <!-- Featured yield pools -->
+      <section class="offers-section">
+        <div class="container">
+          <!-- Header + slider nav -->
+          <div class="offers-header-row" data-aos="fade-up">
+            <div class="offers-header-content">
+              <span class="section-heading__label"
+                ><i class="fas fa-leaf me-1"></i> HIGH-YIELD ASSET POOLS
+                <i class="fas fa-leaf ms-1"></i
+              ></span>
+              <h2 class="offers-section-title">Featured Projects</h2>
+              <p class="offers-section-desc mb-0">
+                Access verified commercial crop cycles and livestock pools
+                delivering inflation-hedged daily passive returns.
               </p>
-              
-              <div class="proof-greenhouse-preview">
-                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" alt="High-Tech Greenhouse Facility" />
+            </div>
+
+            <div class="offers-header-actions">
+              <div class="live-status-pill">
+                <span class="pulse-dot"></span>
+                <span>6 Active Pools Open</span>
+              </div>
+              <div class="offers-nav-btns">
+                <button
+                  type="button"
+                  class="offer-nav-btn offer-prev"
+                  aria-label="Previous Offer"
+                >
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <button
+                  type="button"
+                  class="offer-nav-btn offer-next"
+                  aria-label="Next Offer"
+                >
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offers slider -->
+          <div
+            class="swiper offers-slider"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <div class="swiper-wrapper">
+              <!-- Offer Card 1 -->
+              <div class="swiper-slide">
+                <div class="offer-card">
+                  <div class="offer-card__thumb">
+                    <span class="offer-roi-badge"
+                      ><span class="label">ROI</span> 15.5%</span
+                    >
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80"
+                      alt="Lifetime Organic Fruit Greenhouse"
+                    />
+                  </div>
+                  <div class="offer-card__body">
+                    <h3 class="offer-title">
+                      <a href="/project-details.html"
+                        >Lifetime Organic Fruit Greenhouse</a
+                      >
+                    </h3>
+                    <div class="offer-price-row">
+                      <div class="price-box">
+                        <span class="label">Per Share</span>
+                        <span class="amount">$500.00</span>
+                      </div>
+                      <a href="/project-details.html" class="btn-invest-now"
+                        >Invest Now</a
+                      >
+                    </div>
+                    <div class="offer-meta-row">
+                      <span class="units"
+                        ><i class="fas fa-cubes"></i> 1,726 units</span
+                      >
+                      <span class="duration"
+                        ><i class="fas fa-clock"></i> 1 year from now</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Offer Card 2 -->
+              <div class="swiper-slide">
+                <div class="offer-card">
+                  <div class="offer-card__thumb">
+                    <span class="offer-roi-badge"
+                      ><span class="label">ROI</span> 18.0%</span
+                    >
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80"
+                      alt="Precision Solar Agro-Tech Drone"
+                    />
+                  </div>
+                  <div class="offer-card__body">
+                    <h3 class="offer-title">
+                      <a href="/project-details.html"
+                        >Lifetime Agro-Tech Smart Pool</a
+                      >
+                    </h3>
+                    <div class="offer-price-row">
+                      <div class="price-box">
+                        <span class="label">Per Share</span>
+                        <span class="amount">$204.08</span>
+                      </div>
+                      <a href="/project-details.html" class="btn-invest-now"
+                        >Invest Now</a
+                      >
+                    </div>
+                    <div class="offer-meta-row">
+                      <span class="units"
+                        ><i class="fas fa-cubes"></i> 3,673 units</span
+                      >
+                      <span class="duration"
+                        ><i class="fas fa-clock"></i> 6 months term</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Offer Card 3 -->
+              <div class="swiper-slide">
+                <div class="offer-card">
+                  <div class="offer-card__thumb">
+                    <span class="offer-roi-badge"
+                      ><span class="label">ROI</span> 14.5%</span
+                    >
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80"
+                      alt="Lifetime Renewable Solar Farmland"
+                    />
+                  </div>
+                  <div class="offer-card__body">
+                    <h3 class="offer-title">
+                      <a href="/project-details.html"
+                        >Lifetime Renewable Farmland</a
+                      >
+                    </h3>
+                    <div class="offer-price-row">
+                      <div class="price-box">
+                        <span class="label">Per Share</span>
+                        <span class="amount">$182.37</span>
+                      </div>
+                      <a href="/project-details.html" class="btn-invest-now"
+                        >Invest Now</a
+                      >
+                    </div>
+                    <div class="offer-meta-row">
+                      <span class="units"
+                        ><i class="fas fa-cubes"></i> 3,280 units</span
+                      >
+                      <span class="duration"
+                        ><i class="fas fa-clock"></i> 3 months term</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Offer Card 4 -->
+              <div class="swiper-slide">
+                <div class="offer-card">
+                  <div class="offer-card__thumb">
+                    <span class="offer-roi-badge"
+                      ><span class="label">ROI</span> 16.5%</span
+                    >
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=600&q=80"
+                      alt="Commercial Organic Carrot Farming"
+                    />
+                  </div>
+                  <div class="offer-card__body">
+                    <h3 class="offer-title">
+                      <a href="/project-details.html"
+                        >Commercial Organic Carrot Farming</a
+                      >
+                    </h3>
+                    <div class="offer-price-row">
+                      <div class="price-box">
+                        <span class="label">Per Share</span>
+                        <span class="amount">$543.02</span>
+                      </div>
+                      <a href="/project-details.html" class="btn-invest-now"
+                        >Invest Now</a
+                      >
+                    </div>
+                    <div class="offer-meta-row">
+                      <span class="units"
+                        ><i class="fas fa-cubes"></i> 1,194 units</span
+                      >
+                      <span class="duration"
+                        ><i class="fas fa-clock"></i> 9 months term</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Offer Card 5 -->
+              <div class="swiper-slide">
+                <div class="offer-card">
+                  <div class="offer-card__thumb">
+                    <span class="offer-roi-badge"
+                      ><span class="label">ROI</span> 15.0%</span
+                    >
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&q=80"
+                      alt="High-Density Wheat Grain Pool"
+                    />
+                  </div>
+                  <div class="offer-card__body">
+                    <h3 class="offer-title">
+                      <a href="/project-details.html"
+                        >Lifetime Oats & Wheat Harvest</a
+                      >
+                    </h3>
+                    <div class="offer-price-row">
+                      <div class="price-box">
+                        <span class="label">Per Share</span>
+                        <span class="amount">$292.72</span>
+                      </div>
+                      <a href="/project-details.html" class="btn-invest-now"
+                        >Invest Now</a
+                      >
+                    </div>
+                    <div class="offer-meta-row">
+                      <span class="units"
+                        ><i class="fas fa-cubes"></i> 2,727 units</span
+                      >
+                      <span class="duration"
+                        ><i class="fas fa-clock"></i> 1 year from now</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Offer Card 6 -->
+              <div class="swiper-slide">
+                <div class="offer-card">
+                  <div class="offer-card__thumb">
+                    <span class="offer-roi-badge"
+                      ><span class="label">ROI</span> 19.5%</span
+                    >
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=600&q=80"
+                      alt="Angus Cattle Fattening Ranch"
+                    />
+                  </div>
+                  <div class="offer-card__body">
+                    <h3 class="offer-title">
+                      <a href="/project-details.html"
+                        >Commercial Angus Cattle Ranch</a
+                      >
+                    </h3>
+                    <div class="offer-price-row">
+                      <div class="price-box">
+                        <span class="label">Per Share</span>
+                        <span class="amount">$508.19</span>
+                      </div>
+                      <a href="/project-details.html" class="btn-invest-now"
+                        >Invest Now</a
+                      >
+                    </div>
+                    <div class="offer-meta-row">
+                      <span class="units"
+                        ><i class="fas fa-cubes"></i> 1,766 units</span
+                      >
+                      <span class="duration"
+                        ><i class="fas fa-clock"></i> 12 months term</span
+                      >
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Completed harvests + next-harvest CTA -->
-        <div class="completed-proof-showcase" data-aos="fade-up">
-          <div class="completed-showcase-header">
-            <div>
-              <span class="completed-badge"><i class="fas fa-certificate"></i> VERIFIED RESULTS</span>
-              <h3 class="completed-heading">Successfully Completed Harvest Cycles</h3>
-            </div>
-            <p class="completed-subtext">
-              Real historical harvest cycles fully co-funded, harvested, and paid out with zero default.
+      <!-- Our vision -->
+      <section class="section our-vision">
+        <div class="container">
+          <div class="section-heading" data-aos="fade-up">
+            <span class="section-heading__label"
+              ><i class="fas fa-leaf me-1"></i> OUR CORE VISION
+              <i class="fas fa-leaf ms-1"></i
+            ></span>
+            <h2 class="section-heading__title">
+              Building High-Yield Agriculture Ecosystems
+            </h2>
+            <p class="section-heading__desc mx-auto">
+              We bridge global investor capital with modern high-yield farming
+              projects to create shared prosperity and sustainable harvests.
             </p>
           </div>
 
           <div class="row gy-4">
-            <!-- Completed Harvest Card 1: Wheat Grain -->
-            <div class="col-md-6 col-lg-3">
-              <div class="completed-harvest-card">
-                <div class="harvest-thumb">
-                  <span class="badge-completed"><i class="fas fa-check me-1"></i>Completed</span>
-                  <span class="badge-roi-payout">+15.2% Net ROI</span>
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&q=80" alt="Winter Wheat Grain Harvest" />
-                </div>
-                <div class="harvest-body">
-                  <h4 class="harvest-name">Winter Wheat Grain</h4>
-                  <p class="harvest-desc">500 Hectares harvested & paid out to 320 investors.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Completed Harvest Card 2: Dairy Farm -->
-            <div class="col-md-6 col-lg-3">
-              <div class="completed-harvest-card">
-                <div class="harvest-thumb">
-                  <span class="badge-completed"><i class="fas fa-check me-1"></i>Completed</span>
-                  <span class="badge-roi-payout">+13.8% Net ROI</span>
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=600&q=80" alt="Holstein Milk Production Farm" />
-                </div>
-                <div class="harvest-body">
-                  <h4 class="harvest-name">Holstein Milk Pool</h4>
-                  <p class="harvest-desc">12-Month dairy cycle with quarterly payouts delivered.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Completed Harvest Card 3: Organic Greenhouse -->
-            <div class="col-md-6 col-lg-3">
-              <div class="completed-harvest-card">
-                <div class="harvest-thumb">
-                  <span class="badge-completed"><i class="fas fa-check me-1"></i>Completed</span>
-                  <span class="badge-roi-payout">+17.5% Net ROI</span>
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80" alt="Organic Greenhouse Strawberry Pool" />
-                </div>
-                <div class="harvest-body">
-                  <h4 class="harvest-name">Organic Greenhouse</h4>
-                  <p class="harvest-desc">6-Month fruit cycle pre-sold under off-take contract.</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4: High-Impact "Join Next Harvest" CTA Card -->
-            <div class="col-md-6 col-lg-3">
-              <div class="next-harvest-cta-card">
-                <div class="cta-card-top-content">
-                  <div class="live-indicator">
-                    <i class="fas fa-circle text-warning fs-xs"></i> 6 Pools Open Now
+            <!-- Card 1 -->
+            <div
+              class="col-md-6 col-lg-3"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="vision-card">
+                <div>
+                  <div class="vision-card__icon">
+                    <i class="fas fa-hand-holding-dollar"></i>
                   </div>
-                  <h4 class="cta-card-title">Join The Next Harvest Cycle</h4>
-                  <p class="cta-card-desc">Lock in up to 19.5% ROI with insured commercial crop pools.</p>
+                  <h3 class="vision-card__title">Empower Local Farmers</h3>
+                  <p class="vision-card__desc">
+                    Direct funding boosts farmer revenues while eliminating
+                    exploitative intermediaries.
+                  </p>
                 </div>
-                <a href="/projects.html" class="btn btn--accent btn--md w-100">
-                  Browse Active Projects <i class="fas fa-arrow-right ms-2"></i>
+                <div class="vision-card__footer-tag">
+                  <span class="vision-tag"
+                    ><i class="fas fa-check-circle me-1"></i> Direct
+                    Co-funding</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div
+              class="col-md-6 col-lg-3"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="vision-card">
+                <div>
+                  <div class="vision-card__icon">
+                    <i class="fas fa-wheat-awn"></i>
+                  </div>
+                  <h3 class="vision-card__title">Premium Tech Inputs</h3>
+                  <p class="vision-card__desc">
+                    Equipping partner farms with bio-certified seeds, solar
+                    irrigation, and IoT telemetry.
+                  </p>
+                </div>
+                <div class="vision-card__footer-tag">
+                  <span class="vision-tag"
+                    ><i class="fas fa-microchip me-1"></i> IoT Telemetry</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div
+              class="col-md-6 col-lg-3"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="vision-card">
+                <div>
+                  <div class="vision-card__icon">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <h3 class="vision-card__title">Direct Market Access</h3>
+                  <p class="vision-card__desc">
+                    Guaranteed off-take buyer contracts with global food
+                    processors ensure reliable sales.
+                  </p>
+                </div>
+                <div class="vision-card__footer-tag">
+                  <span class="vision-tag"
+                    ><i class="fas fa-file-contract me-1"></i> Off-Take
+                    Guarantee</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div
+              class="col-md-6 col-lg-3"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="vision-card">
+                <div>
+                  <div class="vision-card__icon">
+                    <i class="fas fa-leaf"></i>
+                  </div>
+                  <h3 class="vision-card__title">Eco Sustainability</h3>
+                  <p class="vision-card__desc">
+                    Zero-chemical soil rejuvenation techniques preserving
+                    biodiversity for generations.
+                  </p>
+                </div>
+                <div class="vision-card__footer-tag">
+                  <span class="vision-tag"
+                    ><i class="fas fa-seedling me-1"></i> ESG
+                    Bio-Certified</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Platform performance & proof -->
+      <section class="section platform-stats-proof">
+        <div class="container">
+          <!-- Section Header -->
+          <div class="section-heading text-center mb-5" data-aos="fade-up">
+            <span class="section-heading__label"
+              ><i class="fas fa-leaf me-1"></i> VERIFIED PERFORMANCE
+              <i class="fas fa-leaf ms-1"></i
+            ></span>
+            <h2 class="section-heading__title">
+              Proven Track Record of Agriculture Yields
+            </h2>
+            <p class="section-heading__desc mx-auto mb-0">
+              Empirical platform metrics backed by real-time satellite
+              telemetry, institutional insurance, and guaranteed off-take
+              contracts.
+            </p>
+          </div>
+
+          <!-- Stat metric cards -->
+          <div class="row gy-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="col-6 col-lg-3">
+              <div class="stat-card">
+                <div class="stat-card-top">
+                  <div class="stat-number odometer-num" data-value="$42.8M+">
+                    $42.8M+
+                  </div>
+                  <div class="stat-icon-badge">
+                    <i class="fas fa-coins"></i>
+                  </div>
+                </div>
+                <div class="stat-label">Capital Co-Funded</div>
+                <div class="stat-gauge-track">
+                  <div class="stat-gauge-fill" data-percent="88"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+              <div class="stat-card">
+                <div class="stat-card-top">
+                  <div class="stat-number odometer-num" data-value="99.4%">
+                    99.4%
+                  </div>
+                  <div class="stat-icon-badge">
+                    <i class="fas fa-shield-halved"></i>
+                  </div>
+                </div>
+                <div class="stat-label">On-Time Payout Rate</div>
+                <div class="stat-gauge-track">
+                  <div class="stat-gauge-fill" data-percent="99.4"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+              <div class="stat-card">
+                <div class="stat-card-top">
+                  <div class="stat-number odometer-num" data-value="18,400+">
+                    18,400+
+                  </div>
+                  <div class="stat-icon-badge">
+                    <i class="fas fa-users"></i>
+                  </div>
+                </div>
+                <div class="stat-label">Active Investors</div>
+                <div class="stat-gauge-track">
+                  <div class="stat-gauge-fill" data-percent="92"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+              <div class="stat-card">
+                <div class="stat-card-top">
+                  <div class="stat-number odometer-num" data-value="320+">
+                    320+
+                  </div>
+                  <div class="stat-icon-badge">
+                    <i class="fas fa-wheat-awn"></i>
+                  </div>
+                </div>
+                <div class="stat-label">Harvest Cycles Sold</div>
+                <div class="stat-gauge-track">
+                  <div class="stat-gauge-fill" data-percent="95"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Telemetry showcase -->
+          <div class="row align-items-center gy-5 proof-showcase-row">
+            <div class="col-lg-7" data-aos="fade-right">
+              <div class="proof-media-card">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80"
+                  alt="FarmVest Real-Time Telemetry & Smart Farming"
+                />
+                <div class="floating-roi-chip">
+                  <span class="roi-val">+16.8%</span>
+                  <span class="roi-lbl">Avg. Annualized Yield</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-5" data-aos="fade-left">
+              <div class="proof-text-side">
+                <h3 class="proof-mini-title">
+                  Institutional Telemetry & Verified Harvests
+                </h3>
+                <p class="proof-mini-desc">
+                  Every farm cycle is monitored with IoT telemetry and satellite
+                  imagery to verify soil moisture, crop health, and yield
+                  timelines before automated payout distribution.
+                </p>
+
+                <div class="proof-greenhouse-preview">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80"
+                    alt="High-Tech Greenhouse Facility"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Completed harvests + next-harvest CTA -->
+          <div class="completed-proof-showcase" data-aos="fade-up">
+            <div class="completed-showcase-header">
+              <div>
+                <span class="completed-badge"
+                  ><i class="fas fa-certificate"></i> VERIFIED RESULTS</span
+                >
+                <h3 class="completed-heading">
+                  Successfully Completed Harvest Cycles
+                </h3>
+              </div>
+              <p class="completed-subtext">
+                Real historical harvest cycles fully co-funded, harvested, and
+                paid out with zero default.
+              </p>
+            </div>
+
+            <div class="row gy-4">
+              <!-- Completed Harvest Card 1: Wheat Grain -->
+              <div class="col-md-6 col-lg-3">
+                <div class="completed-harvest-card">
+                  <div class="harvest-thumb">
+                    <span class="badge-completed"
+                      ><i class="fas fa-check me-1"></i>Completed</span
+                    >
+                    <span class="badge-roi-payout">+15.2% Net ROI</span>
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&q=80"
+                      alt="Winter Wheat Grain Harvest"
+                    />
+                  </div>
+                  <div class="harvest-body">
+                    <h4 class="harvest-name">Winter Wheat Grain</h4>
+                    <p class="harvest-desc">
+                      500 Hectares harvested & paid out to 320 investors.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Completed Harvest Card 2: Dairy Farm -->
+              <div class="col-md-6 col-lg-3">
+                <div class="completed-harvest-card">
+                  <div class="harvest-thumb">
+                    <span class="badge-completed"
+                      ><i class="fas fa-check me-1"></i>Completed</span
+                    >
+                    <span class="badge-roi-payout">+13.8% Net ROI</span>
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=600&q=80"
+                      alt="Holstein Milk Production Farm"
+                    />
+                  </div>
+                  <div class="harvest-body">
+                    <h4 class="harvest-name">Holstein Milk Pool</h4>
+                    <p class="harvest-desc">
+                      12-Month dairy cycle with quarterly payouts delivered.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Completed Harvest Card 3: Organic Greenhouse -->
+              <div class="col-md-6 col-lg-3">
+                <div class="completed-harvest-card">
+                  <div class="harvest-thumb">
+                    <span class="badge-completed"
+                      ><i class="fas fa-check me-1"></i>Completed</span
+                    >
+                    <span class="badge-roi-payout">+17.5% Net ROI</span>
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80"
+                      alt="Organic Greenhouse Strawberry Pool"
+                    />
+                  </div>
+                  <div class="harvest-body">
+                    <h4 class="harvest-name">Organic Greenhouse</h4>
+                    <p class="harvest-desc">
+                      6-Month fruit cycle pre-sold under off-take contract.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4: High-Impact "Join Next Harvest" CTA Card -->
+              <div class="col-md-6 col-lg-3">
+                <div class="next-harvest-cta-card">
+                  <div class="cta-card-top-content">
+                    <div class="live-indicator">
+                      <i class="fas fa-circle text-warning fs-xs"></i> 6 Pools
+                      Open Now
+                    </div>
+                    <h4 class="cta-card-title">Join The Next Harvest Cycle</h4>
+                    <p class="cta-card-desc">
+                      Lock in up to 19.5% ROI with insured commercial crop
+                      pools.
+                    </p>
+                  </div>
+                  <a
+                    href="/projects.html"
+                    class="btn btn--accent btn--md w-100"
+                  >
+                    Browse Active Projects
+                    <i class="fas fa-arrow-right ms-2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="section how-it-works-sec">
+        <div class="container">
+          <!-- Section Header -->
+          <div class="section-heading text-center mb-5" data-aos="fade-up">
+            <span class="section-heading__label"
+              ><i class="fas fa-seedling me-1"></i> STEP-BY-STEP PROCESS
+              <i class="fas fa-seedling ms-1"></i
+            ></span>
+            <h2 class="section-heading__title">How You Earn With FarmVest</h2>
+            <p class="section-heading__desc mx-auto mb-0">
+              Co-funding high-producing agricultural pools has never been this
+              simple. Start earning daily passive returns in 4 easy steps.
+            </p>
+          </div>
+
+          <div class="row align-items-center gy-5">
+            <!-- Farmer cut-out -->
+            <div class="col-lg-5" data-aos="fade-right">
+              <div class="farmer-blend-container">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/farmer-transparent.png"
+                  class="farmer-blend-img"
+                  alt="Farmer Carrying Fresh Organic Produce"
+                />
+              </div>
+            </div>
+
+            <!-- Step timeline -->
+            <div class="col-lg-7" data-aos="fade-left">
+              <div class="process-timeline">
+                <!-- Step Node 1 -->
+                <div class="process-node-card">
+                  <div class="process-icon-pod">
+                    <i class="fas fa-user-check"></i>
+                  </div>
+                  <div class="process-content">
+                    <div class="process-header-line">
+                      <h3 class="process-title">1. Create & Verify Account</h3>
+                      <span class="process-step-num">STEP 01</span>
+                    </div>
+                    <p class="process-desc">
+                      Register your free investor account in 60 seconds with
+                      seamless instant KYC identity verification.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Step Node 2 -->
+                <div class="process-node-card">
+                  <div class="process-icon-pod">
+                    <i class="fas fa-chart-pie"></i>
+                  </div>
+                  <div class="process-content">
+                    <div class="process-header-line">
+                      <h3 class="process-title">2. Select Your Yield Pool</h3>
+                      <span class="process-step-num">STEP 02</span>
+                    </div>
+                    <p class="process-desc">
+                      Choose from crop, livestock, or greenhouse pools with
+                      target ROI schedules and 100% insured capital.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Step Node 3 -->
+                <div class="process-node-card">
+                  <div class="process-icon-pod">
+                    <i class="fas fa-microchip"></i>
+                  </div>
+                  <div class="process-content">
+                    <div class="process-header-line">
+                      <h3 class="process-title">
+                        3. Co-Fund & Track Telemetry
+                      </h3>
+                      <span class="process-step-num">STEP 03</span>
+                    </div>
+                    <p class="process-desc">
+                      Purchase pool shares using Card, Bank Transfer, or Crypto.
+                      Track real-time satellite crop telemetry 24/7.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Step Node 4 -->
+                <div class="process-node-card">
+                  <div class="process-icon-pod">
+                    <i class="fas fa-wallet"></i>
+                  </div>
+                  <div class="process-content">
+                    <div class="process-header-line">
+                      <h3 class="process-title">
+                        4. Withdraw Profits & Principal
+                      </h3>
+                      <span class="process-step-num">STEP 04</span>
+                    </div>
+                    <p class="process-desc">
+                      At harvest maturity, your principal and net profit yields
+                      are credited to your wallet for instant withdrawal.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-2">
+                <a href="/auth/register.html" class="btn btn--primary btn--lg">
+                  Create Free Account <i class="fas fa-arrow-right ms-2"></i>
                 </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- How it works -->
-    <section class="section how-it-works-sec">
-      <div class="container">
-        <!-- Section Header -->
-        <div class="section-heading text-center mb-5" data-aos="fade-up">
-          <span class="section-heading__label"><i class="fas fa-seedling me-1"></i> STEP-BY-STEP PROCESS <i class="fas fa-seedling ms-1"></i></span>
-          <h2 class="section-heading__title">How You Earn With FarmVest</h2>
-          <p class="section-heading__desc mx-auto mb-0">
-            Co-funding high-producing agricultural pools has never been this simple. Start earning daily passive returns in 4 easy steps.
-          </p>
-        </div>
-
-        <div class="row align-items-center gy-5">
-          <!-- Farmer cut-out -->
-          <div class="col-lg-5" data-aos="fade-right">
-            <div class="farmer-blend-container">
-              <img loading="lazy" decoding="async" src="/images/farmer-transparent.png" class="farmer-blend-img" alt="Farmer Carrying Fresh Organic Produce" />
+      <!-- Testimonials -->
+      <section class="section testimonial-sec">
+        <div class="container">
+          <!-- Header + slider nav -->
+          <div class="testimonial-header-row" data-aos="fade-up">
+            <div>
+              <span class="testimonial-label"
+                ><i class="fas fa-leaf"></i> TESTIMONIAL</span
+              >
+              <h2 class="testimonial-title">
+                Real Voices Behind Real<br />Agricultural Growth
+              </h2>
+            </div>
+            <div class="testimonial-nav-group">
+              <button
+                class="testimonial-nav-btn testimonial-prev"
+                aria-label="Previous Testimonial"
+              >
+                <i class="fas fa-arrow-left"></i>
+              </button>
+              <button
+                class="testimonial-nav-btn testimonial-next"
+                aria-label="Next Testimonial"
+              >
+                <i class="fas fa-arrow-right"></i>
+              </button>
             </div>
           </div>
 
-          <!-- Step timeline -->
-          <div class="col-lg-7" data-aos="fade-left">
-            <div class="process-timeline">
-              <!-- Step Node 1 -->
-              <div class="process-node-card">
-                <div class="process-icon-pod"><i class="fas fa-user-check"></i></div>
-                <div class="process-content">
-                  <div class="process-header-line">
-                    <h3 class="process-title">1. Create & Verify Account</h3>
-                    <span class="process-step-num">STEP 01</span>
-                  </div>
-                  <p class="process-desc">Register your free investor account in 60 seconds with seamless instant KYC identity verification.</p>
-                </div>
-              </div>
-
-              <!-- Step Node 2 -->
-              <div class="process-node-card">
-                <div class="process-icon-pod"><i class="fas fa-chart-pie"></i></div>
-                <div class="process-content">
-                  <div class="process-header-line">
-                    <h3 class="process-title">2. Select Your Yield Pool</h3>
-                    <span class="process-step-num">STEP 02</span>
-                  </div>
-                  <p class="process-desc">Choose from crop, livestock, or greenhouse pools with target ROI schedules and 100% insured capital.</p>
-                </div>
-              </div>
-
-              <!-- Step Node 3 -->
-              <div class="process-node-card">
-                <div class="process-icon-pod"><i class="fas fa-microchip"></i></div>
-                <div class="process-content">
-                  <div class="process-header-line">
-                    <h3 class="process-title">3. Co-Fund & Track Telemetry</h3>
-                    <span class="process-step-num">STEP 03</span>
-                  </div>
-                  <p class="process-desc">Purchase pool shares using Card, Bank Transfer, or Crypto. Track real-time satellite crop telemetry 24/7.</p>
-                </div>
-              </div>
-
-              <!-- Step Node 4 -->
-              <div class="process-node-card">
-                <div class="process-icon-pod"><i class="fas fa-wallet"></i></div>
-                <div class="process-content">
-                  <div class="process-header-line">
-                    <h3 class="process-title">4. Withdraw Profits & Principal</h3>
-                    <span class="process-step-num">STEP 04</span>
-                  </div>
-                  <p class="process-desc">At harvest maturity, your principal and net profit yields are credited to your wallet for instant withdrawal.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-4 pt-2">
-              <a href="/auth/register.html" class="btn btn--primary btn--lg">
-                Create Free Account <i class="fas fa-arrow-right ms-2"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="section testimonial-sec">
-      <div class="container">
-        <!-- Header + slider nav -->
-        <div class="testimonial-header-row" data-aos="fade-up">
-          <div>
-            <span class="testimonial-label"><i class="fas fa-leaf"></i> TESTIMONIAL</span>
-            <h2 class="testimonial-title">Real Voices Behind Real<br>Agricultural Growth</h2>
-          </div>
-          <div class="testimonial-nav-group">
-            <button class="testimonial-nav-btn testimonial-prev" aria-label="Previous Testimonial">
-              <i class="fas fa-arrow-left"></i>
-            </button>
-            <button class="testimonial-nav-btn testimonial-next" aria-label="Next Testimonial">
-              <i class="fas fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-
-        <div class="swiper testimonial-slider" data-aos="fade-up" data-aos-delay="150">
-          <div class="swiper-wrapper">
-            <!-- Review 1: Jessica Reed -->
-            <div class="swiper-slide">
-              <div class="testimonial-card-v2">
-                <div class="card-inner-content">
-                  <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
-                  <p class="quote-text">
-                    "FarmVest made agricultural investment completely hassle-free. Receiving bi-weekly satellite telemetry updates on my wheat pool gave me total peace of mind, and my payout landed right on maturity day."
-                  </p>
-                </div>
-                <div class="author-bar">
-                  <div class="author-info">
-                    <h4 class="author-name">Jessica Reed</h4>
-                    <span class="author-role">Co-Founder</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Review 2: David Brown -->
-            <div class="swiper-slide">
-              <div class="testimonial-card-v2">
-                <div class="card-inner-content">
-                  <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
-                  <p class="quote-text">
-                    "As a portfolio diversification strategy, livestock and greenhouse co-funding on FarmVest has consistently outperformed traditional index funds with zero default risk."
-                  </p>
-                </div>
-                <div class="author-bar">
-                  <div class="author-info">
-                    <h4 class="author-name">David Brown</h4>
-                    <span class="author-role">Commercial Lead</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Review 3: Quinn Perez Jordan -->
-            <div class="swiper-slide">
-              <div class="testimonial-card-v2">
-                <div class="card-inner-content">
-                  <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
-                  <p class="quote-text">
-                    "I’ve participated in 4 harvest cycles so far. Every single payout was credited automatically into my wallet. It’s rare to find an agtech platform with this level of institutional transparency."
-                  </p>
-                </div>
-                <div class="author-bar">
-                  <div class="author-info">
-                    <h4 class="author-name">Quinn Perez Jordan</h4>
-                    <span class="author-role">ESG Impact Investor</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Review 4: Elena Rostova -->
-            <div class="swiper-slide">
-              <div class="testimonial-card-v2">
-                <div class="card-inner-content">
-                  <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
-                  <p class="quote-text">
-                    "The peace of mind that comes with insured commercial crop pools and direct agronomist field telemetries is unbeatable. FarmVest has turned agricultural yield into a reliable passive stream."
-                  </p>
-                </div>
-                <div class="author-bar">
-                  <div class="author-info">
-                    <h4 class="author-name">Elena Rostova</h4>
-                    <span class="author-role">Financial Analyst</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Review 5: Marcus Vance -->
-            <div class="swiper-slide">
-              <div class="testimonial-card-v2">
-                <div class="card-inner-content">
-                  <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
-                  <p class="quote-text">
-                    "Co-funding sustainable organic fruit pools through FarmVest allowed me to generate double-digit passive returns while directly empowering commercial farming infrastructure."
-                  </p>
-                </div>
-                <div class="author-bar">
-                  <div class="author-info">
-                    <h4 class="author-name">Marcus Vance</h4>
-                    <span class="author-role">Portfolio Manager</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination mt-4"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq-section" id="faq">
-      <div class="container">
-        <div class="row gy-5">
-          
-          <!-- Header + category filter -->
-          <div class="col-lg-5" data-aos="fade-right">
-            <div class="faq-sticky-left">
-              <span class="faq-badge"><i class="fas fa-leaf"></i> KNOWLEDGE BASE</span>
-              <h2 class="faq-title">Got Questions?<br>Find Answers Fast.</h2>
-              <p class="faq-desc">
-                Select a category below or explore questions to learn how FarmVest protects your principal and automates yield payouts.
-              </p>
-
-              <!-- Category Navigation Pills -->
-              <div class="faq-category-nav" id="faqCatNav">
-                <button class="faq-cat-btn active" type="button" data-faq-cat="all">
-                  <span class="cat-icon-text"><i class="fas fa-layer-group"></i> All Questions</span>
-                  <i class="fas fa-chevron-right cat-arrow"></i>
-                </button>
-                <button class="faq-cat-btn" type="button" data-faq-cat="insurance">
-                  <span class="cat-icon-text"><i class="fas fa-shield-alt"></i> Capital & Insurance</span>
-                  <i class="fas fa-chevron-right cat-arrow"></i>
-                </button>
-                <button class="faq-cat-btn" type="button" data-faq-cat="payouts">
-                  <span class="cat-icon-text"><i class="fas fa-wallet"></i> Returns & Payouts</span>
-                  <i class="fas fa-chevron-right cat-arrow"></i>
-                </button>
-                <button class="faq-cat-btn" type="button" data-faq-cat="telemetry">
-                  <span class="cat-icon-text"><i class="fas fa-satellite-dish"></i> Field Telemetry</span>
-                  <i class="fas fa-chevron-right cat-arrow"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Accordion -->
-          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="100">
-            <div class="accordion faq-accordion-container" id="faqAccordionV2">
-              
-              <!-- Q1 -->
-              <div class="faq-card-v2 is-open" data-cat="all">
-                <button class="faq-card-trigger" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="true">
-                  <div class="faq-trigger-left">
-                    <span class="faq-num-badge">01</span>
-                    <h3 class="faq-question-title">What is FarmVest and how does farm co-funding work?</h3>
-                  </div>
-                  <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                </button>
-                <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordionV2">
-                  <div class="faq-card-collapse">
-                    <p class="faq-answer-text">
-                      FarmVest is a licensed agricultural fintech platform that pools investor capital to fund high-yield commercial farming projects. Professional agronomists manage operations, and upon harvest sale, capital and profits are distributed directly into your secure wallet.
+          <div
+            class="swiper testimonial-slider"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
+            <div class="swiper-wrapper">
+              <!-- Review 1: Jessica Reed -->
+              <div class="swiper-slide">
+                <div class="testimonial-card-v2">
+                  <div class="card-inner-content">
+                    <div class="quote-mark">
+                      <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="quote-text">
+                      "FarmVest made agricultural investment completely
+                      hassle-free. Receiving bi-weekly satellite telemetry
+                      updates on my wheat pool gave me total peace of mind, and
+                      my payout landed right on maturity day."
                     </p>
                   </div>
+                  <div class="author-bar">
+                    <div class="author-info">
+                      <h4 class="author-name">Jessica Reed</h4>
+                      <span class="author-role">Co-Founder</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Q2 -->
-              <div class="faq-card-v2" data-cat="insurance">
-                <button class="faq-card-trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false">
-                  <div class="faq-trigger-left">
-                    <span class="faq-num-badge">02</span>
-                    <h3 class="faq-question-title">Are my capital and yields insured against drought or crop failure?</h3>
-                  </div>
-                  <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                </button>
-                <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
-                  <div class="faq-card-collapse">
-                    <p class="faq-answer-text">
-                      Yes! 100% of projects listed on FarmVest are backed by comprehensive multi-peril agricultural insurance policies covering drought, pests, flooding, and yield shortfalls to protect your principal capital.
+              <!-- Review 2: David Brown -->
+              <div class="swiper-slide">
+                <div class="testimonial-card-v2">
+                  <div class="card-inner-content">
+                    <div class="quote-mark">
+                      <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="quote-text">
+                      "As a portfolio diversification strategy, livestock and
+                      greenhouse co-funding on FarmVest has consistently
+                      outperformed traditional index funds with zero default
+                      risk."
                     </p>
                   </div>
+                  <div class="author-bar">
+                    <div class="author-info">
+                      <h4 class="author-name">David Brown</h4>
+                      <span class="author-role">Commercial Lead</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Q3 -->
-              <div class="faq-card-v2" data-cat="payouts">
-                <button class="faq-card-trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false">
-                  <div class="faq-trigger-left">
-                    <span class="faq-num-badge">03</span>
-                    <h3 class="faq-question-title">How and when do I receive my interest payouts?</h3>
-                  </div>
-                  <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                </button>
-                <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
-                  <div class="faq-card-collapse">
-                    <p class="faq-answer-text">
-                      Returns are paid according to the pool cycle schedule—either monthly, quarterly, or upon final harvest completion. Payouts are deposited directly into your FarmVest wallet in USD or local currency, available for instant bank withdrawal.
+              <!-- Review 3: Quinn Perez Jordan -->
+              <div class="swiper-slide">
+                <div class="testimonial-card-v2">
+                  <div class="card-inner-content">
+                    <div class="quote-mark">
+                      <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="quote-text">
+                      "I’ve participated in 4 harvest cycles so far. Every
+                      single payout was credited automatically into my wallet.
+                      It’s rare to find an agtech platform with this level of
+                      institutional transparency."
                     </p>
                   </div>
+                  <div class="author-bar">
+                    <div class="author-info">
+                      <h4 class="author-name">Quinn Perez Jordan</h4>
+                      <span class="author-role">ESG Impact Investor</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Q4 -->
-              <div class="faq-card-v2" data-cat="telemetry">
-                <button class="faq-card-trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false">
-                  <div class="faq-trigger-left">
-                    <span class="faq-num-badge">04</span>
-                    <h3 class="faq-question-title">How can I track my farm's progress in real-time?</h3>
-                  </div>
-                  <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                </button>
-                <div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
-                  <div class="faq-card-collapse">
-                    <p class="faq-answer-text">
-                      Every investor gets access to 24/7 field telemetry via their dashboard, including bi-weekly drone footage, satellite soil moisture indexing, temperature logs, and direct field reports from managing agronomists.
+              <!-- Review 4: Elena Rostova -->
+              <div class="swiper-slide">
+                <div class="testimonial-card-v2">
+                  <div class="card-inner-content">
+                    <div class="quote-mark">
+                      <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="quote-text">
+                      "The peace of mind that comes with insured commercial crop
+                      pools and direct agronomist field telemetries is
+                      unbeatable. FarmVest has turned agricultural yield into a
+                      reliable passive stream."
                     </p>
                   </div>
+                  <div class="author-bar">
+                    <div class="author-info">
+                      <h4 class="author-name">Elena Rostova</h4>
+                      <span class="author-role">Financial Analyst</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Q5 -->
-              <div class="faq-card-v2" data-cat="all">
-                <button class="faq-card-trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false">
-                  <div class="faq-trigger-left">
-                    <span class="faq-num-badge">05</span>
-                    <h3 class="faq-question-title">What is the minimum investment amount to start?</h3>
-                  </div>
-                  <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                </button>
-                <div id="faqCollapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
-                  <div class="faq-card-collapse">
-                    <p class="faq-answer-text">
-                      You can start co-funding agricultural asset pools with as little as $250. There are no lock-up surprises, and maturity terms range from 90 days to 24 months depending on the crop cycle.
+              <!-- Review 5: Marcus Vance -->
+              <div class="swiper-slide">
+                <div class="testimonial-card-v2">
+                  <div class="card-inner-content">
+                    <div class="quote-mark">
+                      <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="quote-text">
+                      "Co-funding sustainable organic fruit pools through
+                      FarmVest allowed me to generate double-digit passive
+                      returns while directly empowering commercial farming
+                      infrastructure."
                     </p>
                   </div>
-                </div>
-              </div>
-
-              <!-- Q6 -->
-              <div class="faq-card-v2" data-cat="payouts">
-                <button class="faq-card-trigger collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6" aria-expanded="false">
-                  <div class="faq-trigger-left">
-                    <span class="faq-num-badge">06</span>
-                    <h3 class="faq-question-title">Can I re-invest my harvest profits automatically?</h3>
-                  </div>
-                  <span class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                </button>
-                <div id="faqCollapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordionV2">
-                  <div class="faq-card-collapse">
-                    <p class="faq-answer-text">
-                      Yes! FarmVest provides an automated Auto-Compound feature allowing you to automatically re-invest harvest earnings into upcoming seasonal crop pools for continuous compound yield growth.
-                    </p>
+                  <div class="author-bar">
+                    <div class="author-info">
+                      <h4 class="author-name">Marcus Vance</h4>
+                      <span class="author-role">Portfolio Manager</span>
+                    </div>
                   </div>
                 </div>
               </div>
-
             </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-
-    <!-- Partner marquee -->
-    <section class="marquee-section">
-      <div class="container-fluid px-0">
-        <div class="marquee-header" data-aos="fade-up">
-          <span class="marquee-badge"><i class="fas fa-handshake"></i> GLOBAL ECOSYSTEM PARTNERS</span>
-          <p class="marquee-subtext">Co-funding, insurance, telemetry, and institutional banking powered by industry leaders</p>
-        </div>
-
-        <div class="marquee-wrapper">
-          <div class="marquee-track">
-            <!-- Set 1 -->
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/john-deere.svg" alt="John Deere" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/cargill.svg" alt="Cargill" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/syngenta.svg" alt="Syngenta" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/bayer-cropscience.svg" alt="Bayer CropScience" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/corteva.svg" alt="Corteva Agriscience" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/rabobank.svg" alt="Rabobank AgriFinance" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/world-bank-agri.svg" alt="World Bank Agriculture" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/usaid-agri.svg" alt="USAID Agriculture" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/kubota.svg" alt="Kubota Agri Machinery" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/fao-un.svg" alt="FAO United Nations" /></div>
-
-            <!-- Set 2 (duplicated for seamless loop) -->
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/john-deere.svg" alt="John Deere" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/cargill.svg" alt="Cargill" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/syngenta.svg" alt="Syngenta" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/bayer-cropscience.svg" alt="Bayer CropScience" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/corteva.svg" alt="Corteva Agriscience" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/rabobank.svg" alt="Rabobank AgriFinance" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/world-bank-agri.svg" alt="World Bank Agriculture" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/usaid-agri.svg" alt="USAID Agriculture" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/kubota.svg" alt="Kubota Agri Machinery" /></div>
-            <div class="marquee-item"><img loading="lazy" decoding="async" src="/images/partners/fao-un.svg" alt="FAO United Nations" /></div>
+            <div class="swiper-pagination mt-4"></div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- News & insights -->
-    <section class="blog-section" id="news">
-      <div class="container">
-        <!-- Split Header Row -->
-        <div class="blog-header-row" data-aos="fade-up">
-          <div>
-            <span class="blog-badge"><i class="fas fa-newspaper"></i> AGRI-INSIGHTS & MARKET NEWS</span>
-            <h2 class="blog-section-title">Latest Market Updates & Farming Insights</h2>
-          </div>
-          <a href="/blog-details.html" class="btn-blog-all">Explore All Articles <i class="fas fa-arrow-right"></i></a>
-        </div>
+      </section>
 
-        <!-- Featured editorial layout -->
-        <div class="row gy-4">
-          <!-- Featured spotlight -->
-          <div class="col-lg-7" data-aos="fade-right">
-            <article class="blog-card-featured">
-              <div class="featured-img-wrap">
-                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=900&q=80" alt="Smart Farming Tech" />
-                <span class="cat-tag">🌱 AGRONOMY TECH</span>
-                <span class="read-time"><i class="fas fa-clock me-1"></i> 5 min read</span>
-              </div>
-              <div class="featured-content">
-                <div class="article-meta">
-                  <span><i class="fas fa-calendar-alt"></i> Aug 03, 2026</span>
-                  <span><i class="fas fa-user-check"></i> By Dr. Aris Thorne · Chief Agronomist</span>
-                </div>
-                <h3 class="article-title">
-                  <a href="/blog-details.html">Why Sustainable Farm Co-Funding is Outperforming Traditional Asset Classes in 2026</a>
-                </h3>
-                <p class="article-excerpt">
-                  Discover how global food security demands, satellite telemetry monitoring, and automated yield cycles are creating inflation-protected, high-yielding portfolios for modern investors.
+      <!-- FAQ -->
+      <section class="faq-section" id="faq">
+        <div class="container">
+          <div class="row gy-5">
+            <!-- Header + category filter -->
+            <div class="col-lg-5" data-aos="fade-right">
+              <div class="faq-sticky-left">
+                <span class="faq-badge"
+                  ><i class="fas fa-leaf"></i> KNOWLEDGE BASE</span
+                >
+                <h2 class="faq-title">
+                  Got Questions?<br />Find Answers Fast.
+                </h2>
+                <p class="faq-desc">
+                  Select a category below or explore questions to learn how
+                  FarmVest protects your principal and automates yield payouts.
                 </p>
-                <a href="/blog-details.html" class="btn-read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
-              </div>
-            </article>
-          </div>
 
-          <!-- Compact article list -->
-          <div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
-            <div class="compact-articles-stack">
-              
-              <!-- Article 2 -->
-              <article class="blog-card-compact">
-                <div class="compact-img-wrap">
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=400&q=80" alt="IoT Soil Moisture Sensors" />
-                </div>
-                <div class="compact-content">
-                  <span class="cat-tag-sm"><i class="fas fa-satellite-dish me-1"></i> FIELD TELEMETRY</span>
-                  <h3 class="compact-title">
-                    <a href="/blog-details.html">How Satellite & IoT Soil Moisture Sensors Boost Crop Yields by 40%</a>
-                  </h3>
-                  <div class="compact-meta">
-                    <span><i class="fas fa-calendar-alt"></i> Jul 28, 2026</span>
-                    <span><i class="fas fa-clock"></i> 4 min read</span>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Article 3 -->
-              <article class="blog-card-compact">
-                <div class="compact-img-wrap">
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=400&q=80" alt="Organic Poultry & Livestock" />
-                </div>
-                <div class="compact-content">
-                  <span class="cat-tag-sm"><i class="fas fa-chart-line me-1"></i> MARKET ANALYSIS</span>
-                  <h3 class="compact-title">
-                    <a href="/blog-details.html">Evaluating Risk & Return Profiles Across Organic Livestock & Grain Asset Pools</a>
-                  </h3>
-                  <div class="compact-meta">
-                    <span><i class="fas fa-calendar-alt"></i> Jul 20, 2026</span>
-                    <span><i class="fas fa-clock"></i> 6 min read</span>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Article 4 -->
-              <article class="blog-card-compact">
-                <div class="compact-img-wrap">
-                  <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=400&q=80" alt="Greenhouse Automation" />
-                </div>
-                <div class="compact-content">
-                  <span class="cat-tag-sm"><i class="fas fa-solar-panel me-1"></i> GREENHOUSE TECH</span>
-                  <h3 class="compact-title">
-                    <a href="/blog-details.html">Commercial Hydroponic Greenhouses: Accelerated Cycles & Multi-Harvest Yields</a>
-                  </h3>
-                  <div class="compact-meta">
-                    <span><i class="fas fa-calendar-alt"></i> Jul 12, 2026</span>
-                    <span><i class="fas fa-clock"></i> 3 min read</span>
-                  </div>
-                </div>
-              </article>
-            </div><!-- /.compact-articles-stack -->
-          </div><!-- /.col-lg-5 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- /.blog-section -->
-
-    <!-- Pre-footer high-yield CTA banner -->
-    <div class="footer-cta-sec">
-      <div class="container">
-        <div class="cta-banner-card" data-aos="zoom-in">
-          <span class="cta-badge"><i class="fas fa-seedling"></i> START YOUR JOURNEY TODAY</span>
-          <h2 class="cta-title">Ready to Co-Fund the Future of Sustainable Agriculture?</h2>
-          <p class="cta-desc">
-            Join over 15,000 global investors earning 14.5% to 22.8% target annual returns backed by 100% principal capital insurance and 24/7 field telemetry.
-          </p>
-          <div class="cta-btn-group">
-            <a href="/projects.html" class="btn-cta-primary">Start Co-Funding Pools <i class="fas fa-arrow-right ms-2"></i></a>
-            <a href="/about.html" class="btn-cta-secondary">Explore FarmVest Platform <i class="fas fa-arrow-right ms-2"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row gy-4 gy-lg-0">
-          
-          <!-- Brand & Tagline -->
-          <div class="col-lg-4 col-md-6">
-            <div class="footer-item">
-              <a href="/index.html" class="footer-item__logo">
-                <img loading="lazy" decoding="async" src="/images/logo-white.svg" alt="FarmVest White Logo" />
-              </a>
-              <p class="footer-item__desc">
-                FarmVest is a high-yield agriculture investment platform empowering global retail and institutional investors to co-fund sustainable farms, earn passive harvest returns, and secure global food production.
-              </p>
-
-              <!-- Newsletter Quick Subscribe -->
-              <div class="mb-4">
-                <label class="text-xs text-uppercase fw-bold text-success tracking-wider mb-2 d-block">Weekly Yield & Market Report</label>
-                <div class="input-group">
-                  <input type="email" class="form-control form-control-sm bg-dark border-secondary text-white" placeholder="Enter your email..." aria-label="Email for newsletter">
-                  <button class="btn btn-success btn-sm px-3" type="button"><i class="fas fa-paper-plane"></i></button>
+                <!-- Category Navigation Pills -->
+                <div class="faq-category-nav" id="faqCatNav">
+                  <button
+                    class="faq-cat-btn active"
+                    type="button"
+                    data-faq-cat="all"
+                  >
+                    <span class="cat-icon-text"
+                      ><i class="fas fa-layer-group"></i> All Questions</span
+                    >
+                    <i class="fas fa-chevron-right cat-arrow"></i>
+                  </button>
+                  <button
+                    class="faq-cat-btn"
+                    type="button"
+                    data-faq-cat="insurance"
+                  >
+                    <span class="cat-icon-text"
+                      ><i class="fas fa-shield-alt"></i> Capital &
+                      Insurance</span
+                    >
+                    <i class="fas fa-chevron-right cat-arrow"></i>
+                  </button>
+                  <button
+                    class="faq-cat-btn"
+                    type="button"
+                    data-faq-cat="payouts"
+                  >
+                    <span class="cat-icon-text"
+                      ><i class="fas fa-wallet"></i> Returns & Payouts</span
+                    >
+                    <i class="fas fa-chevron-right cat-arrow"></i>
+                  </button>
+                  <button
+                    class="faq-cat-btn"
+                    type="button"
+                    data-faq-cat="telemetry"
+                  >
+                    <span class="cat-icon-text"
+                      ><i class="fas fa-satellite-dish"></i> Field
+                      Telemetry</span
+                    >
+                    <i class="fas fa-chevron-right cat-arrow"></i>
+                  </button>
                 </div>
               </div>
+            </div>
 
-              <ul class="social-pill-row">
-                <li><a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" class="social-icon-btn" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
-                <li><a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-              </ul>
+            <!-- Accordion -->
+            <div class="col-lg-7" data-aos="fade-left" data-aos-delay="100">
+              <div
+                class="accordion faq-accordion-container"
+                id="faqAccordionV2"
+              >
+                <!-- Q1 -->
+                <div class="faq-card-v2 is-open" data-cat="all">
+                  <button
+                    class="faq-card-trigger"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse1"
+                    aria-expanded="true"
+                  >
+                    <div class="faq-trigger-left">
+                      <span class="faq-num-badge">01</span>
+                      <h3 class="faq-question-title">
+                        What is FarmVest and how does farm co-funding work?
+                      </h3>
+                    </div>
+                    <span class="faq-toggle-icon"
+                      ><i class="fas fa-chevron-down"></i
+                    ></span>
+                  </button>
+                  <div
+                    id="faqCollapse1"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#faqAccordionV2"
+                  >
+                    <div class="faq-card-collapse">
+                      <p class="faq-answer-text">
+                        FarmVest is a licensed agricultural fintech platform
+                        that pools investor capital to fund high-yield
+                        commercial farming projects. Professional agronomists
+                        manage operations, and upon harvest sale, capital and
+                        profits are distributed directly into your secure
+                        wallet.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="faq-card-v2" data-cat="insurance">
+                  <button
+                    class="faq-card-trigger collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse2"
+                    aria-expanded="false"
+                  >
+                    <div class="faq-trigger-left">
+                      <span class="faq-num-badge">02</span>
+                      <h3 class="faq-question-title">
+                        Are my capital and yields insured against drought or
+                        crop failure?
+                      </h3>
+                    </div>
+                    <span class="faq-toggle-icon"
+                      ><i class="fas fa-chevron-down"></i
+                    ></span>
+                  </button>
+                  <div
+                    id="faqCollapse2"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordionV2"
+                  >
+                    <div class="faq-card-collapse">
+                      <p class="faq-answer-text">
+                        Yes! 100% of projects listed on FarmVest are backed by
+                        comprehensive multi-peril agricultural insurance
+                        policies covering drought, pests, flooding, and yield
+                        shortfalls to protect your principal capital.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="faq-card-v2" data-cat="payouts">
+                  <button
+                    class="faq-card-trigger collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse3"
+                    aria-expanded="false"
+                  >
+                    <div class="faq-trigger-left">
+                      <span class="faq-num-badge">03</span>
+                      <h3 class="faq-question-title">
+                        How and when do I receive my interest payouts?
+                      </h3>
+                    </div>
+                    <span class="faq-toggle-icon"
+                      ><i class="fas fa-chevron-down"></i
+                    ></span>
+                  </button>
+                  <div
+                    id="faqCollapse3"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordionV2"
+                  >
+                    <div class="faq-card-collapse">
+                      <p class="faq-answer-text">
+                        Returns are paid according to the pool cycle
+                        schedule—either monthly, quarterly, or upon final
+                        harvest completion. Payouts are deposited directly into
+                        your FarmVest wallet in USD or local currency, available
+                        for instant bank withdrawal.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-card-v2" data-cat="telemetry">
+                  <button
+                    class="faq-card-trigger collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse4"
+                    aria-expanded="false"
+                  >
+                    <div class="faq-trigger-left">
+                      <span class="faq-num-badge">04</span>
+                      <h3 class="faq-question-title">
+                        How can I track my farm's progress in real-time?
+                      </h3>
+                    </div>
+                    <span class="faq-toggle-icon"
+                      ><i class="fas fa-chevron-down"></i
+                    ></span>
+                  </button>
+                  <div
+                    id="faqCollapse4"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordionV2"
+                  >
+                    <div class="faq-card-collapse">
+                      <p class="faq-answer-text">
+                        Every investor gets access to 24/7 field telemetry via
+                        their dashboard, including bi-weekly drone footage,
+                        satellite soil moisture indexing, temperature logs, and
+                        direct field reports from managing agronomists.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="faq-card-v2" data-cat="all">
+                  <button
+                    class="faq-card-trigger collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse5"
+                    aria-expanded="false"
+                  >
+                    <div class="faq-trigger-left">
+                      <span class="faq-num-badge">05</span>
+                      <h3 class="faq-question-title">
+                        What is the minimum investment amount to start?
+                      </h3>
+                    </div>
+                    <span class="faq-toggle-icon"
+                      ><i class="fas fa-chevron-down"></i
+                    ></span>
+                  </button>
+                  <div
+                    id="faqCollapse5"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordionV2"
+                  >
+                    <div class="faq-card-collapse">
+                      <p class="faq-answer-text">
+                        You can start co-funding agricultural asset pools with
+                        as little as $250. There are no lock-up surprises, and
+                        maturity terms range from 90 days to 24 months depending
+                        on the crop cycle.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="faq-card-v2" data-cat="payouts">
+                  <button
+                    class="faq-card-trigger collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqCollapse6"
+                    aria-expanded="false"
+                  >
+                    <div class="faq-trigger-left">
+                      <span class="faq-num-badge">06</span>
+                      <h3 class="faq-question-title">
+                        Can I re-invest my harvest profits automatically?
+                      </h3>
+                    </div>
+                    <span class="faq-toggle-icon"
+                      ><i class="fas fa-chevron-down"></i
+                    ></span>
+                  </button>
+                  <div
+                    id="faqCollapse6"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordionV2"
+                  >
+                    <div class="faq-card-collapse">
+                      <p class="faq-answer-text">
+                        Yes! FarmVest provides an automated Auto-Compound
+                        feature allowing you to automatically re-invest harvest
+                        earnings into upcoming seasonal crop pools for
+                        continuous compound yield growth.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <!-- Quick Navigation -->
-          <div class="col-lg-2 col-md-6 col-6">
-            <div class="footer-item">
-              <h4 class="footer-item__title">Navigation</h4>
-              <ul class="footer-menu">
-                <li class="footer-menu__item"><a href="/index.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Home</a></li>
-                <li class="footer-menu__item"><a href="/projects.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Yield Pools</a></li>
-                <li class="footer-menu__item"><a href="/about.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> About Us</a></li>
-                <li class="footer-menu__item"><a href="/blog.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Insights</a></li>
-                <li class="footer-menu__item"><a href="/contact.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Support</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Active Asset Pools -->
-          <div class="col-lg-3 col-md-6 col-6">
-            <div class="footer-item">
-              <h4 class="footer-item__title">Active Asset Pools</h4>
-              <ul class="footer-menu">
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-leaf text-xs text-success me-1"></i> Organic Rice Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-drumstick-bite text-xs text-success me-1"></i> Poultry Expansion Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-pepper-hot text-xs text-success me-1"></i> Tomato Hydroponics Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-cow text-xs text-success me-1"></i> Angus Cattle Ranch Pool</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Contact & Security -->
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-item">
-              <h4 class="footer-item__title">Headquarters & Support</h4>
-              <ul class="contact-list">
-                <li class="contact-list__item">
-                  <i class="fas fa-location-dot text-success"></i>
-                  <span>100 Innovation Park, AgriTech Way, San Francisco, CA 94105</span>
-                </li>
-                <li class="contact-list__item">
-                  <i class="fas fa-envelope text-success"></i>
-                  <a href="mailto:support@farmvest.com">support@farmvest.com</a>
-                </li>
-                <li class="contact-list__item">
-                  <i class="fas fa-phone text-success"></i>
-                  <a href="tel:+18005553276">+1 (800) 555-FARM</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- Bottom bar -->
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 text-center text-md-start">
-            <p class="footer-bottom__text">
-              Copyright &copy; 2026 <a href="/index.html">FarmVest Inc.</a> All rights reserved.
+      <!-- Partner marquee -->
+      <section class="marquee-section">
+        <div class="container-fluid px-0">
+          <div class="marquee-header" data-aos="fade-up">
+            <span class="marquee-badge"
+              ><i class="fas fa-handshake"></i> GLOBAL ECOSYSTEM PARTNERS</span
+            >
+            <p class="marquee-subtext">
+              Co-funding, insurance, telemetry, and institutional banking
+              powered by industry leaders
             </p>
           </div>
-          <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
-            <span class="text-xs text-light me-3"><i class="fas fa-shield-alt text-success me-1"></i> 100% Capital Insured & Bank-Grade SSL</span>
-            <ul class="list-inline d-inline-block mb-0 text-sm">
-              <li class="list-inline-item"><a href="/privacy-policy.html">Privacy Policy</a></li>
-              <li class="list-inline-item me-2 ms-2">|</li>
-              <li class="list-inline-item"><a href="/terms-of-service.html">Terms of Service</a></li>
-            </ul>
+
+          <div class="marquee-wrapper">
+            <div class="marquee-track">
+              <!-- Set 1 -->
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/john-deere.svg"
+                  alt="John Deere"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/cargill.svg"
+                  alt="Cargill"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/syngenta.svg"
+                  alt="Syngenta"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/bayer-cropscience.svg"
+                  alt="Bayer CropScience"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/corteva.svg"
+                  alt="Corteva Agriscience"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/rabobank.svg"
+                  alt="Rabobank AgriFinance"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/world-bank-agri.svg"
+                  alt="World Bank Agriculture"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/usaid-agri.svg"
+                  alt="USAID Agriculture"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/kubota.svg"
+                  alt="Kubota Agri Machinery"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/fao-un.svg"
+                  alt="FAO United Nations"
+                />
+              </div>
+
+              <!-- Set 2 (duplicated for seamless loop) -->
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/john-deere.svg"
+                  alt="John Deere"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/cargill.svg"
+                  alt="Cargill"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/syngenta.svg"
+                  alt="Syngenta"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/bayer-cropscience.svg"
+                  alt="Bayer CropScience"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/corteva.svg"
+                  alt="Corteva Agriscience"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/rabobank.svg"
+                  alt="Rabobank AgriFinance"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/world-bank-agri.svg"
+                  alt="World Bank Agriculture"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/usaid-agri.svg"
+                  alt="USAID Agriculture"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/kubota.svg"
+                  alt="Kubota Agri Machinery"
+                />
+              </div>
+              <div class="marquee-item">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="/images/partners/fao-un.svg"
+                  alt="FAO United Nations"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- News & insights -->
+      <section class="blog-section" id="news">
+        <div class="container">
+          <!-- Split Header Row -->
+          <div class="blog-header-row" data-aos="fade-up">
+            <div>
+              <span class="blog-badge"
+                ><i class="fas fa-newspaper"></i> MARKET INTELLIGENCE &amp;
+                RESEARCH</span
+              >
+              <h2 class="blog-section-title">
+                Latest Market Updates &amp; Farming Insights
+              </h2>
+            </div>
+            <a href="/blog.html" class="btn-blog-all"
+              >Explore All Insights <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <!-- 3-Column Equal Grid Layout -->
+          <div class="row gy-4">
+            <!-- Article 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+              <article class="blog-grid-card">
+                <div class="blog-grid-img-wrap">
+                  <a href="/blog-details.html?id=1">
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="/images/about-vision-rice.png"
+                      alt="Smart Farming Tech"
+                    />
+                  </a>
+                  <span class="cat-badge"
+                    ><i class="fas fa-leaf me-1"></i> AGRONOMY TECH</span
+                  >
+                  <span class="read-time-pill"
+                    ><i class="fas fa-clock me-1"></i> 5 min read</span
+                  >
+                </div>
+                <div class="blog-grid-body">
+                  <div class="article-date-meta">
+                    <i class="fas fa-calendar-alt text-success"></i> Aug 03,
+                    2026 · By Dr. Aris Thorne
+                  </div>
+                  <h3 class="article-grid-title">
+                    <a href="/blog-details.html?id=1"
+                      >Why Sustainable Farm Co-Funding is Outperforming
+                      Traditional Assets in 2026</a
+                    >
+                  </h3>
+                  <p class="article-grid-desc">
+                    Discover how global food security demands, satellite
+                    telemetry monitoring, and automated yield cycles are
+                    creating inflation-protected portfolios.
+                  </p>
+                  <a href="/blog-details.html?id=1" class="btn-read-story">
+                    Read Full Article <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Article 2 -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <article class="blog-grid-card">
+                <div class="blog-grid-img-wrap">
+                  <a href="/blog-details.html?id=2">
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="/images/farm-telemetry.png"
+                      alt="IoT Soil Moisture Sensors"
+                    />
+                  </a>
+                  <span class="cat-badge"
+                    ><i class="fas fa-tower-cell me-1"></i> FIELD
+                    TELEMETRY</span
+                  >
+                  <span class="read-time-pill"
+                    ><i class="fas fa-clock me-1"></i> 6 min read</span
+                  >
+                </div>
+                <div class="blog-grid-body">
+                  <div class="article-date-meta">
+                    <i class="fas fa-calendar-alt text-success"></i> Jul 28,
+                    2026 · By Elena Rostova
+                  </div>
+                  <h3 class="article-grid-title">
+                    <a href="/blog-details.html?id=2"
+                      >How Satellite &amp; IoT Soil Moisture Sensors Boost Crop
+                      Yields by 40%</a
+                    >
+                  </h3>
+                  <p class="article-grid-desc">
+                    Explore how micro-sensor arrays and autonomous NDVI
+                    satellite imaging provide real-time field data for maximum
+                    crop harvest optimization.
+                  </p>
+                  <a href="/blog-details.html?id=2" class="btn-read-story">
+                    Read Full Article <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Article 3 -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <article class="blog-grid-card">
+                <div class="blog-grid-img-wrap">
+                  <a href="/blog-details.html?id=3">
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src="/images/pool-cattle.png"
+                      alt="Organic Livestock Asset Pools"
+                    />
+                  </a>
+                  <span class="cat-badge"
+                    ><i class="fas fa-chart-line me-1"></i> MARKET
+                    ANALYSIS</span
+                  >
+                  <span class="read-time-pill"
+                    ><i class="fas fa-clock me-1"></i> 7 min read</span
+                  >
+                </div>
+                <div class="blog-grid-body">
+                  <div class="article-date-meta">
+                    <i class="fas fa-calendar-alt text-success"></i> Jul 20,
+                    2026 · By Marcus Vance
+                  </div>
+                  <h3 class="article-grid-title">
+                    <a href="/blog-details.html?id=3"
+                      >Evaluating Risk &amp; Return Profiles Across Organic
+                      Livestock &amp; Grain Asset Pools</a
+                    >
+                  </h3>
+                  <p class="article-grid-desc">
+                    An analytical breakdown of historical yield performance,
+                    crop insurance coverage, and pre-negotiated wholesale
+                    off-take contracts.
+                  </p>
+                  <a href="/blog-details.html?id=3" class="btn-read-story">
+                    Read Full Article <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </section>
+      <!-- /.blog-section -->
+
+      <!-- Pre-footer minimal high-converting CTA banner -->
+      <section class="ab-cta-sec">
+        <div class="container">
+          <div class="cta-minimal-card text-center" data-aos="fade-up">
+            <div class="d-flex justify-content-center mb-3">
+              <span class="cta-mini-tag">
+                <i class="fas fa-leaf me-1"></i> START CO-FUNDING TODAY
+              </span>
+            </div>
+            <h2 class="cta-mini-title mx-auto mb-4">
+              Ready to Co-Fund Insured
+              <span class="text-amber">High-Yield Farms?</span>
+            </h2>
+            <div
+              class="cta-mini-actions d-flex flex-wrap justify-content-center gap-3"
+            >
+              <a href="/auth/register.html" class="btn-cta-primary-minimal">
+                Start Earning Today <i class="fas fa-arrow-right ms-1"></i>
+              </a>
+              <a href="/projects.html" class="btn-cta-secondary-minimal">
+                <i class="fas fa-compass me-1"></i> Explore Active Pools
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4 gy-lg-0">
+
+            <!-- Brand Column -->
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <a href="/index.html" class="footer-item__logo">
+                  <img loading="lazy" decoding="async" src="/images/logo-white.svg" alt="FarmVest White Logo" />
+                </a>
+                <p class="footer-item__desc">
+                  We are dedicated to helping you achieve greater success in farming through smart investments and innovative agricultural solutions.
+                </p>
+                <ul class="social-pill-row">
+                  <li><a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="#" class="social-icon-btn" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
+                  <li><a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="col-lg-2 col-md-6 col-6">
+              <div class="footer-item">
+                <h4 class="footer-item__title">Quick Links</h4>
+                <ul class="footer-menu">
+                  <li class="footer-menu__item"><a href="/index.html" class="footer-menu__link">Home</a></li>
+                  <li class="footer-menu__item"><a href="/about.html" class="footer-menu__link">About</a></li>
+                  <li class="footer-menu__item"><a href="/projects.html" class="footer-menu__link">Yield Pools</a></li>
+                  <li class="footer-menu__item"><a href="/blog.html" class="footer-menu__link">Insights</a></li>
+                  <li class="footer-menu__item"><a href="/faq.html" class="footer-menu__link">FAQs</a></li>
+                  <li class="footer-menu__item"><a href="/contact.html" class="footer-menu__link">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Latest Pools Column -->
+            <div class="col-lg-2 col-md-6 col-6">
+              <div class="footer-item">
+                <h4 class="footer-item__title">Latest Pools</h4>
+                <ul class="footer-menu">
+                  <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Blueberry Hydroponi...</a></li>
+                  <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Organic Wheat &amp; Gra...</a></li>
+                  <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Citrus Orchards</a></li>
+                  <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Poultry Expansion</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Policy Pages Column -->
+            <div class="col-lg-2 col-md-6 col-6">
+              <div class="footer-item">
+                <h4 class="footer-item__title">Policy Pages</h4>
+                <ul class="footer-menu">
+                  <li class="footer-menu__item"><a href="/privacy-policy.html" class="footer-menu__link">Privacy Policy</a></li>
+                  <li class="footer-menu__item"><a href="/terms-of-service.html" class="footer-menu__link">Terms Of Service</a></li>
+                  <li class="footer-menu__item"><a href="/refund-policy.html" class="footer-menu__link">Refund Policy</a></li>
+                  <li class="footer-menu__item"><a href="/cookie-policy.html" class="footer-menu__link">Cookie Policy</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Contact Info Column -->
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <h4 class="footer-item__title">Contact Info</h4>
+                <ul class="contact-list">
+                  <li class="contact-list__item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:support@farmvest.com">support@farmvest.com</a>
+                  </li>
+                  <li class="contact-list__item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+18005553276">+1 (800) 555-FARM</a>
+                  </li>
+                  <li class="contact-list__item">
+                    <i class="fas fa-location-dot"></i>
+                    <span>100 Innovation Park, San Francisco, CA 94105</span>
+                  </li>
+                </ul>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row align-items-center gy-2">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="footer-bottom__text">
+                &copy; 2026 <a href="/index.html">FarmVest Inc.</a> All rights reserved.
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end footer-bottom-links">
+              <a href="/privacy-policy.html">Privacy</a>
+              <a href="/terms-of-service.html">Terms</a>
+              <a href="/refund-policy.html">Refunds</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cookie consent -->
+    <div class="cookie-consent">
+      <div class="cookie-consent__icon"><i class="fas fa-cookie-bite"></i></div>
+      <p class="cookie-consent__text">
+        We use cookies to analyze performance and optimize your investment
+        experience on FarmVest. Read our
+        <a href="/cookie-policy.html">Cookie Policy</a> to learn more.
+      </p>
+      <button
+        type="button"
+        class="btn btn--primary btn--sm cookie-consent__btn"
+      >
+        Accept All Cookies
+      </button>
     </div>
-  </footer>
 
-  <!-- Cookie consent -->
-  <div class="cookie-consent">
-    <div class="cookie-consent__icon"><i class="fas fa-cookie-bite"></i></div>
-    <p class="cookie-consent__text">
-      We use cookies to analyze performance and optimize your investment experience on FarmVest. Read our <a href="/cookie-policy.html">Cookie Policy</a> to learn more.
-    </p>
-    <button type="button" class="btn btn--primary btn--sm cookie-consent__btn">Accept All Cookies</button>
-  </div>
+    <!-- Toast container -->
+    <div class="toast-container"></div>
 
-  <!-- Toast container -->
-  <div class="toast-container"></div>
-
-  <!-- Back to top -->
-  <button type="button" class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-</body>
+    <!-- Back to top -->
+    <button type="button" class="back-to-top" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </body>
 </html>

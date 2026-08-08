@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Support — FarmVest Customer Service</title>
+  <meta name="description" content="Get in touch with FarmVest's support team. We're here to help with questions about investments, yields, and agricultural financing." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Stylesheet & scripts -->
+  <script type="module" src="/src/js/main.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+<body class="contact-page">
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader__content">
+      <div class="preloader__logo-box">
+        <img src="/images/logo-white.svg" alt="FarmVest Loading" width="64" height="64" fetchpriority="high" />
+      </div>
+      <div class="preloader__text">Farm<span>Vest</span></div>
+      <div class="preloader__progress-bar">
+        <div class="preloader__progress-bar-inner"></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-wrapper">
+
+    <!-- ============================================================ -->
+    <!-- HERO & GLASS FLOATING NAV BAR -->
+    <!-- ============================================================ -->
+    <section class="hero-agroly inner-page-hero" style="min-height: auto;">
+      <img src="/images/contact-hero.png" class="hero-agroly__bg" alt="Modern agritech office interior with green views" fetchpriority="high" decoding="async" />
+
+      <div class="container position-relative z-2">
+        <!-- Floating glass nav bar -->
+        <nav class="agroly-nav">
+          <a class="brand-logo" href="/index.html" title="FarmVest Home">
+            <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="46" height="46" />
+            <span class="brand-text">Farm<span>Vest</span></span>
+          </a>
+
+          <ul class="glass-menu-pill d-none d-lg-flex">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/projects.html">Yield Pools</a></li>
+            <li><a href="/blog.html">Insights</a></li>
+            <li><a href="/contact.html" class="active">Contact</a></li>
+          </ul>
+
+          <a href="/auth/register.html" class="btn-agroly-connect d-none d-lg-inline-flex">Start Earning</a>
+
+          <button class="nav-burger d-lg-none" type="button" aria-label="Open navigation menu" aria-controls="mobileNav" aria-expanded="false" data-nav-open>
+            <span></span><span></span><span></span>
+          </button>
+        </nav>
+
+        <!-- Mobile navigation drawer -->
+        <div class="mobile-nav-backdrop" data-nav-close hidden></div>
+        <aside id="mobileNav" class="mobile-nav" aria-hidden="true">
+          <div class="mobile-nav__head">
+            <a class="brand-logo" href="/index.html" title="FarmVest Home">
+              <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="40" height="40" />
+              <span class="brand-text">Farm<span>Vest</span></span>
+            </a>
+            <button class="nav-close" type="button" aria-label="Close navigation menu" data-nav-close>
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+          <ul class="mobile-nav__links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/projects.html">Yield Pools</a></li>
+            <li><a href="/blog.html">Insights</a></li>
+            <li><a href="/contact.html" class="active">Contact</a></li>
+          </ul>
+          <a href="/auth/register.html" class="btn-agroly-connect mobile-nav__cta">Start Earning</a>
+        </aside>
+
+        <!-- Hero Content -->
+        <div class="pools-hero-content text-center py-5">
+          <div class="pools-hero-breadcrumb mb-3">
+            <a href="/index.html"><i class="fas fa-house me-1"></i> Home</a>
+            <span class="sep">//</span>
+            <span class="current">Contact Us</span>
+          </div>
+          <h1 class="pools-hero-title">
+            Get in Touch With <span class="highlight">Our Advisory Team</span>
+          </h1>
+          <p class="pools-hero-sub mx-auto mb-0">
+            Have questions about farm pool co-funding, multi-peril crop insurance, or yield distributions? Our team is available 24/7.
+          </p>
+        </div>
+      </div>
+
+      <!-- Dark overlay -->
+      <div class="about-hero-banner__overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,46,27,0.7) 0%,rgba(11,24,16,0.92) 100%);z-index:1;pointer-events:none;"></div>
+    </section>
+
+    <!-- CONTACT CONTENT -->
+    <section class="section py-5" style="background-color: #F8FAFC;">
+      <div class="container">
+        <div class="row gy-5">
+          <!-- Contact Info Cards -->
+          <div class="col-lg-4">
+            <div class="row gy-4">
+              <div class="col-12" data-aos="fade-up">
+                <div class="contact-info-card h-100">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="cic-icon">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                      <h3 class="h6 font-serif fw-bold text-dark mb-0">Email Support</h3>
+                      <span class="text-xs text-muted">Response in ~2 hrs</span>
+                    </div>
+                  </div>
+                  <p class="text-muted text-sm mb-2">24/7 support inbox monitored by our investment advisors.</p>
+                  <a href="mailto:support@farmvest.com" class="text-success font-weight-bold text-decoration-none">support@farmvest.com <i class="fas fa-arrow-right text-xs ms-1"></i></a>
+                </div>
+              </div>
+
+              <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info-card h-100">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="cic-icon">
+                      <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                      <h3 class="h6 font-serif fw-bold text-dark mb-0">Phone Hotline</h3>
+                      <span class="text-xs text-muted">Toll Free</span>
+                    </div>
+                  </div>
+                  <p class="text-muted text-sm mb-2">Speak directly with our AgriFinance specialists.</p>
+                  <a href="tel:+18005553276" class="text-success font-weight-bold text-decoration-none">+1 (800) 555-FARM <i class="fas fa-arrow-right text-xs ms-1"></i></a>
+                  <p class="text-xs text-muted mt-2 mb-0">Mon-Fri: 6am-10pm PST | Weekend: 8am-6pm PST</p>
+                </div>
+              </div>
+
+              <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="contact-info-card h-100">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="cic-icon">
+                      <i class="fas fa-location-dot"></i>
+                    </div>
+                    <div>
+                      <h3 class="h6 font-serif fw-bold text-dark mb-0">Head Office</h3>
+                      <span class="text-xs text-muted">San Francisco, CA</span>
+                    </div>
+                  </div>
+                  <p class="text-muted text-sm mb-0">100 Innovation Park<br>AgriTech Way, San Francisco, CA 94105</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="col-lg-8" data-aos="fade-left">
+            <div class="contact-form-box">
+              <h2 class="h3 font-serif fw-bold text-dark mb-2">Send Us a Message</h2>
+              <p class="text-muted mb-4">Have a question about agricultural financing or investment pools? Our team typically responds within 2 business hours.</p>
+
+              <form id="contactForm" class="needs-validation" onsubmit="event.preventDefault();">
+                <div class="row gy-3">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="firstName" class="form-label font-weight-bold text-dark">First Name *</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="John" required />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="lastName" class="form-label font-weight-bold text-dark">Last Name *</label>
+                      <input type="text" class="form-control" id="lastName" placeholder="Doe" required />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="email" class="form-label font-weight-bold text-dark">Email Address *</label>
+                      <input type="email" class="form-control" id="email" placeholder="john.doe@example.com" required />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="phone" class="form-label font-weight-bold text-dark">Phone Number</label>
+                      <input type="tel" class="form-control" id="phone" placeholder="+1 (555) 123-4567" />
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="subject" class="form-label font-weight-bold text-dark">Subject *</label>
+                      <select class="form-select" id="subject" required>
+                        <option value="" selected disabled>Select a topic...</option>
+                        <option value="pool-inquiry">Pool Investment Inquiry</option>
+                        <option value="account">Account & Dashboard Support</option>
+                        <option value="withdrawal">Withdrawal & Payouts</option>
+                        <option value="telemetry">Farm Telemetry Access</option>
+                        <option value="partnership">Partnership Opportunities</option>
+                        <option value="other">Other Question</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="message" class="form-label font-weight-bold text-dark">Message *</label>
+                      <textarea class="form-control" id="message" rows="5" placeholder="Tell us how we can help..." required></textarea>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="agreeTerms" required />
+                      <label class="form-check-label text-sm text-muted" for="agreeTerms">
+                        I agree to the <a href="/privacy-policy.html" class="text-success text-decoration-none">Privacy Policy</a> and <a href="/terms-of-service.html" class="text-success text-decoration-none">Terms of Service</a>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="col-12 mt-4">
+                    <button type="submit" class="ab-btn-primary border-0">
+                      <i class="fas fa-paper-plane me-2"></i>Send Message
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================================ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4 gy-lg-0">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-item">
+              <a href="/index.html" class="footer-item__logo">
+                <img src="/images/logo-white.svg" alt="FarmVest White Logo" />
+              </a>
+              <p class="footer-item__desc">
+                FarmVest is a high-yield agriculture investment platform empowering global investors to co-fund sustainable farms, earn competitive passive returns, and build a food-secure future.
+              </p>
+              <ul class="social-pill-row">
+                <li><a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" class="social-icon-btn" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
+                <li><a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 col-6">
+            <div class="footer-item">
+              <h4 class="footer-item__title">Navigation</h4>
+              <ul class="footer-menu">
+                <li class="footer-menu__item"><a href="/index.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Home</a></li>
+                <li class="footer-menu__item"><a href="/projects.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Yield Pools</a></li>
+                <li class="footer-menu__item"><a href="/about.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> About Us</a></li>
+                <li class="footer-menu__item"><a href="/blog.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Insights</a></li>
+                <li class="footer-menu__item"><a href="/contact.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Support</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-6">
+            <div class="footer-item">
+              <h4 class="footer-item__title">Active Asset Pools</h4>
+              <ul class="footer-menu">
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-leaf text-xs text-success me-1"></i> Organic Rice Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-drumstick-bite text-xs text-success me-1"></i> Poultry Expansion Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-pepper-hot text-xs text-success me-1"></i> Tomato Hydroponics Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-cow text-xs text-success me-1"></i> Angus Cattle Ranch Pool</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-item">
+              <h4 class="footer-item__title">Headquarters & Support</h4>
+              <ul class="contact-list">
+                <li class="contact-list__item">
+                  <i class="fas fa-location-dot text-success"></i>
+                  <span>100 Innovation Park, AgriTech Way, San Francisco, CA 94105</span>
+                </li>
+                <li class="contact-list__item">
+                  <i class="fas fa-envelope text-success"></i>
+                  <a href="mailto:support@farmvest.com">support@farmvest.com</a>
+                </li>
+                <li class="contact-list__item">
+                  <i class="fas fa-phone text-success"></i>
+                  <a href="tel:+18005553276">+1 (800) 555-FARM</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="footer-bottom__text">
+              Copyright &copy; 2026 <a href="/index.html">FarmVest Inc.</a> All rights reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+            <span class="text-xs text-light me-3"><i class="fas fa-shield-alt text-success me-1"></i> 100% Capital Insured & Bank-Grade SSL</span>
+            <ul class="list-inline d-inline-block mb-0 text-sm">
+              <li class="list-inline-item"><a href="/privacy-policy.html">Privacy Policy</a></li>
+              <li class="list-inline-item me-2 ms-2">|</li>
+              <li class="list-inline-item"><a href="/terms-of-service.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie consent -->
+  <div class="cookie-consent">
+    <div class="cookie-consent__icon"><i class="fas fa-cookie-bite"></i></div>
+    <p class="cookie-consent__text">
+      We use cookies to analyze performance and optimize your investment experience on FarmVest. Read our <a href="/cookie-policy.html">Cookie Policy</a> to learn more.
+    </p>
+    <button type="button" class="btn btn--primary btn--sm cookie-consent__btn">Accept All Cookies</button>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+
+  <!-- Back to top -->
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+</body>
+</html>

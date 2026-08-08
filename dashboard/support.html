@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agronomist Support — FarmVest</title>
+  <meta name="description" content="Get help from the FarmVest support team — submit a ticket, browse FAQs, or contact us." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <script type="module" src="/src/js/dashboard.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+<body class="dashboard-page">
+  <div class="dashboard">
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dashboard__sidebar">
+      <div class="dashboard__brand">
+        <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+      </div>
+
+      <!-- User Profile Badge in Sidebar -->
+      <div class="p-3 mx-3 mt-3 rounded-4 bg-light border text-center">
+        <div class="position-relative d-inline-block mb-2">
+          <img src="/images/team-sarah.png" alt="User Profile" class="rounded-circle border border-2 border-success" width="54" height="54" style="object-fit:cover;" />
+          <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" style="width:12px;height:12px;"></span>
+        </div>
+        <h6 class="fw-bold text-dark mb-0 dashboard__user-name">James Wilson</h6>
+        <span class="text-xs text-muted d-block mb-2">Verified Investor</span>
+        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs">
+          <i class="fa-solid fa-circle-check me-1"></i> Active Portfolio
+        </span>
+      </div>
+
+      <nav class="dashboard__nav">
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Portfolio & Growth</p>
+          <a href="/dashboard/index.html" class="dashboard__nav-item"><i class="fa-solid fa-chart-pie me-2"></i> Overview</a>
+          <a href="/dashboard/investments.html" class="dashboard__nav-item"><i class="fa-solid fa-wheat-awn me-2"></i> My Farm Pools</a>
+          <a href="/dashboard/transactions.html" class="dashboard__nav-item"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Payout Ledger</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Capital Management</p>
+          <a href="/dashboard/deposit.html" class="dashboard__nav-item"><i class="fa-solid fa-wallet me-2"></i> Deposit Funds</a>
+          <a href="/dashboard/withdraw.html" class="dashboard__nav-item"><i class="fa-solid fa-money-bill-transfer me-2"></i> Withdraw Yield</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Account & Services</p>
+          <a href="/dashboard/profile.html" class="dashboard__nav-item"><i class="fa-solid fa-user-gear me-2"></i> Profile & Security</a>
+          <a href="/dashboard/support.html" class="dashboard__nav-item active"><i class="fa-solid fa-headset me-2"></i> Agronomist Support</a>
+          <a href="/projects.html" class="dashboard__nav-item"><i class="fa-solid fa-store me-2"></i> Explore Open Pools</a>
+        </div>
+      </nav>
+
+      <div class="dashboard__sidebar-footer">
+        <button type="button" data-logout-btn class="btn btn-outline-danger w-100 rounded-pill btn-sm font-weight-bold">
+          <i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-backdrop"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard__main">
+
+      <!-- TOPBAR -->
+      <header class="dashboard__topbar">
+        <div class="dashboard__topbar-left">
+          <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="dashboard__search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search farm pools, yields, payout dates…" aria-label="Search dashboard" />
+          </div>
+        </div>
+
+        <div class="dashboard__topbar-right">
+          <div class="d-none d-md-flex align-items-center gap-2 px-3 py-1 bg-light rounded-pill border text-xs text-muted">
+            <span class="pulse-dot"></span>
+            <span>Munich Re Protected</span>
+          </div>
+
+          <!-- Dark / Light Mode Toggle Button -->
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <!-- Notifications Dropdown -->
+          <div class="dropdown">
+            <button class="dashboard__topbar-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+              <i class="fa-solid fa-bell"></i>
+              <span class="dashboard__topbar-btn__badge"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end notification-dropdown-menu mt-2">
+              <div class="notification-dropdown-menu__header">
+                <div class="d-flex align-items-center gap-2">
+                  <h6 class="fw-bold text-dark mb-0">Notifications</h6>
+                  <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0 text-xs">3 New</span>
+                </div>
+                <a href="#" class="text-xs text-success text-decoration-none font-weight-bold">Mark all read</a>
+              </div>
+              <div class="notification-dropdown-menu__body">
+                <a href="/dashboard/transactions.html" class="notification-dropdown-menu__item is-unread">
+                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--success">
+                    <i class="fa-solid fa-money-bill-trend-up"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark fw-semibold">Yield Distribution Completed</strong>
+                    <p class="text-xs text-muted mb-1">+$620.00 dividend credited from Basmati Rice Pool #04.</p>
+                    <span class="text-xs text-muted opacity-75">10 mins ago</span>
+                  </div>
+                </a>
+                <a href="/dashboard/investments.html" class="notification-dropdown-menu__item is-unread">
+                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--amber">
+                    <i class="fa-solid fa-seedling"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark fw-semibold">Harvest Milestone Reached</strong>
+                    <p class="text-xs text-muted mb-1">Smart Hydroponic Tomato Greenhouse reached Stage 4: Pre-Harvest (92%).</p>
+                    <span class="text-xs text-muted opacity-75">2 hours ago</span>
+                  </div>
+                </a>
+                <a href="/dashboard/support.html" class="notification-dropdown-menu__item is-unread">
+                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--blue">
+                    <i class="fa-solid fa-headset"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark fw-semibold">Agronomist Report Available</strong>
+                    <p class="text-xs text-muted mb-1">Dr. Marcus Vance uploaded soil moisture & satellite telemetry data.</p>
+                    <span class="text-xs text-muted opacity-75">Yesterday</span>
+                  </div>
+                </a>
+              </div>
+              <div class="p-2 text-center border-top bg-light">
+                <a href="/dashboard/support.html" class="text-xs text-muted text-decoration-none">View All System Alerts</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Menu Dropdown -->
+          <div class="dropdown">
+            <div class="dashboard__user-menu" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="dashboard__user-avatar">
+                <img src="/images/team-sarah.png" alt="James Wilson" />
+              </div>
+              <span class="dashboard__user-name">James Wilson</span>
+              <i class="fa-solid fa-chevron-down text-xs text-muted ms-1"></i>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <li><a class="dropdown-item text-sm" href="/dashboard/profile.html"><i class="fa-solid fa-user me-2 text-success"></i> My Profile</a></li>
+              <li><a class="dropdown-item text-sm" href="/dashboard/investments.html"><i class="fa-solid fa-wheat-awn me-2 text-success"></i> My Farm Pools</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-sm text-danger" href="#" data-logout-btn><i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <main class="dashboard__content">
+        <div class="dashboard__page-header">
+          <h1 class="dashboard__page-title">Agronomist & Help Center</h1>
+          <p class="dashboard__page-desc">Need assistance with harvest cycles or telemetry data? Contact your dedicated agronomist.</p>
+        </div>
+
+        <!-- Assigned Agronomist Banner -->
+        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-light">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <div class="d-flex align-items-center gap-3">
+              <img src="/images/team-marcus.png" class="rounded-circle border border-2 border-success" width="64" height="64" style="object-fit: cover;" alt="Dr. Marcus Vance" />
+              <div>
+                <h2 class="h6 font-heading fw-bold text-dark mb-1">Dr. Marcus Vance</h2>
+                <p class="text-xs text-muted mb-0"><i class="fa-solid fa-user-graduate text-success me-1"></i> Lead Soil Scientist & Telemetry Agronomist &bull; <span class="text-success fw-bold"><i class="fa-solid fa-circle text-xs me-1"></i>Online Now</span></p>
+              </div>
+            </div>
+            <div class="d-flex gap-2">
+              <a href="mailto:support@farmvest.com" class="btn btn-outline-success btn-sm rounded-pill font-weight-bold px-3"><i class="fa-solid fa-envelope me-1"></i> Direct Email</a>
+              <button class="ab-btn-primary btn-sm py-2 px-4"><i class="fa-solid fa-comments me-1"></i> Start Live Chat</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Submit a ticket -->
+          <div class="col-lg-8">
+            <form id="supportForm" class="stat-card">
+              <h2 class="h6 font-heading fw-bold text-dark mb-4"><i class="fa-solid fa-pen-to-square text-success me-2"></i>Submit Support Inquiry</h2>
+              <div class="form-group mb-3">
+                <label class="form-label text-xs text-uppercase font-weight-bold text-muted">Subject / Category</label>
+                <select class="form-select w-100" required>
+                  <option value="">Select a topic…</option>
+                  <option>Deposits &amp; Withdrawals</option>
+                  <option>Investment Pool Telemetry</option>
+                  <option>Payout &amp; Dividend Schedule</option>
+                  <option>Account &amp; KYC Verification</option>
+                  <option>Technical Assistance</option>
+                </select>
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label text-xs text-uppercase font-weight-bold text-muted">Priority Level</label>
+                <select class="form-select w-100">
+                  <option>Low Priority</option>
+                  <option selected>Normal Priority</option>
+                  <option>High Priority</option>
+                  <option>Urgent / Critical</option>
+                </select>
+              </div>
+              <div class="form-group mb-4">
+                <label class="form-label text-xs text-uppercase font-weight-bold text-muted">Message Details</label>
+                <textarea class="form-control w-100" rows="5" placeholder="Describe your question or telemetry inquiry in detail…" required></textarea>
+              </div>
+              <button type="submit" class="ab-btn-primary py-2 px-4 rounded-pill font-weight-bold"><i class="fa-solid fa-paper-plane me-2"></i> Submit Ticket</button>
+            </form>
+          </div>
+
+          <!-- Quick links + contact -->
+          <div class="col-lg-4">
+            <div class="stat-card mb-4">
+              <div class="data-table__title mb-3">Quick Help</div>
+              <ul class="list-unstyled mb-0">
+                <li class="py-2 border-bottom"><a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-dark"><i class="fas fa-circle-question text-primary"></i> How do payouts work?</a></li>
+                <li class="py-2 border-bottom"><a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-dark"><i class="fas fa-circle-question text-primary"></i> Withdrawal processing times</a></li>
+                <li class="py-2 border-bottom"><a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-dark"><i class="fas fa-circle-question text-primary"></i> Understanding pool ROI</a></li>
+                <li class="py-2"><a href="#" class="d-flex align-items-center gap-2 text-decoration-none text-dark"><i class="fas fa-circle-question text-primary"></i> Completing KYC verification</a></li>
+              </ul>
+            </div>
+
+            <div class="stat-card">
+              <div class="data-table__title mb-3">Contact Us</div>
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="stat-card__icon stat-card__icon--primary"><i class="fas fa-envelope"></i></span>
+                <div>
+                  <p class="text-muted text-sm mb-0">Email</p>
+                  <p class="fw-semibold mb-0">support@farmvest.com</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-3">
+                <span class="stat-card__icon stat-card__icon--info"><i class="fas fa-phone"></i></span>
+                <div>
+                  <p class="text-muted text-sm mb-0">Phone</p>
+                  <p class="fw-semibold mb-0">+1 (800) 555-0199</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- My tickets -->
+        <div class="data-table mt-4">
+          <div class="data-table__header">
+            <span class="data-table__title">My Tickets</span>
+          </div>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ticket ID</th>
+                  <th>Subject</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Last Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-sm">TCK-4821</code></td>
+                  <td class="fw-semibold text-dark">Payout schedule for Poultry Pool</td>
+                  <td>Normal</td>
+                  <td><span class="badge badge--active">Open</span></td>
+                  <td>Aug 4, 2026</td>
+                </tr>
+                <tr>
+                  <td><code class="text-sm">TCK-4790</code></td>
+                  <td class="fw-semibold text-dark">Bank account not saving</td>
+                  <td>High</td>
+                  <td><span class="badge badge--pending">In Progress</span></td>
+                  <td>Aug 1, 2026</td>
+                </tr>
+                <tr>
+                  <td><code class="text-sm">TCK-4655</code></td>
+                  <td class="fw-semibold text-dark">KYC document re-upload</td>
+                  <td>Normal</td>
+                  <td><span class="badge badge--completed">Resolved</span></td>
+                  <td>Jul 19, 2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

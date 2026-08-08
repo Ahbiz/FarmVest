@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights & Research — FarmVest Agriculture Blog</title>
+  <meta name="description" content="Explore the latest agricultural insights, investment strategies, and sustainable farming research from FarmVest's expert team." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Stylesheet & scripts -->
+  <script type="module" src="/src/js/main.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+<body class="blog-page">
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader__content">
+      <div class="preloader__logo-box">
+        <img src="/images/logo-white.svg" alt="FarmVest Loading" width="64" height="64" fetchpriority="high" />
+      </div>
+      <div class="preloader__text">Farm<span>Vest</span></div>
+      <div class="preloader__progress-bar">
+        <div class="preloader__progress-bar-inner"></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-wrapper">
+
+    <!-- ============================================================ -->
+    <!-- HERO & GLASS FLOATING NAV BAR -->
+    <!-- ============================================================ -->
+    <section class="hero-agroly inner-page-hero" style="min-height: auto;">
+      <img src="/images/blog-hero.png" class="hero-agroly__bg" alt="Sunrise over rolling green farmland hills" fetchpriority="high" decoding="async" />
+
+      <div class="container position-relative z-2">
+        <!-- Floating glass nav bar -->
+        <nav class="agroly-nav">
+          <a class="brand-logo" href="/index.html" title="FarmVest Home">
+            <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="46" height="46" />
+            <span class="brand-text">Farm<span>Vest</span></span>
+          </a>
+
+          <ul class="glass-menu-pill d-none d-lg-flex">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/projects.html">Yield Pools</a></li>
+            <li><a href="/blog.html" class="active">Insights</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+
+          <a href="/auth/register.html" class="btn-agroly-connect d-none d-lg-inline-flex">Start Earning</a>
+
+          <button class="nav-burger d-lg-none" type="button" aria-label="Open navigation menu" aria-controls="mobileNav" aria-expanded="false" data-nav-open>
+            <span></span><span></span><span></span>
+          </button>
+        </nav>
+
+        <!-- Mobile navigation drawer -->
+        <div class="mobile-nav-backdrop" data-nav-close hidden></div>
+        <aside id="mobileNav" class="mobile-nav" aria-hidden="true">
+          <div class="mobile-nav__head">
+            <a class="brand-logo" href="/index.html" title="FarmVest Home">
+              <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="40" height="40" />
+              <span class="brand-text">Farm<span>Vest</span></span>
+            </a>
+            <button class="nav-close" type="button" aria-label="Close navigation menu" data-nav-close>
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+          <ul class="mobile-nav__links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/projects.html">Yield Pools</a></li>
+            <li><a href="/blog.html" class="active">Insights</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+          <a href="/auth/register.html" class="btn-agroly-connect mobile-nav__cta">Start Earning</a>
+        </aside>
+
+        <!-- Hero Content -->
+        <div class="pools-hero-content text-center py-5">
+          <div class="pools-hero-breadcrumb mb-3">
+            <a href="/index.html"><i class="fas fa-house me-1"></i> Home</a>
+            <span class="sep">//</span>
+            <span class="current">Insights & Research</span>
+          </div>
+          <h1 class="pools-hero-title">
+            Agritech Trends & <span class="highlight">Market Insights</span>
+          </h1>
+          <p class="pools-hero-sub mx-auto mb-0">
+            Data-driven research, harvest telemetry reports, and sustainable agriculture market analysis from our lead agronomists.
+          </p>
+        </div>
+      </div>
+
+      <!-- Dark overlay -->
+      <div class="about-hero-banner__overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,46,27,0.7) 0%,rgba(11,24,16,0.92) 100%);z-index:1;pointer-events:none;"></div>
+    </section>
+
+    <!-- BLOG LISTING -->
+    <section class="section section--light py-5 blog-listing-sec">
+      <div class="container">
+        <!-- Category filter chips -->
+        <div class="d-flex flex-wrap align-items-center gap-2 mb-5" data-aos="fade-up">
+          <button class="btn btn-success rounded-pill px-4 btn-sm font-weight-bold blog-cat active" data-cat="all">All Articles</button>
+          <button class="btn btn-outline-success rounded-pill px-4 btn-sm font-weight-bold blog-cat" data-cat="agronomy">Agronomy Tech</button>
+          <button class="btn btn-outline-success rounded-pill px-4 btn-sm font-weight-bold blog-cat" data-cat="market">Market Analysis</button>
+          <button class="btn btn-outline-success rounded-pill px-4 btn-sm font-weight-bold blog-cat" data-cat="telemetry">Field Telemetry</button>
+          <button class="btn btn-outline-success rounded-pill px-4 btn-sm font-weight-bold blog-cat" data-cat="greenhouse">Greenhouse Tech</button>
+          <div class="ms-auto" style="max-width:280px;">
+            <div class="input-group">
+              <span class="input-group-text bg-white text-success"><i class="fas fa-search"></i></span>
+              <input type="search" class="form-control" id="blogSearch" placeholder="Search insights…" aria-label="Search articles" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Article grid -->
+        <div class="row gy-4" id="blogGrid">
+          <!-- Article 1 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-article-cat="agronomy">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=1" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/about-vision-rice.png" alt="Smart Farming Technology" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Agronomy Tech</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> Aug 03, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=1" class="blog-card-title-link">Why Sustainable Farm Co-Funding Is Outperforming Traditional Asset Classes in 2026</a></h3>
+                <p class="text-muted text-sm mb-4">Global food security demands, satellite telemetry, and automated yield cycles are creating inflation-protected portfolios for modern investors.</p>
+                <a href="/blog-details.html?id=1" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100" data-article-cat="telemetry">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=2" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/farm-telemetry.png" alt="IoT Soil Sensors" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Field Telemetry</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> Jul 28, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=2" class="blog-card-title-link">How Satellite &amp; IoT Soil Moisture Sensors Boost Crop Yields by 40%</a></h3>
+                <p class="text-muted text-sm mb-4">Precision agriculture tools give agronomists real-time visibility into moisture, temperature, and nutrient levels across every hectare.</p>
+                <a href="/blog-details.html?id=2" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200" data-article-cat="market">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=3" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/pool-cattle.png" alt="Livestock Pools" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Market Analysis</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> Jul 20, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=3" class="blog-card-title-link">Evaluating Risk &amp; Return Profiles Across Organic Livestock &amp; Grain Pools</a></h3>
+                <p class="text-muted text-sm mb-4">A data-driven look at how diversified agricultural pools balance seasonal volatility against consistent, insured yields.</p>
+                <a href="/blog-details.html?id=3" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 4 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-article-cat="greenhouse">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=4" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/organic-greenhouse.png" alt="Greenhouse Automation" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Greenhouse Tech</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> Jul 12, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=4" class="blog-card-title-link">Commercial Hydroponic Greenhouses: Accelerated Cycles &amp; Multi-Harvest Yields</a></h3>
+                <p class="text-muted text-sm mb-4">Climate-controlled greenhouses compress growing seasons, unlocking up to four harvest cycles per year for premium produce.</p>
+                <a href="/blog-details.html?id=4" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 5 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100" data-article-cat="livestock">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=5" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/pool-tomato.png" alt="Cattle Ranch" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Livestock</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> Jul 05, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=5" class="blog-card-title-link">Inside a Grass-Fed Angus Cattle Pool: From Pasture to Payout</a></h3>
+                <p class="text-muted text-sm mb-4">We break down the full 18-month lifecycle of a livestock pool, including feed telemetry, insurance, and off-take contracts.</p>
+                <a href="/blog-details.html?id=5" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 6 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200" data-article-cat="sustainability">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=6" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/farmer-green-harvest.png" alt="Sustainable Farming" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Sustainability</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> Jun 29, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=6" class="blog-card-title-link">Regenerative Agriculture: The ESG Case for Zero-Chemical Soil Rejuvenation</a></h3>
+                <p class="text-muted text-sm mb-4">How regenerative practices protect long-term yields while meeting the ESG mandates of institutional co-funders.</p>
+                <a href="/blog-details.html?id=6" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 7 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-article-cat="agronomy">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=7" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/pool-citrus.png" alt="Solar Irrigation" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Agronomy Tech</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> Jun 21, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=7" class="blog-card-title-link">Solar-Powered Drip Irrigation: Reducing Operational Overhead by 35%</a></h3>
+                <p class="text-muted text-sm mb-4">Autonomous solar pump arrays deliver target hydration directly to root zones, eliminating fuel expenses.</p>
+                <a href="/blog-details.html?id=7" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 8 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100" data-article-cat="market">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=8" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/pool-wheat.png" alt="Export Grain Market" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Market Analysis</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> Jun 14, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=8" class="blog-card-title-link">AI Yield Predictions for Export Grain Markets: Hedging Against Weather Shifts</a></h3>
+                <p class="text-muted text-sm mb-4">Machine learning models analyze historical weather data to lock in wholesale off-take pricing months before harvest.</p>
+                <a href="/blog-details.html?id=8" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 9 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200" data-article-cat="telemetry">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=9" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/pool-berry.png" alt="Drone Multispectral Imaging" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Field Telemetry</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> Jun 08, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=9" class="blog-card-title-link">Multispectral Drone Surveys: Detecting Soil Nitrogen Deficiencies Early</a></h3>
+                <p class="text-muted text-sm mb-4">Automated drone flights generate heatmaps identifying crop stress before visual signs appear on the ground.</p>
+                <a href="/blog-details.html?id=9" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 10 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-article-cat="greenhouse">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=10" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/pool-vanilla.png" alt="Vanilla Orchid Greenhouse" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Greenhouse Tech</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> Jun 01, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=10" class="blog-card-title-link">Indoor Vertical Vanilla Cultivation: High-Value Exotic Crop Economics</a></h3>
+                <p class="text-muted text-sm mb-4">Climate-controlled solar glasshouses make high-grade vanilla orchid farming predictable and highly profitable.</p>
+                <a href="/blog-details.html?id=10" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 11 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100" data-article-cat="livestock">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=11" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/pool-poultry.png" alt="Organic Poultry" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Livestock</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> May 25, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=11" class="blog-card-title-link">Organic Poultry Feed Telemetry &amp; Growth Tracking for Co-Funders</a></h3>
+                <p class="text-muted text-sm mb-4">Real-time IoT sensors monitor poultry health, feed conversion ratios, and welfare standards on modern farms.</p>
+                <a href="/blog-details.html?id=11" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article 12 -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200" data-article-cat="sustainability">
+            <article class="blog-card shadow-sm rounded-4 overflow-hidden border bg-white h-100 d-flex flex-column">
+              <a href="/blog-details.html?id=12" class="blog-card__thumb position-relative overflow-hidden" style="height: 220px;">
+                <img loading="lazy" src="/images/pool-coffee.png" alt="Carbon Credits" class="w-100 h-100 object-fit-cover" />
+              </a>
+              <div class="blog-card__body p-4 flex-grow-1 d-flex flex-column">
+                <div class="blog-card__meta text-xs text-success font-weight-bold text-uppercase mb-2 d-flex gap-3">
+                  <span><i class="fas fa-tag me-1"></i> Sustainability</span>
+                  <span><i class="fas fa-calendar-alt me-1"></i> May 18, 2026</span>
+                </div>
+                <h3 class="h5 font-serif fw-bold mb-2"><a href="/blog-details.html?id=12" class="blog-card-title-link">Monetizing Carbon Credits in Commercial Farming Asset Pools</a></h3>
+                <p class="text-muted text-sm mb-4">How certified carbon offset credits generate secondary yield streams for sustainable agriculture investors.</p>
+                <a href="/blog-details.html?id=12" class="btn btn-link text-success p-0 font-weight-bold mt-auto text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Empty state -->
+        <div class="text-center py-5" id="blogEmpty" hidden>
+          <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+          <h3 class="h5 font-serif fw-bold text-dark">No articles found</h3>
+          <p class="text-muted text-sm">Try adjusting your search or category filter to find related insights.</p>
+        </div>
+
+        <!-- Dynamic Smooth Pagination -->
+        <div class="d-flex justify-content-center mt-5">
+          <nav aria-label="Blog pagination">
+            <ul class="pagination mb-0" id="blogPagination"></ul>
+          </nav>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MODERN CTA BANNER SECTION -->
+    <!-- ============================================================ -->
+    <!-- ============================================================ -->
+    <!-- SIMPLE & ELEGANT CTA BANNER SECTION -->
+    <!-- ============================================================ -->
+    <section class="blog-cta-sec">
+      <div class="container">
+        <div class="blog-cta-card">
+          <div class="row align-items-center gy-4">
+            <!-- Left Column: Content & Pitch -->
+            <div class="col-lg-7">
+              <div class="cta-tag mb-3">
+                <i class="fas fa-newspaper me-1"></i> Stay Informed
+              </div>
+              <h2 class="cta-modern-title">
+                Subscribe to Market Insights &amp; Yield Reports
+              </h2>
+              <p class="cta-modern-desc">
+                Get weekly agronomy updates, market commodity trends, and exclusive pool release alerts delivered directly to your inbox.
+              </p>
+              <div class="cta-perks-list mb-4">
+                <div class="cta-perk-item">
+                  <i class="fas fa-check-circle text-success me-1"></i>
+                  <span>Bi-Weekly Agronomy Reports</span>
+                </div>
+                <div class="cta-perk-item">
+                  <i class="fas fa-check-circle text-success me-1"></i>
+                  <span>Early Pool Access Alerts</span>
+                </div>
+                <div class="cta-perk-item">
+                  <i class="fas fa-check-circle text-success me-1"></i>
+                  <span>ESG &amp; Sustainability Trends</span>
+                </div>
+              </div>
+              
+              <!-- Sleek Pill Subscribe Form -->
+              <form class="cta-subscribe-form my-2" onsubmit="event.preventDefault();">
+                <input type="email" class="cta-subscribe-input" placeholder="Enter your email address..." required />
+                <button type="submit" class="cta-subscribe-btn">
+                  Subscribe <i class="fas fa-arrow-right ms-1"></i>
+                </button>
+              </form>
+            </div>
+
+            <!-- Right Column: Live Trust Preview Card -->
+            <div class="col-lg-5">
+              <div class="cta-trust-card">
+                <div class="ctc-header d-flex align-items-center gap-2 mb-3">
+                  <span class="ctc-status-dot"></span>
+                  <span class="ctc-status-text">Insights Newsletter</span>
+                </div>
+                <div class="ctc-stat-row row text-center gy-2 mb-3">
+                  <div class="col-6">
+                    <div class="ctc-stat-box p-3 rounded-3 bg-light border">
+                      <span class="ctc-val d-block">28,500+</span>
+                      <span class="ctc-lbl">Active Subscribers</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="ctc-stat-box p-3 rounded-3 bg-light border">
+                      <span class="ctc-val d-block">Weekly</span>
+                      <span class="ctc-lbl">AgriTech Digest</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ctc-guarantee-bar text-center text-muted text-xs pt-2 border-top">
+                  <i class="fas fa-shield-halved text-success me-1"></i>
+                  <span>Zero Spam • Unsubscribe at Any Time</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================================ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4 gy-lg-0">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-item">
+              <a href="/index.html" class="footer-item__logo">
+                <img src="/images/logo-white.svg" alt="FarmVest White Logo" />
+              </a>
+              <p class="footer-item__desc">
+                FarmVest is a high-yield agriculture investment platform empowering global investors to co-fund sustainable farms, earn competitive passive returns, and build a food-secure future.
+              </p>
+              <ul class="social-pill-row">
+                <li><a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" class="social-icon-btn" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
+                <li><a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 col-6">
+            <div class="footer-item">
+              <h4 class="footer-item__title">Navigation</h4>
+              <ul class="footer-menu">
+                <li class="footer-menu__item"><a href="/index.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Home</a></li>
+                <li class="footer-menu__item"><a href="/projects.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Yield Pools</a></li>
+                <li class="footer-menu__item"><a href="/about.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> About Us</a></li>
+                <li class="footer-menu__item"><a href="/blog.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Insights</a></li>
+                <li class="footer-menu__item"><a href="/contact.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Support</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-6">
+            <div class="footer-item">
+              <h4 class="footer-item__title">Active Asset Pools</h4>
+              <ul class="footer-menu">
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-leaf text-xs text-success me-1"></i> Organic Rice Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-drumstick-bite text-xs text-success me-1"></i> Poultry Expansion Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-pepper-hot text-xs text-success me-1"></i> Tomato Hydroponics Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-cow text-xs text-success me-1"></i> Angus Cattle Ranch Pool</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-item">
+              <h4 class="footer-item__title">Headquarters & Support</h4>
+              <ul class="contact-list">
+                <li class="contact-list__item">
+                  <i class="fas fa-location-dot text-success"></i>
+                  <span>100 Innovation Park, AgriTech Way, San Francisco, CA 94105</span>
+                </li>
+                <li class="contact-list__item">
+                  <i class="fas fa-envelope text-success"></i>
+                  <a href="mailto:support@farmvest.com">support@farmvest.com</a>
+                </li>
+                <li class="contact-list__item">
+                  <i class="fas fa-phone text-success"></i>
+                  <a href="tel:+18005553276">+1 (800) 555-FARM</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="footer-bottom__text">
+              Copyright &copy; 2026 <a href="/index.html">FarmVest Inc.</a> All rights reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+            <span class="text-xs text-light me-3"><i class="fas fa-shield-alt text-success me-1"></i> 100% Capital Insured & Bank-Grade SSL</span>
+            <ul class="list-inline d-inline-block mb-0 text-sm">
+              <li class="list-inline-item"><a href="/privacy-policy.html">Privacy Policy</a></li>
+              <li class="list-inline-item me-2 ms-2">|</li>
+              <li class="list-inline-item"><a href="/terms-of-service.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie consent -->
+  <div class="cookie-consent">
+    <div class="cookie-consent__icon"><i class="fas fa-cookie-bite"></i></div>
+    <p class="cookie-consent__text">
+      We use cookies to analyze performance and optimize your investment experience on FarmVest. Read our <a href="/cookie-policy.html">Cookie Policy</a> to learn more.
+    </p>
+    <button type="button" class="btn btn--primary btn--sm cookie-consent__btn">Accept All Cookies</button>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+
+  <!-- Back to top -->
+  <button type="button" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Sign In — FarmVest</title>
+  <meta name="description" content="Restricted administrator sign-in for the FarmVest control panel." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Stylesheet & scripts -->
+  <script type="module" src="/src/js/main.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+<body class="admin-auth">
+
+  <main class="admin-auth__shell">
+
+    <a href="/index.html" class="admin-auth__brand" aria-label="FarmVest home">
+      <img src="/images/logo.svg" alt="FarmVest" width="150" height="36" />
+    </a>
+
+    <section class="admin-auth__card">
+
+      <span class="admin-auth__tag">
+        <i class="fas fa-shield-halved" aria-hidden="true"></i> Administrator
+      </span>
+
+      <h1 class="admin-auth__title">Sign in</h1>
+      <p class="admin-auth__lede">Use your administrator credentials to open the FarmVest control panel.</p>
+
+      <form id="loginForm" novalidate>
+
+        <div class="field">
+          <label class="field__label" for="email">Email address</label>
+          <div class="field__control">
+            <input
+              class="field__input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@farmvest.com"
+              autocomplete="username"
+              autocapitalize="none"
+              spellcheck="false"
+              required
+            />
+          </div>
+          <span class="field__message" data-for="email"></span>
+        </div>
+
+        <div class="field">
+          <div class="field__label-row">
+            <label class="field__label" for="password">Password</label>
+            <a class="field__label-link" href="/auth/forgot-password.html">Forgot password?</a>
+          </div>
+          <div class="field__control">
+            <input
+              class="field__input"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" class="field__toggle" aria-label="Show password">
+              <i class="fas fa-eye" aria-hidden="true"></i>
+            </button>
+          </div>
+          <span class="field__message" data-for="password"></span>
+        </div>
+
+        <label class="admin-auth__remember" for="rememberSession">
+          <input type="checkbox" id="rememberSession" name="remember" checked />
+          <span>Keep me signed in on this device</span>
+        </label>
+
+        <button type="submit" class="admin-auth__submit">Sign in</button>
+
+      </form>
+
+      <!-- Demo credentials for this preview build -->
+      <div class="admin-auth__demo">
+        <div class="admin-auth__demo-info">
+          <span class="admin-auth__demo-label">Demo account</span>
+          <code class="admin-auth__demo-creds">admin@farmvest.com · adminpassword</code>
+        </div>
+        <button
+          type="button"
+          class="admin-auth__demo-fill"
+          data-demo-fill
+          data-demo-email="admin@farmvest.com"
+          data-demo-password="adminpassword"
+        >
+          Use
+        </button>
+      </div>
+
+    </section>
+
+    <footer class="admin-auth__foot">
+      <p class="admin-auth__foot-switch">
+        Not an administrator? <a href="/auth/login.html">Investor sign in</a>
+      </p>
+      <p class="admin-auth__foot-note">
+        <i class="fas fa-lock" aria-hidden="true"></i> Restricted system — sign-in attempts are recorded.
+      </p>
+    </footer>
+
+  </main>
+
+  <div class="toast-container"></div>
+</body>
+</html>

@@ -1,265 +1,1057 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us — FarmVest Agriculture Investment</title>
-  <meta name="description" content="Learn about FarmVest's mission to bridge global investor capital with sustainable, high-yield commercial farming." />
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  
-  <!-- FontAwesome & Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  
-  <!-- Main Stylesheet & JS -->
-  <script type="module" src="/src/js/main.js"></script>
-  <link rel="stylesheet" href="/src/scss/main.scss" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — FarmVest</title>
+    <meta
+      name="description"
+      content="Learn how FarmVest bridges funding gaps, scales commercial agriculture production, and delivers high-yield asset-backed returns to global co-funders."
+    />
 
-  <!-- HEADER -->
-  <header class="header" id="header">
-    <div class="header-top d-none d-lg-block">
-      <div class="container">
-        <div class="header-top__wrapper">
-          <div class="header-top__item">
-            <p class="header-top__text">
-              <i class="fas fa-bolt text-accent me-2"></i>New High-Yield Pool Open: <span>Greenhouse Hydroponics — 16.5% Annual ROI</span>
-            </p>
-          </div>
-          <div class="header-top__item ms-auto">
-            <ul class="social-list">
-              <li><a href="#" class="social-list__link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#" class="social-list__link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
-              <li><a href="#" class="social-list__link" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#" class="social-list__link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-              <li><a href="#" class="social-list__link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></li>
-            </ul>
-          </div>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    />
+
+    <!-- Stylesheet & scripts -->
+    <script type="module" src="/src/js/main.js"></script>
+    <link rel="stylesheet" href="/src/scss/main.scss" />
+  </head>
+  <body class="about-page">
+    <!-- Preloader -->
+    <div class="preloader">
+      <div class="preloader__content">
+        <div class="preloader__logo-box">
+          <img
+            src="/images/logo-white.svg"
+            alt="FarmVest Loading"
+            width="64"
+            height="64"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="preloader__text">Farm<span>Vest</span></div>
+        <div class="preloader__progress-bar">
+          <div class="preloader__progress-bar-inner"></div>
         </div>
       </div>
     </div>
 
-    <div class="header-main">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg">
-          <a class="navbar-brand" href="/index.html">
-            <img src="/images/logo.svg" alt="FarmVest Logo" />
-          </a>
-          
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-            <i class="fas fa-bars"></i>
-          </button>
+    <main class="page-wrapper">
+      <!-- ============================================================ -->
+      <!-- HERO BANNER & GLASS FLOATING NAV BAR -->
+      <!-- ============================================================ -->
+      <header class="hero-agroly inner-page-hero" style="min-height: auto">
+        <img
+          src="/images/about-hero.png"
+          class="hero-agroly__bg"
+          alt="Farmland sunrise landscape"
+          fetchpriority="high"
+          decoding="async"
+        />
 
-          <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
-              <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="/projects.html">Yield Pools</a></li>
-              <li class="nav-item"><a class="nav-link active" href="/about.html">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="/blog.html">Insights</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contact.html">Support</a></li>
-              <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                <a href="/auth/login.html" class="btn btn--outline btn--sm w-100">Client Login</a>
-              </li>
-              <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-                <a href="/auth/register.html" class="btn btn--primary btn--sm w-100"><i class="fas fa-rocket me-1"></i> Start Earning</a>
-              </li>
+        <div class="container position-relative z-2">
+          <!-- Floating glass nav bar -->
+          <nav class="agroly-nav">
+            <a class="brand-logo" href="/index.html" title="FarmVest Home">
+              <img
+                src="/images/logo-mark-white.svg"
+                alt="FarmVest Mark"
+                width="46"
+                height="46"
+              />
+              <span class="brand-text">Farm<span>Vest</span></span>
+            </a>
+
+            <ul class="glass-menu-pill d-none d-lg-flex">
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/about.html" class="active">About us</a></li>
+              <li><a href="/projects.html">Yield Pools</a></li>
+              <li><a href="/blog.html">Insights</a></li>
+              <li><a href="/contact.html">Contact</a></li>
             </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </header>
 
-  <main class="page-wrapper">
-    <!-- PAGE BREADCRUMB -->
-    <section class="section py-5 bg-neutral-900 text-white position-relative overflow-hidden">
-      <div class="container position-relative z-2">
-        <div class="row align-items-center">
-          <div class="col-md-8">
-            <span class="badge badge--roi mb-2">Our Mission</span>
-            <h1 class="h1 fw-bold text-white mb-2">About FarmVest</h1>
-            <p class="text-white-50 mb-0">Democratizing access to high-yielding, asset-backed agricultural investments worldwide.</p>
-          </div>
-          <div class="col-md-4 text-md-end mt-3 mt-md-0">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb justify-content-md-end mb-0 text-sm">
-                <li class="breadcrumb-item"><a href="/index.html" class="text-white-50">Home</a></li>
-                <li class="breadcrumb-item active text-primary-light" aria-current="page">About Us</li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </section>
+            <a
+              href="/auth/register.html"
+              class="btn-agroly-connect d-none d-lg-inline-flex"
+              >Start Earning</a
+            >
 
-    <!-- MISSION STORY -->
-    <section class="section section--white">
-      <div class="container">
-        <div class="row align-items-center gy-5">
-          <div class="col-lg-6">
-            <div class="position-relative rounded-4 overflow-hidden shadow-lg">
-              <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=800&q=80" class="img-fluid w-100" alt="FarmVest Leadership" />
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="section-heading section-heading--left mb-4">
-              <span class="section-heading__label">Empowering Agri-Fintech</span>
-              <h2 class="section-heading__title">Bridging Capital Markets & Sustainable Yields</h2>
-              <p class="section-heading__desc">
-                Founded in 2024 by experienced agronomists and financial analysts, FarmVest was created to fix the structural gap in farm co-funding. We provide retail and institutional co-funders direct access to high-yield commercial crop and livestock cycles.
-              </p>
-            </div>
-            <p class="text-muted mb-4">
-              Every project on our platform undergoes rigorous 3-stage agronomist due diligence, soil telemetry analysis, and binding off-take buyer contracting before being listed for co-funding.
-            </p>
-            <a href="/projects.html" class="btn btn--primary"><i class="fas fa-seedling me-2"></i>Explore Active Pools</a>
-          </div>
-        </div>
-      </div>
-    </section>
+            <button
+              class="nav-burger d-lg-none"
+              type="button"
+              aria-label="Open navigation menu"
+              aria-controls="mobileNav"
+              aria-expanded="false"
+              data-nav-open
+            >
+              <span></span><span></span><span></span>
+            </button>
+          </nav>
 
-    <!-- OUR VISION BENTO -->
-    <section class="section section--light our-vision">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-heading__label">Our Vision</span>
-          <h2 class="section-heading__title">Building High-Yield Agriculture Ecosystems</h2>
-        </div>
-        <div class="row gy-4">
-          <div class="col-md-6 col-lg-3">
-            <div class="vision-card">
-              <div class="vision-card__icon"><i class="fas fa-hand-holding-dollar"></i></div>
-              <h3 class="vision-card__title">Empower Local Farmers</h3>
-              <p class="vision-card__desc">Direct funding boosts farmer revenues while eliminating exploitative intermediaries.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="vision-card">
-              <div class="vision-card__icon"><i class="fas fa-wheat-awn"></i></div>
-              <h3 class="vision-card__title">Premium Tech Inputs</h3>
-              <p class="vision-card__desc">Equipping partner farms with bio-certified seeds, solar irrigation, and IoT telemetry.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="vision-card">
-              <div class="vision-card__icon"><i class="fas fa-chart-line-up"></i></div>
-              <h3 class="vision-card__title">Direct Market Access</h3>
-              <p class="vision-card__desc">Guaranteed off-take buyer contracts with global food processors ensure reliable sales.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="vision-card">
-              <div class="vision-card__icon"><i class="fas fa-leaf"></i></div>
-              <h3 class="vision-card__title">Eco Sustainability</h3>
-              <p class="vision-card__desc">Zero-chemical soil rejuvenation techniques preserving biodiversity for generations.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row gy-4 gy-lg-0">
-          <div class="col-lg-4 col-md-6">
-            <div class="footer-item">
-              <a href="/index.html" class="footer-item__logo">
-                <img src="/images/logo-white.svg" alt="FarmVest White Logo" />
+          <!-- Mobile navigation drawer -->
+          <div class="mobile-nav-backdrop" data-nav-close hidden></div>
+          <aside id="mobileNav" class="mobile-nav" aria-hidden="true">
+            <div class="mobile-nav__head">
+              <a class="brand-logo" href="/index.html" title="FarmVest Home">
+                <img
+                  src="/images/logo-mark-white.svg"
+                  alt="FarmVest Mark"
+                  width="40"
+                  height="40"
+                />
+                <span class="brand-text">Farm<span>Vest</span></span>
               </a>
-              <p class="footer-item__desc">
-                FarmVest is a high-yield agriculture investment platform empowering global investors to co-fund sustainable farms, earn competitive passive returns, and build a food-secure future.
+              <button
+                class="nav-close"
+                type="button"
+                aria-label="Close navigation menu"
+                data-nav-close
+              >
+                <i class="fas fa-times" aria-hidden="true"></i>
+              </button>
+            </div>
+            <ul class="mobile-nav__links">
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/about.html" class="active">About us</a></li>
+              <li><a href="/projects.html">Yield Pools</a></li>
+              <li><a href="/blog.html">Insights</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+            <a
+              href="/auth/register.html"
+              class="btn-agroly-connect mobile-nav__cta"
+              >Start Earning</a
+            >
+          </aside>
+
+        <!-- Hero Content -->
+        <div class="pools-hero-content text-center py-5">
+          <div class="pools-hero-breadcrumb mb-3">
+            <a href="/index.html"><i class="fas fa-house me-1"></i> Home</a>
+            <span class="sep">//</span>
+            <span class="current">About Us</span>
+          </div>
+          <h1 class="pools-hero-title">
+            Pioneering Insured <span class="highlight">AgriFinance Pools</span>
+          </h1>
+          <p class="pools-hero-sub mx-auto mb-0">
+            Connecting global capital to high-yield commercial farming operations backed by land security, multi-peril crop insurance, and verified off-take buyers.
+          </p>
+        </div>
+      </div>
+
+      <!-- Dark overlay -->
+      <div class="about-hero-banner__overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,46,27,0.7) 0%,rgba(11,24,16,0.92) 100%);z-index:1;pointer-events:none;"></div>
+    </header>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 1: ABOUT OUR PLATFORM -->
+      <!-- ============================================================ -->
+      <section class="ab-soil-sec">
+        <div class="container">
+          <div class="row align-items-center gy-5">
+            <!-- Left Image Stack -->
+            <div class="col-lg-6">
+              <div class="soil-img-stack">
+                <img
+                  src="/images/about-soil-main.png"
+                  class="soil-img-stack__main"
+                  alt="Farmer examining crops"
+                />
+                <img
+                  src="/images/about-soil-overlap.png"
+                  class="soil-img-stack__overlap"
+                  alt="Organic vegetables harvest"
+                />
+              </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="col-lg-6">
+              <span class="ab-badge"
+                ><i class="fa-solid fa-seedling"></i> About Our Farm</span
+              >
+              <h2 class="ab-heading">
+                Connecting Global Capital to High-Yield, Insured Commercial Farms
+              </h2>
+              <p class="ab-sub">
+                FarmVest was built to bridge the capital gap in commercial
+                agriculture. We empower individuals to co-fund high-yield,
+                sustainable farm projects backed by comprehensive crop
+                insurance, land stewardship, and guaranteed wholesale off-take
+                agreements.
               </p>
-              <ul class="social-pill-row">
-                <li><a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#" class="social-icon-btn" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
-                <li><a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="#" class="social-icon-btn" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></li>
-              </ul>
+
+              <div class="soil-features-grid">
+                <div class="soil-feature-item">
+                  <div class="sf-icon">
+                    <i class="fa-solid fa-seedling"></i>
+                  </div>
+                  <div class="sf-text">Sustainable Farming Methods</div>
+                </div>
+                <div class="soil-feature-item">
+                  <div class="sf-icon">
+                    <i class="fa-solid fa-truck-field"></i>
+                  </div>
+                  <div class="sf-text">Direct Farm-to-Market Yields</div>
+                </div>
+                <div class="soil-feature-item">
+                  <div class="sf-icon">
+                    <i class="fa-solid fa-piggy-bank"></i>
+                  </div>
+                  <div class="sf-text">Insured Agri-Asset Management</div>
+                </div>
+              </div>
+
+              <a href="/projects.html" class="ab-btn-primary"
+                >Discover More <i class="fa-solid fa-arrow-right"></i
+              ></a>
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-6 col-6">
-            <div class="footer-item">
-              <h4 class="footer-item__title">Navigation</h4>
-              <ul class="footer-menu">
-                <li class="footer-menu__item"><a href="/index.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs"></i> Home</a></li>
-                <li class="footer-menu__item"><a href="/projects.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs"></i> Yield Pools</a></li>
-                <li class="footer-menu__item"><a href="/about.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs"></i> About Us</a></li>
-                <li class="footer-menu__item"><a href="/blog.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs"></i> Insights</a></li>
-                <li class="footer-menu__item"><a href="/contact.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs"></i> Support</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-6">
-            <div class="footer-item">
-              <h4 class="footer-item__title">Live Portfolios</h4>
-              <ul class="footer-menu">
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Organic Rice Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Poultry Expansion Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Tomato Hydroponics Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Angus Cattle Ranch Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Avocado Orchard Pool</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-item">
-              <h4 class="footer-item__title">Support Contact</h4>
-              <ul class="contact-list">
-                <li class="contact-list__item">
-                  <i class="fas fa-location-dot"></i>
-                  <span>100 Innovation Park, AgriTech Way, San Francisco, CA 94105</span>
-                </li>
-                <li class="contact-list__item">
-                  <i class="fas fa-envelope"></i>
-                  <a href="mailto:support@farmvest.com">support@farmvest.com</a>
-                </li>
-                <li class="contact-list__item">
-                  <i class="fas fa-phone"></i>
-                  <a href="tel:+18005553276">+1 (800) 555-FARM</a>
-                </li>
-              </ul>
+          <!-- Infinite Ticker Marquee Bar -->
+          <div class="ab-ticker-bar mt-5">
+            <div class="ab-ticker-track">
+              <div class="ab-ticker-content">
+                <span><i class="fas fa-leaf text-success me-2"></i> Harvesting Excellence</span>
+                <span class="ticker-dot">•</span>
+                <span><i class="fas fa-shield-halved text-warning me-2"></i> Verified Farm Pools</span>
+                <span class="ticker-dot">•</span>
+                <span><i class="fas fa-certificate text-success me-2"></i> SEC Regulated Standards</span>
+                <span class="ticker-dot">•</span>
+                <span><i class="fas fa-user-check text-warning me-2"></i> Expert Agronomists</span>
+                <span class="ticker-dot">•</span>
+                <span><i class="fas fa-user-shield text-success me-2"></i> Veteran Risk Officers</span>
+                <span class="ticker-dot">•</span>
+              </div>
+              <div class="ab-ticker-content" aria-hidden="true">
+                <span><i class="fas fa-leaf text-success me-2"></i> Harvesting Excellence</span>
+                <span class="ticker-dot">•</span>
+                <span><i class="fas fa-shield-halved text-warning me-2"></i> Verified Farm Pools</span>
+                <span class="ticker-dot">•</span>
+                <span><i class="fas fa-certificate text-success me-2"></i> SEC Regulated Standards</span>
+                <span class="ticker-dot">•</span>
+                <span><i class="fas fa-user-check text-warning me-2"></i> Expert Agronomists</span>
+                <span class="ticker-dot">•</span>
+                <span><i class="fas fa-user-shield text-success me-2"></i> Veteran Risk Officers</span>
+                <span class="ticker-dot">•</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 text-center text-md-start">
-            <p class="footer-bottom__text">
-              Copyright &copy; 2026 <a href="/index.html">FarmVest Inc.</a> All rights reserved.
+      <!-- ============================================================ -->
+      <!-- SECTION 2: OUR MISSION -->
+      <!-- ============================================================ -->
+      <section class="ab-mission-hub-sec">
+        <div class="container">
+          <!-- Section Header: Bold & Prominent "OUR MISSION" -->
+          <div
+            class="mission-section-head text-center mb-5"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <h2 class="ab-section-title-bold">OUR MISSION</h2>
+          </div>
+
+          <div
+            class="mission-hub-wrapper"
+            data-aos="fade-up"
+            data-aos-duration="900"
+            data-aos-delay="150"
+          >
+            <div class="row g-4 align-items-center">
+              <!-- Left Side: Core Mission Statement & Stats -->
+              <div class="col-lg-5">
+                <div class="mhw-hero-box">
+                  <h3 class="mhw-heading">
+                    Connecting Capital Directly to Prime Arable Land
+                  </h3>
+                  <p class="mhw-sub">
+                    We eliminate supply-chain opacity by partnering directly
+                    with verified farmers and securing off-take contracts before
+                    planting.
+                  </p>
+
+                  <div class="mhw-stats">
+                    <div class="mhw-stat-item">
+                      <span class="mhw-stat-num">$240M+</span>
+                      <span class="mhw-stat-label">Capital Co-Funded</span>
+                    </div>
+                    <div class="mhw-stat-item">
+                      <span class="mhw-stat-num">98.4%</span>
+                      <span class="mhw-stat-label">Harvest Success</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Side: Streamlined Mission Pillars -->
+              <div class="col-lg-7">
+                <div class="mhw-pillars-stack">
+                  <!-- Pillar 1 -->
+                  <div
+                    class="mhw-pillar-card"
+                    data-aos="fade-up"
+                    data-aos-delay="150"
+                  >
+                    <div class="mpc-icon-wrap">
+                      <i class="fa-solid fa-wheat-awn"></i>
+                    </div>
+                    <div class="mpc-body">
+                      <h4 class="mpc-title">Staple Grain Pools</h4>
+                      <p class="mpc-desc mb-0">
+                        Commercial cereal operations co-funded to meet regional
+                        wholesale demand.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Pillar 2 -->
+                  <div
+                    class="mhw-pillar-card"
+                    data-aos="fade-up"
+                    data-aos-delay="250"
+                  >
+                    <div class="mpc-icon-wrap">
+                      <i class="fa-solid fa-tractor"></i>
+                    </div>
+                    <div class="mpc-body">
+                      <h4 class="mpc-title">Controlled Greenhouses</h4>
+                      <p class="mpc-desc mb-0">
+                        High-density organic produce grown in climate-protected
+                        environments.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Pillar 3 -->
+                  <div
+                    class="mhw-pillar-card"
+                    data-aos="fade-up"
+                    data-aos-delay="350"
+                  >
+                    <div class="mpc-icon-wrap">
+                      <i class="fa-solid fa-cow"></i>
+                    </div>
+                    <div class="mpc-body">
+                      <h4 class="mpc-title">Livestock & Pastures</h4>
+                      <p class="mpc-desc mb-0">
+                        Ethical grazing and livestock management backed by
+                        comprehensive asset protection.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 3: WHY CHOOSE US -->
+      <!-- ============================================================ -->
+      <section class="ab-why-choose-sec">
+        <div class="container">
+          <!-- Section Header: Bold & Prominent "WHY CHOOSE US" -->
+          <div
+            class="mission-section-head text-center mb-5"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+           
+            <h2 class="ab-section-title-bold">WHY CHOOSE US</h2>
+            <p class="ab-sub mx-auto mb-0" style="max-width: 580px;">
+              Built for capital security, backed by physical land, and powered by real-time IoT farm telemetry.
             </p>
           </div>
-          <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
-            <ul class="list-inline mb-0 text-sm">
-              <li class="list-inline-item"><a href="/privacy-policy.html">Privacy Policy</a></li>
-              <li class="list-inline-item me-3 ms-3">|</li>
-              <li class="list-inline-item"><a href="/terms-of-service.html">Terms of Service</a></li>
-              <li class="list-inline-item me-3 ms-3">|</li>
-              <li class="list-inline-item"><a href="/cookie-policy.html">Cookie Policy</a></li>
-            </ul>
+
+          <div class="row g-4 align-items-stretch">
+            <!-- Left Side: Interactive Spotlight Card -->
+            <div class="col-lg-5" data-aos="fade-right" data-aos-duration="900">
+              <div class="why-spotlight-card">
+                <div>
+                  <div class="wsc-badge"><i class="fa-solid fa-shield-halved"></i> Institutional Grade Security</div>
+                  <h3 class="wsc-heading">Why 15,000+ Co-Funders Trust FarmVest</h3>
+                  <p class="wsc-desc">
+                    Unlike speculative markets, FarmVest anchors your capital directly into tangible, insured agricultural assets with pre-negotiated wholesale buyer contracts before planting begins.
+                  </p>
+                </div>
+
+                <div>
+                  <!-- Impact Metrics Bar -->
+                  <div class="wsc-metrics">
+                    <div class="wsc-metric-item">
+                      <span class="wsc-metric-val">100%</span>
+                      <span class="wsc-metric-lbl">Capital Insured</span>
+                    </div>
+                    <div class="wsc-metric-item">
+                      <span class="wsc-metric-val">14–22%</span>
+                      <span class="wsc-metric-lbl">Target APY</span>
+                    </div>
+                  </div>
+
+                  <!-- Investor Trust Pill -->
+                  <div class="wsc-trust-bar">
+                    <div class="avatar-group">
+                      <img src="/images/team-sarah.png" alt="Co-funder Sarah" />
+                      <img src="/images/team-marcus.png" alt="Co-funder Marcus" />
+                      <img src="/images/team-elena.png" alt="Co-funder Elena" />
+                    </div>
+                    <span class="trust-text">Joined by 15,000+ verified investors worldwide</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side: 2x2 Distinct Feature Cards Grid -->
+            <div class="col-lg-7" data-aos="fade-left" data-aos-duration="900">
+              <div class="row g-3 h-100">
+                <!-- Feature 1: Asset Protection -->
+                <div class="col-md-6">
+                  <div class="why-feature-box">
+                    <div class="wfb-icon theme-green"><i class="fa-solid fa-building-shield"></i></div>
+                    <h4 class="wfb-title">Asset-Collateralized</h4>
+                    <p class="wfb-desc">Every investment pool is secured by physical land titles and comprehensive multi-peril crop insurance.</p>
+                  </div>
+                </div>
+
+                <!-- Feature 2: Off-Take Contracts -->
+                <div class="col-md-6">
+                  <div class="why-feature-box">
+                    <div class="wfb-icon theme-amber"><i class="fa-solid fa-file-signature"></i></div>
+                    <h4 class="wfb-title">Guaranteed Off-Take</h4>
+                    <p class="wfb-desc">Wholesale buyer contracts are locked in before planting, guaranteeing buyer demand at harvest.</p>
+                  </div>
+                </div>
+
+                <!-- Feature 3: IoT Tracking -->
+                <div class="col-md-6">
+                  <div class="why-feature-box">
+                    <div class="wfb-icon theme-blue"><i class="fa-solid fa-satellite-dish"></i></div>
+                    <h4 class="wfb-title">IoT Telemetry Dashboard</h4>
+                    <p class="wfb-desc">24/7 soil moisture tracking, satellite weather feeds, and bi-weekly manager video logs.</p>
+                  </div>
+                </div>
+
+                <!-- Feature 4: Regulatory Governance -->
+                <div class="col-md-6">
+                  <div class="why-feature-box">
+                    <div class="wfb-icon theme-emerald"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h4 class="wfb-title">SEC Regulatory Compliance</h4>
+                    <p class="wfb-desc">Transparent capital pooling with bank-grade security and institutional accounting standards.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 4: HOW IT WORKS -->
+      <!-- ============================================================ -->
+      <section class="ab-process-sec">
+        <div class="container">
+          <!-- Section Header: Bold & Prominent "HOW IT WORKS" -->
+          <div
+            class="mission-section-head text-center mb-5"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <h2 class="ab-section-title-bold">HOW IT WORKS</h2>
+          </div>
+
+          <div class="process-timeline-wrap" data-aos="fade-up" data-aos-duration="900">
+            <!-- Connecting horizontal dashed line behind number badges -->
+            <div class="process-line"></div>
+
+            <div class="process-grid">
+              <!-- Step 1 -->
+              <div class="process-step-item">
+                <div class="step-number-badge">01</div>
+                <div class="step-image-wrap">
+                  <img src="/images/about-how-1.png" alt="Select Yield Pool" />
+                </div>
+                <h3 class="step-title">Select Yield Pool</h3>
+                <p class="step-desc">
+                  Browse vetted agricultural projects and choose your preferred crop or livestock enterprise.
+                </p>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="process-step-item">
+                <div class="step-number-badge">02</div>
+                <div class="step-image-wrap">
+                  <img src="/images/about-how-2.png" alt="Capital Allocation" />
+                </div>
+                <h3 class="step-title">Capital Allocation</h3>
+                <p class="step-desc">
+                  Commit funding to supply essential seeds, fertilizers, modern equipment, and expert labor.
+                </p>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="process-step-item">
+                <div class="step-number-badge">03</div>
+                <div class="step-image-wrap">
+                  <img src="/images/about-how-3.png" alt="Agronomic Management" />
+                </div>
+                <h3 class="step-title">Agronomic Management</h3>
+                <p class="step-desc">
+                  Professional agronomists cultivate and protect crops through sustainable precision practices.
+                </p>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="process-step-item">
+                <div class="step-number-badge">04</div>
+                <div class="step-image-wrap">
+                  <img src="/images/about-how-4.png" alt="Harvest & Payout" />
+                </div>
+                <h3 class="step-title">Harvest & Payout</h3>
+                <p class="step-desc">
+                  Harvested yields are sold to pre-committed buyers, transferring profits directly to co-funders.
+                </p>
+              </div>
+            </div>
+          </div>
+
+       
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 5: LEADERSHIP TEAM -->
+      <!-- ============================================================ -->
+      <section class="ab-team-sec">
+        <div class="container">
+          <!-- Section Header: Bold & Prominent "OUR TEAM" -->
+          <div
+            class="mission-section-head text-center mb-5"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <h2 class="ab-section-title-bold">OUR TEAM</h2>
+            <p class="ab-sub mx-auto mb-0" style="max-width: 580px;">
+              Meet the certified agronomists, risk managers, and farm operators driving sustainable yield production.
+            </p>
+          </div>
+
+          <div class="row g-4 justify-content-center">
+            <!-- Member 1 -->
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="team-card">
+                <img src="/images/team-sarah.png" alt="Sarah Jenkins" />
+                <div class="team-card__overlay">
+                  <h3 class="team-card__name">Sarah Jenkins</h3>
+                  <div class="team-card__role">Chief Agronomist</div>
+                  <div class="team-card__socials">
+                    <a href="#" aria-label="LinkedIn"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                    <a href="#" aria-label="Twitter"
+                      ><i class="fab fa-x-twitter"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="team-card">
+                <img src="/images/team-marcus.png" alt="Marcus Vance" />
+                <div class="team-card__overlay">
+                  <h3 class="team-card__name">Marcus Vance</h3>
+                  <div class="team-card__role">Head of Farm Operations</div>
+                  <div class="team-card__socials">
+                    <a href="#" aria-label="LinkedIn"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                    <a href="#" aria-label="Twitter"
+                      ><i class="fab fa-x-twitter"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Member 3 -->
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="team-card">
+                <img src="/images/team-elena.png" alt="Elena Rostova" />
+                <div class="team-card__overlay">
+                  <h3 class="team-card__name">Elena Rostova</h3>
+                  <div class="team-card__role">Lead Risk Officer</div>
+                  <div class="team-card__socials">
+                    <a href="#" aria-label="LinkedIn"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                    <a href="#" aria-label="Twitter"
+                      ><i class="fab fa-x-twitter"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Member 4 -->
+            <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+              <div class="team-card">
+                <img src="/images/team-david.png" alt="David Chen" />
+                <div class="team-card__overlay">
+                  <h3 class="team-card__name">David Chen</h3>
+                  <div class="team-card__role">Chief Executive Officer</div>
+                  <div class="team-card__socials">
+                    <a href="#" aria-label="LinkedIn"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                    <a href="#" aria-label="Twitter"
+                      ><i class="fab fa-x-twitter"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 6: TRUST & SECURITY HIGHLIGHTS -->
+      <!-- ============================================================ -->
+      <section class="ab-trust-sec">
+        <div class="container">
+          <!-- Section Header: Bold & Prominent "TRUST & SECURITY" -->
+          <div
+            class="mission-section-head text-center mb-5"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <h2 class="ab-section-title-bold">TRUST & SECURITY</h2>
+            <p class="ab-sub mx-auto mb-0" style="max-width: 580px;">
+              Capital protection, multi-peril crop insurance, and institutional governance standard across every yield pool.
+            </p>
+          </div>
+
+          <div class="row g-4 align-items-stretch">
+            <!-- Trust Card 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="trust-pillar-card">
+                <div>
+                  <div class="tpc-icon theme-green">
+                    <i class="fa-solid fa-shield-heart"></i>
+                  </div>
+                  <h3 class="tpc-title">Multi-Peril Crop Insurance</h3>
+                  <p class="tpc-desc">
+                    Every yield pool is backed by comprehensive policy protection safeguarding principal against weather anomalies and crop loss.
+                  </p>
+                </div>
+                <div class="tpc-badge">100% Principal Protection</div>
+              </div>
+            </div>
+
+            <!-- Trust Card 2 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="trust-pillar-card">
+                <div>
+                  <div class="tpc-icon theme-amber">
+                    <i class="fa-solid fa-file-signature"></i>
+                  </div>
+                  <h3 class="tpc-title">Guaranteed Off-Take Contracts</h3>
+                  <p class="tpc-desc">
+                    Pre-negotiated wholesale purchase agreements are locked in with verified food distributors prior to seed planting.
+                  </p>
+                </div>
+                <div class="tpc-badge">Locked Buyer Revenue</div>
+              </div>
+            </div>
+
+            <!-- Trust Card 3 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="trust-pillar-card">
+                <div>
+                  <div class="tpc-icon theme-emerald">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                  </div>
+                  <h3 class="tpc-title">SEC Governance & Escrow</h3>
+                  <p class="tpc-desc">
+                    Capital is deployed through regulated escrow accounts with independent quarterly audits and institutional oversight.
+                  </p>
+                </div>
+                <div class="tpc-badge">Audited Financial Standards</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 7: SUSTAINABILITY & ESG IMPACT -->
+      <!-- ============================================================ -->
+      <section class="ab-esg-sec">
+        <div class="container">
+          <!-- Section Header: Bold & Prominent "SUSTAINABILITY IMPACT" -->
+          <div
+            class="mission-section-head text-center mb-5"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <h2 class="ab-section-title-bold">SUSTAINABILITY IMPACT</h2>
+            <p class="ab-sub mx-auto mb-0" style="max-width: 580px;">
+              Pioneering climate-smart commercial agriculture through zero-chemical stewardship, water efficiency, and local community empowerment.
+            </p>
+          </div>
+
+          <div class="row g-4 align-items-stretch">
+            <!-- Impact Card 1 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="esg-card">
+                <div>
+                  <div class="esg-card__icon theme-green">
+                    <i class="fa-solid fa-wheat-awn"></i>
+                  </div>
+                  <div class="esg-card__num">52,000+ MT</div>
+                  <h3 class="esg-card__title">Organic Produce Harvested</h3>
+                  <p class="esg-card__desc">
+                    High-yield crop production delivered to commercial supply chains without synthetic pesticides.
+                  </p>
+                </div>
+                <div class="esg-card__badge">Zero Chemical Residue</div>
+              </div>
+            </div>
+
+            <!-- Impact Card 2 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="esg-card">
+                <div>
+                  <div class="esg-card__icon theme-blue">
+                    <i class="fa-solid fa-droplet"></i>
+                  </div>
+                  <div class="esg-card__num">40% Saved</div>
+                  <h3 class="esg-card__title">Precision Drip Irrigation</h3>
+                  <p class="esg-card__desc">
+                    Advanced soil moisture regulation reducing agricultural freshwater consumption across all yield pools.
+                  </p>
+                </div>
+                <div class="esg-card__badge">Climate-Smart Water</div>
+              </div>
+            </div>
+
+            <!-- Impact Card 3 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="esg-card">
+                <div>
+                  <div class="esg-card__icon theme-amber">
+                    <i class="fa-solid fa-earth-americas"></i>
+                  </div>
+                  <div class="esg-card__num">8,500+ Acres</div>
+                  <h3 class="esg-card__title">Restored Soil Microbiome</h3>
+                  <p class="esg-card__desc">
+                    Regenerative farming techniques revitalizing soil health and sequestering atmospheric carbon.
+                  </p>
+                </div>
+                <div class="esg-card__badge">Regenerative Stewardship</div>
+              </div>
+            </div>
+
+            <!-- Impact Card 4 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+              <div class="esg-card">
+                <div>
+                  <div class="esg-card__icon theme-emerald">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                  </div>
+                  <div class="esg-card__num">12,000+ Jobs</div>
+                  <h3 class="esg-card__title">Rural Economic Uplift</h3>
+                  <p class="esg-card__desc">
+                    Fair-wage employment, agritech training, and community development for rural farming families.
+                  </p>
+                </div>
+                <div class="esg-card__badge">Social Impact Standard</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- SECTION 8: MODERN CTA BANNER -->
+      <!-- ============================================================ -->
+      <section class="ab-cta-sec">
+        <div class="container">
+          <div class="cta-modern-box">
+            <div class="row align-items-center gy-5">
+              <!-- Left Column: Content & Pitch -->
+              <div class="col-lg-7">
+              <div class="cta-tag mb-3">
+                <i class="fas fa-leaf"></i> Start Co-Funding Today
+              </div>
+                <h2 class="cta-modern-title">
+                  Ready to Co-Fund the Future of Sustainable Farming?
+                </h2>
+                <p class="cta-modern-desc">
+                  Join 15,000+ investors building asset-backed passive wealth while supporting clean, verified farming operations worldwide.
+                </p>
+                <div class="cta-perks-list mb-4">
+                  <div class="cta-perk-item">
+                    <i class="fa-solid fa-circle-check text-warning"></i>
+                    <span>Insured Principal Protection</span>
+                  </div>
+                  <div class="cta-perk-item">
+                    <i class="fa-solid fa-circle-check text-warning"></i>
+                    <span>14% – 22% Target APY</span>
+                  </div>
+                  <div class="cta-perk-item">
+                    <i class="fa-solid fa-circle-check text-warning"></i>
+                    <span>Wholesale Off-Take Contracts</span>
+                  </div>
+                </div>
+                <div class="cta-actions">
+                  <a href="/auth/register.html" class="ab-btn-primary">
+                    Create Free Account <i class="fas fa-arrow-right"></i>
+                  </a>
+                  <a href="/projects.html" class="ab-btn-outline-white">
+                    Explore Yield Pools <i class="fas fa-compass"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Column: Live Trust Preview Card -->
+              <div class="col-lg-5">
+                <div class="cta-trust-card">
+                  <div class="ctc-header">
+                    <span class="ctc-status-dot"></span>
+                    <span class="ctc-status-text">Active Co-Funding Pools</span>
+                  </div>
+                  <div class="ctc-stat-row">
+                    <div class="ctc-stat-box">
+                      <span class="ctc-val">$240M+</span>
+                      <span class="ctc-lbl">Capital Invested</span>
+                    </div>
+                    <div class="ctc-stat-box">
+                      <span class="ctc-val">98.4%</span>
+                      <span class="ctc-lbl">Harvest Payout Rate</span>
+                    </div>
+                  </div>
+                  <div class="ctc-guarantee-bar">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Backed by Land Titles & Multi-Peril Crop Policies</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4 gy-lg-0">
+            <div class="col-lg-4 col-md-6">
+              <div class="footer-item">
+                <a href="/index.html" class="footer-item__logo">
+                  <img src="/images/logo-white.svg" alt="FarmVest White Logo" />
+                </a>
+                <p class="footer-item__desc">
+                  FarmVest is a high-yield agriculture investment platform
+                  empowering global investors to co-fund sustainable farms, earn
+                  competitive passive returns, and build a food-secure future.
+                </p>
+                <ul class="social-pill-row">
+                  <li>
+                    <a href="#" class="social-icon-btn" aria-label="Facebook"
+                      ><i class="fab fa-facebook-f"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="social-icon-btn" aria-label="Twitter"
+                      ><i class="fab fa-x-twitter"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="social-icon-btn" aria-label="Instagram"
+                      ><i class="fab fa-instagram"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="social-icon-btn" aria-label="LinkedIn"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 col-6">
+              <div class="footer-item">
+                <h4 class="footer-item__title">Navigation</h4>
+                <ul class="footer-menu">
+                  <li class="footer-menu__item">
+                    <a href="/index.html" class="footer-menu__link"
+                      ><i class="fas fa-chevron-right text-xs text-success"></i>
+                      Home</a
+                    >
+                  </li>
+                  <li class="footer-menu__item">
+                    <a href="/projects.html" class="footer-menu__link"
+                      ><i class="fas fa-chevron-right text-xs text-success"></i>
+                      Yield Pools</a
+                    >
+                  </li>
+                  <li class="footer-menu__item">
+                    <a href="/about.html" class="footer-menu__link"
+                      ><i class="fas fa-chevron-right text-xs text-success"></i>
+                      About Us</a
+                    >
+                  </li>
+                  <li class="footer-menu__item">
+                    <a href="/blog.html" class="footer-menu__link"
+                      ><i class="fas fa-chevron-right text-xs text-success"></i>
+                      Insights</a
+                    >
+                  </li>
+                  <li class="footer-menu__item">
+                    <a href="/contact.html" class="footer-menu__link"
+                      ><i class="fas fa-chevron-right text-xs text-success"></i>
+                      Support</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-6">
+              <div class="footer-item">
+                <h4 class="footer-item__title">Active Asset Pools</h4>
+                <ul class="footer-menu">
+                  <li class="footer-menu__item">
+                    <a href="/project-details.html" class="footer-menu__link"
+                      ><i class="fas fa-leaf text-xs text-success me-1"></i>
+                      Organic Rice Pool</a
+                    >
+                  </li>
+                  <li class="footer-menu__item">
+                    <a href="/project-details.html" class="footer-menu__link"
+                      ><i
+                        class="fas fa-drumstick-bite text-xs text-success me-1"
+                      ></i>
+                      Poultry Expansion Pool</a
+                    >
+                  </li>
+                  <li class="footer-menu__item">
+                    <a href="/project-details.html" class="footer-menu__link"
+                      ><i
+                        class="fas fa-pepper-hot text-xs text-success me-1"
+                      ></i>
+                      Tomato Hydroponics Pool</a
+                    >
+                  </li>
+                  <li class="footer-menu__item">
+                    <a href="/project-details.html" class="footer-menu__link"
+                      ><i class="fas fa-cow text-xs text-success me-1"></i>
+                      Angus Cattle Ranch Pool</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <h4 class="footer-item__title">Headquarters & Support</h4>
+                <ul class="contact-list">
+                  <li class="contact-list__item">
+                    <i class="fas fa-location-dot text-success"></i>
+                    <span
+                      >100 Innovation Park, AgriTech Way, San Francisco, CA
+                      94105</span
+                    >
+                  </li>
+                  <li class="contact-list__item">
+                    <i class="fas fa-envelope text-success"></i>
+                    <a href="mailto:support@farmvest.com"
+                      >support@farmvest.com</a
+                    >
+                  </li>
+                  <li class="contact-list__item">
+                    <i class="fas fa-phone text-success"></i>
+                    <a href="tel:+18005553276">+1 (800) 555-FARM</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
 
-  <!-- BACK TO TOP BUTTON -->
-  <button type="button" class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-</body>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+              <p class="footer-bottom__text">
+                Copyright &copy; 2026
+                <a href="/index.html">FarmVest Inc.</a> All rights reserved.
+              </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+              <span class="text-xs text-light me-3"
+                ><i class="fas fa-shield-alt text-success me-1"></i> 100%
+                Capital Insured & Bank-Grade SSL</span
+              >
+              <ul class="list-inline d-inline-block mb-0 text-sm">
+                <li class="list-inline-item">
+                  <a href="/privacy-policy.html">Privacy Policy</a>
+                </li>
+                <li class="list-inline-item me-2 ms-2">|</li>
+                <li class="list-inline-item">
+                  <a href="/terms-of-service.html">Terms of Service</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Cookie consent -->
+    <div class="cookie-consent">
+      <div class="cookie-consent__icon"><i class="fas fa-cookie-bite"></i></div>
+      <p class="cookie-consent__text">
+        We use cookies to analyze performance and optimize your investment
+        experience on FarmVest. Read our
+        <a href="/cookie-policy.html">Cookie Policy</a> to learn more.
+      </p>
+      <button
+        type="button"
+        class="btn btn--primary btn--sm cookie-consent__btn"
+      >
+        Accept All Cookies
+      </button>
+    </div>
+
+    <!-- Toast container -->
+    <div class="toast-container"></div>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button type="button" class="back-to-top" aria-label="Back to top">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </body>
 </html>

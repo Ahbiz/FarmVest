@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investor Dashboard — FarmVest</title>
+  <meta name="description" content="Manage your FarmVest agricultural investment portfolio, track live farm cycles, telemetry, and automated yield payouts." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Scripts & Stylesheet -->
+  <script type="module" src="/src/js/dashboard.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+<body class="dashboard-page">
+  <div class="dashboard">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dashboard__sidebar">
+      <div class="dashboard__brand">
+        <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+      </div>
+
+      <!-- User Profile Badge in Sidebar -->
+      <div class="p-3 mx-3 mt-3 rounded-4 bg-light border text-center">
+        <div class="position-relative d-inline-block mb-2">
+          <img src="/images/team-sarah.png" alt="User Profile" class="rounded-circle border border-2 border-success" width="54" height="54" style="object-fit:cover;" />
+          <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" style="width:12px;height:12px;"></span>
+        </div>
+        <h6 class="fw-bold text-dark mb-0 dashboard__user-name">James Wilson</h6>
+        <span class="text-xs text-muted d-block mb-2">Verified Investor</span>
+        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs">
+          <i class="fa-solid fa-circle-check me-1"></i> Active Portfolio
+        </span>
+      </div>
+
+      <nav class="dashboard__nav">
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Portfolio & Growth</p>
+          <a href="/dashboard/index.html" class="dashboard__nav-item active"><i class="fa-solid fa-chart-pie me-2"></i> Overview</a>
+          <a href="/dashboard/investments.html" class="dashboard__nav-item"><i class="fa-solid fa-wheat-awn me-2"></i> My Farm Pools</a>
+          <a href="/dashboard/transactions.html" class="dashboard__nav-item"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Payout Ledger</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Capital Management</p>
+          <a href="/dashboard/deposit.html" class="dashboard__nav-item"><i class="fa-solid fa-wallet me-2"></i> Deposit Funds</a>
+          <a href="/dashboard/withdraw.html" class="dashboard__nav-item"><i class="fa-solid fa-money-bill-transfer me-2"></i> Withdraw Yield</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Account & Services</p>
+          <a href="/dashboard/profile.html" class="dashboard__nav-item"><i class="fa-solid fa-user-gear me-2"></i> Profile & Security</a>
+          <a href="/dashboard/support.html" class="dashboard__nav-item"><i class="fa-solid fa-headset me-2"></i> Agronomist Support</a>
+          <a href="/projects.html" class="dashboard__nav-item"><i class="fa-solid fa-store me-2"></i> Explore Open Pools</a>
+        </div>
+      </nav>
+
+      <div class="dashboard__sidebar-footer">
+        <button type="button" data-logout-btn class="btn btn-outline-danger w-100 rounded-pill btn-sm font-weight-bold">
+          <i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-backdrop"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard__main">
+
+      <!-- TOPBAR -->
+      <header class="dashboard__topbar">
+        <div class="dashboard__topbar-left">
+          <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="dashboard__search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search farm pools, yields, payout dates…" aria-label="Search dashboard" />
+          </div>
+        </div>
+
+        <div class="dashboard__topbar-right">
+          <div class="d-none d-md-flex align-items-center gap-2 px-3 py-1 bg-light rounded-pill border text-xs text-muted">
+            <span class="pulse-dot"></span>
+            <span>Munich Re Protected</span>
+          </div>
+
+          <!-- Dark / Light Mode Toggle Button -->
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <!-- Notifications Dropdown -->
+          <div class="dropdown">
+            <button class="dashboard__topbar-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+              <i class="fa-solid fa-bell"></i>
+              <span class="dashboard__topbar-btn__badge"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end notification-dropdown-menu mt-2">
+              <div class="notification-dropdown-menu__header">
+                <div class="d-flex align-items-center gap-2">
+                  <h6 class="fw-bold text-dark mb-0">Notifications</h6>
+                  <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0 text-xs">3 New</span>
+                </div>
+                <a href="#" class="text-xs text-success text-decoration-none font-weight-bold">Mark all read</a>
+              </div>
+              <div class="notification-dropdown-menu__body">
+                <a href="/dashboard/transactions.html" class="notification-dropdown-menu__item is-unread">
+                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--success">
+                    <i class="fa-solid fa-money-bill-trend-up"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark fw-semibold">Yield Distribution Completed</strong>
+                    <p class="text-xs text-muted mb-1">+$620.00 dividend credited from Basmati Rice Pool #04.</p>
+                    <span class="text-xs text-muted opacity-75">10 mins ago</span>
+                  </div>
+                </a>
+                <a href="/dashboard/investments.html" class="notification-dropdown-menu__item is-unread">
+                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--amber">
+                    <i class="fa-solid fa-seedling"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark fw-semibold">Harvest Milestone Reached</strong>
+                    <p class="text-xs text-muted mb-1">Smart Hydroponic Tomato Greenhouse reached Stage 4: Pre-Harvest (92%).</p>
+                    <span class="text-xs text-muted opacity-75">2 hours ago</span>
+                  </div>
+                </a>
+                <a href="/dashboard/support.html" class="notification-dropdown-menu__item is-unread">
+                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--blue">
+                    <i class="fa-solid fa-headset"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark fw-semibold">Agronomist Report Available</strong>
+                    <p class="text-xs text-muted mb-1">Dr. Marcus Vance uploaded soil moisture & satellite telemetry data.</p>
+                    <span class="text-xs text-muted opacity-75">Yesterday</span>
+                  </div>
+                </a>
+              </div>
+              <div class="p-2 text-center border-top bg-light">
+                <a href="/dashboard/support.html" class="text-xs text-muted text-decoration-none">View All System Alerts</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Menu Dropdown -->
+          <div class="dropdown">
+            <div class="dashboard__user-menu" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="dashboard__user-avatar">
+                <img src="/images/team-sarah.png" alt="James Wilson" />
+              </div>
+              <span class="dashboard__user-name">James Wilson</span>
+              <i class="fa-solid fa-chevron-down text-xs text-muted ms-1"></i>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <li><a class="dropdown-item text-sm" href="/dashboard/profile.html"><i class="fa-solid fa-user me-2 text-success"></i> My Profile</a></li>
+              <li><a class="dropdown-item text-sm" href="/dashboard/investments.html"><i class="fa-solid fa-wheat-awn me-2 text-success"></i> My Farm Pools</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-sm text-danger" href="#" data-logout-btn><i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <main class="dashboard__content">
+
+        <!-- Page Header -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <h1 class="dashboard__page-title mb-0">Portfolio Overview</h1>
+              <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">
+                <i class="fa-solid fa-shield-halved me-1"></i> Verified Investor
+              </span>
+            </div>
+            <p class="dashboard__page-desc mb-0">Real-time asset telemetry, cycle progress, and capital yield distribution.</p>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="/dashboard/deposit.html" class="ab-btn-primary btn-sm py-2 px-4"><i class="fa-solid fa-plus me-1"></i> Deposit Funds</a>
+            <a href="/projects.html" class="btn btn-outline-success rounded-pill px-4 btn-sm font-weight-bold"><i class="fa-solid fa-store me-1"></i> Explore New Pools</a>
+          </div>
+        </div>
+
+        <!-- 2026 BENTO METRICS GRID -->
+        <div class="row g-4 mb-4">
+          
+          <!-- Bento 1: Main Portfolio Hero Card (8 cols) -->
+          <div class="col-lg-8">
+            <div class="bento-card bento-card--hero">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                  <span class="text-xs text-uppercase tracking-wider text-white-50 font-weight-semibold d-block mb-1">Total Portfolio Valuation</span>
+                  <h2 class="display-6 font-mono fw-bold text-white mb-0" data-counter="42180" data-prefix="$" data-decimals="2">$42,180.00</h2>
+                </div>
+                <div class="bento-tag bento-tag--emerald bg-white bg-opacity-10 text-white border-white border-opacity-20">
+                  <i class="fa-solid fa-arrow-trend-up"></i> +17.8% Net ARR
+                </div>
+              </div>
+
+              <!-- Sparkline Trajectory Visualization -->
+              <div class="mb-4">
+                <div class="d-flex justify-content-between text-xs text-white-50 mb-2">
+                  <span>Live Yield Trajectory (Chart.js Interactive)</span>
+                  <span class="text-white font-weight-bold">+$8,250.00 Realized Return</span>
+                </div>
+                <div style="height: 160px; position: relative;">
+                  <canvas id="yieldChart"></canvas>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap align-items-center justify-content-between pt-3 border-top border-white border-opacity-10 gap-3">
+                <div class="d-flex gap-4">
+                  <div>
+                    <span class="text-xs text-white-50 d-block">Available Liquid Cash</span>
+                    <strong class="font-mono text-white" data-wallet-balance>$2,180.00</strong>
+                  </div>
+                  <div>
+                    <span class="text-xs text-white-50 d-block">Capital in Ground</span>
+                    <strong class="font-mono text-white">$40,000.00</strong>
+                  </div>
+                </div>
+                <div class="d-flex gap-2">
+                  <a href="/dashboard/deposit.html" class="btn btn-light btn-sm rounded-pill px-3 font-weight-bold text-success">
+                    <i class="fa-solid fa-plus me-1"></i> Quick Deposit
+                  </a>
+                  <a href="/dashboard/withdraw.html" class="btn btn-outline-light btn-sm rounded-pill px-3 font-weight-bold">
+                    <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Withdraw
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bento 2: Crop Diversity & Allocation (4 cols) -->
+          <div class="col-lg-4">
+            <div class="bento-card">
+              <div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h3 class="h6 font-heading fw-bold text-dark mb-0">Portfolio Allocation</h3>
+                  <span class="badge bg-success-subtle text-success rounded-pill px-2 py-1 text-xs">5 Active Farms</span>
+                </div>
+                
+                <div style="height: 140px; position: relative;" class="mb-3">
+                  <canvas id="allocationChart"></canvas>
+                </div>
+
+                <div class="d-flex flex-column gap-2 text-xs">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="d-flex align-items-center gap-2 text-dark font-weight-medium">
+                      <span class="d-inline-block rounded-circle bg-success" style="width: 8px; height: 8px;"></span>
+                      Basmati Rice & Grains
+                    </span>
+                    <span class="font-mono font-weight-bold text-dark">$17,700 (42%)</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="d-flex align-items-center gap-2 text-dark font-weight-medium">
+                      <span class="d-inline-block rounded-circle bg-info" style="width: 8px; height: 8px;"></span>
+                      Hydroponic Greenhouses
+                    </span>
+                    <span class="font-mono font-weight-bold text-dark">$12,650 (30%)</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="d-flex align-items-center gap-2 text-dark font-weight-medium">
+                      <span class="d-inline-block rounded-circle bg-warning" style="width: 8px; height: 8px;"></span>
+                      Poultry & Angus Livestock
+                    </span>
+                    <span class="font-mono font-weight-bold text-dark">$11,830 (28%)</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3 border-top mt-3 d-flex align-items-center justify-content-between">
+                <span class="text-xs text-muted"><i class="fa-solid fa-shield-halved text-success me-1"></i> Multi-Peril Insured</span>
+                <span class="badge bg-light text-dark border text-xs">Risk: Minimal (A+)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3 SECONDARY TELEMETRY & INSIGHT BENTO CARDS -->
+        <div class="row g-4 mb-5">
+
+          <!-- Card A: Upcoming Harvest Payout -->
+          <div class="col-md-4">
+            <div class="bento-card">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div class="bento-icon bento-icon--emerald">
+                  <i class="fa-solid fa-seedling"></i>
+                </div>
+                <span class="bento-tag bento-tag--emerald">14 Days Left</span>
+              </div>
+              <div>
+                <span class="text-xs text-uppercase text-muted font-weight-semibold d-block mb-1">Next Upcoming Harvest</span>
+                <h4 class="h5 fw-bold text-dark mb-1">Basmati Rice Drip Farm</h4>
+                <p class="text-xs text-muted mb-3">Cycle completion approaching target maturity window.</p>
+                <div class="d-flex justify-content-between align-items-baseline pt-2 border-top">
+                  <span class="text-xs text-muted">Expected Distribution:</span>
+                  <strong class="font-mono text-success">+$1,860.00 (+15.5%)</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card B: Soil & Climate Satellite Telemetry -->
+          <div class="col-md-4">
+            <div class="bento-card">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div class="bento-icon bento-icon--blue">
+                  <i class="fa-solid fa-cloud-sun-rain"></i>
+                </div>
+                <span class="bento-tag bento-tag--blue"><span class="pulse-dot me-1"></span> Live Telemetry</span>
+              </div>
+              <div>
+                <span class="text-xs text-uppercase text-muted font-weight-semibold d-block mb-1">Farmland Conditions</span>
+                <h4 class="h5 fw-bold text-dark mb-1">Optimal Crop Health (99.2%)</h4>
+                <p class="text-xs text-muted mb-3">IoT soil moisture & thermal satellite sensors in normal range.</p>
+                <div class="d-flex justify-content-between align-items-baseline pt-2 border-top">
+                  <span class="text-xs text-muted">Soil Moisture:</span>
+                  <strong class="font-mono text-dark">68% (Ideal Hydration)</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card C: Lifetime Payouts & Insurance Protection -->
+          <div class="col-md-4">
+            <div class="bento-card">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div class="bento-icon bento-icon--amber">
+                  <i class="fa-solid fa-vault"></i>
+                </div>
+                <span class="bento-tag bento-tag--amber">100% Escrow</span>
+              </div>
+              <div>
+                <span class="text-xs text-uppercase text-muted font-weight-semibold d-block mb-1">Lifetime Yield Realized</span>
+                <h4 class="h5 font-mono fw-bold text-dark mb-1">+$8,250.00</h4>
+                <p class="text-xs text-muted mb-3">All funds deposited into automated SEC-compliant escrow.</p>
+                <div class="d-flex justify-content-between align-items-baseline pt-2 border-top">
+                  <span class="text-xs text-muted">Next Compound:</span>
+                  <a href="/dashboard/investments.html" class="text-success font-weight-bold text-xs text-decoration-none">Reinvest Yield &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MY ACTIVE FARMS TABLE SECTION -->
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-5">
+          <div class="card-header bg-white p-4 border-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <div>
+              <h2 class="h5 font-heading fw-bold text-dark mb-1">My Active Farm Projects</h2>
+              <p class="text-xs text-muted mb-0">Track cycle progress, telemetry health scores, and maturity dates.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <a href="/dashboard/investments.html" class="btn btn-outline-success btn-sm rounded-pill font-weight-bold px-3">
+                <i class="fa-solid fa-wheat-awn me-1"></i> View All 5 Pools
+              </a>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table align-middle mb-0">
+              <thead class="bg-light">
+                <tr>
+                  <th class="ps-4 text-xs text-uppercase font-weight-bold text-muted">Project Name</th>
+                  <th class="text-xs text-uppercase font-weight-bold text-muted">Cycle Stage</th>
+                  <th class="text-xs text-uppercase font-weight-bold text-muted">Invested Capital</th>
+                  <th class="text-xs text-uppercase font-weight-bold text-muted">Target Yield</th>
+                  <th class="text-xs text-uppercase font-weight-bold text-muted">Maturity Date</th>
+                  <th class="text-xs text-uppercase font-weight-bold text-muted">Protection</th>
+                  <th class="pe-4 text-end text-xs text-uppercase font-weight-bold text-muted">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ps-4">
+                    <div class="d-flex align-items-center gap-3">
+                      <img src="/images/pool-rice.png" class="rounded-3" width="44" height="44" style="object-fit:cover;" alt="Rice Pool" />
+                      <div>
+                        <strong class="d-block text-dark text-sm">Commercial Organic Rice Pool #04</strong>
+                        <span class="text-xs text-muted">Basmati Drip Cultivation &bull; California Valley</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="min-width: 140px;">
+                      <div class="d-flex justify-content-between text-xs text-muted mb-1">
+                        <span>Stage 3: Flowering</span>
+                        <strong class="text-success">78%</strong>
+                      </div>
+                      <div class="progress" style="height: 6px; border-radius: 9999px;">
+                        <div class="progress-bar bg-success" style="width: 78%;"></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono text-sm fw-bold text-dark">$12,000.00</td>
+                  <td class="font-mono text-sm text-success fw-bold">+15.5% ($1,860)</td>
+                  <td class="font-mono text-sm text-muted">Dec 2026</td>
+                  <td><span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs"><i class="fa-solid fa-shield-halved me-1"></i> Munich Re</span></td>
+                  <td class="pe-4 text-end">
+                    <a href="/project-details.html" class="btn btn-light btn-sm rounded-circle" aria-label="View Project"><i class="fa-solid fa-eye text-muted"></i></a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="ps-4">
+                    <div class="d-flex align-items-center gap-3">
+                      <img src="/images/pool-poultry.png" class="rounded-3" width="44" height="44" style="object-fit:cover;" alt="Poultry Pool" />
+                      <div>
+                        <strong class="d-block text-dark text-sm">Free-Range Organic Poultry Pool</strong>
+                        <span class="text-xs text-muted">Automated Egg & Meat Production &bull; Texas Ranch</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="min-width: 140px;">
+                      <div class="d-flex justify-content-between text-xs text-muted mb-1">
+                        <span>Stage 2: Growth</span>
+                        <strong class="text-success">54%</strong>
+                      </div>
+                      <div class="progress" style="height: 6px; border-radius: 9999px;">
+                        <div class="progress-bar bg-success" style="width: 54%;"></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono text-sm fw-bold text-dark">$8,000.00</td>
+                  <td class="font-mono text-sm text-success fw-bold">+17.0% ($1,360)</td>
+                  <td class="font-mono text-sm text-muted">Oct 2026</td>
+                  <td><span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs"><i class="fa-solid fa-shield-halved me-1"></i> Munich Re</span></td>
+                  <td class="pe-4 text-end">
+                    <a href="/project-details.html" class="btn btn-light btn-sm rounded-circle" aria-label="View Project"><i class="fa-solid fa-eye text-muted"></i></a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="ps-4">
+                    <div class="d-flex align-items-center gap-3">
+                      <img src="/images/pool-tomato.png" class="rounded-3" width="44" height="44" style="object-fit:cover;" alt="Tomato Pool" />
+                      <div>
+                        <strong class="d-block text-dark text-sm">Smart Hydroponic Tomato Greenhouse</strong>
+                        <span class="text-xs text-muted">Multi-Harvest Hydroponics &bull; Netherlands Cluster</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="min-width: 140px;">
+                      <div class="d-flex justify-content-between text-xs text-muted mb-1">
+                        <span>Stage 4: Pre-Harvest</span>
+                        <strong class="text-success">92%</strong>
+                      </div>
+                      <div class="progress" style="height: 6px; border-radius: 9999px;">
+                        <div class="progress-bar bg-success" style="width: 92%;"></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono text-sm fw-bold text-dark">$10,000.00</td>
+                  <td class="font-mono text-sm text-success fw-bold">+14.0% ($1,400)</td>
+                  <td class="font-mono text-sm text-muted">Nov 2026</td>
+                  <td><span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs"><i class="fa-solid fa-shield-halved me-1"></i> Munich Re</span></td>
+                  <td class="pe-4 text-end">
+                    <a href="/project-details.html" class="btn btn-light btn-sm rounded-circle" aria-label="View Project"><i class="fa-solid fa-eye text-muted"></i></a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="ps-4">
+                    <div class="d-flex align-items-center gap-3">
+                      <img src="/images/pool-cattle.png" class="rounded-3" width="44" height="44" style="object-fit:cover;" alt="Cattle Pool" />
+                      <div>
+                        <strong class="d-block text-dark text-sm">Commercial Angus Cattle Ranch</strong>
+                        <span class="text-xs text-muted">Pasture Grazing & Growth Telemetry &bull; Montana</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div style="min-width: 140px;">
+                      <div class="d-flex justify-content-between text-xs text-muted mb-1">
+                        <span>Stage 1: Cohort Setup</span>
+                        <strong class="text-warning-emphasis">30%</strong>
+                      </div>
+                      <div class="progress" style="height: 6px; border-radius: 9999px;">
+                        <div class="progress-bar bg-warning" style="width: 30%;"></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="font-mono text-sm fw-bold text-dark">$6,000.00</td>
+                  <td class="font-mono text-sm text-success fw-bold">+19.5% ($1,170)</td>
+                  <td class="font-mono text-sm text-muted">Mar 2027</td>
+                  <td><span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs"><i class="fa-solid fa-shield-halved me-1"></i> Munich Re</span></td>
+                  <td class="pe-4 text-end">
+                    <a href="/project-details.html" class="btn btn-light btn-sm rounded-circle" aria-label="View Project"><i class="fa-solid fa-eye text-muted"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- RECENT PAYOUTS & DISBURSEMENTS LEDGER -->
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+              <div class="card-header bg-white p-4 border-bottom d-flex justify-content-between align-items-center">
+                <h3 class="h6 font-heading fw-bold text-dark mb-0">Recent Yield Disbursements</h3>
+                <a href="/dashboard/transactions.html" class="text-success text-xs font-weight-bold text-decoration-none">Full Statement &rarr;</a>
+              </div>
+              <div class="p-0">
+                <div class="telemetry-row px-4 py-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="bento-icon bento-icon--emerald" style="width: 36px; height: 36px; font-size: 1rem;">
+                      <i class="fa-solid fa-arrow-down text-success"></i>
+                    </div>
+                    <div>
+                      <strong class="d-block text-dark text-sm">Monthly Harvest Dividend #08</strong>
+                      <span class="text-xs text-muted">Basmati Rice Cultivation Pool</span>
+                    </div>
+                  </div>
+                  <div class="text-end">
+                    <strong class="d-block font-mono text-success text-sm">+$620.00</strong>
+                    <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0 text-xs">Completed</span>
+                  </div>
+                </div>
+
+                <div class="telemetry-row px-4 py-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="bento-icon bento-icon--emerald" style="width: 36px; height: 36px; font-size: 1rem;">
+                      <i class="fa-solid fa-arrow-down text-success"></i>
+                    </div>
+                    <div>
+                      <strong class="d-block text-dark text-sm">Hydroponic Greenhouse Dividend</strong>
+                      <span class="text-xs text-muted">Netherlands Tomato Facility</span>
+                    </div>
+                  </div>
+                  <div class="text-end">
+                    <strong class="d-block font-mono text-success text-sm">+$450.00</strong>
+                    <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0 text-xs">Completed</span>
+                  </div>
+                </div>
+
+                <div class="telemetry-row px-4 py-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <div class="bento-icon bento-icon--blue" style="width: 36px; height: 36px; font-size: 1rem;">
+                      <i class="fa-solid fa-arrow-up text-primary"></i>
+                    </div>
+                    <div>
+                      <strong class="d-block text-dark text-sm">Yield Reinvestment Allocation</strong>
+                      <span class="text-xs text-muted">Poultry & Livestock Expansion</span>
+                    </div>
+                  </div>
+                  <div class="text-end">
+                    <strong class="d-block font-mono text-dark text-sm">-$1,000.00</strong>
+                    <span class="badge bg-info-subtle text-info-emphasis rounded-pill px-2 py-0 text-xs">Reinvested</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Direct Agronomist Support Callout Card -->
+          <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-light h-100 d-flex flex-column justify-content-between">
+              <div>
+                <div class="d-flex align-items-center gap-2 mb-3">
+                  <div class="bento-icon bento-icon--emerald" style="width: 36px; height: 36px; font-size: 1rem;">
+                    <i class="fa-solid fa-headset text-success"></i>
+                  </div>
+                  <h4 class="h6 font-heading fw-bold text-dark mb-0">Dedicated Agronomist</h4>
+                </div>
+                <p class="text-xs text-muted mb-3">
+                  Have questions about harvest cycles, soil telemetry, or co-funding allocations? Your senior agronomist is ready to assist.
+                </p>
+                <div class="p-3 bg-white rounded-3 border mb-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <img src="/images/team-marcus.png" class="rounded-circle" width="40" height="40" style="object-fit: cover;" alt="Dr. Marcus Vance" />
+                    <div>
+                      <strong class="d-block text-dark text-sm">Dr. Marcus Vance</strong>
+                      <span class="text-xs text-muted">Lead Soil Scientist &bull; Online</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="/dashboard/support.html" class="btn btn-success w-100 rounded-pill btn-sm font-weight-bold">
+                <i class="fa-solid fa-comments me-2"></i> Message Agronomist
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="toast-container"></div>
+</body>
+</html>

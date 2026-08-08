@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transactions & Approvals — FarmVest Admin</title>
+  <meta name="description" content="FarmVest admin — review, approve, and reconcile all deposits, withdrawals, and yield payouts." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Scripts & Stylesheet -->
+  <script type="module" src="/src/js/admin.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+<body class="admin-dashboard-page">
+  <div class="dashboard">
+    <!-- ADMIN SIDEBAR — Unified Dark Command Shell -->
+    <aside class="dashboard__sidebar admin-sidebar">
+      <div class="dashboard__brand">
+        <a href="/admin/index.html"><img src="/images/logo-white.svg" alt="FarmVest Admin" /></a>
+      </div>
+
+      <nav class="dashboard__nav">
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Overview</p>
+          <a href="/admin/index.html" class="dashboard__nav-item"><i class="fas fa-gauge-high"></i> Admin Dashboard</a>
+          <a href="/admin/reports.html" class="dashboard__nav-item"><i class="fas fa-chart-column"></i> Reports & Analytics</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Management</p>
+          <a href="/admin/projects.html" class="dashboard__nav-item"><i class="fas fa-layer-group"></i> Manage Pools</a>
+          <a href="/admin/users.html" class="dashboard__nav-item"><i class="fas fa-users"></i> Manage Users <span class="admin-badge">57</span></a>
+          <a href="/admin/transactions.html" class="dashboard__nav-item active"><i class="fas fa-money-bill-transfer"></i> Transactions <span class="admin-badge admin-badge--warn">24</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">System & Config</p>
+          <a href="/admin/settings.html" class="dashboard__nav-item"><i class="fas fa-gear"></i> System Settings</a>
+          <a href="/index.html" class="dashboard__nav-item"><i class="fas fa-globe"></i> View Live Site</a>
+        </div>
+      </nav>
+
+      <div class="dashboard__sidebar-footer">
+        <div class="admin-system-status">
+          <span class="pulse-dot"></span> <span>All Systems Operational</span>
+        </div>
+        <a href="/auth/login.html" data-logout-btn class="dashboard__nav-item text-danger">
+          <i class="fas fa-right-from-bracket me-2"></i> Exit Admin
+        </a>
+      </div>
+    </aside>
+    <div class="dashboard-backdrop"></div>
+
+    <!-- MAIN -->
+    <div class="dashboard__main">
+      <!-- TOPBAR -->
+      <header class="dashboard__topbar">
+        <div class="dashboard__topbar-left">
+          <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+          <div class="dashboard__search">
+            <i class="fas fa-search"></i>
+            <input type="search" placeholder="Search users, pools, transactions…" aria-label="Search" />
+          </div>
+        </div>
+        <div class="dashboard__topbar-right">
+          <!-- Dark / Light Mode Toggle Button -->
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <!-- Notifications Dropdown -->
+          <div class="dropdown">
+            <button class="dashboard__topbar-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+              <i class="fas fa-bell"></i>
+              <span class="dashboard__topbar-btn__badge"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end notification-dropdown-menu">
+              <div class="notification-dropdown-menu__header">
+                <strong class="text-sm fw-bold">Admin Notifications</strong>
+                <a href="#" class="text-xs text-success text-decoration-none fw-semibold">Mark all read</a>
+              </div>
+              <div class="notification-dropdown-menu__body">
+                <a class="notification-dropdown-menu__item is-unread" href="/admin/transactions.html">
+                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--amber"><i class="fas fa-clock"></i></div>
+                  <div>
+                    <strong class="text-sm d-block text-dark">24 Pending Withdrawals</strong>
+                    <span class="text-xs text-muted">$1.24M queued for supervisor approval</span>
+                    <span class="text-xs text-muted d-block mt-1">2 min ago</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Menu -->
+          <div class="dropdown">
+            <div class="dashboard__user-menu" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="dashboard__user-avatar bg-dark text-white d-flex align-items-center justify-content-center">
+                <i class="fas fa-user-shield"></i>
+              </div>
+              <span class="dashboard__user-name fw-bold">Admin Supervisor</span>
+              <i class="fas fa-chevron-down text-xs text-muted"></i>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <li><a class="dropdown-item text-sm" href="/admin/settings.html"><i class="fas fa-gear me-2 text-primary"></i> System Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-sm text-danger" href="/auth/login.html" data-logout-btn><i class="fas fa-right-from-bracket me-2"></i> Exit Admin</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <main class="dashboard__content">
+        <div class="dashboard__page-header mb-4 fv-fade-in-up">
+          <h1 class="dashboard__page-title mb-1">Transactions & Reconciliation</h1>
+          <p class="dashboard__page-desc mb-0">Review, approve, and reconcile all deposits, withdrawals, and yield payouts.</p>
+        </div>
+
+        <!-- Stat cards -->
+        <div class="row g-4 mb-4 fv-fade-in-up" style="animation-delay: 0.1s;">
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Deposits (30d)</span>
+                <span class="stat-card__icon stat-card__icon--success"><i class="fas fa-arrow-down"></i></span>
+              </div>
+              <div class="stat-card__value" data-counter-target="18.4" data-counter-prefix="$" data-counter-suffix="M" data-counter-decimals="1">$0M</div>
+              <span class="stat-card__change stat-card__change--up"><i class="fas fa-arrow-up"></i> 11.3% MoM</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Withdrawals (30d)</span>
+                <span class="stat-card__icon stat-card__icon--accent"><i class="fas fa-arrow-up"></i></span>
+              </div>
+              <div class="stat-card__value" data-counter-target="9.1" data-counter-prefix="$" data-counter-suffix="M" data-counter-decimals="1">$0M</div>
+              <span class="stat-card__change stat-card__change--down"><i class="fas fa-arrow-down"></i> 2.4% MoM</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Yields Paid</span>
+                <span class="stat-card__icon stat-card__icon--primary"><i class="fas fa-coins"></i></span>
+              </div>
+              <div class="stat-card__value" data-counter-target="4.7" data-counter-prefix="$" data-counter-suffix="M" data-counter-decimals="1">$0M</div>
+              <span class="stat-card__change stat-card__change--up"><i class="fas fa-seedling"></i> 38 pools</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Pending Approval</span>
+                <span class="stat-card__icon stat-card__icon--info"><i class="fas fa-hourglass-half"></i></span>
+              </div>
+              <div class="stat-card__value" data-counter-target="24">0</div>
+              <span class="stat-card__change stat-card__change--down"><i class="fas fa-clock"></i> $1.24M queued</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transactions table -->
+        <div class="data-table fv-fade-in-up" style="animation-delay: 0.2s;">
+          <div class="data-table__header">
+            <span class="data-table__title">Recent Transactions</span>
+            <div class="dropdown">
+              <button class="btn btn-outline-secondary btn-sm rounded-pill dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-filter me-1"></i> Type Filter</button>
+              <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                <li><a class="dropdown-item" href="#">All Types</a></li>
+                <li><a class="dropdown-item" href="#">Deposits</a></li>
+                <li><a class="dropdown-item" href="#">Withdrawals</a></li>
+                <li><a class="dropdown-item" href="#">Yield Payouts</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-transactions align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Reference</th>
+                  <th>Investor / Pool</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Method</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th class="text-end">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-mono text-xs text-muted">#TXN-90412</td>
+                  <td class="fw-bold text-dark">Sofia Martinez</td>
+                  <td><span class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill"><i class="fas fa-arrow-up-right me-1"></i>Withdrawal</span></td>
+                  <td class="font-mono fw-bold text-danger">$12,500</td>
+                  <td class="text-xs">Bank Transfer</td>
+                  <td class="text-xs text-muted">Aug 5, 2026</td>
+                  <td><span class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill"><i class="fas fa-clock me-1"></i>Pending Review</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-success rounded-pill me-1 fw-bold px-3" data-admin-action="approve" title="Approve Transaction"><i class="fas fa-check me-1"></i>Approve</button>
+                    <button class="btn btn-sm btn-outline-danger rounded-pill px-2" data-admin-action="reject" title="Reject Transaction"><i class="fas fa-times"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="font-mono text-xs text-muted">#TXN-90411</td>
+                  <td class="fw-bold text-dark">James Wilson</td>
+                  <td><span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill"><i class="fas fa-arrow-down-left me-1"></i>Deposit</span></td>
+                  <td class="font-mono fw-bold text-success">$5,000</td>
+                  <td class="text-xs">Card Payment</td>
+                  <td class="text-xs text-muted">Aug 5, 2026</td>
+                  <td><span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill"><i class="fas fa-circle-check me-1"></i>Completed</span></td>
+                  <td class="text-end"><button class="btn btn-sm btn-outline-secondary rounded-pill" aria-label="View Details"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono text-xs text-muted">#TXN-90408</td>
+                  <td class="fw-bold text-dark">Amara Okafor</td>
+                  <td><span class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill"><i class="fas fa-arrow-up-right me-1"></i>Withdrawal</span></td>
+                  <td class="font-mono fw-bold text-danger">$8,320</td>
+                  <td class="text-xs">Crypto (USDC)</td>
+                  <td class="text-xs text-muted">Aug 4, 2026</td>
+                  <td><span class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill"><i class="fas fa-clock me-1"></i>Pending Review</span></td>
+                  <td class="text-end">
+                    <button class="btn btn-sm btn-success rounded-pill me-1 fw-bold px-3" data-admin-action="approve" title="Approve Transaction"><i class="fas fa-check me-1"></i>Approve</button>
+                    <button class="btn btn-sm btn-outline-danger rounded-pill px-2" data-admin-action="reject" title="Reject Transaction"><i class="fas fa-times"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="font-mono text-xs text-muted">#TXN-90405</td>
+                  <td class="fw-bold text-dark">Poultry Expansion Pool</td>
+                  <td><span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill"><i class="fas fa-coins me-1"></i>Yield Payout</span></td>
+                  <td class="font-mono fw-bold text-primary">$1,740</td>
+                  <td class="text-xs">Automated Distribution</td>
+                  <td class="text-xs text-muted">Aug 4, 2026</td>
+                  <td><span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill"><i class="fas fa-circle-check me-1"></i>Completed</span></td>
+                  <td class="text-end"><button class="btn btn-sm btn-outline-secondary rounded-pill" aria-label="View Details"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono text-xs text-muted">#TXN-90399</td>
+                  <td class="fw-bold text-dark">Priya Nair</td>
+                  <td><span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill"><i class="fas fa-arrow-down-left me-1"></i>Deposit</span></td>
+                  <td class="font-mono fw-bold text-success">$20,000</td>
+                  <td class="text-xs">Bank Wire</td>
+                  <td class="text-xs text-muted">Aug 3, 2026</td>
+                  <td><span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill"><i class="fas fa-circle-check me-1"></i>Completed</span></td>
+                  <td class="text-end"><button class="btn btn-sm btn-outline-secondary rounded-pill" aria-label="View Details"><i class="fas fa-eye"></i></button></td>
+                </tr>
+                <tr>
+                  <td class="font-mono text-xs text-muted">#TXN-90387</td>
+                  <td class="fw-bold text-dark">Liam Chen</td>
+                  <td><span class="badge bg-warning-subtle text-warning border border-warning-subtle rounded-pill"><i class="fas fa-arrow-up-right me-1"></i>Withdrawal</span></td>
+                  <td class="font-mono fw-bold text-danger">$1,200</td>
+                  <td class="text-xs">Card Payout</td>
+                  <td class="text-xs text-muted">Aug 2, 2026</td>
+                  <td><span class="badge bg-danger-subtle text-danger border border-danger-subtle rounded-pill"><i class="fas fa-times-circle me-1"></i>Failed</span></td>
+                  <td class="text-end"><button class="btn btn-sm btn-outline-secondary rounded-pill" aria-label="View Details"><i class="fas fa-eye"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="data-table__footer">
+            <span>Showing 6 of 4,120 transactions</span>
+            <div class="d-flex gap-2">
+              <button class="btn btn-outline-secondary btn-sm rounded-pill" disabled>Previous</button>
+              <button class="btn btn-outline-secondary btn-sm rounded-pill">Next</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast-container"></div>
+</body>
+</html>

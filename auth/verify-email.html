@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify Email — FarmVest</title>
+  <meta name="description" content="Verify your email address to complete your FarmVest account registration." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Stylesheet & scripts -->
+  <script type="module" src="/src/js/main.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+<body class="auth-page">
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader__content">
+      <div class="preloader__logo-box">
+        <img src="/images/logo-white.svg" alt="FarmVest Loading" width="64" height="64" fetchpriority="high" />
+      </div>
+      <div class="preloader__text">Farm<span>Vest</span></div>
+      <div class="preloader__progress-bar">
+        <div class="preloader__progress-bar-inner"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth">
+    <!-- Left Brand Showcase Panel -->
+    <aside class="auth__aside">
+      <a href="/index.html" class="auth__brand">
+        <img src="/images/logo-white.svg" alt="FarmVest" />
+      </a>
+
+      <div class="my-auto">
+        <h1 class="auth__aside-title">Secure your investor account.</h1>
+        <p class="auth__aside-desc mb-0">
+          Enter the 6-digit code sent to your registered email to unlock your investor dashboard.
+        </p>
+      </div>
+
+      <div class="auth__aside-footer mt-auto pt-4 border-top border-white border-opacity-10">
+        <div class="d-flex align-items-center justify-content-between text-xs text-white-50">
+          <span>Asset-Backed Farmland Infrastructure</span>
+         
+        </div>
+      </div>
+    </aside>
+
+    <!-- Form panel -->
+    <main class="auth__main">
+      <div class="auth__form-wrap text-center">
+        <div class="auth__mobile-brand mb-4">
+          <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+        </div>
+
+        <div class="auth__status-icon auth__status-icon--info mb-3 mx-auto">
+          <i class="fas fa-envelope-open-text"></i>
+        </div>
+
+        <h2 class="auth__title">Check your inbox</h2>
+        <p class="auth__subtitle mb-4">
+          Enter the 6-digit verification code sent to your email.<br />
+          <strong class="text-dark">(Demo Code: 123456)</strong>
+        </p>
+
+        <div class="auth__otp mb-4">
+          <input type="text" maxlength="1" autofocus value="1" />
+          <input type="text" maxlength="1" value="2" />
+          <input type="text" maxlength="1" value="3" />
+          <input type="text" maxlength="1" value="4" />
+          <input type="text" maxlength="1" value="5" />
+          <input type="text" maxlength="1" value="6" />
+        </div>
+
+        <button type="button" id="verifyOtpBtn" class="auth-submit-btn w-100 mb-3">Verify & Activate Account <i class="fas fa-check-circle ms-2"></i></button>
+
+        <p class="text-sm text-muted">
+          Didn't receive the email? <a href="#" onclick="event.preventDefault(); alert('Resent OTP: 123456');" class="text-success font-weight-bold text-decoration-none">Resend Code</a>
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account — FarmVest</title>
+  <meta name="description" content="Create your FarmVest account to start co-funding verified, insured commercial harvest cycles and earning asset-backed returns." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Stylesheet & scripts -->
+  <script type="module" src="/src/js/main.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+<body class="auth-page">
+
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader__content">
+      <div class="preloader__logo-box">
+        <img src="/images/logo-white.svg" alt="FarmVest Loading" width="64" height="64" fetchpriority="high" />
+      </div>
+      <div class="preloader__text">Farm<span>Vest</span></div>
+      <div class="preloader__progress-bar">
+        <div class="preloader__progress-bar-inner"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth">
+    <!-- Left Brand Showcase Panel -->
+    <aside class="auth__aside">
+      <a href="/index.html" class="auth__brand">
+        <img src="/images/logo-white.svg" alt="FarmVest" />
+      </a>
+
+      <div class="my-auto">
+        <h1 class="auth__aside-title">Invest in the farms that feed the world.</h1>
+      </div>
+
+      <div class="auth__aside-footer mt-auto pt-4 border-top border-white border-opacity-10">
+        <div class="d-flex align-items-center justify-content-between text-xs text-white-50">
+          <span>Asset-Backed Farmland Infrastructure</span>
+     
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Form Panel -->
+    <main class="auth__main">
+      <div class="auth__form-wrap">
+        
+        <!-- Mobile Header Brand -->
+        <div class="auth__mobile-brand mb-4">
+          <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+        </div>
+
+        <!-- Registration Header -->
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <span class="badge bg-success-subtle text-success font-weight-bold rounded-pill px-3 py-2 text-xs">
+            <i class="fas fa-user-plus me-1"></i> Account Onboarding
+          </span>
+          <span class="text-xs text-muted font-weight-bold">Step 1 of 2</span>
+        </div>
+
+        <h2 class="auth__title">Create your free account</h2>
+        <p class="auth__subtitle">Start co-funding verified agricultural pools today.</p>
+
+        <!-- Demo Quick Auto-Fill Pill -->
+        <div class="demo-credentials-box p-3 mb-4 rounded-4 bg-light border text-sm shadow-sm">
+          <div class="fw-bold text-dark text-xs text-uppercase letter-spacing-1 mb-2 d-flex align-items-center gap-1">
+            <i class="fas fa-magic text-success me-1"></i> Quick Demo Auto-Fill:
+          </div>
+          <button type="button" class="btn btn-outline-success btn-xs rounded-pill px-3 py-1 font-weight-bold" onclick="document.getElementById('fullName').value='Elena Rostova'; document.getElementById('email').value='elena.investor@farmvest.com'; document.getElementById('password').value='SecurePass123!'; document.getElementById('confirmPassword').value='SecurePass123!'; document.getElementById('agreeTerms').checked=true; document.querySelectorAll('.field__control').forEach(el => el.classList.remove('is-invalid')); document.querySelectorAll('.field__message').forEach(el => el.textContent='');">
+            <i class="fas fa-bolt me-1"></i> Auto-Fill Sample Investor (Elena Rostova)
+          </button>
+        </div>
+
+        <!-- Social SSO Sign In -->
+        <div class="auth__social">
+          <button type="button" class="auth__social-btn">
+            <i class="fab fa-google text-danger me-2"></i> Google
+          </button>
+          <button type="button" class="auth__social-btn">
+            <i class="fab fa-apple text-dark me-2"></i> Apple
+          </button>
+        </div>
+
+        <div class="auth__divider">
+          <span>or register with email</span>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="registerForm" novalidate>
+          
+          <!-- Full Legal Name -->
+          <div class="field">
+            <label for="fullName" class="field__label">Full Legal Name</label>
+            <div class="field__control">
+              <i class="fas fa-user field__icon"></i>
+              <input type="text" class="field__input" id="fullName" name="fullName" placeholder="e.g. James Wilson" autocomplete="name" required />
+            </div>
+            <span class="field__message" data-for="fullName"></span>
+          </div>
+
+          <!-- Email Address -->
+          <div class="field">
+            <label for="email" class="field__label">Email Address</label>
+            <div class="field__control">
+              <i class="fas fa-envelope field__icon"></i>
+              <input type="email" class="field__input" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+            <span class="field__message" data-for="email"></span>
+          </div>
+
+          <!-- Password -->
+          <div class="field">
+            <label for="password" class="field__label">Password</label>
+            <div class="field__control auth__password">
+              <i class="fas fa-lock field__icon"></i>
+              <input type="password" class="field__input" id="password" name="password" placeholder="Minimum 8 characters" autocomplete="new-password" required />
+              <button type="button" class="field__toggle auth__password-toggle" aria-label="Show password">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <div class="pw-meter mt-2">
+              <span class="pw-meter__seg" data-seg="0"></span>
+              <span class="pw-meter__seg" data-seg="1"></span>
+              <span class="pw-meter__seg" data-seg="2"></span>
+              <span class="pw-meter__seg" data-seg="3"></span>
+              <span class="pw-meter__label" id="pwStrengthLabel">Enter a password</span>
+            </div>
+            <span class="field__hint text-xs text-muted mt-1">Must contain an uppercase letter, a number, and a special character.</span>
+          </div>
+
+          <!-- Confirm Password -->
+          <div class="field">
+            <label for="confirmPassword" class="field__label">Confirm Password</label>
+            <div class="field__control auth__password">
+              <i class="fas fa-lock field__icon"></i>
+              <input type="password" class="field__input" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" autocomplete="new-password" required />
+              <button type="button" class="field__toggle auth__password-toggle" aria-label="Show password">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <span class="field__message" data-for="confirmPassword"></span>
+          </div>
+
+          <!-- Terms & Privacy Checkbox -->
+          <div class="field field--check my-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="agreeTerms" name="agreeTerms" required />
+              <label class="form-check-label text-sm text-muted" for="agreeTerms">
+                I agree to the <a href="/terms-of-service.html" class="text-success fw-bold text-decoration-none">Terms of Service</a> and <a href="/privacy-policy.html" class="text-success fw-bold text-decoration-none">Privacy Policy</a>.
+              </label>
+            </div>
+            <span class="field__message" data-for="agreeTerms"></span>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="auth-submit-btn w-100" id="registerSubmit">
+            <span class="auth-submit-btn__label">Create Free Account <i class="fas fa-arrow-right ms-2"></i></span>
+            <span class="auth-submit-btn__spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <p class="auth__footer text-center mt-4 text-muted text-sm">
+          Already have an account? <a href="/auth/login.html" class="text-success fw-bold text-decoration-none">Sign In</a>
+        </p>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+</body>
+</html>

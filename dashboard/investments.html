@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Investments — FarmVest</title>
+  <meta name="description" content="Review your FarmVest investment portfolio — active pools, ROI, and maturity dates." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <script type="module" src="/src/js/dashboard.js"></script>
+  <link rel="stylesheet" href="/src/scss/main.scss" />
+</head>
+<body class="dashboard-page">
+  <div class="dashboard">
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dashboard__sidebar">
+      <div class="dashboard__brand">
+        <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+      </div>
+
+      <!-- User Profile Badge in Sidebar -->
+      <div class="p-3 mx-3 mt-3 rounded-4 bg-light border text-center">
+        <div class="position-relative d-inline-block mb-2">
+          <img src="/images/team-sarah.png" alt="User Profile" class="rounded-circle border border-2 border-success" width="54" height="54" style="object-fit:cover;" />
+          <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" style="width:12px;height:12px;"></span>
+        </div>
+        <h6 class="fw-bold text-dark mb-0 dashboard__user-name">James Wilson</h6>
+        <span class="text-xs text-muted d-block mb-2">Verified Investor</span>
+        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs">
+          <i class="fa-solid fa-circle-check me-1"></i> Active Portfolio
+        </span>
+      </div>
+
+      <nav class="dashboard__nav">
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Portfolio & Growth</p>
+          <a href="/dashboard/index.html" class="dashboard__nav-item"><i class="fa-solid fa-chart-pie me-2"></i> Overview</a>
+          <a href="/dashboard/investments.html" class="dashboard__nav-item active"><i class="fa-solid fa-wheat-awn me-2"></i> My Farm Pools</a>
+          <a href="/dashboard/transactions.html" class="dashboard__nav-item"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Payout Ledger</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Capital Management</p>
+          <a href="/dashboard/deposit.html" class="dashboard__nav-item"><i class="fa-solid fa-wallet me-2"></i> Deposit Funds</a>
+          <a href="/dashboard/withdraw.html" class="dashboard__nav-item"><i class="fa-solid fa-money-bill-transfer me-2"></i> Withdraw Yield</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Account & Services</p>
+          <a href="/dashboard/profile.html" class="dashboard__nav-item"><i class="fa-solid fa-user-gear me-2"></i> Profile & Security</a>
+          <a href="/dashboard/support.html" class="dashboard__nav-item"><i class="fa-solid fa-headset me-2"></i> Agronomist Support</a>
+          <a href="/projects.html" class="dashboard__nav-item"><i class="fa-solid fa-store me-2"></i> Explore Open Pools</a>
+        </div>
+      </nav>
+
+      <div class="dashboard__sidebar-footer">
+        <button type="button" data-logout-btn class="btn btn-outline-danger w-100 rounded-pill btn-sm font-weight-bold">
+          <i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-backdrop"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard__main">
+
+      <!-- TOPBAR -->
+      <header class="dashboard__topbar">
+        <div class="dashboard__topbar-left">
+          <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="dashboard__search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search farm pools, yields, payout dates…" aria-label="Search dashboard" />
+          </div>
+        </div>
+
+        <div class="dashboard__topbar-right">
+          <div class="d-none d-md-flex align-items-center gap-2 px-3 py-1 bg-light rounded-pill border text-xs text-muted">
+            <span class="pulse-dot"></span>
+            <span>Munich Re Protected</span>
+          </div>
+
+          <!-- Dark / Light Mode Toggle Button -->
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <!-- Notifications Dropdown -->
+          <div class="dropdown">
+            <button class="dashboard__topbar-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+              <i class="fa-solid fa-bell"></i>
+              <span class="dashboard__topbar-btn__badge"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end notification-dropdown-menu mt-2">
+              <div class="notification-dropdown-menu__header">
+                <div class="d-flex align-items-center gap-2">
+                  <h6 class="fw-bold text-dark mb-0">Notifications</h6>
+                  <span class="badge bg-success-subtle text-success rounded-pill px-2 py-0 text-xs">3 New</span>
+                </div>
+                <a href="#" class="text-xs text-success text-decoration-none font-weight-bold">Mark all read</a>
+              </div>
+              <div class="notification-dropdown-menu__body">
+                <a href="/dashboard/transactions.html" class="notification-dropdown-menu__item is-unread">
+                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--success">
+                    <i class="fa-solid fa-money-bill-trend-up"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark fw-semibold">Yield Distribution Completed</strong>
+                    <p class="text-xs text-muted mb-1">+$620.00 dividend credited from Basmati Rice Pool #04.</p>
+                    <span class="text-xs text-muted opacity-75">10 mins ago</span>
+                  </div>
+                </a>
+                <a href="/dashboard/investments.html" class="notification-dropdown-menu__item is-unread">
+                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--amber">
+                    <i class="fa-solid fa-seedling"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark fw-semibold">Harvest Milestone Reached</strong>
+                    <p class="text-xs text-muted mb-1">Smart Hydroponic Tomato Greenhouse reached Stage 4: Pre-Harvest (92%).</p>
+                    <span class="text-xs text-muted opacity-75">2 hours ago</span>
+                  </div>
+                </a>
+                <a href="/dashboard/support.html" class="notification-dropdown-menu__item is-unread">
+                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--blue">
+                    <i class="fa-solid fa-headset"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark fw-semibold">Agronomist Report Available</strong>
+                    <p class="text-xs text-muted mb-1">Dr. Marcus Vance uploaded soil moisture & satellite telemetry data.</p>
+                    <span class="text-xs text-muted opacity-75">Yesterday</span>
+                  </div>
+                </a>
+              </div>
+              <div class="p-2 text-center border-top bg-light">
+                <a href="/dashboard/support.html" class="text-xs text-muted text-decoration-none">View All System Alerts</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Menu Dropdown -->
+          <div class="dropdown">
+            <div class="dashboard__user-menu" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="dashboard__user-avatar">
+                <img src="/images/team-sarah.png" alt="James Wilson" />
+              </div>
+              <span class="dashboard__user-name">James Wilson</span>
+              <i class="fa-solid fa-chevron-down text-xs text-muted ms-1"></i>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
+              <li><a class="dropdown-item text-sm" href="/dashboard/profile.html"><i class="fa-solid fa-user me-2 text-success"></i> My Profile</a></li>
+              <li><a class="dropdown-item text-sm" href="/dashboard/investments.html"><i class="fa-solid fa-wheat-awn me-2 text-success"></i> My Farm Pools</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-sm text-danger" href="#" data-logout-btn><i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <div class="dashboard__content fv-portfolio">
+        <div class="dashboard__page-header fv-portfolio__head">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <h1 class="dashboard__page-title mb-0">My Farm Pools</h1>
+              <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">
+                <i class="fa-solid fa-wheat-field me-1"></i> 5 Active Investments
+              </span>
+            </div>
+            <p class="dashboard__page-desc mb-0">Your capital through the season — from seeding to harvest payout.</p>
+          </div>
+          <span class="fv-live-pill"><i class="fa-solid fa-circle"></i> Updated Live</span>
+        </div>
+
+        <!-- Signature: Harvest hero -->
+        <section class="portfolio-hero">
+          <div class="portfolio-hero__left">
+            <span class="portfolio-hero__eyebrow"><i class="fas fa-leaf"></i> PROJECTED HARVEST PAYOUT</span>
+            <div class="portfolio-hero__value num">$45,610</div>
+            <p class="portfolio-hero__detail">Principal <span class="num">$40,000</span> pledged · projected profit <span class="num">+$5,610</span> across 4 active cycles.</p>
+            <div class="portfolio-hero__tags">
+              <span class="tag"><i class="fas fa-calendar-check me-1"></i>Matures Dec 2026 – Jun 2027</span>
+              <span class="tag"><i class="fas fa-shield-halved me-1"></i>100% Insured</span>
+              <span class="tag"><i class="fas fa-certificate me-1"></i>99.4% On-Time Payout</span>
+            </div>
+          </div>
+          <div class="portfolio-hero__right">
+            <span class="portfolio-hero__roi">16.5%</span>
+            <span class="portfolio-hero__roi-label">Weighted Annualized ROI</span>
+          </div>
+        </section>
+
+        <!-- Snapshot tiles -->
+        <div class="row g-3 g-md-4 fv-portfolio__tiles">
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card stat-card--compact">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Active Cycles</span>
+                <span class="stat-card__icon stat-card__icon--primary"><i class="fas fa-seedling"></i></span>
+              </div>
+              <div class="stat-card__value">5</div>
+              <span class="stat-card__change stat-card__change--up"><i class="fas fa-wave-square"></i> 1 awaiting funding</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card stat-card--compact">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Total Committed</span>
+                <span class="stat-card__icon stat-card__icon--info"><i class="fas fa-sack-dollar"></i></span>
+              </div>
+              <div class="stat-card__value">$40,000</div>
+              <span class="stat-card__change stat-card__change--up"><i class="fas fa-fire"></i> 16.5% annualized</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card stat-card--compact">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Next Payout</span>
+                <span class="stat-card__icon stat-card__icon--accent"><i class="fas fa-clock"></i></span>
+              </div>
+              <div class="stat-card__value">56 days</div>
+              <span class="stat-card__change stat-card__change--up"><i class="fas fa-drumstick-bite"></i> Poultry · Oct 2026</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-card stat-card--compact">
+              <div class="stat-card__top">
+                <span class="stat-card__label">Lifetime Profits</span>
+                <span class="stat-card__icon stat-card__icon--success"><i class="fas fa-coins"></i></span>
+              </div>
+              <div class="stat-card__value">$650</div>
+              <span class="stat-card__change stat-card__change--up"><i class="fas fa-check"></i> Maize · paid Jul 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cycle list -->
+        <section class="cycle-list">
+          <div class="cycle-list__head">
+            <div>
+              <h2 class="cycle-list__title">Pools in the ground</h2>
+              <p class="cycle-list__desc">Live cycle progress against each harvest target. Values are projected at maturity.</p>
+            </div>
+            <a href="/projects.html" class="btn btn--primary btn--sm"><i class="fas fa-plus me-1"></i>New Investment</a>
+          </div>
+
+          <!-- Organic Rice -->
+          <article class="pool-card" data-status="active">
+            <div class="pool-card__thumb pool-card__thumb--crop"><i class="fas fa-cloud-sun-rain"></i></div>
+            <div class="pool-card__main">
+              <div class="pool-card__topline">
+                <h3 class="pool-card__name">Organic Rice Pool</h3>
+                <span class="badge badge--active"><i class="fas fa-circle text-xs me-1"></i>Active</span>
+                <span class="pool-card__roi num">+14.5%</span>
+              </div>
+              <div class="season-progress">
+                <span class="season-progress__bar">
+                  <span class="season-progress__fill" data-pct="56"></span>
+                </span>
+                <span class="season-progress__seed"><i class="fas fa-seedling"></i> Seeded</span>
+                <span class="season-progress__flag"><i class="fas fa-trowel"></i> Harvest</span>
+              </div>
+              <div class="pool-card__stats">
+                <span>Invested <b class="num">$12,000</b></span>
+                <span>Return <b class="num text-success">+$1,740</b></span>
+                <span>Matures <b>Dec 2026</b></span>
+                <span>Time left <b class="num">124 days</b></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tomato -->
+          <article class="cycle-card" data-status="active">
+            <div class="pool-card__thumb pool-card__thumb--green"><i class="fas fa-leaf"></i></div>
+            <div class="pool-card__main">
+              <div class="pool-card__topline">
+                <h3 class="pool-card__name">Tomato Hydroponics Pool</h3>
+                <span class="badge badge--active"><i class="fas fa-circle text-xs me-1"></i>Active</span>
+                <span class="pool-card__roi num">+16.5%</span>
+              </div>
+              <div class="season-progress">
+                <span class="season-progress__bar"><span class="season-progress__fill" data-pct="62"></span></span>
+                <span class="season-progress__seed"><i class="fas fa-seedling"></i> Seeded</span>
+                <span class="season-progress__flag"><i class="fas fa-trowel"></i> Harvest</span>
+              </div>
+              <div class="pool-card__stats">
+                <span>Invested <b class="num">$10,000</b></span>
+                <span>Return <b class="num text-success">+$1,650</b></span>
+                <span>Matures <b>Nov 2026</b></span>
+                <span>Time left <b class="num">97 days</b></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Poultry -->
+          <article class="cycle-card" data-status="active">
+            <div class="pool-card__thumb pool-card__thumb--amber"><i class="fas fa-egg"></i></div>
+            <div class="pool-card__main">
+              <div class="pool-card__topline">
+                <h3 class="pool-card__name">Poultry Expansion Pool</h3>
+                <span class="badge badge--active"><i class="fas fa-circle text-xs me-1"></i>Active</span>
+                <span class="pool-card__roi num">+18.2%</span>
+              </div>
+              <div class="season-progress">
+                <span class="season-progress__bar"><span class="season-progress__fill" data-pct="56"></span></span>
+                <span class="season-progress__seed"><i class="fas fa-seedling"></i> Seeded</span>
+                <span class="season-progress__flag"><i class="fas fa-trowel"></i> Harvest</span>
+              </div>
+              <div class="pool-card__stats">
+                <span>Invested <b class="num">$8,000</b></span>
+                <span>Return <b class="num text-success">+$1,456</b></span>
+                <span>Matures <b>Oct 2026</b></span>
+                <span>Time left <b class="num">56 days</b></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Angus -->
+          <article class="cycle-card" data-status="funding">
+            <div class="cycle-card__thumb cycle-card__thumb--cow"><i class="fas fa-cow"></i></div>
+            <div class="cycle-card__main">
+              <div class="pool-card__topline">
+              <h3 class="pool-card__name">Angus Cattle Ranch Pool</h3>
+              <span class="badge badge--pending"><i class="fas fa-clock text-xs me-1"></i>Funding</span>
+              <span class="pool-card__roi num">+22.8%</span>
+            </div>
+            <div class="season-progress">
+                <span class="season-progress__bar"><span class="season-progress__fill" data-pct="18"></span></span>
+                <span class="season-progress__seed"><i class="fas fa-seedling"></i> Planting</span>
+                <span class="season-progress__flag"><i class="fas fa-lock"></i> Awaiting capital</span>
+                </div>
+                <div class="pool-card__stats">
+                  <span>Committed <b class="num">$6,000</b></span>
+                  <span>Target <b class="num text-accent">+22.8%</b></span>
+                  <span>Season <b>Apr 2026 – Mar 2027</b></span>
+                  <span>Status <b class="text-accent">Funding</b></span>
+                </div>
+            </div>
+          </article>
+
+          <!-- Avocado -->
+          <article class="cycle-card" data-status="active">
+            <div class="pool-card__thumb pool-card__thumb--tree"><i class="fas fa-tree"></i></div>
+            <div class="pool-card__main">
+              <div class="pool-card__topline">
+                <h3 class="pool-card__name">Avocado Orchard Pool</h3>
+                <span class="badge badge--active"><i class="fas fa-circle text-xs me-1"></i>Active</span>
+                <span class="pool-card__roi num">+19.1%</span>
+              </div>
+              <div class="season-progress">
+                <span class="season-progress__bar"><span class="season-progress__fill" data-pct="30"></span></span>
+                <span class="season-progress__seed"><i class="fas fa-seedling"></i> Planted</span>
+                <span class="season-progress__flag"><i class="fas fa-trowel"></i> Harvest</span>
+              </div>
+              <div class="pool-card__stats">
+                <span>Invested <b class="num">$4,000</b></span>
+                <span>Return <b class="num text-success">+$764</b></span>
+                <span>Matures <b>Jun 2027</b></span>
+                <span>Time left <b class="num">306 days</b></span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Completed -->
+        <div class="completed-strip">
+          <div class="completed-strip__head">
+            <i class="fas fa-circle-check"></i>
+            <span><b>Maize Cooperative Pool</b> harvested &amp; paid out.</span>
+          </div>
+          <div class="completed-strip__amount">
+            <span>Invested <b class="num">$5,000</b></span>
+            <span>Received <b class="num text-success">+$650</b></span>
+            <span>Paid <b>Jul 2026</b></span>
+          </div>
+          <a href="/dashboard/transactions.html" class="btn btn--outline btn--sm">View payout</a>
+        </div>
+
+        <div class="data-table__footer fv-portfolio__foot">
+          <span>Showing 6 of 6 pools · projected values estimated at maturity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -8,325 +8,594 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  
-  <!-- FontAwesome & Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  
-  <!-- Main Stylesheet & JS -->
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Stylesheet & scripts -->
   <script type="module" src="/src/js/main.js"></script>
   <link rel="stylesheet" href="/src/scss/main.scss" />
 </head>
-<body>
+<body class="projects-page">
 
-  <!-- HEADER -->
-  <header class="header" id="header">
-    <div class="header-top d-none d-lg-block">
-      <div class="container">
-        <div class="header-top__wrapper">
-          <div class="header-top__item">
-            <p class="header-top__text">
-              <i class="fas fa-bolt text-accent me-2"></i>New High-Yield Pool Open: <span>Greenhouse Hydroponics — 16.5% Annual ROI</span>
-            </p>
-          </div>
-          <div class="header-top__item ms-auto">
-            <ul class="social-list">
-              <li><a href="#" class="social-list__link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-              <li><a href="#" class="social-list__link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
-              <li><a href="#" class="social-list__link" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-              <li><a href="#" class="social-list__link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-              <li><a href="#" class="social-list__link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></li>
-            </ul>
-          </div>
-        </div>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="preloader__content">
+      <div class="preloader__logo-box">
+        <img src="/images/logo-white.svg" alt="FarmVest Loading" width="64" height="64" fetchpriority="high" />
+      </div>
+      <div class="preloader__text">Farm<span>Vest</span></div>
+      <div class="preloader__progress-bar">
+        <div class="preloader__progress-bar-inner"></div>
       </div>
     </div>
-
-    <div class="header-main">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg">
-          <a class="navbar-brand" href="/index.html">
-            <img src="/images/logo.svg" alt="FarmVest Logo" />
-          </a>
-          
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-            <i class="fas fa-bars"></i>
-          </button>
-
-          <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
-              <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link active" href="/projects.html">Yield Pools</a></li>
-              <li class="nav-item"><a class="nav-link" href="/about.html">About Us</a></li>
-              <li class="nav-item"><a class="nav-link" href="/blog.html">Insights</a></li>
-              <li class="nav-item"><a class="nav-link" href="/contact.html">Support</a></li>
-              <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
-                <a href="/auth/login.html" class="btn btn--outline btn--sm w-100">Client Login</a>
-              </li>
-              <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-                <a href="/auth/register.html" class="btn btn--primary btn--sm w-100"><i class="fas fa-rocket me-1"></i> Start Earning</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </header>
+  </div>
 
   <main class="page-wrapper">
-    <!-- PAGE BREADCRUMB HEADER -->
-    <section class="section py-5 bg-neutral-900 text-white position-relative overflow-hidden">
+
+    <!-- ============================================================ -->
+    <!-- HERO & GLASS FLOATING NAV BAR -->
+    <!-- ============================================================ -->
+    <section class="hero-agroly inner-page-hero" style="min-height: auto;">
+      <img src="/images/projects-hero.png" class="hero-agroly__bg" alt="Aerial view of organized commercial farmland" fetchpriority="high" decoding="async" />
+
       <div class="container position-relative z-2">
-        <div class="row align-items-center">
-          <div class="col-md-8">
-            <span class="badge badge--roi mb-2">Live Portfolios</span>
-            <h1 class="h1 fw-bold text-white mb-2">High-Yield Investment Pools</h1>
-            <p class="text-white-50 mb-0">Select from agronomist-vetted crop and livestock pools with daily interest accumulation and asset insurance.</p>
+        <!-- Floating glass nav bar -->
+        <nav class="agroly-nav">
+          <a class="brand-logo" href="/index.html" title="FarmVest Home">
+            <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="46" height="46" />
+            <span class="brand-text">Farm<span>Vest</span></span>
+          </a>
+
+          <ul class="glass-menu-pill d-none d-lg-flex">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/projects.html" class="active">Yield Pools</a></li>
+            <li><a href="/blog.html">Insights</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+
+          <a href="/auth/register.html" class="btn-agroly-connect d-none d-lg-inline-flex">Start Earning</a>
+
+          <button class="nav-burger d-lg-none" type="button" aria-label="Open navigation menu" aria-controls="mobileNav" aria-expanded="false" data-nav-open>
+            <span></span><span></span><span></span>
+          </button>
+        </nav>
+
+        <!-- Mobile navigation drawer -->
+        <div class="mobile-nav-backdrop" data-nav-close hidden></div>
+        <aside id="mobileNav" class="mobile-nav" aria-hidden="true">
+          <div class="mobile-nav__head">
+            <a class="brand-logo" href="/index.html" title="FarmVest Home">
+              <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="40" height="40" />
+              <span class="brand-text">Farm<span>Vest</span></span>
+            </a>
+            <button class="nav-close" type="button" aria-label="Close navigation menu" data-nav-close>
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
           </div>
-          <div class="col-md-4 text-md-end mt-3 mt-md-0">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb justify-content-md-end mb-0 text-sm">
-                <li class="breadcrumb-item"><a href="/index.html" class="text-white-50">Home</a></li>
-                <li class="breadcrumb-item active text-primary-light" aria-current="page">Yield Pools</li>
-              </ol>
-            </nav>
+          <ul class="mobile-nav__links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/projects.html" class="active">Yield Pools</a></li>
+            <li><a href="/blog.html">Insights</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+          <a href="/auth/register.html" class="btn-agroly-connect mobile-nav__cta">Start Earning</a>
+        </aside>
+
+        <!-- Hero Content -->
+        <div class="pools-hero-content text-center py-5">
+          <div class="pools-hero-breadcrumb mb-3">
+            <a href="/index.html"><i class="fas fa-house me-1"></i> Home</a>
+            <span class="sep">//</span>
+            <span class="current">Yield Pools</span>
           </div>
+          <h1 class="pools-hero-title">
+            High-Yield <span class="highlight">Investment Pools</span>
+          </h1>
+          <p class="pools-hero-sub mx-auto mb-0">
+            Browse active commercial farming cycles. Every pool is backed by multi-peril crop insurance, verified farm managers, and guaranteed off-take contracts.
+          </p>
         </div>
       </div>
+
+      <!-- Dark overlay -->
+      <div class="about-hero-banner__overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,46,27,0.7) 0%,rgba(11,24,16,0.92) 100%);z-index:1;pointer-events:none;"></div>
     </section>
 
-    <!-- PROJECTS LISTING & FILTERS -->
-    <section class="section section--light">
+<!-- PROJECTS LISTING & FILTERS -->
+    <section class="section section--light py-5">
       <div class="container">
-        
+
+        <!-- Section header -->
+        <div class="pool-promo mb-4" data-aos="fade-up">
+          <div>
+            <span class="pool-promo__label"><i class="fas fa-leaf"></i> OPEN GROW CYCLES · AUG 2026</span>
+            <h2 class="pool-promo__title">Yield Pools hiring planting season</h2>
+          </div>
+          <p class="pool-promo__desc mb-0">
+            Every pool below is a real commercial cycle: insured capital, closed off-take buyers, and a fixed harvest payout.
+          </p>
+        </div>
+
         <!-- Filter Controls Bar -->
-        <div class="bg-white p-3 p-md-4 rounded-4 shadow-sm border mb-4">
+        <div class="bg-white p-3 p-md-4 rounded-4 shadow-sm border mb-4" data-aos="fade-up" data-aos-delay="80">
           <div class="row g-3 align-items-center">
             <!-- Search -->
-            <div class="col-md-4">
-              <div class="input-group">
-                <span class="input-group-text bg-light border-end-0"><i class="fas fa-search text-muted"></i></span>
-                <input type="text" class="form-control border-start-0" placeholder="Search pool name or crop type..." />
+            <div class="col-lg-4">
+              <div class="pool-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="poolSearch" class="form-control" placeholder="Search pool or crop type…" aria-label="Search pools" />
               </div>
             </div>
 
-            <!-- Category Dropdown -->
-            <div class="col-6 col-md-3">
-              <select class="form-select">
-                <option selected>All Categories</option>
-                <option>Crop Farming</option>
-                <option>Livestock & Poultry</option>
-                <option>Greenhouse Hydroponics</option>
-                <option>Organic Orchards</option>
+            <!-- Category chips -->
+            <div class="col-lg-8">
+              <div class="pool-cats" role="group" aria-label="Filter by category">
+                <button type="button" class="pool-cat is-active" data-cat="all"><i class="fas fa-layer-group"></i> All</button>
+                <button type="button" class="pool-cat" data-cat="crops"><i class="fas fa-wheat-awn"></i> Crops</button>
+                <button type="button" class="pool-cat" data-cat="livestock"><i class="fas fa-drumstick-bite"></i> Livestock</button>
+                <button type="button" class="pool-cat" data-cat="greenhouse"><i class="fas fa-leaf"></i> Greenhouse</button>
+                <button type="button" class="pool-cat" data-cat="orchard"><i class="fas fa-tree"></i> Orchard</button>
+                <button type="button" class="pool-cat" data-cat="aquaculture"><i class="fas fa-water"></i> Aquaculture</button>
+                <button type="button" class="pool-cat" data-cat="apiary"><i class="fas fa-bee"></i> Apiary</button>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap align-items-center gap-3 mt-3 pt-3 border-top">
+            <div class="pool-sort">
+              <label for="poolSort" class="visually-hidden">Sort pools</label>
+              <select id="poolSort" class="form-select form-select-sm">
+                <option value="roi-desc" selected>Sort · Highest ROI</option>
+                <option value="term-asc">Sort · Shortest term</option>
+                <option value="share-asc">Sort · Lowest share</option>
               </select>
             </div>
-
-            <!-- Sort By -->
-            <div class="col-6 col-md-3">
-              <select class="form-select">
-                <option selected>Sort by: Highest ROI</option>
-                <option>Shortest Term</option>
-                <option>Lowest Share Price</option>
-                <option>Newly Listed</option>
-              </select>
-            </div>
-
-            <!-- Filter Button -->
-            <div class="col-12 col-md-2">
-              <button class="btn btn--primary w-100"><i class="fas fa-filter me-1"></i> Apply</button>
-            </div>
+            <span class="pool-count"><i class="fas fa-seedling text-muted"></i> <span id="poolCount">9 growing cycles</span></span>
+            <button id="poolApply" class="btn btn--accent btn--sm ms-auto"><i class="fas fa-filter me-1"></i> Apply filters</button>
           </div>
         </div>
 
         <!-- Project Grid -->
-        <div class="row gy-4">
-          <!-- Pool 1 -->
-          <div class="col-md-6 col-lg-4">
-            <div class="project-card">
-              <div class="project-card__thumb">
-                <span class="badge badge--roi project-card__badge">+15.5% ROI</span>
-                <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=600&q=80" alt="Sustainable Rice Farm Pool" />
+        <div class="row gy-4" id="poolGrid">
+          <!-- Pool 1: Rice -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-pool-name="Commercial Organic Rice" data-pool-cat="crops" data-pool-roi="15.5" data-pool-term="6" data-pool-share="100">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi num">+15.5%</span>
+                <span class="pool-card__cat"><i class="fas fa-wheat-awn"></i> Crops</span>
+                <img src="/images/pool-rice.png" alt="Sustainable Rice Farm Pool" />
               </div>
-              <div class="project-card__content">
-                <h3 class="project-card__title"><a href="/project-details.html">Commercial Organic Rice Pool</a></h3>
-                <p class="project-card__desc">Solar-drip irrigated Basmati cultivation with direct off-take buyer contracts.</p>
-                <div class="project-card__meta">
-                  <div class="project-card__meta-item">
-                    <span>Share Price</span>
-                    <span>$100 / Unit</span>
-                  </div>
-                  <div class="project-card__meta-item">
-                    <span>Cycle Term</span>
-                    <span>6 Months</span>
-                  </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Commercial Organic Rice Pool</h3>
+                <p class="pool-card__desc">Solar-drip irrigated Basmati with direct off-take buyer contracts.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">78%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:78%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$100</strong></div>
+                  <div><span>Cycle</span><strong>6 mo</strong></div>
+                  <div><span>Harvest</span><strong>Dec 2026</strong></div>
                 </div>
               </div>
-              <div class="project-card__footer">
-                <span class="text-xs text-muted"><i class="fas fa-clock me-1 text-primary"></i>Filling Fast</span>
-                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool</a>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-shield-halved"></i>Insured · Low</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
               </div>
-            </div>
+            </article>
           </div>
 
-          <!-- Pool 2 -->
-          <div class="col-md-6 col-lg-4">
-            <div class="project-card">
-              <div class="project-card__thumb">
-                <span class="badge badge--roi project-card__badge">+17.0% ROI</span>
-                <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=600&q=80" alt="Poultry Farming Pool" />
+          <!-- Pool 2: Poultry -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100" data-pool-name="Free-Range Organic Poultry" data-pool-cat="livestock" data-pool-roi="17.0" data-pool-term="4" data-pool-share="12">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+17.0%</span>
+                <span class="pool-card__cat"><i class="fas fa-drumstick-bite"></i> Livestock</span>
+                <img src="/images/pool-poultry.png" alt="Free-Range Organic Poultry Pool" />
               </div>
-              <div class="project-card__content">
-                <h3 class="project-card__title"><a href="/project-details.html">Free-Range Organic Poultry Pool</a></h3>
-                <p class="project-card__desc">Scaling egg and meat production in climate-monitored automated facilities.</p>
-                <div class="project-card__meta">
-                  <div class="project-card__meta-item">
-                    <span>Share Price</span>
-                    <span>$250 / Unit</span>
-                  </div>
-                  <div class="project-card__meta-item">
-                    <span>Cycle Term</span>
-                    <span>4 Months</span>
-                  </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Free-Range Organic Poultry Pool</h3>
+                <p class="pool-card__desc">Scaling egg and meat in climate-monitored automated facilities.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">92%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:92%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$12</strong></div>
+                  <div><span>Cycle</span><strong>4 mo</strong></div>
+                  <div><span>Harvest</span><strong>Oct 2026</strong></div>
                 </div>
               </div>
-              <div class="project-card__footer">
-                <span class="text-xs text-muted"><i class="fas fa-fire me-1 text-accent"></i>Hot Pool</span>
-                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool</a>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-fire"></i>High yield</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
               </div>
-            </div>
+            </article>
           </div>
 
-          <!-- Pool 3 -->
-          <div class="col-md-6 col-lg-4">
-            <div class="project-card">
-              <div class="project-card__thumb">
-                <span class="badge badge--roi project-card__badge">+14.0% ROI</span>
-                <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&q=80" alt="Hydroponic Tomato Greenhouse" />
+          <!-- Pool 3: Tomato -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200" data-pool-name="Smart Hydroponic Tomato Greenhouse" data-pool-cat="greenhouse" data-pool-roi="14.0" data-pool-term="12" data-pool-share="50">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+14.0%</span>
+                <span class="pool-card__cat"><i class="fas fa-pepper-hot"></i> Greenhouse</span>
+                <img src="/images/pool-tomato.png" alt="Hydroponic Tomato Greenhouse" />
               </div>
-              <div class="project-card__content">
-                <h3 class="project-card__title"><a href="/project-details.html">Smart Hydroponic Tomato Greenhouse</a></h3>
-                <p class="project-card__desc">Year-round pesticide-free tomato harvest supplying regional supermarket chains.</p>
-                <div class="project-card__meta">
-                  <div class="project-card__meta-item">
-                    <span>Share Price</span>
-                    <span>$50 / Unit</span>
-                  </div>
-                  <div class="project-card__meta-item">
-                    <span>Cycle Term</span>
-                    <span>12 Months</span>
-                  </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Smart Hydroponic Tomato Greenhouse</h3>
+                <p class="pool-card__desc">Year-round pesticide-free harvest supplying regional supermarkets.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">55%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:55%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$50</strong></div>
+                  <div><span>Cycle</span><strong>12 mo</strong></div>
+                  <div><span>Harvest</span><strong>Apr 2027</strong></div>
                 </div>
               </div>
-              <div class="project-card__footer">
-                <span class="text-xs text-muted"><i class="fas fa-shield-alt me-1 text-success"></i>Low Risk</span>
-                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool</a>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-shield-halved"></i>Insured · Low</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
               </div>
-            </div>
+            </article>
           </div>
 
-          <!-- Pool 4 -->
-          <div class="col-md-6 col-lg-4">
-            <div class="project-card">
-              <div class="project-card__thumb">
-                <span class="badge badge--roi project-card__badge">+19.5% ROI</span>
-                <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=600&q=80" alt="Cattle Fattening Ranch" />
+          <!-- Pool 4: Angus -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-pool-name="Commercial Angus Cattle Ranch" data-pool-cat="livestock" data-pool-roi="19.5" data-pool-term="9" data-pool-share="500">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+19.5%</span>
+                <span class="pool-card__cat"><i class="fas fa-cow"></i> Livestock</span>
+                <img src="/images/pool-cattle.png" alt="Cattle Fattening Ranch" />
               </div>
-              <div class="project-card__content">
-                <h3 class="project-card__title"><a href="/project-details.html">Commercial Angus Cattle Ranch</a></h3>
-                <p class="project-card__desc">Pasture grazing combined with veterinary-monitored growth acceleration.</p>
-                <div class="project-card__meta">
-                  <div class="project-card__meta-item">
-                    <span>Share Price</span>
-                    <span>$500 / Unit</span>
-                  </div>
-                  <div class="project-card__meta-item">
-                    <span>Cycle Term</span>
-                    <span>9 Months</span>
-                  </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Commercial Angus Cattle Ranch</h3>
+                <p class="pool-card__desc">Pasture grazing with veterinary-monitored growth acceleration.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">41%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:41%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$500</strong></div>
+                  <div><span>Cycle</span><strong>9 mo</strong></div>
+                  <div><span>Harvest</span><strong>Dec 2026</strong></div>
                 </div>
               </div>
-              <div class="project-card__footer">
-                <span class="text-xs text-muted"><i class="fas fa-chart-line me-1 text-primary"></i>High Yield</span>
-                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool</a>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-chart-line"></i>High yield</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
               </div>
-            </div>
+            </article>
           </div>
 
-          <!-- Pool 5 -->
-          <div class="col-md-6 col-lg-4">
-            <div class="project-card">
-              <div class="project-card__thumb">
-                <span class="badge badge--roi project-card__badge">+18.0% ROI</span>
-                <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80" alt="Avocado Export Orchard" />
+          <!-- Pool 5: Avocado -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100" data-pool-name="Hass Avocado Export Orchard" data-pool-cat="orchard" data-pool-roi="18.0" data-pool-term="8" data-pool-share="300">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+18.0%</span>
+                <span class="pool-card__cat"><i class="fas fa-tree"></i> Orchard</span>
+                <img src="/images/pool-avocado.png" alt="Avocado Export Orchard" />
               </div>
-              <div class="project-card__content">
-                <h3 class="project-card__title"><a href="/project-details.html">Hass Avocado Export Orchard</a></h3>
-                <p class="project-card__desc">High-demand organic Hass avocado farming targeting international export buyers.</p>
-                <div class="project-card__meta">
-                  <div class="project-card__meta-item">
-                    <span>Share Price</span>
-                    <span>$300 / Unit</span>
-                  </div>
-                  <div class="project-card__meta-item">
-                    <span>Cycle Term</span>
-                    <span>8 Months</span>
-                  </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Hass Avocado Export Orchard</h3>
+                <p class="pool-card__desc">High-demand organic Hass avocado for international export buyers.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">64%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:64%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$300</strong></div>
+                  <div><span>Cycle</span><strong>8 mo</strong></div>
+                  <div><span>Harvest</span><strong>Feb 2027</strong></div>
                 </div>
               </div>
-              <div class="project-card__footer">
-                <span class="text-xs text-muted"><i class="fas fa-globe me-1 text-info"></i>Export Pool</span>
-                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool</a>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-globe"></i>Export pool</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
               </div>
-            </div>
+            </article>
           </div>
 
-          <!-- Pool 6 -->
-          <div class="col-md-6 col-lg-4">
-            <div class="project-card">
-              <div class="project-card__thumb">
-                <span class="badge badge--roi project-card__badge">+13.5% ROI</span>
-                <img src="https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?auto=format&fit=crop&w=600&q=80" alt="Golden Wheat Fields" />
+          <!-- Pool 6: Wheat -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200" data-pool-name="Commercial Winter Wheat" data-pool-cat="crops" data-pool-roi="13.5" data-pool-term="5" data-pool-share="150">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+13.5%</span>
+                <span class="pool-card__cat"><i class="fas fa-wheat-awn"></i> Crops</span>
+                <img src="/images/pool-wheat.png" alt="Golden Wheat Fields" />
               </div>
-              <div class="project-card__content">
-                <h3 class="project-card__title"><a href="/project-details.html">Commercial Winter Wheat Pool</a></h3>
-                <p class="project-card__desc">Large-scale grain cultivation with guaranteed flour mill off-take contracts.</p>
-                <div class="project-card__meta">
-                  <div class="project-card__meta-item">
-                    <span>Share Price</span>
-                    <span>$150 / Unit</span>
-                  </div>
-                  <div class="project-card__meta-item">
-                    <span>Cycle Term</span>
-                    <span>5 Months</span>
-                  </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Commercial Winter Wheat Pool</h3>
+                <p class="pool-card__desc">Large-scale grain with guaranteed flour-mill off-take contracts.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">88%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:88%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$150</strong></div>
+                  <div><span>Cycle</span><strong>5 mo</strong></div>
+                  <div><span>Harvest</span><strong>Aug 2026</strong></div>
                 </div>
               </div>
-              <div class="project-card__footer">
-                <span class="text-xs text-muted"><i class="fas fa-check-circle me-1 text-success"></i>Low Risk</span>
-                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool</a>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-shield-halved"></i>Insured · Low</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
               </div>
-            </div>
+            </article>
           </div>
+
+          <!-- Pool 7: Aquaculture -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-pool-name="Tilapia Aquaculture Processing" data-pool-cat="aquaculture" data-pool-roi="16.2" data-pool-term="7" data-pool-share="200">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+16.2%</span>
+                <span class="pool-card__cat"><i class="fas fa-water"></i> Aquaculture</span>
+                <img src="/images/pool-aquaculture.png" alt="Tilapia Aquaculture Ponds" />
+              </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Tilapia Aquaculture &amp; Processing Pool</h3>
+                <p class="pool-card__desc">High-density freshwater fish with automated feeding systems.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">47%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:47%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$200</strong></div>
+                  <div><span>Cycle</span><strong>7 mo</strong></div>
+                  <div><span>Harvest</span><strong>Jan 2027</strong></div>
+                </div>
+              </div>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-water"></i>Aquaculture</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Pool 8: Coffee -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100" data-pool-name="Ethiopian Specialty Arabica Coffee" data-pool-cat="orchard" data-pool-roi="18.8" data-pool-term="10" data-pool-share="350">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+18.8%</span>
+                <span class="pool-card__cat"><i class="fas fa-mug-hot"></i> Orchard</span>
+                <img src="/images/pool-coffee.png" alt="Ethiopian Arabica Coffee Orchard" />
+              </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Ethiopian Specialty Arabica Coffee</h3>
+                <p class="pool-card__desc">Shade-grown organic coffee exported to European &amp; US roasters.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">33%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:33%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$350</strong></div>
+                  <div><span>Cycle</span><strong>10 mo</strong></div>
+                  <div><span>Harvest</span><strong>Apr 2027</strong></div>
+                </div>
+              </div>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-mug-hot"></i>High demand</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Pool 9: Apiary -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200" data-pool-name="Organic Honey Apiary" data-pool-cat="apiary" data-pool-roi="14.8" data-pool-term="6" data-pool-share="120">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+14.8%</span>
+                <span class="pool-card__cat"><i class="fas fa-bee"></i> Apiary</span>
+                <img src="/images/pool-apiary.png" alt="Organic Honey Bee Apiary" />
+              </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Organic Honey Apiary Pool</h3>
+                <p class="pool-card__desc">Commercial beekeeping supplying raw honey &amp; pollination services.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">71%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:71%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$120</strong></div>
+                  <div><span>Cycle</span><strong>6 mo</strong></div>
+                  <div><span>Harvest</span><strong>Sep 2026</strong></div>
+                </div>
+              </div>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-leaf"></i>Eco impact</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Pool 10: Vanilla Bean Greenhouse -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-pool-name="High-Grade Vanilla Orchid Greenhouse" data-pool-cat="greenhouse" data-pool-roi="17.5" data-pool-term="10" data-pool-share="250">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+17.5%</span>
+                <span class="pool-card__cat"><i class="fas fa-leaf"></i> Greenhouse</span>
+                <img src="/images/pool-vanilla.png" alt="High-Grade Vanilla Orchid Greenhouse" />
+              </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">High-Grade Vanilla Orchid Greenhouse</h3>
+                <p class="pool-card__desc">Exotic vanilla bean cultivation inside climate-controlled solar greenhouses.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">62%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:62%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$250</strong></div>
+                  <div><span>Cycle</span><strong>10 mo</strong></div>
+                  <div><span>Harvest</span><strong>May 2027</strong></div>
+                </div>
+              </div>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-award"></i>High demand</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Pool 11: Valencia Citrus Grove -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100" data-pool-name="Valencia Citrus & Orange Grove" data-pool-cat="orchard" data-pool-roi="16.8" data-pool-term="8" data-pool-share="180">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+16.8%</span>
+                <span class="pool-card__cat"><i class="fas fa-tree"></i> Orchard</span>
+                <img src="/images/pool-citrus.png" alt="Valencia Citrus & Orange Grove" />
+              </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Valencia Citrus &amp; Orange Grove</h3>
+                <p class="pool-card__desc">Commercial citrus production supplying wholesale juice distributors.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">84%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:84%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$180</strong></div>
+                  <div><span>Cycle</span><strong>8 mo</strong></div>
+                  <div><span>Harvest</span><strong>Feb 2027</strong></div>
+                </div>
+              </div>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-shield-halved"></i>Export locked</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Pool 12: Vertical Hydroponic Blueberry -->
+          <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200" data-pool-name="Hydroponic Vertical Blueberry Cluster" data-pool-cat="crops" data-pool-roi="15.2" data-pool-term="5" data-pool-share="90">
+            <article class="pool-card">
+              <div class="pool-card__media">
+                <span class="pool-card__roi">+15.2%</span>
+                <span class="pool-card__cat"><i class="fas fa-wheat-awn"></i> Crops</span>
+                <img src="/images/pool-berry.png" alt="Hydroponic Vertical Blueberry Cluster" />
+              </div>
+              <div class="pool-card__body">
+                <h3 class="pool-card__name">Hydroponic Vertical Blueberry Cluster</h3>
+                <p class="pool-card__desc">Precision drip berry farming producing high-antioxidant superfoods.</p>
+                <div class="pool-fund">
+                  <div class="pool-fund__head"><span>Funding to target</span><span class="num">53%</span></div>
+                  <div class="pool-fund__bar"><span class="pool-fund__fill" style="width:53%"></span></div>
+                </div>
+                <div class="pool-card__meta">
+                  <div><span>Share</span><strong class="num">$90</strong></div>
+                  <div><span>Cycle</span><strong>5 mo</strong></div>
+                  <div><span>Harvest</span><strong>Jan 2027</strong></div>
+                </div>
+              </div>
+              <div class="pool-card__foot">
+                <span class="pool-card__risk"><i class="fas fa-shield-halved"></i>Insured · Low</span>
+                <a href="/project-details.html" class="btn btn--primary btn--sm">Invest Pool <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Empty state -->
+        <div class="pool-empty" id="poolEmpty" hidden>
+          <i class="fas fa-seedling"></i>
+          <h3>No cycles match that filter</h3>
+          <p>Try a different category or clear your search to see every open pool.</p>
+          <button type="button" class="btn btn--outline btn--sm" id="poolClear">Clear filters</button>
         </div>
 
         <!-- Pagination -->
         <div class="d-flex justify-content-center mt-5">
           <nav aria-label="Projects Page Navigation">
-            <ul class="pagination mb-0">
-              <li class="page-item disabled"><a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a></li>
-              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
-            </ul>
+            <ul class="pagination mb-0" id="poolPagination"></ul>
           </nav>
         </div>
 
       </div>
     </section>
+
+    <!-- ============================================================ -->
+    <!-- ============================================================ -->
+    <!-- SIMPLE & ELEGANT CTA BANNER SECTION -->
+    <!-- ============================================================ -->
+    <section class="projects-cta-sec">
+      <div class="container">
+        <div class="projects-cta-card">
+          <div class="row align-items-center gy-4">
+            <!-- Left Column: Content & Pitch -->
+            <div class="col-lg-7">
+              <div class="cta-tag mb-3">
+                <i class="fas fa-leaf me-1"></i> Start Co-Funding Today
+              </div>
+              <h2 class="cta-modern-title">
+                Ready to Co-Fund the Future of Sustainable Farming?
+              </h2>
+              <p class="cta-modern-desc">
+                Join 15,000+ investors building asset-backed passive wealth while supporting clean, verified farming operations worldwide.
+              </p>
+              <div class="cta-perks-list mb-4">
+                <div class="cta-perk-item">
+                  <i class="fas fa-check-circle text-success me-1"></i>
+                  <span>Insured Principal Protection</span>
+                </div>
+                <div class="cta-perk-item">
+                  <i class="fas fa-check-circle text-success me-1"></i>
+                  <span>14% – 22% Target APY</span>
+                </div>
+                <div class="cta-perk-item">
+                  <i class="fas fa-check-circle text-success me-1"></i>
+                  <span>Wholesale Off-Take Contracts</span>
+                </div>
+              </div>
+              <div class="cta-actions">
+                <a href="/auth/register.html" class="btn-cta-primary-green">
+                  Create Free Account <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+                <a href="#poolsGrid" class="btn-cta-outline-green">
+                  <i class="fas fa-compass me-1"></i> Explore Yield Pools
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Column: Live Trust Preview Card -->
+            <div class="col-lg-5">
+              <div class="cta-trust-card">
+                <div class="ctc-header d-flex align-items-center gap-2 mb-3">
+                  <span class="ctc-status-dot"></span>
+                  <span class="ctc-status-text">Active Co-Funding Pools</span>
+                </div>
+                <div class="ctc-stat-row row text-center gy-2 mb-3">
+                  <div class="col-6">
+                    <div class="ctc-stat-box p-3 rounded-3 bg-light border">
+                      <span class="ctc-val d-block">$240M+</span>
+                      <span class="ctc-lbl">Capital Invested</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="ctc-stat-box p-3 rounded-3 bg-light border">
+                      <span class="ctc-val d-block">98.4%</span>
+                      <span class="ctc-lbl">Harvest Payout Rate</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ctc-guarantee-bar text-center text-muted text-xs pt-2 border-top">
+                  <i class="fas fa-shield-halved text-success me-1"></i>
+                  <span>Backed by Land Titles &amp; Multi-Peril Crop Policies</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <!-- ============================================================ -->
   <!-- FOOTER -->
+  <!-- ============================================================ -->
   <footer class="footer">
     <div class="footer-top">
       <div class="container">
@@ -344,7 +613,6 @@
                 <li><a href="#" class="social-icon-btn" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a></li>
                 <li><a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                 <li><a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="#" class="social-icon-btn" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a></li>
               </ul>
             </div>
           </div>
@@ -353,42 +621,41 @@
             <div class="footer-item">
               <h4 class="footer-item__title">Navigation</h4>
               <ul class="footer-menu">
-                <li class="footer-menu__item"><a href="/index.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs"></i> Home</a></li>
-                <li class="footer-menu__item"><a href="/projects.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs"></i> Yield Pools</a></li>
-                <li class="footer-menu__item"><a href="/about.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs"></i> About Us</a></li>
-                <li class="footer-menu__item"><a href="/blog.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs"></i> Insights</a></li>
-                <li class="footer-menu__item"><a href="/contact.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs"></i> Support</a></li>
+                <li class="footer-menu__item"><a href="/index.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Home</a></li>
+                <li class="footer-menu__item"><a href="/projects.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Yield Pools</a></li>
+                <li class="footer-menu__item"><a href="/about.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> About Us</a></li>
+                <li class="footer-menu__item"><a href="/blog.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Insights</a></li>
+                <li class="footer-menu__item"><a href="/contact.html" class="footer-menu__link"><i class="fas fa-chevron-right text-xs text-success"></i> Support</a></li>
               </ul>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 col-6">
             <div class="footer-item">
-              <h4 class="footer-item__title">Live Portfolios</h4>
+              <h4 class="footer-item__title">Active Asset Pools</h4>
               <ul class="footer-menu">
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Organic Rice Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Poultry Expansion Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Tomato Hydroponics Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Angus Cattle Ranch Pool</a></li>
-                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link">Avocado Orchard Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-leaf text-xs text-success me-1"></i> Organic Rice Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-drumstick-bite text-xs text-success me-1"></i> Poultry Expansion Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-pepper-hot text-xs text-success me-1"></i> Tomato Hydroponics Pool</a></li>
+                <li class="footer-menu__item"><a href="/project-details.html" class="footer-menu__link"><i class="fas fa-cow text-xs text-success me-1"></i> Angus Cattle Ranch Pool</a></li>
               </ul>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6">
             <div class="footer-item">
-              <h4 class="footer-item__title">Support Contact</h4>
+              <h4 class="footer-item__title">Headquarters & Support</h4>
               <ul class="contact-list">
                 <li class="contact-list__item">
-                  <i class="fas fa-location-dot"></i>
+                  <i class="fas fa-location-dot text-success"></i>
                   <span>100 Innovation Park, AgriTech Way, San Francisco, CA 94105</span>
                 </li>
                 <li class="contact-list__item">
-                  <i class="fas fa-envelope"></i>
+                  <i class="fas fa-envelope text-success"></i>
                   <a href="mailto:support@farmvest.com">support@farmvest.com</a>
                 </li>
                 <li class="contact-list__item">
-                  <i class="fas fa-phone"></i>
+                  <i class="fas fa-phone text-success"></i>
                   <a href="tel:+18005553276">+1 (800) 555-FARM</a>
                 </li>
               </ul>
@@ -407,12 +674,11 @@
             </p>
           </div>
           <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
-            <ul class="list-inline mb-0 text-sm">
+            <span class="text-xs text-light me-3"><i class="fas fa-shield-alt text-success me-1"></i> 100% Capital Insured & Bank-Grade SSL</span>
+            <ul class="list-inline d-inline-block mb-0 text-sm">
               <li class="list-inline-item"><a href="/privacy-policy.html">Privacy Policy</a></li>
-              <li class="list-inline-item me-3 ms-3">|</li>
+              <li class="list-inline-item me-2 ms-2">|</li>
               <li class="list-inline-item"><a href="/terms-of-service.html">Terms of Service</a></li>
-              <li class="list-inline-item me-3 ms-3">|</li>
-              <li class="list-inline-item"><a href="/cookie-policy.html">Cookie Policy</a></li>
             </ul>
           </div>
         </div>
@@ -420,7 +686,19 @@
     </div>
   </footer>
 
-  <!-- BACK TO TOP BUTTON -->
+  <!-- Cookie consent -->
+  <div class="cookie-consent">
+    <div class="cookie-consent__icon"><i class="fas fa-cookie-bite"></i></div>
+    <p class="cookie-consent__text">
+      We use cookies to analyze performance and optimize your investment experience on FarmVest. Read our <a href="/cookie-policy.html">Cookie Policy</a> to learn more.
+    </p>
+    <button type="button" class="btn btn--primary btn--sm cookie-consent__btn">Accept All Cookies</button>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+
+  <!-- Back to top -->
   <button type="button" class="back-to-top" aria-label="Back to top">
     <i class="fas fa-chevron-up"></i>
   </button>
