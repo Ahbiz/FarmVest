@@ -70,8 +70,8 @@
     }
   }
 
-  // Featured Hero Spotlight Card (Left Side)
-  .blog-card-featured {
+  // Modern 3-Column Equal Grid Cards (.blog-grid-card)
+  .blog-grid-card {
     background: #FFFFFF;
     border-radius: 24px;
     border: 1px solid #E2E8F0;
@@ -80,30 +80,30 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
     &:hover {
       border-color: #52C42B;
       transform: translateY(-6px);
-      box-shadow: 0 20px 48px rgba(15, 76, 44, 0.12);
+      box-shadow: 0 20px 45px rgba(15, 76, 44, 0.14);
 
-      .featured-img-wrap img {
+      .blog-grid-img-wrap img {
         transform: scale(1.06);
       }
 
-      .btn-read-more {
-        color: #52C42B;
+      .btn-read-story {
+        color: #0F4C2C;
         i {
           transform: translateX(4px);
         }
       }
     }
 
-    .featured-img-wrap {
+    .blog-grid-img-wrap {
       position: relative;
-      width: 100%;
-      height: 280px;
+      height: 220px;
       overflow: hidden;
+      background: #0F4C2C;
 
       img {
         width: 100%;
@@ -112,196 +112,99 @@
         transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       }
 
-      .cat-tag {
+      .cat-badge {
         position: absolute;
-        top: 20px;
-        left: 20px;
-        background: #0F4C2C;
+        top: 16px;
+        left: 16px;
+        background: rgba(15, 76, 44, 0.88);
+        backdrop-filter: blur(8px);
         color: #FFFFFF;
-        font-size: 0.78rem;
+        font-size: 0.72rem;
         font-weight: 800;
-        letter-spacing: 1px;
-        padding: 6px 14px;
-        border-radius: 20px;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        padding: 6px 14px;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        z-index: 2;
       }
 
-      .read-time {
+      .read-time-pill {
         position: absolute;
-        bottom: 20px;
-        right: 20px;
-        background: rgba(15, 23, 42, 0.75);
-        backdrop-filter: blur(10px);
+        bottom: 16px;
+        right: 16px;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(6px);
         color: #FFFFFF;
-        font-size: 0.78rem;
-        font-weight: 700;
+        font-size: 0.72rem;
+        font-weight: 600;
         padding: 4px 12px;
-        border-radius: 20px;
+        border-radius: 50px;
+        z-index: 2;
       }
     }
 
-    .featured-content {
-      padding: 32px 30px;
+    .blog-grid-body {
+      padding: 28px;
       display: flex;
       flex-direction: column;
-      flex: 1;
+      flex-grow: 1;
 
-      .article-meta {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        font-size: 0.85rem;
+      .article-date-meta {
+        font-size: 0.82rem;
         color: #64748B;
         font-weight: 600;
         margin-bottom: 12px;
-
-        i {
-          color: #52C42B;
-          margin-right: 4px;
-        }
+        display: flex;
+        align-items: center;
+        gap: 6px;
       }
 
-      .article-title {
+      .article-grid-title {
         font-family: $font-heading;
-        font-size: 1.45rem;
-        font-weight: 800;
-        color: #0F172A;
+        font-size: 1.22rem;
+        font-weight: 700;
         line-height: 1.35;
-        margin-bottom: 14px;
-        transition: color 0.3s ease;
+        margin-bottom: 12px;
 
         a {
-          color: inherit;
+          color: #0F4C2C;
           text-decoration: none;
+          transition: color 0.2s ease;
 
           &:hover {
-            color: #0F4C2C;
+            color: #52C42B;
           }
         }
       }
 
-      .article-excerpt {
-        font-size: 0.98rem;
+      .article-grid-desc {
+        font-size: 0.925rem;
         color: #475569;
         line-height: 1.6;
         margin-bottom: 24px;
+        flex-grow: 1;
       }
 
-      .btn-read-more {
-        margin-top: auto;
+      .btn-read-story {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        color: #0F4C2C;
+        font-size: 0.9rem;
         font-weight: 800;
-        font-size: 0.92rem;
+        color: #52C42B;
         text-decoration: none;
-        transition: all 0.3s ease;
+        margin-top: auto;
+        transition: all 0.25s ease;
+
+        // Already centred by align-items, so min-height is enough to reach the
+        // 24px minimum touch target.
+        @include media-down(sm) {
+          min-height: 24px;
+        }
 
         i {
-          transition: transform 0.3s ease;
-        }
-      }
-    }
-  }
-
-  // Compact Article Cards (Right Side Stack)
-  .compact-articles-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .blog-card-compact {
-    background: #FFFFFF;
-    border-radius: 22px;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-
-    @include media-down(sm) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    &:hover {
-      border-color: #52C42B;
-      transform: translateY(-4px);
-      box-shadow: 0 14px 36px rgba(15, 76, 44, 0.1);
-
-      .compact-img-wrap img {
-        transform: scale(1.08);
-      }
-    }
-
-    .compact-img-wrap {
-      width: 140px;
-      height: 120px;
-      min-width: 140px;
-      border-radius: 16px;
-      overflow: hidden;
-
-      @include media-down(sm) {
-        width: 100%;
-        height: 180px;
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-    }
-
-    .compact-content {
-      flex: 1;
-
-      .cat-tag-sm {
-        display: inline-block;
-        color: #2D8A4E;
-        font-weight: 800;
-        font-size: 0.75rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-bottom: 6px;
-      }
-
-      .compact-title {
-        font-family: $font-heading;
-        font-size: 1.08rem;
-        font-weight: 700;
-        color: #0F172A;
-        line-height: 1.35;
-        margin-bottom: 10px;
-
-        a {
-          color: inherit;
-          text-decoration: none;
-          transition: color 0.3s ease;
-
-          &:hover {
-            color: #0F4C2C;
-          }
-        }
-      }
-
-      .compact-meta {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        font-size: 0.8rem;
-        color: #64748B;
-        font-weight: 600;
-
-        i {
-          color: #52C42B;
-          margin-right: 4px;
+          transition: transform 0.25s ease;
         }
       }
     }

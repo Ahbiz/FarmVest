@@ -27,6 +27,30 @@ body {
   overflow-x: hidden;
 }
 
+// Keep intrinsic media and long user-facing strings inside the viewport.
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  min-width: 0;
+}
+
+p,
+li,
+td,
+th,
+a,
+span {
+  overflow-wrap: break-word;
+}
+
 // ---- Main wrapper ----
 .page-wrapper {
   overflow: hidden;
@@ -117,6 +141,49 @@ body {
   @include bg-cover;
 }
 
+// ---- Hover utility ----
+// Used by the legal-page table of contents and the auth "Back to Login" links.
+.hover-success {
+  transition: color $transition-fast;
+
+  &:hover,
+  &:focus-visible {
+    color: $fv-primary !important;
+  }
+
+  // These are standalone navigation links, not inline prose, so they need the
+  // 24px minimum touch target (WCAG 2.5.8).
+  @include media-down(sm) {
+    display: inline-block;
+    padding: 4px 0;
+  }
+}
+
+.hover-underline {
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline !important;
+  }
+
+  @include media-down(sm) {
+    display: inline-block;
+    padding: 2px 0;
+  }
+}
+
+// A link that is a direct flex child is a standalone control, never inline
+// prose, so the WCAG 2.5.8 inline-text exemption doesn't apply to it. Flex
+// already blockifies these, so this only guarantees the 24px touch target.
+@include media-down(sm) {
+  .d-flex > a,
+  .auth__meta a,
+  .data-table__header a {
+    min-height: 24px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
 // ---- Lazy load placeholder ----
 img[loading='lazy'] {
   opacity: 0;
@@ -125,5 +192,12 @@ img[loading='lazy'] {
   &.loaded,
   &[src]:not([src='']) {
     opacity: 1;
+  }
+}
+
+// ---- Global fix for table responsiveness ----
+.table-responsive {
+  table {
+    white-space: nowrap;
   }
 }

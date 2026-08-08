@@ -1,0 +1,195 @@
+// ============================================================
+// FarmVest Scoped FAQ Page Styles (_faq-page.scss)
+// ============================================================
+
+.faq-page {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #0B1320;
+  background-color: #F8FAFC;
+
+  // Hero section styling for FAQ Page
+  .pools-hero-content {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    color: #FFFFFF;
+    position: relative;
+    z-index: 2;
+
+    .pools-hero-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.75);
+
+      a {
+        color: rgba(255, 255, 255, 0.88);
+        text-decoration: none;
+
+        @include media-down(sm) {
+          min-height: 24px;
+          display: inline-flex;
+          align-items: center;
+        }
+
+        &:hover {
+          color: #F59E0B;
+        }
+      }
+
+      .sep {
+        color: #F59E0B;
+        font-weight: 700;
+      }
+
+      .current {
+        color: #FFFFFF;
+        font-weight: 700;
+      }
+    }
+
+    .pools-hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 1.15;
+      margin: 16px 0;
+      letter-spacing: -0.01em;
+
+      .highlight {
+        color: #F59E0B;
+        position: relative;
+        display: inline-block;
+      }
+    }
+
+    .pools-hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 640px;
+      line-height: 1.65;
+    }
+  }
+
+  // Auto-suggestions Dropdown Container
+  .faq-suggestions-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    max-height: 320px;
+    overflow-y: auto;
+    z-index: 1050;
+    text-align: left;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+
+    .faq-suggestion-item {
+      transition: background 0.2s ease;
+      cursor: pointer;
+
+      &:hover {
+        background: #F0FDF4 !important;
+
+        .faq-sug-text {
+          color: #16A34A !important;
+        }
+      }
+
+      &:last-child {
+        border-bottom: 0 !important;
+      }
+    }
+  }
+
+  // Clean, modern Help Center Contact Assistance Strip
+  .faq-support-sec {
+    background-color: #F8FAFC;
+    padding-bottom: 80px;
+  }
+
+  .faq-support-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 24px;
+    padding: 40px 48px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+
+    @media (max-width: 768px) {
+      padding: 28px 24px;
+    }
+
+    .faq-support-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #16A34A;
+      background: rgba(22, 163, 74, 0.1);
+      padding: 4px 14px;
+      border-radius: 50px;
+    }
+
+    .faq-support-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #0F5132;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .faq-support-desc {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    .btn-support-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 26px;
+      border-radius: 50px;
+      background: #0F5132;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(15, 81, 50, 0.2);
+      transition: all 0.25s ease;
+
+      &:hover {
+        background: #16A34A;
+        color: #FFFFFF;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(22, 163, 74, 0.3);
+      }
+    }
+
+    .btn-support-outline {
+      display: inline-flex;
+      align-items: center;
+      padding: 11px 24px;
+      border-radius: 50px;
+      border: 1.5px solid #CBD5E1;
+      color: #0F5132;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+
+      &:hover {
+        border-color: #0F5132;
+        background: rgba(15, 81, 50, 0.05);
+        color: #0F5132;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}

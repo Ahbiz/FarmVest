@@ -74,12 +74,26 @@ textarea.form-control {
   width: 20px;
   height: 20px;
   border: 2px solid $fv-neutral-300;
-  
+
+  // Touch screens need at least a 24px target (WCAG 2.5.8).
+  @include media-down(sm) {
+    width: 24px;
+    height: 24px;
+  }
+
+  // Switches size from font-size, so scale the box rather than fixing width.
+  .form-switch & {
+    @include media-down(sm) {
+      width: 2.5rem;
+      height: 24px;
+    }
+  }
+
   &:checked {
     background-color: $fv-primary;
     border-color: $fv-primary;
   }
-  
+
   &:focus {
     box-shadow: 0 0 0 3px rgba($fv-primary, 0.12);
     border-color: $fv-primary;

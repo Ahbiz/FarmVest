@@ -1,0 +1,1507 @@
+// ============================================================
+// FarmVest Dashboard Shell (User Dashboard + Admin Panel)
+// Sidebar + topbar layout with data cards, tables, and widgets
+// ============================================================
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: $fv-neutral-50;
+
+  // ---- Sidebar navigation ----
+  &__sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    background: $fv-white;
+    border-right: 1px solid $fv-neutral-300;
+    display: flex;
+    flex-direction: column;
+    z-index: $z-sidebar;
+    transition: transform $transition-base;
+
+    @include media-down(sm) {
+      width: min(280px, 88vw);
+    }
+
+    @include media-down(lg) {
+      transform: translateX(-100%);
+
+      &.is-open {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__brand {
+    padding: space(4);
+    border-bottom: 1px solid $fv-neutral-300;
+
+    img {
+      height: 36px;
+    }
+  }
+
+  &__nav {
+    flex: 1;
+    padding: space(3) 0;
+    overflow-y: auto;
+    @include custom-scrollbar;
+  }
+
+  &__nav-section {
+    margin-bottom: space(4);
+
+    &-title {
+      font-size: font-size('xs');
+      font-weight: font-weight('semibold');
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: $fv-neutral-400;
+      padding: 0 space(4);
+      margin-bottom: space(2);
+    }
+  }
+
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    gap: space(2);
+    padding: 10px space(4);
+    color: $fv-neutral-700;
+    font-weight: font-weight('medium');
+    font-size: font-size('sm');
+    text-decoration: none;
+    transition: all $transition-fast;
+    border-left: 3px solid transparent;
+
+    i {
+      width: 20px;
+      font-size: 1.125rem;
+      color: $fv-neutral-400;
+      transition: color $transition-fast;
+    }
+
+    &:hover {
+      background: rgba($fv-primary, 0.04);
+      color: $fv-primary;
+
+      i {
+        color: $fv-primary;
+      }
+    }
+
+    &.active {
+      background: rgba($fv-primary, 0.08);
+      color: $fv-primary;
+      font-weight: font-weight('semibold');
+      border-left-color: $fv-primary;
+
+      i {
+        color: $fv-primary;
+      }
+    }
+  }
+
+  &__sidebar-footer {
+    padding: space(3) space(4);
+    border-top: 1px solid $fv-neutral-300;
+  }
+
+  // ---- Main content area ----
+  &__main {
+    flex: 1;
+    margin-left: 260px;
+    min-width: 0; // Allow flex child to shrink below content width
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; // Prevent horizontal page-level overflow
+
+    @include media-down(lg) {
+      margin-left: 0;
+    }
+  }
+
+  &__topbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: $fv-white;
+    border-bottom: 1px solid $fv-neutral-300;
+    padding: space(3) space(4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: space(3);
+
+    @include media-down(sm) {
+      padding: space(2) space(3);
+      gap: space(1);
+    }
+  }
+
+  &__topbar-left {
+    display: flex;
+    align-items: center;
+    gap: space(3);
+
+    min-width: 0;
+  }
+
+  &__menu-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    background: transparent;
+    border: 1px solid $fv-neutral-300;
+    border-radius: $radius-md;
+    color: $fv-neutral-700;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    @include media-down(lg) {
+      display: flex;
+    }
+
+    &:hover {
+      background: $fv-neutral-100;
+      color: $fv-primary;
+    }
+  }
+
+  &__search {
+    position: relative;
+    width: 320px;
+
+    @include media-down(md) {
+      display: none;
+    }
+
+    input {
+      width: 100%;
+      padding: 9px 16px 9px 40px;
+      border: 1px solid $fv-neutral-300;
+      border-radius: $radius-full;
+      font-size: font-size('sm');
+      transition: all $transition-fast;
+
+      &:focus {
+        border-color: $fv-primary;
+        box-shadow: 0 0 0 3px rgba($fv-primary, 0.08);
+        outline: none;
+      }
+    }
+
+    i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $fv-neutral-400;
+    }
+  }
+
+  &__topbar-right {
+    display: flex;
+    align-items: center;
+    gap: space(2);
+
+    min-width: 0;
+
+    @include media-down(sm) {
+      gap: 2px;
+    }
+  }
+
+  &__topbar-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    background: transparent;
+    border: none;
+    border-radius: $radius-md;
+    color: $fv-neutral-700;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: $fv-neutral-100;
+      color: $fv-primary;
+    }
+
+    &__badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 8px;
+      height: 8px;
+      background: $fv-danger;
+      border-radius: $radius-full;
+      border: 2px solid $fv-white;
+    }
+  }
+
+  &__user-menu {
+    display: flex;
+    align-items: center;
+    gap: space(2);
+    padding: 6px 12px 6px 6px;
+    border: 1px solid $fv-neutral-300;
+    border-radius: $radius-full;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    @include media-down(sm) {
+      padding: 4px;
+      border: 0;
+    }
+
+    &:hover {
+      border-color: $fv-primary;
+      background: rgba($fv-primary, 0.04);
+    }
+  }
+
+  &__user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-full;
+    overflow: hidden;
+    background: $fv-neutral-100;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__user-name {
+    font-size: font-size('sm');
+    font-weight: font-weight('semibold');
+    color: $fv-neutral-900;
+
+    @include media-down(md) {
+      display: none;
+    }
+  }
+
+  // ---- Content body ----
+  &__content {
+    flex: 1;
+    padding: space(5);
+    min-width: 0; // Allow content to shrink for table scroll
+    overflow-x: hidden;
+
+    @include media-down(sm) {
+      padding: space(4) space(3);
+    }
+
+    > * {
+      max-width: 100%;
+    }
+  }
+
+  &__page-header {
+    margin-bottom: space(5);
+  }
+
+  &__page-title {
+    font-family: $font-heading;
+    font-weight: font-weight('bold');
+    font-size: 1.75rem;
+    color: $fv-neutral-900;
+    margin-bottom: space(1);
+
+    @include media-down(sm) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__page-desc {
+    color: $fv-neutral-400;
+    font-size: font-size('sm');
+  }
+
+  &__breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: space(2);
+    font-size: font-size('sm');
+    color: $fv-neutral-400;
+    margin-bottom: space(2);
+
+    a {
+      color: $fv-neutral-400;
+      text-decoration: none;
+
+      &:hover {
+        color: $fv-primary;
+      }
+    }
+
+    i {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+// ---- Dashboard stat cards ----
+.stat-card {
+  background: $fv-white;
+  border: 1px solid $fv-neutral-300;
+  border-radius: $radius-lg;
+  padding: space(4);
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &__top {
+    @include flex-between;
+    margin-bottom: space(3);
+  }
+
+  &__label {
+    font-size: font-size('sm');
+    font-weight: font-weight('semibold');
+    color: $fv-neutral-400;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__icon {
+    width: 44px;
+    height: 44px;
+    @include flex-center;
+    border-radius: $radius-md;
+    font-size: 1.25rem;
+
+    &--primary {
+      background: rgba($fv-primary, 0.12);
+      color: $fv-primary;
+    }
+
+    &--accent {
+      background: rgba($fv-accent, 0.12);
+      color: $fv-accent;
+    }
+
+    &--success {
+      background: rgba($fv-success, 0.12);
+      color: $fv-success;
+    }
+
+    &--info {
+      background: rgba($fv-info, 0.12);
+      color: $fv-info;
+    }
+  }
+}
+
+// ---- Soft Pastel Icon Badge Containers (Inspired by Agrivest UI) ----
+.icon-box-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.08);
+  }
+
+  &--emerald {
+    background: #E6F4EA;
+    color: #0F5132;
+  }
+
+  &--amber {
+    background: #FEF3C7;
+    color: #D97706;
+  }
+
+  &--blue {
+    background: #E0F2FE;
+    color: #0284C7;
+  }
+
+  &--purple {
+    background: #F3E8FF;
+    color: #9333EA;
+  }
+
+  &--rose {
+    background: #FFE4E6;
+    color: #E11D48;
+  }
+
+  &--teal {
+    background: #CCFBF1;
+    color: #0D9488;
+  }
+}
+
+.stat-card {
+  &__value {
+    font-family: $font-mono;
+    font-weight: font-weight('extrabold');
+    font-size: 1.875rem;
+    color: $fv-neutral-900;
+    line-height: 1;
+    margin-bottom: space(1);
+  }
+
+  &__change {
+    display: inline-flex;
+    align-items: center;
+    gap: space(1);
+    font-size: font-size('sm');
+    font-weight: font-weight('semibold');
+
+    &--up {
+      color: $fv-success;
+    }
+
+    &--down {
+      color: $fv-danger;
+    }
+  }
+}
+
+// ---- Dashboard data table ----
+.data-table {
+  background: $fv-white;
+  border: 1px solid $fv-neutral-300;
+  border-radius: $radius-lg;
+  min-width: 0;
+  overflow: hidden;
+
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    width: 100%;
+    min-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  thead {
+    background: $fv-neutral-50;
+
+    th {
+      padding: 12px 16px;
+      text-align: left;
+      font-size: font-size('xs');
+      font-weight: font-weight('bold');
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: $fv-neutral-400;
+      white-space: nowrap;
+      border-bottom: 1px solid $fv-neutral-300;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid $fv-neutral-300;
+      transition: background $transition-fast;
+
+      &:hover {
+        background: rgba($fv-primary, 0.03);
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    td {
+      padding: 12px 16px;
+      font-size: font-size('sm');
+      color: $fv-neutral-700;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+  }
+
+  &__header {
+    padding: space(4) space(5);
+    border-bottom: 1px solid $fv-neutral-300;
+    @include flex-between;
+
+    @include media-down(sm) {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: space(2);
+      padding: space(3);
+
+      > * {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: font-weight('bold');
+    font-size: 1.125rem;
+    color: $fv-neutral-900;
+  }
+
+  &__footer {
+    padding: space(4) space(5);
+    border-top: 1px solid $fv-neutral-300;
+    @include flex-between;
+    font-size: font-size('sm');
+    color: $fv-neutral-400;
+
+    @include media-down(sm) {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: space(2);
+      padding: space(3);
+    }
+  }
+}
+
+// ---- Mobile sidebar backdrop ----
+.dashboard-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: $z-sidebar - 1;
+
+  @include media-down(lg) {
+    &.is-visible {
+      display: block;
+    }
+  }
+}
+
+// ============================================================
+// FarmVest Portfolio — My Investments (harvest-cycle view)
+// Visual language pulled from the homepage: evergreen panel,
+// harvest amber, grass green, Fraunces headings, Inter metrics.
+// ============================================================
+
+.fv-portfolio {
+  padding: space(5);
+
+  @include media-down(sm) {
+    padding: space(4) space(3);
+  }
+
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: space(3);
+    flex-wrap: wrap;
+  }
+
+  &__tiles {
+    margin-bottom: space(5);
+  }
+
+  &__foot {
+    margin-top: space(4);
+  }
+}
+
+// Live "as of today" indicator (replaces realtime claim with honesty)
+.fv-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: space(1);
+  font-size: font-size('sm');
+  font-weight: font-weight('medium');
+  color: $fv-neutral-400;
+
+  i {
+    font-size: 0.55rem;
+    color: $fv-accent;
+  }
+}
+
+// ---- Signature hero: projected payout on deep evergreen ----
+.portfolio-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: space(5);
+  background: linear-gradient(120deg, $fv-primary-dark 0%, $fv-neutral-900 100%);
+  border-radius: $radius-xl;
+  padding: space(6) space(5);
+  margin-bottom: space(5);
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+
+  // soft seasonal halo
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(420px 240px at 88% 120%, rgba($fv-primary-light, 0.22), transparent 60%),
+      radial-gradient(320px 200px at 12% -30%, rgba($fv-accent, 0.16), transparent 60%);
+    pointer-events: none;
+  }
+
+  @include media-down(md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: space(4);
+    padding: space(5) space(4);
+  }
+
+  &__left {
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: space(1);
+    font-size: font-size('xs');
+    font-weight: font-weight('semibold');
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba($fv-accent-light, 0.95);
+    margin-bottom: space(3);
+
+    i {
+      font-size: 0.8rem;
+    }
+  }
+
+  &__value {
+    font-size: clamp(2.6rem, 6vw, 3.6rem);
+    font-weight: font-weight('extrabold');
+    line-height: 1;
+    color: $fv-white;
+    margin-bottom: space(2);
+  }
+
+  &__detail {
+    font-size: font-size('sm');
+    color: rgba($fv-white, 0.7);
+    margin-bottom: space(4);
+
+    .num {
+      color: $fv-white;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: space(2);
+  }
+
+  &__right {
+    position: relative;
+    z-index: 1;
+    text-align: right;
+    flex-shrink: 0;
+
+    @include media-down(md) {
+      text-align: left;
+    }
+  }
+
+  &__roi {
+    display: block;
+    font-family: $font-mono;
+    font-size: clamp(2.8rem, 6vw, 4rem);
+    font-weight: font-weight('extrabold');
+    line-height: 1;
+    color: $fv-accent-light;
+  }
+
+  &__roi-label {
+    font-size: font-size('sm');
+    color: rgba($fv-white, 0.6);
+  }
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: space(1);
+  padding: 7px 14px;
+  border-radius: $radius-full;
+  background: rgba($fv-white, 0.12);
+  border: 1px solid rgba($fv-white, 0.18);
+  color: $fv-white;
+  font-size: font-size('xs');
+  font-weight: font-weight('medium');
+  backdrop-filter: blur(4px);
+
+  i {
+    font-size: 0.8rem;
+  }
+}
+
+// ---- Compact stat tile (reuses stat-card, tighter rhythm) ----
+.stat-card--compact {
+  padding: space(3) space(4);
+  border-radius: $radius-lg;
+}
+
+// ---- Season label pill ----
+.season-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: space(1);
+  font-size: font-size('sm');
+  font-weight: font-weight('semibold');
+  color: $fv-neutral-700;
+
+  i {
+    color: $fv-primary;
+  }
+}
+
+// ---- Cycle list ----
+.cycle-list {
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: space(3);
+    flex-wrap: wrap;
+    margin-bottom: space(4);
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: font-weight('bold');
+    font-size: 1.375rem;
+    color: $fv-neutral-900;
+    margin-bottom: space(1);
+  }
+
+  &__desc {
+    font-size: font-size('sm');
+    color: $fv-neutral-400;
+    margin-bottom: 0;
+  }
+}
+
+// ---- Cycle card shell ----
+.cycle-card {
+  display: flex;
+  align-items: flex-start;
+  gap: space(4);
+  padding: space(3) space(4);
+  margin-bottom: space(3);
+  background: $fv-white;
+  border: 1px solid $fv-neutral-300;
+  border-radius: $radius-lg;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: rgba($fv-primary, 0.4);
+    box-shadow: $shadow-md;
+  }
+
+  @include media-down(sm) {
+    flex-direction: column;
+    gap: space(3);
+  }
+
+  &[data-status='funding'] {
+    border-style: dashed;
+    background: $fv-neutral-50;
+  }
+}
+
+// ---- Pool card content ----
+.pool-card__thumb {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: $radius-md;
+  @include flex-center;
+  font-size: 1.5rem;
+  color: $fv-white;
+
+  @include media-down(sm) {
+    width: 100%;
+    height: 76px;
+    font-size: 1.75rem;
+  }
+
+  &--crop   { background: linear-gradient(135deg, #4ade80, #16A34A); }
+  &--green  { background: linear-gradient(135deg, #34d399, #22C55E); }
+  &--amber  { background: linear-gradient(135deg, #fbbf24, #F59E0B); }
+  &--cow    { background: linear-gradient(135deg, #94a3b8, #475569); }
+  &--tree   { background: linear-gradient(135deg, #86efac, #0F5132); }
+}
+
+.pool-card__main {
+  flex: 1;
+  min-width: 0;
+}
+
+.pool-card__topline {
+  display: flex;
+  align-items: center;
+  gap: space(2);
+  flex-wrap: wrap;
+  margin-bottom: space(2);
+}
+
+.pool-card__name {
+  font-family: $font-heading;
+  font-weight: font-weight('bold');
+  font-size: 1.05rem;
+  color: $fv-neutral-900;
+}
+
+.pool-card__roi {
+  margin-left: auto;
+  font-size: font-size('sm');
+  font-weight: font-weight('semibold');
+}
+
+.pool-card__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(2) space(4);
+  padding-top: space(1);
+
+  > span {
+    font-size: font-size('xs');
+    color: $fv-neutral-400;
+
+    b {
+      color: $fv-neutral-700;
+    }
+  }
+}
+
+// ---- Season progress (seed → harvest) ----
+.season-progress {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: space(2);
+  align-items: center;
+  margin-bottom: space(2);
+
+  &__bar {
+    position: relative;
+    height: 8px;
+    border-radius: $radius-full;
+    background: $fv-neutral-100;
+    overflow: hidden;
+  }
+
+  &__fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: $radius-full;
+    background: linear-gradient(90deg, $fv-primary-light, $fv-primary);
+  }
+
+  &__seed,
+  &__flag {
+    font-size: font-size('xs');
+    font-weight: font-weight('semibold');
+    white-space: nowrap;
+    color: $fv-neutral-400;
+
+    i {
+      font-size: 0.7rem;
+    }
+  }
+
+  &__flag {
+    color: $fv-accent;
+  }
+}
+
+// fill widths by season progress (real pcts)
+.season-progress__fill[data-pct='56'] { width: 56%; }
+.season-progress__fill[data-pct='62'] { width: 62%; }
+.season-progress__fill[data-pct='18'] { width: 18%; }
+.season-progress__fill[data-pct='30'] { width: 30%; }
+.season-progress__fill[data-pct='100'] { width: 100%; }
+
+// ---- Completed strip ----
+.completed-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: space(3);
+  border: 1px dashed $fv-neutral-300;
+  border-radius: $radius-lg;
+  background: $fv-white;
+  padding: space(3) space(4);
+  margin-top: space(2);
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: space(2);
+    font-size: font-size('sm');
+    color: $fv-neutral-700;
+
+    i {
+      color: $fv-success;
+      font-size: 1.1rem;
+    }
+  }
+
+  &__amount {
+    display: flex;
+    align-items: center;
+    gap: space(4);
+    font-size: font-size('sm');
+
+    > span {
+      color: $fv-neutral-400;
+
+      b {
+        color: $fv-neutral-800;
+      }
+    }
+  }
+}
+
+// ============================================================
+// 2026 Modern Bento Grid & Agritech Telemetry Dashboard System
+// ============================================================
+
+.bento-card {
+  background: $fv-white;
+  border: 1px solid rgba(15, 81, 50, 0.08);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px -4px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @include media-down(sm) {
+    padding: 1.25rem;
+  }
+
+  &:hover {
+    box-shadow: 0 12px 30px -6px rgba(15, 81, 50, 0.08);
+    border-color: rgba(15, 81, 50, 0.18);
+    transform: translateY(-2px);
+  }
+
+  &--hero {
+    background: linear-gradient(135deg, #0B3B24 0%, #062416 100%);
+    color: $fv-white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+  }
+
+  &--glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+}
+
+.bento-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  &--emerald {
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+  }
+
+  &--amber {
+    background: rgba(245, 158, 11, 0.12);
+    color: #D97706;
+    border: 1px solid rgba(245, 158, 11, 0.25);
+  }
+
+  &--blue {
+    background: rgba(59, 130, 246, 0.12);
+    color: #2563EB;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+  }
+}
+
+.bento-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+
+  &--emerald { background: #ECFDF5; color: #059669; }
+  &--amber   { background: #FFFBEB; color: #D97706; }
+  &--blue    { background: #EFF6FF; color: #2563EB; }
+  &--purple  { background: #FAF5FF; color: #7C3AED; }
+  &--rose    { background: #FFF1F2; color: #E11D48; }
+}
+
+.bento-chart-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 64px;
+  padding-top: 8px;
+
+  &__col {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.2s ease;
+
+    &:hover, &.is-active {
+      background: #10B981;
+    }
+  }
+}
+
+.telemetry-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+// Live Pulse Status Animations for IoT Sensor Indicators
+.pulse-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10B981;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(16, 185, 129, 0.4);
+    animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  &--warning {
+    background-color: #F59E0B;
+    &::after { background-color: rgba(245, 158, 11, 0.4); }
+  }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+.keyboard-shortcut-badge {
+  font-family: $font-mono;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(100, 116, 139, 0.12);
+  color: #64748B;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+// ============================================================
+// Dark Mode & Modern Interactive UI Extensions
+// ============================================================
+
+:root {
+  --fv-bg: #F8FAFC;
+  --fv-card-bg: #FFFFFF;
+  --fv-border: #E2E8F0;
+  --fv-text: #0B1320;
+  --fv-text-muted: #64748B;
+  --fv-topbar-bg: #FFFFFF;
+  --fv-sidebar-bg: #FFFFFF;
+}
+
+[data-theme='dark'] {
+  --fv-bg: #0B1320;
+  --fv-card-bg: #151F32;
+  --fv-border: #223048;
+  --fv-text: #F8FAFC;
+  --fv-text-muted: #94A3B8;
+  --fv-topbar-bg: #111927;
+  --fv-sidebar-bg: #111927;
+
+  body, .dashboard {
+    background-color: var(--fv-bg) !important;
+    color: var(--fv-text) !important;
+  }
+
+  .dashboard__sidebar, .dashboard__topbar {
+    background-color: var(--fv-topbar-bg) !important;
+    border-color: var(--fv-border) !important;
+  }
+
+  .dashboard__nav-item {
+    color: #CBD5E1;
+    &:hover {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ADE80;
+      i { color: #4ADE80; }
+    }
+    &.active {
+      background: rgba(34, 197, 94, 0.2);
+      color: #4ADE80;
+      i { color: #4ADE80; }
+    }
+  }
+
+  .bento-card, .stat-card, .card, .data-table, .cycle-card, .completed-strip {
+    background-color: var(--fv-card-bg) !important;
+    border-color: var(--fv-border) !important;
+    color: var(--fv-text) !important;
+  }
+
+  .data-table thead, .bg-light, .bg-white {
+    background-color: #1A263D !important;
+    color: var(--fv-text) !important;
+  }
+
+  .text-dark { color: #F8FAFC !important; }
+  .text-muted { color: #94A3B8 !important; }
+  .dashboard__user-name { color: #F8FAFC !important; }
+  .dashboard__user-menu {
+    border-color: var(--fv-border) !important;
+    &:hover {
+      border-color: #16A34A !important;
+      background: rgba(22, 163, 74, 0.12) !important;
+    }
+  }
+  .border, .border-bottom, .border-top { border-color: var(--fv-border) !important; }
+  .form-control, .form-select {
+    background-color: #1A263D !important;
+    border-color: var(--fv-border) !important;
+    color: #F8FAFC !important;
+  }
+
+  // Topbar buttons (dark-mode toggle, notifications bell)
+  .dashboard__topbar-btn {
+    color: #CBD5E1 !important;
+    &:hover {
+      background: rgba(255, 255, 255, 0.08) !important;
+      color: #4ADE80 !important;
+    }
+  }
+
+  // Page title and description
+  .dashboard__page-title {
+    color: #F8FAFC !important;
+  }
+  .dashboard__page-desc {
+    color: #94A3B8 !important;
+  }
+
+  // Stat card values
+  .stat-card__value {
+    color: #F8FAFC !important;
+  }
+  .stat-card__label {
+    color: #94A3B8 !important;
+  }
+
+  // Search input
+  .dashboard__search input {
+    background-color: #1A263D !important;
+    border-color: var(--fv-border) !important;
+    color: #F8FAFC !important;
+    &::placeholder {
+      color: #64748B !important;
+    }
+  }
+  .dashboard__search i {
+    color: #64748B !important;
+  }
+
+  // Data-table footer and header text
+  .data-table__title {
+    color: #F8FAFC !important;
+  }
+  .data-table__footer {
+    color: #94A3B8 !important;
+    border-color: var(--fv-border) !important;
+  }
+  .data-table__header {
+    border-color: var(--fv-border) !important;
+  }
+
+  // Table cell text
+  .data-table tbody td {
+    color: #CBD5E1 !important;
+  }
+  .data-table thead th {
+    color: #94A3B8 !important;
+  }
+
+  // Dropdown menus
+  .dropdown-menu {
+    background-color: #1A263D !important;
+    border-color: var(--fv-border) !important;
+  }
+  .dropdown-item {
+    color: #CBD5E1 !important;
+    &:hover, &:focus {
+      background: rgba(22, 163, 74, 0.12) !important;
+      color: #4ADE80 !important;
+    }
+  }
+}
+
+
+// Notification Dropdown Panel
+.notification-dropdown-menu {
+  width: 360px;
+  max-width: 90vw;
+  padding: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--fv-border);
+  background: var(--fv-card-bg);
+
+  @include media-down(sm) {
+    width: calc(100vw - 24px);
+    max-width: calc(100vw - 24px);
+  }
+
+  &__header {
+    padding: 1rem 1.25rem;
+    background: var(--fv-card-bg);
+    border-bottom: 1px solid var(--fv-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__body {
+    max-height: 340px;
+    overflow-y: auto;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--fv-border);
+    transition: background 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+
+    &:last-child { border-bottom: none; }
+    &:hover { background: rgba(34, 197, 94, 0.05); }
+    &.is-unread { background: rgba(34, 197, 94, 0.08); }
+  }
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.95rem;
+
+    &--success { background: #ECFDF5; color: #059669; }
+    &--amber   { background: #FFFBEB; color: #D97706; }
+    &--blue    { background: #EFF6FF; color: #2563EB; }
+  }
+}
+
+// 3-Step Flow Indicator for Deposit / Withdraw / Verification
+.step-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 2rem;
+
+  @include media-down(sm) {
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: var(--fv-border);
+    z-index: 1;
+  }
+
+  &__step {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--fv-card-bg);
+    padding: 0 0.5rem;
+
+    @include media-down(sm) {
+      flex: 1 1 0;
+      min-width: 0;
+      padding: 0 2px;
+    }
+
+    &-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--fv-card-bg);
+      border: 2px solid var(--fv-border);
+      color: var(--fv-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      transition: all 0.25s ease;
+    }
+
+    &-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--fv-text-muted);
+
+      @include media-down(sm) {
+        font-size: 0.68rem;
+        line-height: 1.25;
+      }
+    }
+
+    &.is-active {
+      .step-flow__step-num {
+        background: #16A34A;
+        border-color: #16A34A;
+        color: #FFFFFF;
+        box-shadow: 0 0 16px rgba(22, 163, 74, 0.4);
+      }
+      .step-flow__step-label { color: #16A34A; }
+    }
+
+    &.is-completed {
+      .step-flow__step-num {
+        background: #ECFDF5;
+        border-color: #10B981;
+        color: #059669;
+      }
+    }
+  }
+}
+
+// Visual Card Selection Grid
+.radio-card {
+  border: 1.5px solid var(--fv-border);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  background: var(--fv-card-bg);
+
+  @include media-down(sm) {
+    padding: 1rem;
+
+    .d-flex.justify-content-between {
+      align-items: flex-start !important;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  &:hover {
+    border-color: #16A34A;
+    transform: translateY(-2px);
+  }
+
+  &.is-selected {
+    border-color: #16A34A;
+    background: rgba(22, 163, 74, 0.04);
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+  }
+}
+
+// Fade in up utility class
+.fv-fade-in-up {
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

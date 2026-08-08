@@ -47,6 +47,10 @@
     justify-content: space-between;
     padding: 8px 0;
 
+    @include media-down(sm) {
+      gap: 12px;
+    }
+
     // Prominent Brand Logo Badge with Elegant Wordmark
     .brand-logo {
       display: flex;
@@ -72,6 +76,10 @@
         color: #FFFFFF;
         letter-spacing: -0.02em;
         line-height: 1;
+
+        @include media-down(sm) {
+          font-size: 1.35rem;
+        }
 
         span {
           color: #F59E0B; // Warm Harvest Gold accent
@@ -208,6 +216,10 @@
       color: #FFFFFF;
       margin-bottom: space(3);
 
+      @include media-down(sm) {
+        font-size: 2.25rem;
+      }
+
       span.highlight {
         color: #4ADE80;
         font-family: 'Fraunces', serif;
@@ -222,6 +234,10 @@
       color: rgba(255, 255, 255, 0.9);
       margin-bottom: space(5);
 
+      @include media-down(sm) {
+        font-size: 1rem;
+      }
+
       span.green-callout {
         color: #4ADE80;
         font-weight: 800;
@@ -234,6 +250,15 @@
       flex-wrap: wrap;
       align-items: center;
       gap: space(4);
+
+      @include media-down(sm) {
+        gap: space(2);
+
+        a {
+          width: 100%;
+          text-align: center;
+        }
+      }
 
       .btn-invest-solid {
         background: #16A34A;
@@ -325,6 +350,65 @@
       }
     }
   }
+}
+
+// ============================================================
+// Inner-page hero banner (legal pages, 404, project details)
+//
+// These pages mark the hero up with `about-hero-banner__*` classes, which were
+// never defined — only `.about-page .ab-hero-banner__*` was, and it can't reach
+// them because those pages don't carry `.about-page`. The title was inheriting
+// the near-black body colour on a near-black hero, so it rendered invisible.
+// ============================================================
+.about-hero-banner__content {
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero-banner__breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 16px;
+
+  a {
+    color: #16A34A;
+    text-decoration: none;
+    font-weight: 600;
+
+    // Keep the breadcrumb target explicit instead of depending on the inherited
+    // line-height, which varies with the page's loaded font metrics.
+    @include media-down(sm) {
+      min-height: 24px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .sep {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .current {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+}
+
+.about-hero-banner__title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 7vw, 4rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+  line-height: 1.15;
 }
 
 // ============================================================

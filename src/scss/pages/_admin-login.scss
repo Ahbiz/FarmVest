@@ -1,0 +1,373 @@
+// ============================================================
+// FarmVest Admin Sign-In
+// Single centered column on the same light shell the admin
+// dashboard uses (layout/_dashboard.scss), with the navy accent
+// borrowed from the admin sidebar. Self-contained `.field` styles
+// so auth.js inline validation resolves inside this page.
+// ============================================================
+
+$admin-auth-line:      #E3E8EF;   // hairline, lighter than $fv-neutral-300
+$admin-auth-line-hover: #CBD5E1;
+
+.admin-auth {
+  min-height: 100vh;
+  margin: 0;
+  padding: space(6) space(3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $fv-neutral-50;
+  font-family: $font-body;
+  color: $fv-neutral-900;
+
+  @include media-down(sm) {
+    align-items: flex-start;
+    padding: space(5) space(3);
+  }
+
+  // ---- Centered column ----
+  &__shell {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  &__brand {
+    display: block;
+    width: fit-content;
+    margin: 0 auto space(4);
+
+    img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+  }
+
+  // ---- Card ----
+  &__card {
+    background: $fv-white;
+    border: 1px solid $admin-auth-line;
+    border-radius: $radius-lg;
+    padding: 2.5rem 2.25rem 2rem;
+    box-shadow:
+      0 1px 2px rgba($fv-neutral-900, 0.04),
+      0 14px 34px -14px rgba($fv-neutral-900, 0.14);
+    animation: adminAuthEnter 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+
+    @include media-down(sm) {
+      padding: 2rem 1.5rem 1.75rem;
+    }
+  }
+
+  // ---- Administrator marker ----
+  &__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.7rem;
+    margin-bottom: space(4);
+    border-radius: $radius-full;
+    background: rgba($fv-neutral-800, 0.06);
+    color: $fv-neutral-800;
+    font-size: 0.75rem;
+    font-weight: font-weight('semibold');
+
+    i {
+      font-size: 0.7rem;
+      color: $fv-primary;
+    }
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: 1.75rem;
+    font-weight: font-weight('bold');
+    line-height: line-height('tight');
+    color: $fv-neutral-900;
+    margin: 0 0 0.4rem;
+  }
+
+  &__lede {
+    font-size: 0.9375rem;
+    line-height: line-height('normal');
+    color: $fv-neutral-400;
+    margin: 0 0 space(5);
+  }
+
+  // ---- Form fields ----
+  .field {
+    margin-bottom: 1.25rem;
+
+    &__label-row {
+      @include flex-between;
+      gap: space(3);
+      margin-bottom: 0.4rem;
+
+      .field__label {
+        margin-bottom: 0;
+      }
+    }
+
+    &__label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: font-weight('semibold');
+      color: $fv-neutral-700;
+      margin-bottom: 0.4rem;
+    }
+
+    &__label-link {
+      font-size: 0.8125rem;
+      font-weight: font-weight('medium');
+      color: $fv-primary;
+      text-decoration: none;
+      transition: color $transition-fast;
+
+      // Standalone action link, so it needs the 24px minimum touch target.
+      @include media-down(sm) {
+        display: inline-block;
+        padding: 2px 0;
+      }
+
+      &:hover {
+        color: $fv-primary-dark;
+        text-decoration: underline;
+      }
+    }
+
+    &__control {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: $fv-white;
+      border: 1px solid $admin-auth-line-hover;
+      border-radius: $radius-md - 2px;
+      transition: border-color $transition-fast, box-shadow $transition-fast;
+
+      &:hover {
+        border-color: $fv-neutral-400;
+      }
+
+      &:focus-within {
+        border-color: $fv-primary;
+        box-shadow: 0 0 0 3px rgba($fv-primary, 0.14);
+      }
+
+      &.is-invalid {
+        border-color: $fv-danger;
+
+        &:focus-within {
+          box-shadow: 0 0 0 3px rgba($fv-danger, 0.14);
+        }
+      }
+    }
+
+    &__input {
+      width: 100%;
+      height: 46px;
+      padding: 0 0.9rem;
+      border: none;
+      background: transparent;
+      border-radius: inherit;
+      font-family: $font-body;
+      font-size: 0.9375rem;
+      color: $fv-neutral-900;
+      outline: none;
+
+      &::placeholder {
+        color: $fv-neutral-400;
+      }
+    }
+
+    &__toggle {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      margin-right: 0.25rem;
+      padding: 0;
+      background: none;
+      border: none;
+      border-radius: $radius-sm;
+      color: $fv-neutral-400;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: color $transition-fast, background-color $transition-fast;
+
+      &:hover {
+        color: $fv-neutral-700;
+        background: $fv-neutral-100;
+      }
+    }
+
+    &__message {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.78rem;
+      color: $fv-danger;
+
+      // Collapse cleanly when auth.js has no error text to show
+      &:empty {
+        margin-top: 0;
+      }
+    }
+  }
+
+  // ---- Keep me signed in ----
+  &__remember {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: space(4);
+    font-size: 0.875rem;
+    color: $fv-neutral-700;
+    cursor: pointer;
+    user-select: none;
+
+    input {
+      flex: 0 0 auto;
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      accent-color: $fv-primary;
+      cursor: pointer;
+
+      // Touch screens need at least a 24px target (WCAG 2.5.8).
+      @include media-down(sm) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  // ---- Primary action ----
+  &__submit {
+    width: 100%;
+    height: 46px;
+    background: $fv-primary;
+    border: none;
+    border-radius: $radius-md - 2px;
+    color: $fv-white;
+    font-family: $font-body;
+    font-size: 0.9375rem;
+    font-weight: font-weight('semibold');
+    cursor: pointer;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background: #15803D;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $fv-primary;
+      outline-offset: 2px;
+    }
+  }
+
+  // ---- Demo credentials ----
+  &__demo {
+    @include flex-between;
+    gap: space(3);
+    margin-top: space(5);
+    padding-top: space(4);
+    border-top: 1px solid $admin-auth-line;
+  }
+
+  &__demo-info {
+    min-width: 0;
+  }
+
+  &__demo-label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: font-weight('semibold');
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $fv-neutral-400;
+    margin-bottom: 0.2rem;
+  }
+
+  &__demo-creds {
+    display: block;
+    font-family: $font-mono;
+    font-size: 0.8125rem;
+    color: $fv-neutral-700;
+    @include truncate(1);
+  }
+
+  &__demo-fill {
+    flex: 0 0 auto;
+    padding: 0.4rem 0.85rem;
+    background: $fv-white;
+    border: 1px solid $admin-auth-line-hover;
+    border-radius: $radius-sm;
+    color: $fv-neutral-700;
+    font-family: $font-body;
+    font-size: 0.8125rem;
+    font-weight: font-weight('semibold');
+    cursor: pointer;
+    transition: color $transition-fast, border-color $transition-fast, background-color $transition-fast;
+
+    &:hover {
+      background: $fv-neutral-800;
+      border-color: $fv-neutral-800;
+      color: $fv-white;
+    }
+  }
+
+  // ---- Below-card footer ----
+  &__foot {
+    margin-top: space(4);
+    text-align: center;
+  }
+
+  &__foot-switch {
+    font-size: 0.875rem;
+    color: $fv-neutral-400;
+    margin: 0 0 0.6rem;
+
+    a {
+      color: $fv-primary;
+      font-weight: font-weight('semibold');
+      text-decoration: none;
+
+      &:hover {
+        color: $fv-primary-dark;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__foot-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: $fv-neutral-400;
+    margin: 0;
+
+    i {
+      font-size: 0.6875rem;
+    }
+  }
+}
+
+@keyframes adminAuthEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-auth__card {
+    animation: none;
+  }
+}

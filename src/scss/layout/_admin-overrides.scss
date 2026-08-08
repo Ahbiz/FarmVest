@@ -1,0 +1,251 @@
+ // ============================================================
+// FarmVest Admin Panel Overrides & Theme System
+// ============================================================
+
+// Admin Sidebar Brand & Logo Styling
+.dashboard__brand {
+  padding: 1.25rem 1.5rem !important;
+
+  img, .dashboard__brand-logo {
+    height: 48px !important;
+    max-height: 52px !important;
+    width: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+}
+
+// Admin Sidebar — ALWAYS dark "Command Shell" regardless of light/dark theme
+// The admin sidebar intentionally stays dark in both modes (uses logo-white.svg, white nav text, etc.)
+.dashboard__sidebar.admin-sidebar,
+.admin-sidebar {
+  background: #0F172A !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+
+  .dashboard__brand {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: #0F172A !important;
+  }
+
+  .dashboard__nav-section-title {
+    color: rgba(255, 255, 255, 0.45) !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    padding: 0 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .dashboard__nav-item {
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-weight: 500 !important;
+
+    i {
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    &:hover {
+      background: rgba(22, 163, 74, 0.15) !important;
+      color: #4ADE80 !important;
+
+      i {
+        color: #4ADE80 !important;
+      }
+    }
+
+    &.active {
+      background: rgba(22, 163, 74, 0.22) !important;
+      color: #4ADE80 !important;
+      border-left-color: #16A34A !important;
+      font-weight: 600 !important;
+
+      i {
+        color: #4ADE80 !important;
+      }
+    }
+  }
+
+  .dashboard__sidebar-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+}
+
+// User menu dropdown & supervisor text visibility in both light & dark modes
+.dashboard__topbar {
+  .dashboard__user-menu {
+    border: 1px solid var(--fv-border, #E2E8F0);
+    padding: 6px 14px 6px 6px;
+    border-radius: 9999px;
+    transition: all 0.2s ease;
+
+    .dashboard__user-name {
+      color: var(--fv-text, #0F172A) !important;
+      font-weight: 700;
+      font-size: 0.875rem;
+      display: inline-block !important;
+
+      @include media-down(md) {
+        display: none !important;
+      }
+    }
+
+    i.fa-chevron-down {
+      color: var(--fv-text-muted, #64748B) !important;
+    }
+
+    &:hover {
+      border-color: #16A34A !important;
+      background: rgba(22, 163, 74, 0.08) !important;
+    }
+  }
+}
+
+[data-theme='dark'] {
+  .dashboard__topbar {
+    .dashboard__user-name {
+      color: #F8FAFC !important;
+    }
+    .dashboard__user-menu {
+      border-color: rgba(255, 255, 255, 0.15) !important;
+      &:hover {
+        background: rgba(255, 255, 255, 0.08) !important;
+      }
+    }
+  }
+}
+
+// Admin nav badges (pending items pill)
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-left: auto;
+  background: rgba(59, 130, 246, 0.2);
+  color: #60A5FA;
+
+  &--warn {
+    background: rgba(245, 158, 11, 0.2);
+    color: #FBBF24;
+  }
+
+  &--danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #FCA5A5;
+  }
+}
+
+// Admin system status pill footer
+.admin-system-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+// Funding progress bar in projects pool table
+.funding-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &__bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #10B981, #16A34A);
+    transition: width 0.6s ease;
+  }
+
+  &__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 36px;
+    text-align: right;
+  }
+}
+
+// KYC Funnel visualization container
+.kyc-funnel {
+  background: var(--fv-card-bg);
+  border: 1px solid var(--fv-border);
+  border-radius: 1rem;
+  padding: 1.25rem;
+
+  &__bar {
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 0.75rem;
+  }
+
+  &__segment {
+    height: 100%;
+    transition: width 0.5s ease;
+
+    &--verified { background: #10B981; }
+    &--pending { background: #F59E0B; }
+    &--unverified { background: #64748B; }
+    &--rejected { background: #EF4444; }
+  }
+
+  &__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+// ---- Admin system status pulse dot ----
+.pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  animation: pulse-dot-ring 2s infinite;
+}
+
+@keyframes pulse-dot-ring {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+// Admin sidebar footer text
+.admin-sidebar .admin-system-status {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.75rem;
+}
+
+.admin-sidebar .text-danger {
+  color: #FCA5A5 !important;
+  &:hover {
+    color: #FEE2E2 !important;
+    background: rgba(239, 68, 68, 0.12) !important;
+  }
+}
+

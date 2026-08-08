@@ -29,6 +29,7 @@
 @import 'components/stats-sec';
 @import 'components/marquee-sec';
 @import 'components/blog-sec';
+@import 'components/cta-banner';
 
 // 5. Layout Styles
 @import 'layout/header';
@@ -38,3 +39,18 @@
 
 // 6. Page Styles
 @import 'pages/home';
+@import 'pages/about-page';
+@import 'pages/projects-page';
+@import 'pages/blog-page';
+@import 'pages/contact-page';
+@import 'pages/faq-page';
+@import 'pages/legal-page';
+@import 'pages/error';
+@import 'pages/article';
+@import 'pages/auth';
+@import 'pages/admin-settings';
+@import 'pages/admin-login';
+
+// 7. Layout - Dashboard
+@import 'layout/dashboard';
+@import 'layout/admin-overrides';

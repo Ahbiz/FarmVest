@@ -18,6 +18,13 @@
   white-space: nowrap;
   @include focus-visible;
 
+  // Long labels must wrap rather than force the layout viewport wider than
+  // the device, which triggers mobile shrink-to-fit and zooms the page out.
+  @include media-down(sm) {
+    white-space: normal;
+    max-width: 100%;
+  }
+
   &:active {
     transform: scale(0.97);
   }

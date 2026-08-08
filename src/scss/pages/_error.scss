@@ -1,0 +1,61 @@
+// ============================================================
+// FarmVest 404 / Error Page
+// ============================================================
+
+.error-page {
+  min-height: 100vh;
+  padding: space(7) 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(240, 253, 244, 0.8) 0%, rgba(248, 250, 252, 1) 60%);
+  position: relative;
+  overflow: hidden;
+
+  // Anchored inside the box on purpose: `overflow: hidden` on <body> propagates
+  // to the viewport and leaves the body itself visible, so a negative offset
+  // here escapes unclipped, widens the layout viewport, and makes mobile
+  // shrink-to-fit zoom the whole page out. The 120px blur keeps the glow soft.
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 460px;
+    max-width: 100%;
+    height: 460px;
+    background: rgba(34, 197, 94, 0.08);
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+
+  &__code {
+    font-family: $font-heading;
+    font-weight: font-weight('extrabold');
+    font-size: clamp(6rem, 22vw, 14rem);
+    line-height: 0.9;
+    @include gradient-text($fv-primary, $fv-accent);
+    margin-bottom: space(3);
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-weight: font-weight('bold');
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    color: $fv-neutral-900;
+    margin-bottom: space(3);
+  }
+
+  &__desc {
+    font-size: 1.0625rem;
+    color: $fv-neutral-400;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  &__links {
+    .btn--link {
+      text-decoration: none;
+      font-weight: font-weight('semibold');
+    }
+  }
+}
