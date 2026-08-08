@@ -15,6 +15,7 @@ export function initMobileNav() {
     drawer.setAttribute('aria-hidden', 'false');
     openBtn.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    drawer.querySelector('[data-nav-close]')?.focus();
   };
 
   const close = () => {
@@ -36,5 +37,10 @@ export function initMobileNav() {
   // Close on Escape when the drawer is open.
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && drawer.classList.contains('is-open')) close();
+  });
+
+  // Do not leave the mobile drawer/body lock active after rotating or resizing.
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 992 && drawer.classList.contains('is-open')) close();
   });
 }

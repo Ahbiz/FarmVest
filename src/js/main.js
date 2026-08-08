@@ -6,6 +6,8 @@ import Lenis from 'lenis';
 // Icon fonts bundled from npm (no production CDN dependency)
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'remixicon/fonts/remixicon.css';
+import { createIcons, icons } from 'lucide';
 
 import { initPreloader } from './components/preloader';
 import { initNavbar } from './components/navbar';
@@ -14,9 +16,14 @@ import { initSliders } from './components/slider';
 import { initCounters } from './components/counter';
 import { initCookieConsent } from './components/cookie-consent';
 import { initBackToTop } from './components/back-to-top';
+import { initAboutAnimations } from './components/about-gsap';
+import { initYieldPools } from './components/yield-pools';
+import { initBlogInsights } from './components/blog-insights';
+import { initBlogDetails } from './components/blog-details';
+import { initFaqSearch } from './components/faq-search';
+import { initAuthForms } from './auth';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Lenis smooth scroll
   const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -29,14 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   requestAnimationFrame(raf);
 
-  // Initialize AOS scroll reveals
   AOS.init({
     duration: 600,
     once: true,
     easing: 'ease-out-cubic',
   });
 
-  // Initialize Components
+  createIcons({ icons });
+
   initPreloader();
   initNavbar();
   initMobileNav();
@@ -44,8 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initCookieConsent();
   initBackToTop();
+  initAboutAnimations();
+  initYieldPools();
+  initBlogInsights();
+  initBlogDetails();
+  initFaqSearch();
+  initAuthForms();
 
-  // FAQ Accordion Card Active Highlight Handler
   const faqAccordion = document.getElementById('faqAccordionV2');
   if (faqAccordion) {
     faqAccordion.addEventListener('show.bs.collapse', (e) => {
@@ -58,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // FAQ Category Filter Handler
   const catNav = document.getElementById('faqCatNav');
   if (catNav) {
     const catBtns = catNav.querySelectorAll('.faq-cat-btn');
