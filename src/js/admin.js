@@ -8,10 +8,12 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import '../scss/main.scss';
 
 import Chart from 'chart.js/auto';
-import { animateCounter } from './components/animations';
+import { animateCounters, initStaggerEntrance } from './components/animations';
 import { initThemeToggle } from './services/theme';
 import { initSidebarToggle } from './components/sidebar';
 import { injectAdminModals } from './components/admin-modals';
+import { getCurrentUser, logout } from './auth';
+import { showToast } from './components/toast';
 
 document.addEventListener('DOMContentLoaded', () => {
   const currentUser = getCurrentUser();
@@ -413,25 +415,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================================
   // 6. ANIMATED STAT COUNTERS & STAGGERED ENTRANCE ANIMATIONS
   // ============================================================
-  const counterElements = document.querySelectorAll('[data-counter-target]');
-  if (counterElements.length > 0) {
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseFloat(el.getAttribute('data-counter-target')) || 0;
-          const prefix = el.getAttribute('data-counter-prefix') || '';
-          const suffix = el.getAttribute('data-counter-suffix') || '';
-          const decimals = parseInt(el.getAttribute('data-counter-decimals') || '0', 10);
-          
-          animateCounter(el, target, 1200, prefix, suffix, decimals);
-          observer.unobserve(el);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    counterElements.forEach(el => counterObserver.observe(el));
-  }
+  animateCounters();
+  initStaggerEntrance();
 
   // ============================================================
   // 7. CHART.JS INITIALIZATION (Admin Dashboard Analytics)
