@@ -1,25 +1,42 @@
 // ============================================================
-// FarmVest Admin Panel Complete Interactivity & Functional Mockups
+// FarmVest Admin Dashboard Suite
+// Manages platform analytics, agricultural pool CRUD operations,
+// transaction approvals, user management, and homepage section builder.
 // ============================================================
 
 import * as bootstrap from 'bootstrap';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../scss/main.scss';
+import '../css/style.css';
 
 import Chart from 'chart.js/auto';
-import { animateCounters, initStaggerEntrance } from './components/animations';
-import { initThemeToggle } from './services/theme';
-import { initSidebarToggle } from './components/sidebar';
-import { injectAdminModals } from './components/admin-modals';
-import { getCurrentUser, logout } from './auth';
-import { showToast } from './components/toast';
+import { animateCounters, initStaggerEntrance } from './components/animations.js';
+import { initThemeToggle } from './services/theme.js';
+import { initSidebarToggle } from './components/sidebar.js';
+import { injectAdminModals } from './components/admin-modals.js';
+import { initAdminSectionManager } from './components/admin-sections.js';
+import { getCurrentUser, logout } from './auth.js';
+import { showToast } from './components/toast.js';
+
+// Expose bootstrap globally for dynamic modal handlers
+window.bootstrap = bootstrap;
+
+/**
+ * Retrieves the current primary brand color token from the document root.
+ */
+function getThemeColor(variableName, fallbackHex) {
+  if (typeof window === 'undefined') return fallbackHex;
+  const color = getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
+  return color || fallbackHex;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   const currentUser = getCurrentUser();
+  const primaryColor = getThemeColor('--primary-color', '#16A34A');
 
   initThemeToggle();
   initSidebarToggle();
+  initAdminSectionManager();
 
   // Logout Handlers
   document.querySelectorAll('[data-logout-btn]').forEach(btn => {
@@ -55,8 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const poolId = `#POL-${poolIdCounter++}`;
 
     let iconClass = 'fa-seedling';
-    let iconBg = 'rgba(22, 163, 74, 0.12)';
-    let iconColor = '#16A34A';
+    let iconBg = 'rgba(var(--primary-color-rgb, 22, 163, 74), 0.12)';
+    let iconColor = primaryColor;
 
     if (category === 'Row Crops') {
       iconClass = 'fa-wheat-awn';
@@ -435,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
           {
             label: 'Deposited ($)',
             data: [4200, 6800, 12500, 9400, 15800, 11200, 18400, 24500],
-            backgroundColor: '#16A34A',
+            backgroundColor: primaryColor,
             borderRadius: 6
           },
           {
@@ -471,8 +488,8 @@ document.addEventListener('DOMContentLoaded', () => {
           {
             label: 'Plus Transactions',
             data: [5, 12, 18, 14, 25, 20, 28, 35],
-            borderColor: '#10B981',
-            backgroundColor: 'rgba(16, 185, 129, 0.15)',
+            borderColor: primaryColor,
+            backgroundColor: 'rgba(var(--primary-color-rgb, 22, 163, 74), 0.15)',
             fill: true,
             tension: 0.4
           },
@@ -509,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
         labels: ['Chrome', 'Safari', 'Firefox', 'Edge', 'Others'],
         datasets: [{
           data: [520, 110, 45, 30, 11],
-          backgroundColor: ['#6366F1', '#EC4899', '#F59E0B', '#10B981', '#64748B']
+          backgroundColor: ['#6366F1', '#EC4899', '#F59E0B', primaryColor, '#64748B']
         }]
       },
       options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
@@ -524,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
         labels: ['Windows', 'macOS', 'iOS', 'Android', 'Linux'],
         datasets: [{
           data: [380, 190, 85, 45, 16],
-          backgroundColor: ['#3B82F6', '#F43F5E', '#10B981', '#F59E0B', '#8B5CF6']
+          backgroundColor: ['#3B82F6', '#F43F5E', primaryColor, '#F59E0B', '#8B5CF6']
         }]
       },
       options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
@@ -539,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
         labels: ['United States', 'Canada', 'United Kingdom', 'Germany', 'Nigeria', 'Others'],
         datasets: [{
           data: [290, 140, 110, 80, 65, 31],
-          backgroundColor: ['#8B5CF6', '#F59E0B', '#3B82F6', '#10B981', '#EC4899', '#94A3B8']
+          backgroundColor: ['#8B5CF6', '#F59E0B', '#3B82F6', primaryColor, '#EC4899', '#94A3B8']
         }]
       },
       options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
@@ -556,7 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
         datasets: [{
           label: 'Funding Volume ($M)',
           data: [12.0, 15.0, 13.5, 18.0, 16.5, 20.0],
-          backgroundColor: ['#16A34A', '#16A34A', '#16A34A', '#16A34A', '#16A34A', '#D97706'],
+          backgroundColor: [primaryColor, primaryColor, primaryColor, primaryColor, primaryColor, '#D97706'],
           borderRadius: 8
         }]
       },
@@ -582,7 +599,7 @@ document.addEventListener('DOMContentLoaded', () => {
         labels: ['Row Crops (34%)', 'Livestock (28%)', 'Horticulture (21%)', 'Permanent Crops (12%)', 'Aquaculture (5%)'],
         datasets: [{
           data: [34, 28, 21, 12, 5],
-          backgroundColor: ['#16A34A', '#0F5132', '#D97706', '#0284C7', '#64748B']
+          backgroundColor: [primaryColor, '#0F5132', '#D97706', '#0284C7', '#64748B']
         }]
       },
       options: {
@@ -594,4 +611,248 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // ============================================================
+  // ADMIN E-COMMERCE: Produce Inventory (admin/products.html)
+  // ============================================================
+  const adminProductsTableBody = document.getElementById('adminProductsTableBody');
+  if (adminProductsTableBody) {
+    import('./services/ecommerce-store.js').then(({ getStoreProducts, upsertStoreProduct, deleteStoreProduct }) => {
+      function renderAdminProducts() {
+        const products = getStoreProducts();
+        const totalUnits = products.reduce((acc, p) => acc + (p.stockQty || 0), 0);
+
+        const totalItemsEl = document.getElementById('adminKpiTotalItems');
+        const stockUnitsEl = document.getElementById('adminKpiStockUnits');
+        const countTextEl = document.getElementById('adminProductsCount');
+
+        if (totalItemsEl) totalItemsEl.textContent = `${products.length} Products`;
+        if (stockUnitsEl) stockUnitsEl.textContent = `${totalUnits} units`;
+        if (countTextEl) countTextEl.textContent = `Showing ${products.length} produce items`;
+
+        adminProductsTableBody.innerHTML = products.map(p => `
+          <tr>
+            <td class="ps-4">
+              <div class="d-flex align-items-center gap-3">
+                <img src="${p.image}" class="rounded-3 shadow-sm" width="48" height="48" style="object-fit: cover;" alt="${p.title}" />
+                <div>
+                  <strong class="text-dark d-block">${p.title}</strong>
+                  <span class="text-xs text-muted font-mono">${p.id} · <span class="badge bg-light text-dark border">${p.badge || 'Organic'}</span></span>
+                </div>
+              </div>
+            </td>
+            <td>
+              <span class="badge bg-light text-dark border text-capitalize">${p.category}</span>
+            </td>
+            <td>
+              <strong class="font-mono text-success fs-6">$${p.price.toFixed(2)}</strong>
+              <span class="text-xs text-muted">/ ${p.unit}</span>
+            </td>
+            <td>
+              <span class="text-sm text-dark">${p.origin}</span>
+            </td>
+            <td>
+              <span class="font-mono fw-bold ${p.stockQty > 20 ? 'text-dark' : 'text-danger'}">${p.stockQty || 50} units</span>
+            </td>
+            <td>
+              <span class="badge rounded-pill px-3 py-1 bg-success-subtle text-success border border-success-subtle">
+                In Stock
+              </span>
+            </td>
+            <td class="text-end pe-4">
+              <button type="button" class="btn btn-outline-danger btn-sm rounded-circle p-2" data-delete-prod="${p.id}" title="Remove Product">
+                <i class="fas fa-trash-can"></i>
+              </button>
+            </td>
+          </tr>
+        `).join('');
+
+        // Bind delete buttons
+        adminProductsTableBody.querySelectorAll('[data-delete-prod]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const prodId = btn.dataset.deleteProd;
+            if (confirm('Are you sure you want to remove this product from the marketplace?')) {
+              deleteStoreProduct(prodId);
+              showToast('Product removed from catalog.', 'info');
+              renderAdminProducts();
+            }
+          });
+        });
+      }
+
+      // Add Product Form
+      const addForm = document.getElementById('adminAddProductForm');
+      if (addForm) {
+        addForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const title = document.getElementById('admNewTitle')?.value;
+          const category = document.getElementById('admNewCat')?.value;
+          const price = parseFloat(document.getElementById('admNewPrice')?.value) || 10.00;
+          const unit = document.getElementById('admNewUnit')?.value;
+          const stock = parseInt(document.getElementById('admNewStock')?.value, 10) || 50;
+          const origin = document.getElementById('admNewOrigin')?.value;
+          const badge = document.getElementById('admNewBadge')?.value;
+          const image = document.getElementById('admNewImage')?.value;
+
+          upsertStoreProduct({
+            title: title,
+            category: category,
+            price: price,
+            unit: unit,
+            stockQty: stock,
+            origin: origin,
+            badge: badge,
+            image: image,
+            rating: 5.0,
+            reviewsCount: 1,
+            stockStatus: 'in-stock'
+          });
+
+          addForm.reset();
+          const modalEl = document.getElementById('adminAddProductModal');
+          if (modalEl && window.bootstrap) {
+            const modal = window.bootstrap.Modal.getInstance(modalEl);
+            modal?.hide();
+          }
+
+          showToast(`Produce item "${title}" added to store catalog!`, 'success');
+          renderAdminProducts();
+        });
+      }
+
+      renderAdminProducts();
+    });
+  }
+
+  // ============================================================
+  // ADMIN E-COMMERCE: Store Orders & Dispatch (admin/orders.html)
+  // ============================================================
+  const adminOrdersTableBody = document.getElementById('adminOrdersTableBody');
+  if (adminOrdersTableBody) {
+    import('./services/ecommerce-store.js').then(({ getMemberOrders, updateOrderStatus }) => {
+      let currentAdminFilter = 'all';
+
+      function renderAdminOrders() {
+        const orders = getMemberOrders();
+        const inTransit = orders.filter(o => o.status === 'In Transit').length;
+        const delivered = orders.filter(o => o.status === 'Delivered').length;
+        const totalGmv = orders.reduce((acc, o) => acc + (o.total || 0), 0);
+
+        const inTransitEl = document.getElementById('adminOrdersInTransit');
+        const deliveredEl = document.getElementById('adminOrdersDelivered');
+        const gmvEl = document.getElementById('adminOrdersGmv');
+        const countEl = document.getElementById('adminOrdersCount');
+        const pendingBadge = document.getElementById('adminSidebarPendingBadge');
+
+        if (inTransitEl) inTransitEl.textContent = inTransit;
+        if (deliveredEl) deliveredEl.textContent = delivered;
+        if (gmvEl) gmvEl.textContent = `$${totalGmv.toFixed(2)}`;
+        if (pendingBadge) pendingBadge.textContent = inTransit;
+
+        const filtered = orders.filter(o => currentAdminFilter === 'all' || o.status === currentAdminFilter);
+        if (countEl) countEl.textContent = `${filtered.length} customer orders`;
+
+        if (filtered.length === 0) {
+          adminOrdersTableBody.innerHTML = `
+            <tr>
+              <td colspan="7" class="text-center py-5 text-muted">
+                <i class="fas fa-box-open fs-2 mb-2 d-block"></i>
+                No store orders match this filter.
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        adminOrdersTableBody.innerHTML = filtered.map(o => `
+          <tr>
+            <td class="ps-4">
+              <strong class="font-mono text-dark d-block">#${o.id}</strong>
+              <span class="text-xs text-muted font-mono">${o.date} · ${o.trackingNumber}</span>
+            </td>
+            <td>
+              <strong class="text-dark d-block text-sm">${o.customerName}</strong>
+              <span class="text-xs text-muted">${o.customerEmail}</span>
+            </td>
+            <td>
+              <div class="text-xs text-dark fw-bold">${o.items.map(i => `${i.qty}× ${i.title}`).join(', ')}</div>
+            </td>
+            <td>
+              <strong class="font-mono text-success fs-6">$${o.total.toFixed(2)}</strong>
+            </td>
+            <td>
+              <span class="badge bg-light text-dark border text-xs">${o.paymentMethod}</span>
+            </td>
+            <td>
+              <span class="badge rounded-pill px-3 py-1 ${o.status === 'Delivered' ? 'bg-success-subtle text-success border border-success-subtle' : o.status === 'In Transit' ? 'bg-primary-subtle text-primary border border-primary-subtle' : 'bg-warning-subtle text-warning border border-warning-subtle'}">
+                <i class="fas ${o.status === 'Delivered' ? 'fa-circle-check' : 'fa-truck-fast'} me-1"></i> ${o.status}
+              </span>
+            </td>
+            <td class="text-end pe-4">
+              <button type="button" class="btn btn-outline-success btn-sm rounded-pill px-3 fw-bold" data-change-status="${o.id}">
+                <i class="fas fa-pen-to-square me-1"></i> Update
+              </button>
+            </td>
+          </tr>
+        `).join('');
+
+        // Bind update status modal
+        adminOrdersTableBody.querySelectorAll('[data-change-status]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const orderId = btn.dataset.changeStatus;
+            const order = orders.find(o => o.id === orderId);
+            if (!order) return;
+
+            const modalEl = document.getElementById('adminUpdateStatusModal');
+            if (modalEl && window.bootstrap) {
+              document.getElementById('statusOrderId').value = order.id;
+              document.getElementById('statusModalOrderRef').textContent = `#${order.id} (${order.customerName})`;
+              document.getElementById('statusSelectOption').value = order.status;
+
+              const statusModal = new window.bootstrap.Modal(modalEl);
+              statusModal.show();
+            }
+          });
+        });
+      }
+
+      // Status update form submit
+      const statusForm = document.getElementById('adminStatusForm');
+      if (statusForm) {
+        statusForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const orderId = document.getElementById('statusOrderId')?.value;
+          const newStatus = document.getElementById('statusSelectOption')?.value;
+
+          updateOrderStatus(orderId, newStatus);
+
+          const modalEl = document.getElementById('adminUpdateStatusModal');
+          if (modalEl && window.bootstrap) {
+            const modal = window.bootstrap.Modal.getInstance(modalEl);
+            modal?.hide();
+          }
+
+          showToast(`Order #${orderId} status updated to ${newStatus}!`, 'success');
+          renderAdminOrders();
+        });
+      }
+
+      // Filter tabs
+      document.querySelectorAll('#adminOrderStatusFilter button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#adminOrderStatusFilter button').forEach(b => {
+            b.classList.remove('active', 'btn-success');
+            b.classList.add('btn-outline-secondary');
+          });
+          btn.classList.add('active', 'btn-success');
+          btn.classList.remove('btn-outline-secondary');
+          currentAdminFilter = btn.dataset.filter || 'all';
+          renderAdminOrders();
+        });
+      });
+
+      renderAdminOrders();
+    });
+  }
 });
+

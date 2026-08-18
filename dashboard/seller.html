@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farmer & Seller Hub — List Harvest for Sale | FarmVest</title>
+  <meta name="description" content="List farm harvests for direct sale to FarmVest investors and consumer networks. Manage crop batches, pricing, and revenue payouts." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Scripts & Stylesheet -->
+  <script type="module" src="/src/js/dashboard.js"></script>
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="dashboard-page">
+  <div class="dashboard">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dashboard__sidebar">
+      <div class="dashboard__brand">
+        <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+      </div>
+
+      <!-- User Profile Badge in Sidebar -->
+      <div class="p-3 mx-3 mt-3 rounded-4 bg-light border text-center">
+        <div class="position-relative d-inline-block mb-2">
+          <img src="/images/team-sarah.png" alt="User Profile" class="rounded-circle border border-2 border-success" width="54" height="54" style="object-fit:cover;" />
+          <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" style="width:12px;height:12px;"></span>
+        </div>
+        <h6 class="fw-bold text-dark mb-0 dashboard__user-name">James Wilson</h6>
+        <span class="text-xs text-muted d-block mb-2">Verified Farmer & Partner</span>
+        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs">
+          <i class="fa-solid fa-seedling me-1"></i> Certified Producer
+        </span>
+      </div>
+
+      <nav class="dashboard__nav">
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Portfolio & Growth</p>
+          <a href="/dashboard/index.html" class="dashboard__nav-item"><i class="fa-solid fa-chart-pie me-2"></i> Overview</a>
+          <a href="/dashboard/investments.html" class="dashboard__nav-item"><i class="fa-solid fa-wheat-awn me-2"></i> My Farm Pools</a>
+          <a href="/dashboard/transactions.html" class="dashboard__nav-item"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Payout Ledger</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Marketplace & Trade</p>
+          <a href="/dashboard/shop.html" class="dashboard__nav-item"><i class="fa-solid fa-store me-2"></i> Farm Store</a>
+          <a href="/dashboard/orders.html" class="dashboard__nav-item"><i class="fa-solid fa-box-open me-2"></i> My Orders</a>
+          <a href="/dashboard/seller.html" class="dashboard__nav-item active"><i class="fa-solid fa-tractor me-2"></i> Seller Hub</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Capital Management</p>
+          <a href="/dashboard/deposit.html" class="dashboard__nav-item"><i class="fa-solid fa-wallet me-2"></i> Deposit Funds</a>
+          <a href="/dashboard/withdraw.html" class="dashboard__nav-item"><i class="fa-solid fa-money-bill-transfer me-2"></i> Withdraw Yield</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Account & Services</p>
+          <a href="/dashboard/profile.html" class="dashboard__nav-item"><i class="fa-solid fa-user-gear me-2"></i> Profile & Security</a>
+          <a href="/dashboard/support.html" class="dashboard__nav-item"><i class="fa-solid fa-headset me-2"></i> Agronomist Support</a>
+          <a href="/projects.html" class="dashboard__nav-item"><i class="fa-solid fa-seedling me-2"></i> Explore Open Pools</a>
+        </div>
+      </nav>
+
+      <div class="dashboard__sidebar-footer">
+        <button type="button" data-logout-btn class="btn btn-outline-danger w-100 rounded-pill btn-sm font-weight-bold">
+          <i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-backdrop"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard__main">
+
+      <!-- TOPBAR -->
+      <header class="dashboard__topbar">
+        <div class="dashboard__topbar-left">
+          <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="dashboard__search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search batch ID, harvest lot, crop variety…" aria-label="Search listings" />
+          </div>
+        </div>
+
+        <div class="dashboard__topbar-right">
+          <!-- Seller Payout Balance -->
+          <div class="d-flex align-items-center gap-2 px-3 py-2 bg-success-subtle text-success rounded-pill border border-success-subtle">
+            <i class="fa-solid fa-coins"></i>
+            <span class="text-xs fw-bold">Harvest Earnings:</span>
+            <span class="fw-bold font-mono" id="topbarSellerEarnings">$20,037.50</span>
+          </div>
+
+          <!-- Dark / Light Mode Toggle Button -->
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <!-- User Menu Dropdown -->
+          <div class="dropdown">
+            <button class="dashboard__avatar-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="User profile menu">
+              <img src="/images/team-sarah.png" alt="James Wilson" />
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+              <li class="px-3 py-2 border-bottom">
+                <span class="d-block fw-bold text-dark text-sm">James Wilson</span>
+                <span class="d-block text-xs text-muted">james.wilson@example.com</span>
+              </li>
+              <li><a class="dropdown-item" href="/dashboard/profile.html"><i class="fa-solid fa-user me-2 text-muted"></i> Profile Settings</a></li>
+              <li><a class="dropdown-item" href="/dashboard/shop.html"><i class="fa-solid fa-store me-2 text-muted"></i> Farm Store</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><button type="button" data-logout-btn class="dropdown-item text-danger"><i class="fa-solid fa-right-from-bracket me-2"></i> Log Out</button></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- DASHBOARD BODY CONTAINER -->
+      <main class="dashboard__content p-4">
+
+        <!-- Page Header -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs fw-bold mb-1">
+              <i class="fa-solid fa-tractor me-1"></i> FARMER & VENDOR HUB
+            </span>
+            <h2 class="font-serif fw-bold text-dark mb-0">Sell Your Farm Produce</h2>
+            <p class="text-muted text-sm mb-0">List certified farm harvests for direct sale to 18,400+ investors and verified consumers.</p>
+          </div>
+          <div>
+            <button type="button" class="btn btn-success rounded-pill px-4 py-2 fw-bold shadow-sm" data-bs-toggle="modal" data-bs-target="#listHarvestModal">
+              <i class="fa-solid fa-plus me-1"></i> List New Harvest Batch
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 KPI Metrics -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="text-xs text-muted text-uppercase fw-bold">Total Sales Revenue</span>
+                <span class="badge bg-success-subtle text-success rounded-pill p-2"><i class="fa-solid fa-arrow-trend-up"></i></span>
+              </div>
+              <h3 class="font-mono fw-bold text-success mb-0" id="sellerKpiRevenue">$20,037.50</h3>
+              <span class="text-xs text-muted">+18.4% from last harvest cycle</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="text-xs text-muted text-uppercase fw-bold">Active Listings</span>
+                <span class="badge bg-primary-subtle text-primary rounded-pill p-2"><i class="fa-solid fa-boxes-stacked"></i></span>
+              </div>
+              <h3 class="font-mono fw-bold text-dark mb-0" id="sellerKpiActiveListings">2 Batches</h3>
+              <span class="text-xs text-muted">Listed across marketplace</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="text-xs text-muted text-uppercase fw-bold">Volume Sold</span>
+                <span class="badge bg-info-subtle text-info rounded-pill p-2"><i class="fa-solid fa-weight-hanging"></i></span>
+              </div>
+              <h3 class="font-mono fw-bold text-dark mb-0" id="sellerKpiVolume">5,850 kg</h3>
+              <span class="text-xs text-muted">98.2% fulfillment rate</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="text-xs text-muted text-uppercase fw-bold">Next Payout</span>
+                <span class="badge bg-warning-subtle text-warning rounded-pill p-2"><i class="fa-solid fa-calendar-check"></i></span>
+              </div>
+              <h3 class="font-mono fw-bold text-dark mb-0">Aug 25, 2026</h3>
+              <span class="text-xs text-muted">Automated bank transfer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Harvest Listings Table -->
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white mb-4">
+          <div class="p-3 border-bottom d-flex align-items-center justify-content-between bg-light">
+            <h6 class="fw-bold text-dark mb-0 font-serif">
+              <i class="fa-solid fa-layer-group text-success me-2"></i> Your Active Produce Batches
+            </h6>
+            <span class="text-xs text-muted" id="sellerListingsCount">2 active batches listed</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="bg-light text-uppercase text-xs text-muted">
+                <tr>
+                  <th class="ps-4">Produce Name & Batch</th>
+                  <th>Category</th>
+                  <th>Total Batch Size</th>
+                  <th>Units Sold</th>
+                  <th>Unit Price</th>
+                  <th>Gross Sales</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="sellerListingsBody">
+                <!-- Dynamically populated by dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- MODAL: List New Harvest Batch for Sale -->
+  <div class="modal fade" id="listHarvestModal" tabindex="-1" aria-labelledby="listHarvestModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-header border-bottom px-4 py-3 bg-light">
+          <h5 class="modal-title font-serif fw-bold text-dark" id="listHarvestModalLabel">
+            <i class="fa-solid fa-tractor text-success me-2"></i> List Farm Produce for Sale
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="listHarvestForm">
+          <div class="modal-body p-4">
+            <div class="row g-3">
+              <div class="col-md-8">
+                <label class="form-label text-xs fw-bold text-uppercase text-muted">Produce Title / Crop Name</label>
+                <input type="text" class="form-control" id="newHarvestTitle" placeholder="e.g. Organic Hass Avocados (Export Grade)" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label text-xs fw-bold text-uppercase text-muted">Category</label>
+                <select class="form-select font-body" id="newHarvestCategory" required>
+                  <option value="vegetables">Fruits & Vegetables</option>
+                  <option value="meats">Pasture Meats</option>
+                  <option value="seafood">Seafood</option>
+                  <option value="dairy">Dairy & Honey</option>
+                </select>
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label text-xs fw-bold text-uppercase text-muted">Harvest Volume Available</label>
+                <input type="number" class="form-control font-mono" id="newHarvestVolume" placeholder="e.g. 500" required />
+              </div>
+              <div class="col-md-4">
+                <label class="form-label text-xs fw-bold text-uppercase text-muted">Unit Size</label>
+                <select class="form-select font-body" id="newHarvestUnit">
+                  <option value="kg">kg</option>
+                  <option value="500gm">500gm</option>
+                  <option value="box">box (8 pcs)</option>
+                  <option value="jar">jar</option>
+                  <option value="bird">bird</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label text-xs fw-bold text-uppercase text-muted">Unit Retail Price ($ USD)</label>
+                <input type="number" step="0.01" class="form-control font-mono" id="newHarvestPrice" placeholder="e.g. 12.50" required />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label text-xs fw-bold text-uppercase text-muted">Origin Farm / Estate Location</label>
+                <input type="text" class="form-control" id="newHarvestOrigin" placeholder="e.g. Michoacán Highland Orchard #3" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label text-xs fw-bold text-uppercase text-muted">Quality / Organic Certification</label>
+                <input type="text" class="form-control" id="newHarvestCert" placeholder="e.g. USDA Organic Certified / GlobalGAP" required />
+              </div>
+
+              <div class="col-12">
+                <label class="form-label text-xs fw-bold text-uppercase text-muted">Produce Image URL (Optional)</label>
+                <input type="url" class="form-control" id="newHarvestImage" placeholder="https://images.unsplash.com/photo-..." value="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80" />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-top px-4 py-3 bg-light d-flex justify-content-between">
+            <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-success rounded-pill px-4 fw-bold">
+              <i class="fa-solid fa-check me-1"></i> Publish Listing to Store
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+</body>
+</html>

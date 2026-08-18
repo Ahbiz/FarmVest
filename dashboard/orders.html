@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Orders & Delivery Tracking — FarmVest</title>
+  <meta name="description" content="Track your FarmVest fresh agricultural produce deliveries, cold-chain temperature telemetry, and access printable harvest invoices." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Scripts & Stylesheet -->
+  <script type="module" src="/src/js/dashboard.js"></script>
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="dashboard-page">
+  <div class="dashboard">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dashboard__sidebar">
+      <div class="dashboard__brand">
+        <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+      </div>
+
+      <!-- User Profile Badge in Sidebar -->
+      <div class="p-3 mx-3 mt-3 rounded-4 bg-light border text-center">
+        <div class="position-relative d-inline-block mb-2">
+          <img src="/images/team-sarah.png" alt="User Profile" class="rounded-circle border border-2 border-success" width="54" height="54" style="object-fit:cover;" />
+          <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" style="width:12px;height:12px;"></span>
+        </div>
+        <h6 class="fw-bold text-dark mb-0 dashboard__user-name">James Wilson</h6>
+        <span class="text-xs text-muted d-block mb-2">Verified Investor</span>
+        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs">
+          <i class="fa-solid fa-circle-check me-1"></i> Active Portfolio
+        </span>
+      </div>
+
+      <nav class="dashboard__nav">
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Portfolio & Growth</p>
+          <a href="/dashboard/index.html" class="dashboard__nav-item"><i class="fa-solid fa-chart-pie me-2"></i> Overview</a>
+          <a href="/dashboard/investments.html" class="dashboard__nav-item"><i class="fa-solid fa-wheat-awn me-2"></i> My Farm Pools</a>
+          <a href="/dashboard/transactions.html" class="dashboard__nav-item"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Payout Ledger</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Marketplace & Trade</p>
+          <a href="/dashboard/shop.html" class="dashboard__nav-item"><i class="fa-solid fa-store me-2"></i> Farm Store</a>
+          <a href="/dashboard/orders.html" class="dashboard__nav-item active"><i class="fa-solid fa-box-open me-2"></i> My Orders</a>
+          <a href="/dashboard/seller.html" class="dashboard__nav-item"><i class="fa-solid fa-tractor me-2"></i> Seller Hub</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Capital Management</p>
+          <a href="/dashboard/deposit.html" class="dashboard__nav-item"><i class="fa-solid fa-wallet me-2"></i> Deposit Funds</a>
+          <a href="/dashboard/withdraw.html" class="dashboard__nav-item"><i class="fa-solid fa-money-bill-transfer me-2"></i> Withdraw Yield</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Account & Services</p>
+          <a href="/dashboard/profile.html" class="dashboard__nav-item"><i class="fa-solid fa-user-gear me-2"></i> Profile & Security</a>
+          <a href="/dashboard/support.html" class="dashboard__nav-item"><i class="fa-solid fa-headset me-2"></i> Agronomist Support</a>
+          <a href="/projects.html" class="dashboard__nav-item"><i class="fa-solid fa-seedling me-2"></i> Explore Open Pools</a>
+        </div>
+      </nav>
+
+      <div class="dashboard__sidebar-footer">
+        <button type="button" data-logout-btn class="btn btn-outline-danger w-100 rounded-pill btn-sm font-weight-bold">
+          <i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-backdrop"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard__main">
+
+      <!-- TOPBAR -->
+      <header class="dashboard__topbar">
+        <div class="dashboard__topbar-left">
+          <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="dashboard__search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search order ID, produce item, tracking code…" aria-label="Search orders" />
+          </div>
+        </div>
+
+        <div class="dashboard__topbar-right">
+          <div class="d-flex align-items-center gap-2 px-3 py-2 bg-success-subtle text-success rounded-pill border border-success-subtle">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span class="text-xs fw-bold">Active Deliveries:</span>
+            <span class="fw-bold font-mono" id="topbarActiveOrdersCount">1 In Transit</span>
+          </div>
+
+          <!-- Dark / Light Mode Toggle Button -->
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <!-- User Menu Dropdown -->
+          <div class="dropdown">
+            <button class="dashboard__avatar-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="User profile menu">
+              <img src="/images/team-sarah.png" alt="James Wilson" />
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+              <li class="px-3 py-2 border-bottom">
+                <span class="d-block fw-bold text-dark text-sm">James Wilson</span>
+                <span class="d-block text-xs text-muted">james.wilson@example.com</span>
+              </li>
+              <li><a class="dropdown-item" href="/dashboard/profile.html"><i class="fa-solid fa-user me-2 text-muted"></i> Profile Settings</a></li>
+              <li><a class="dropdown-item" href="/dashboard/shop.html"><i class="fa-solid fa-store me-2 text-muted"></i> Farm Store</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><button type="button" data-logout-btn class="dropdown-item text-danger"><i class="fa-solid fa-right-from-bracket me-2"></i> Log Out</button></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- DASHBOARD BODY CONTAINER -->
+      <main class="dashboard__content p-4">
+
+        <!-- Page Header -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs fw-bold mb-1">
+              <i class="fa-solid fa-box-open me-1"></i> FULFILLMENT & DELIVERIES
+            </span>
+            <h2 class="font-serif fw-bold text-dark mb-0">My Produce Orders</h2>
+            <p class="text-muted text-sm mb-0">View order status, real-time refrigerated cold-chain telemetry, and downloadable invoices.</p>
+          </div>
+          <div>
+            <a href="/dashboard/shop.html" class="btn btn-success rounded-pill px-4 py-2 text-sm fw-bold">
+              <i class="fa-solid fa-cart-plus me-1"></i> Order More Produce
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Summary KPI Metric Cards -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="text-xs text-muted text-uppercase fw-bold">Active Deliveries</span>
+                <span class="badge bg-primary-subtle text-primary rounded-pill p-2"><i class="fa-solid fa-truck-moving"></i></span>
+              </div>
+              <h3 class="font-mono fw-bold text-dark mb-0" id="kpiInTransit">1</h3>
+              <span class="text-xs text-muted">In refrigerated transit</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="text-xs text-muted text-uppercase fw-bold">Delivered Orders</span>
+                <span class="badge bg-success-subtle text-success rounded-pill p-2"><i class="fa-solid fa-circle-check"></i></span>
+              </div>
+              <h3 class="font-mono fw-bold text-dark mb-0" id="kpiDelivered">1</h3>
+              <span class="text-xs text-muted">Successfully fulfilled</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="text-xs text-muted text-uppercase fw-bold">Total Spent</span>
+                <span class="badge bg-warning-subtle text-warning rounded-pill p-2"><i class="fa-solid fa-receipt"></i></span>
+              </div>
+              <h3 class="font-mono fw-bold text-dark mb-0" id="kpiTotalSpent">$139.40</h3>
+              <span class="text-xs text-muted">Deducted from Yields</span>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="card border-0 shadow-sm rounded-4 p-3 bg-white h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <span class="text-xs text-muted text-uppercase fw-bold">Harvest Points</span>
+                <span class="badge bg-info-subtle text-info rounded-pill p-2"><i class="fa-solid fa-leaf"></i></span>
+              </div>
+              <h3 class="font-mono fw-bold text-dark mb-0">140 PTS</h3>
+              <span class="text-xs text-muted">Eligible for bonus perks</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Tabs & Orders Table Card -->
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+          <div class="p-3 border-bottom d-flex flex-wrap align-items-center justify-content-between gap-3 bg-light">
+            <div class="d-flex flex-wrap gap-2" id="orderStatusFilter">
+              <button type="button" class="btn btn-sm btn-success rounded-pill px-3 fw-bold active" data-filter="all">All Orders</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 fw-bold" data-filter="In Transit">In Transit</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 fw-bold" data-filter="Delivered">Delivered</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 fw-bold" data-filter="Processing">Processing</button>
+            </div>
+            <div class="text-xs text-muted fw-bold font-mono" id="orderCountText">Showing 2 orders</div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="bg-light text-uppercase text-xs text-muted">
+                <tr>
+                  <th class="ps-4">Order ID & Date</th>
+                  <th>Produce Items</th>
+                  <th>Total Price</th>
+                  <th>Payment Source</th>
+                  <th>Status</th>
+                  <th class="text-end pe-4">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody">
+                <!-- Dynamically rendered by dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- MODAL: Live Cold-Chain Tracking -->
+  <div class="modal fade" id="trackingModal" tabindex="-1" aria-labelledby="trackingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-header border-bottom px-4 py-3 bg-light">
+          <h5 class="modal-title font-serif fw-bold text-dark" id="trackingModalLabel">
+            <i class="fa-solid fa-truck-ramp-box text-success me-2"></i> Cold-Chain Delivery Tracking
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <!-- Tracking Header Info -->
+          <div class="row g-3 p-3 bg-light rounded-4 border mb-4">
+            <div class="col-sm-4">
+              <span class="text-xs text-muted d-block">Order Reference:</span>
+              <strong class="font-mono text-dark" id="trackOrderId">#ORD-7842</strong>
+            </div>
+            <div class="col-sm-4">
+              <span class="text-xs text-muted d-block">Tracking Code:</span>
+              <strong class="font-mono text-success" id="trackNumber">FV-COLD-894102</strong>
+            </div>
+            <div class="col-sm-4">
+              <span class="text-xs text-muted d-block">Telemetry Sensor:</span>
+              <span class="badge bg-success-subtle text-success border border-success-subtle font-mono" id="trackTemp">3.8°C (Optimal)</span>
+            </div>
+          </div>
+
+          <!-- Stepper Timeline -->
+          <h6 class="fw-bold text-dark mb-3">Fulfillment Journey</h6>
+          <div class="tracking-stepper position-relative ps-4" id="trackingTimeline">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+        <div class="modal-footer border-top px-4 py-3 bg-light d-flex justify-content-between">
+          <span class="text-xs text-muted"><i class="fa-solid fa-shield-check text-success me-1"></i> Munich Re Cold-Chain Insured</span>
+          <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Printable Invoice & Certificate -->
+  <div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="invoiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-header border-bottom px-4 py-3 bg-light d-flex justify-content-between">
+          <h5 class="modal-title font-serif fw-bold text-dark" id="invoiceModalLabel">
+            <i class="fa-solid fa-file-invoice text-success me-2"></i> Harvest Delivery Invoice
+          </h5>
+          <div>
+            <button type="button" class="btn btn-sm btn-outline-success rounded-pill me-2" onclick="window.print()">
+              <i class="fa-solid fa-print me-1"></i> Print Slip
+            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="modal-body p-4" id="invoiceModalContent">
+          <!-- Dynamically populated by dashboard.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+</body>
+</html>
