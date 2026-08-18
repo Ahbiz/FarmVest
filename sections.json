@@ -1,0 +1,626 @@
+{
+  "site_name": "FarmVest - Smart Agriculture & Livestock Investment Platform",
+  "version": "2.0.0",
+  "currency": "USD",
+  "currency_symbol": "$",
+  "contact": {
+    "email": "support@farmvest.com",
+    "phone": "+1 (800) 482-9102",
+    "address": "450 Agritech Blvd, Suite 800, San Francisco, CA 94107",
+    "hours": "Mon - Fri: 8:00 AM - 6:00 PM EST"
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "order": 1,
+      "enabled": true,
+      "builder": true,
+      "name": "Hero Banner Section",
+      "content": {
+        "badge_text": "100% Backed by Real World Farmland Assets",
+        "rating_score": "4.9/5",
+        "rating_count": "18,400+ Active Lenders",
+        "heading": "Sustainable Farm Investing Made Simple",
+        "subheading": "Invest directly into verified high-yield agricultural pools, hydroponic smart greenhouses, and premium livestock cycles. Earn quarterly passive yields backed by physical harvest value.",
+        "primary_button_text": "Explore Live Pools",
+        "primary_button_url": "/projects.html",
+        "secondary_button_text": "How It Works",
+        "secondary_button_url": "#how-it-works",
+        "images": {
+          "hero_farmer": {
+            "path": "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=800&q=80",
+            "alt": "Modern Agronomist and Farmland Investor"
+          },
+          "hero_background": {
+            "path": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80",
+            "alt": "Lush Farmland Landscape"
+          }
+        },
+        "metrics": [
+          { "label": "Live APY Up To", "value": "24.8%", "icon": "fa-chart-line" },
+          { "label": "Total Capital Deployed", "value": "$84.2M+", "icon": "fa-shield-halved" },
+          { "label": "Harvest Success Rate", "value": "99.4%", "icon": "fa-seedling" }
+        ]
+      }
+    },
+    {
+      "id": "overview",
+      "type": "overview",
+      "order": 2,
+      "enabled": true,
+      "builder": true,
+      "name": "Platform Overview Section",
+      "content": {
+        "tag": "Platform Pillars",
+        "heading": "Institutional-Grade Agriculture Backed by Technology",
+        "subheading": "Four robust security and operational pillars protecting investor capital from planting to harvest."
+      },
+      "element": {
+        "cards": [
+          {
+            "id": "pillar_1",
+            "icon": "fa-shield-halved",
+            "title": "Direct Asset Backing",
+            "description": "Every share funded is anchored in audited real-world farmland, drip systems, and crop inventory."
+          },
+          {
+            "id": "pillar_2",
+            "icon": "fa-chart-line",
+            "title": "Verified High-Yield Cycles",
+            "description": "Targeted crop cycles selected for high market liquidity, yielding predictable quarterly dividend returns."
+          },
+          {
+            "id": "pillar_3",
+            "icon": "fa-satellite-dish",
+            "title": "IoT & Satellite Telemetry",
+            "description": "Real-time NDVI satellite imagery and soil telemetry sensors streamed live to your investor dashboard."
+          },
+          {
+            "id": "pillar_4",
+            "icon": "fa-file-contract",
+            "title": "Guaranteed Off-Take Contracts",
+            "description": "Harvests are locked in advance with multinational food distributors to guarantee wholesale exit prices."
+          }
+        ]
+      }
+    },
+    {
+      "id": "about",
+      "type": "about",
+      "order": 3,
+      "enabled": true,
+      "builder": true,
+      "name": "About FarmVest Section",
+      "content": {
+        "tag": "About FarmVest",
+        "heading": "Revolutionizing Farmland Capital for Everyday Investors",
+        "subheading": "We bridge the capital divide between retail investors and high-producing agricultural estates. By deploying real-time IoT soil sensors, comprehensive weather hedging, and audited harvest logistics, FarmVest delivers transparent double-digit agricultural returns.",
+        "button_text": "Learn More About Us",
+        "button_url": "/about.html",
+        "experience_years": "12+",
+        "experience_text": "Years Agritech Innovation",
+        "images": {
+          "main_image": {
+            "path": "https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80",
+            "alt": "Smart Agriculture Greenhouse"
+          },
+          "overlap_image": {
+            "path": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=600&q=80",
+            "alt": "Agronomist Inspecting Crops"
+          }
+        }
+      },
+      "element": {
+        "features": [
+          { "title": "Direct Farmland Asset Backing", "description": "Every dollar invested corresponds to physically verified crops, irrigation systems, and livestock inventory." },
+          { "title": "Automated IoT & Soil Monitoring", "description": "Continuous telemetry feeds track soil salinity, hydration levels, and growth milestones directly on your dashboard." },
+          { "title": "Quarterly Harvest Yield Liquidity", "description": "Receive automated harvest yield distributions deposited in USD directly to your investor wallet." }
+        ]
+      }
+    },
+    {
+      "id": "yield_pools",
+      "type": "yield_pools",
+      "order": 4,
+      "enabled": true,
+      "builder": true,
+      "name": "Active Yield Pools Section",
+      "content": {
+        "tag": "Curated Opportunities",
+        "heading": "High-Yield Farmland Cycles Open for Capital",
+        "subheading": "Diversify across certified organic grain estates, export-grade avocado orchards, and climate-resilient greenhouses with audited risk ratings.",
+        "button_text": "View All 18 Investment Pools",
+        "button_url": "/projects.html"
+      }
+    },
+    {
+      "id": "store_showcase",
+      "type": "store_showcase",
+      "order": 5,
+      "enabled": true,
+      "builder": true,
+      "name": "Fresh Farm Harvest Store (E-Commerce Showcase)",
+      "content": {
+        "tag": "Farm Direct Store",
+        "heading": "Fresh Farm Produce & Organic Harvest Store",
+        "subheading": "Browse fresh farm produce, organic meats, sustainably farmed fish, and artisan agro-goods available for direct online purchase.",
+        "discount_badge": "10% OFF Direct From Farm",
+        "button_text": "Explore Farm Marketplace",
+        "button_url": "/products.html"
+      },
+      "element": {
+        "categories": [
+          {
+            "id": "cat_veg",
+            "title": "Organic Vegetables & Greens",
+            "description": "Hydroponic lettuce, vine tomatoes, and farm-fresh organic root vegetables.",
+            "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80",
+            "price_starting": "From $3.50 / kg",
+            "button_text": "Shop Vegetables",
+            "url": "/products.html?category=vegetables"
+          },
+          {
+            "id": "cat_meat",
+            "title": "Pasture-Raised Meats & Poultry",
+            "description": "Grass-fed beef cuts, organic whole poultry, and grain-fed lamb chops.",
+            "image": "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=600&q=80",
+            "price_starting": "From $12.90 / kg",
+            "button_text": "Shop Meats",
+            "url": "/products.html?category=meats"
+          },
+          {
+            "id": "cat_dairy",
+            "title": "Artisan Dairy & Organic Honey",
+            "description": "Grass-fed cow butter, farm cheeses, raw wildflower honey, and cold-pressed oils.",
+            "image": "https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=600&q=80",
+            "price_starting": "From $5.20 / unit",
+            "button_text": "Shop Dairy",
+            "url": "/products.html?category=dairy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vision",
+      "type": "features",
+      "order": 6,
+      "enabled": true,
+      "builder": true,
+      "name": "Why Choose Us / Agricultural Vision",
+      "content": {
+        "tag": "Why Choose FarmVest",
+        "heading": "Invest Smarter in Modern Farm Production",
+        "subheading": "We combine decades of agricultural science with cutting-edge financial engineering to guarantee crop health and investor yields.",
+        "image": {
+          "path": "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80",
+          "alt": "Smart Agricultural Technology"
+        }
+      },
+      "element": {
+        "left_features": [
+          { "title": "Precision Soil Nutrition", "description": "Automated micro-nutrient dosing tailored to real-time soil assay feedback." },
+          { "title": "Multi-Peril Crop Insurance", "description": "100% principal protection against severe droughts, hail, pests, and frost." }
+        ],
+        "right_features": [
+          { "title": "Guaranteed Off-Take Pacts", "description": "Wholesale crop purchase agreements locked in prior to planting season." },
+          { "title": "Daily Telemetry Feeds", "description": "Satellite imagery and drone NDVI vegetation health scores accessible 24/7." }
+        ]
+      }
+    },
+    {
+      "id": "investment_plans",
+      "type": "investment_plans",
+      "order": 7,
+      "enabled": true,
+      "builder": true,
+      "name": "Investment Plans Matrix",
+      "content": {
+        "tag": "Investment Tiers",
+        "heading": "Choose the Best Offered Plan For Your Goals",
+        "subheading": "Transparent farmland investment tiers tailored for retail investors, wealth builders, and family offices."
+      },
+      "element": {
+        "plans": [
+          {
+            "id": "plan_starter",
+            "name": "Starter Seed",
+            "badge": "Popular",
+            "min_investment": 250,
+            "max_investment": 2500,
+            "roi_rate": "12.5%",
+            "duration": "90 Days",
+            "payout": "Monthly Dividends",
+            "capital_back": true,
+            "insurance": "Standard Crop Policy",
+            "button_text": "Invest in Seed",
+            "button_url": "/projects.html"
+          },
+          {
+            "id": "plan_growth",
+            "name": "Growth Harvester",
+            "badge": "Recommended",
+            "min_investment": 2500,
+            "max_investment": 15000,
+            "roi_rate": "18.2%",
+            "duration": "180 Days",
+            "payout": "Bi-Weekly Dividends",
+            "capital_back": true,
+            "insurance": "Comprehensive Multi-Peril",
+            "button_text": "Invest in Growth",
+            "button_url": "/projects.html"
+          },
+          {
+            "id": "plan_orchard",
+            "name": "Commercial Orchard",
+            "badge": "High Yield",
+            "min_investment": 15000,
+            "max_investment": 50000,
+            "roi_rate": "24.8%",
+            "duration": "360 Days",
+            "payout": "Quarterly Dividends",
+            "capital_back": true,
+            "insurance": "Lloyds Underwritten Policy",
+            "button_text": "Invest in Orchard",
+            "button_url": "/projects.html"
+          },
+          {
+            "id": "plan_enterprise",
+            "name": "Enterprise Agro-Fund",
+            "badge": "Institutional",
+            "min_investment": 50000,
+            "max_investment": 250000,
+            "roi_rate": "31.5%",
+            "duration": "2 Years",
+            "payout": "Custom Schedule",
+            "capital_back": true,
+            "insurance": "Full Escrow & Collateral",
+            "button_text": "Contact Agronomy Desk",
+            "button_url": "/contact.html"
+          }
+        ]
+      }
+    },
+    {
+      "id": "stats",
+      "type": "stats",
+      "order": 8,
+      "enabled": true,
+      "builder": true,
+      "name": "Platform Performance & Proof Section",
+      "content": {
+        "tag": "Platform Verification",
+        "heading": "Verified Farmland Yield Metrics & Growth",
+        "subheading": "Real-time metrics demonstrating capital security, harvest liquidity, and investor distribution performance."
+      },
+      "element": {
+        "counters": [
+          { "value": "84.2", "prefix": "$", "suffix": "M+", "label": "Capital Co-Funded", "sublabel": "Across 142 Active Farmland Cycles" },
+          { "value": "18.4", "prefix": "", "suffix": "K+", "label": "Active Global Investors", "sublabel": "Across 38 Countries" },
+          { "value": "99.4", "prefix": "", "suffix": "%", "label": "Harvest Dividend Success", "sublabel": "Zero Principal Default Record" },
+          { "value": "450", "prefix": "", "suffix": "+", "label": "Certified Partner Farms", "sublabel": "Audited Soil & Water Compliance" }
+        ]
+      }
+    },
+    {
+      "id": "how_it_works",
+      "type": "how_it_works",
+      "order": 9,
+      "enabled": true,
+      "builder": true,
+      "name": "How It Works Process",
+      "content": {
+        "tag": "Simple 4-Step Process",
+        "heading": "How Agricultural Co-Funding Works",
+        "subheading": "Start participating in tangible farm cycles in under 3 minutes with zero agricultural background required."
+      },
+      "element": {
+        "steps": [
+          { "step": "01", "title": "Create & Verify Account", "description": "Register in 60 seconds with instant KYC identity validation and secure wallet setup." },
+          { "step": "02", "title": "Select Agricultural Pool", "description": "Review projected crop yields, soil telemetry, insurance certificates, and harvest horizons." },
+          { "step": "03", "title": "Fund Your Share Units", "description": "Deposit funds securely via card, wire, or crypto into insured escrow accounts." },
+          { "step": "04", "title": "Collect Harvest Dividends", "description": "Receive automated harvest returns credited directly to your investor wallet." }
+        ]
+      }
+    },
+    {
+      "id": "testimonials",
+      "type": "testimonials",
+      "order": 10,
+      "enabled": true,
+      "builder": true,
+      "name": "Investor Testimonials Section",
+      "content": {
+        "tag": "Investor Proof",
+        "heading": "Real Reviews From Our Smart Investors",
+        "subheading": "Discover how over 18,400+ investors are diversifying their wealth with passive agricultural yields."
+      },
+      "element": {
+        "testimonials": [
+          {
+            "name": "Marcus Vance",
+            "role": "Real Estate Investor, UK",
+            "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
+            "rating": 5,
+            "quote": "FarmVest gave me exposure to high-growth avocado orchards without having to manage irrigation or farm staff. My quarterly returns have arrived on schedule for 2 years running."
+          },
+          {
+            "name": "Elena Rostova",
+            "role": "Portfolio Manager, Switzerland",
+            "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80",
+            "rating": 5,
+            "quote": "The multi-peril insurance backing and real-time NDVI satellite feeds give institutional confidence. It is the best inflation hedge in my portfolio."
+          },
+          {
+            "name": "David Thorne",
+            "role": "Private Wealth Client, USA",
+            "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+            "rating": 5,
+            "quote": "I started with a $2,500 test allocation in organic greenhouse tomatoes. The harvest dividend was 18.5% annualized, and capital was returned promptly. Outstanding execution."
+          }
+        ]
+      }
+    },
+    {
+      "id": "faq",
+      "type": "faq",
+      "order": 11,
+      "enabled": true,
+      "builder": true,
+      "name": "Frequently Asked Questions Section",
+      "content": {
+        "tag": "Got Questions?",
+        "heading": "Frequently Asked Questions",
+        "subheading": "Everything you need to know about farm investments, crop insurance, and harvest dividend distributions."
+      },
+      "element": {
+        "categories": ["All", "Investing", "Security & Insurance", "Payouts & Withdrawals", "Farms & Agronomy"],
+        "questions": [
+          {
+            "category": "Investing",
+            "question": "What is the minimum amount required to start investing?",
+            "answer": "You can start investing with as little as $250 in our micro-greenhouse and poultry pools. Higher capital pools such as permanent avocado orchards require a $1,000 minimum ticket."
+          },
+          {
+            "category": "Security & Insurance",
+            "question": "How are farm investments protected against climate risk?",
+            "answer": "All partner farms carry comprehensive multi-peril crop insurance policies underwritten by top-tier agricultural insurers, protecting 100% of investor capital against drought, flood, pests, and frost."
+          },
+          {
+            "category": "Payouts & Withdrawals",
+            "question": "When and how are investment returns paid out?",
+            "answer": "Yields are calculated throughout the growing season and distributed upon harvest completion or quarterly depending on pool terms. Funds are credited directly to your FarmVest wallet."
+          },
+          {
+            "category": "Farms & Agronomy",
+            "question": "How does FarmVest verify and select participating farms?",
+            "answer": "Our agronomy review team conducts on-site soil assays, water rights audits, financial background checks, and historical yield reviews. Only the top 4% of applicant farms pass diligence."
+          }
+        ]
+      }
+    },
+    {
+      "id": "partners",
+      "type": "partners",
+      "order": 12,
+      "enabled": true,
+      "builder": true,
+      "name": "Institutional Partners & Marquee Section",
+      "content": {
+        "tag": "Global Alliances",
+        "heading": "Backed by Agricultural & Financial Leaders",
+        "subheading": "Partnering with certified agronomy institutes, insurers, and global wholesale off-takers."
+      },
+      "element": {
+        "partners": [
+          { "name": "AgroGlobal Insurance", "logo": "/images/partner-1.svg" },
+          { "name": "BioSoil Technologies", "logo": "/images/partner-2.svg" },
+          { "name": "Satellite AgroScan", "logo": "/images/partner-3.svg" },
+          { "name": "TerraFresh Wholesale", "logo": "/images/partner-4.svg" },
+          { "name": "Global AgriFund", "logo": "/images/partner-5.svg" }
+        ]
+      }
+    },
+    {
+      "id": "blog",
+      "type": "blog",
+      "order": 13,
+      "enabled": true,
+      "builder": true,
+      "name": "Agronomy Insights & News Section",
+      "content": {
+        "tag": "Market Intelligence",
+        "heading": "Latest Agricultural Intelligence & Market Reports",
+        "subheading": "Expert analyses on commodity pricing, regenerative agriculture, and high-yield farming practices.",
+        "button_text": "View All Articles",
+        "button_url": "/blog.html"
+      }
+    },
+    {
+      "id": "cta",
+      "type": "cta",
+      "order": 14,
+      "enabled": true,
+      "builder": true,
+      "name": "Call to Action Banner Section",
+      "content": {
+        "heading": "Start Cultivating High-Yield Passive Wealth Today",
+        "subheading": "Join over 18,400+ investors earning verified returns from sustainable, insured agricultural assets.",
+        "button_text": "Create Free Investor Account",
+        "button_url": "/auth/register.html",
+        "disclaimer": "Agricultural investments involve risks including weather fluctuations and commodity pricing. Past harvest returns do not guarantee future yields."
+      }
+    }
+  ],
+  "pages": {
+    "about_us": {
+      "page_title": "About FarmVest — Pioneering Sustainable Agricultural Co-Funding",
+      "meta_description": "Learn about FarmVest's mission to bridge capital with sustainable agricultural estates worldwide.",
+      "hero_banner": {
+        "badge": "Our Mission & Agronomy",
+        "heading": "Empowering Global Farmland & Everyday Investors",
+        "subheading": "FarmVest combines proprietary agronomy algorithms, IoT soil sensors, and comprehensive crop insurance to make agricultural co-funding secure, transparent, and profitable.",
+        "breadcrumb": "Home > About Us"
+      },
+      "story_section": {
+        "tag": "Our Story",
+        "heading": "Building the Future of Resilient Food Systems",
+        "lead": "Founded by agricultural scientists and fintech veterans, FarmVest was created to solve the fundamental liquidity crunch facing sustainable farms while providing investors with true inflation-hedged yields.",
+        "paragraphs": [
+          "Traditional farms often struggle to access capital for modern irrigation, seed genetics, and greenhouse automation. FarmVest allows retail and institutional investors to fund specific crop cycles with full operational transparency.",
+          "Our team audits every partner farm, verifies soil and water quality, and locks in wholesale off-take contracts before any capital is deployed."
+        ],
+        "stats": [
+          { "value": "12+", "label": "Years in Operation" },
+          { "value": "15,000+", "label": "Hectares Cultivated" },
+          { "value": "100%", "label": "Insured Cycles" }
+        ]
+      },
+      "soil_technology": {
+        "tag": "Agritech & Sensors",
+        "heading": "Real-Time Telemetry & Science-Driven Agronomy",
+        "subheading": "Every farm connected to FarmVest is equipped with IoT soil sensors, automated drip irrigation, and satellite NDVI vegetation monitoring."
+      }
+    },
+    "projects": {
+      "page_title": "Active Agricultural Pools & Investment Projects — FarmVest",
+      "meta_description": "Explore active high-yield farm investment pools with audited returns, duration, and crop insurance.",
+      "banner": {
+        "tag": "Curated Farmland Pools",
+        "heading": "Explore Active High-Yield Agricultural Cycles",
+        "subheading": "Diversify across verified organic grain estates, export-grade avocado orchards, and climate-resilient greenhouses.",
+        "breadcrumb": "Home > Projects"
+      }
+    },
+    "products": {
+      "page_title": "Farm Produce Store & Organic Harvest Marketplace — FarmVest",
+      "meta_description": "Browse and purchase fresh farm produce, grass-fed meats, poultry, fish, and organic agricultural goods.",
+      "banner": {
+        "tag": "Fresh Harvest Marketplace",
+        "heading": "Buy Direct From Verified Sustainable Farms",
+        "subheading": "Premium farm-fresh organic produce, meats, poultry, and dairy shipped directly from our partner agricultural estates.",
+        "breadcrumb": "Home > Products"
+      }
+    },
+    "faq": {
+      "page_title": "Frequently Asked Questions — FarmVest",
+      "meta_description": "Get answers to common questions about farm investing, payouts, crop insurance, and wallet security.",
+      "banner": {
+        "tag": "Help Center & Knowledge Base",
+        "heading": "Frequently Asked Questions",
+        "subheading": "Everything you need to know about agricultural co-funding, multi-peril crop insurance, and harvest dividend distributions.",
+        "breadcrumb": "Home > FAQ"
+      }
+    },
+    "contact": {
+      "page_title": "Contact FarmVest Agronomy & Investor Relations",
+      "meta_description": "Get in touch with our investment advisory and agronomy support teams.",
+      "banner": {
+        "tag": "Get In Touch",
+        "heading": "We Are Here to Help You Grow",
+        "subheading": "Have questions about our investment pools, farm partnerships, or platform security? Reach out to our team.",
+        "breadcrumb": "Home > Contact"
+      },
+      "info": {
+        "phone": "+1 (800) 482-9102",
+        "email": "support@farmvest.com",
+        "address": "450 Agritech Blvd, Suite 800, San Francisco, CA 94107",
+        "hours": "Mon - Fri: 8:00 AM - 6:00 PM EST"
+      }
+    },
+    "policy_pages": {
+      "terms": {
+        "title": "Terms of Service",
+        "breadcrumb": "Home > Terms of Service"
+      },
+      "privacy": {
+        "title": "Privacy Policy",
+        "breadcrumb": "Home > Privacy Policy"
+      },
+      "refund": {
+        "title": "Refund & Cancellation Policy",
+        "breadcrumb": "Home > Refund Policy"
+      },
+      "cookie": {
+        "title": "Cookie Policy",
+        "breadcrumb": "Home > Cookie Policy"
+      }
+    },
+    "auth_pages": {
+      "login": {
+        "title": "Sign In to FarmVest",
+        "heading": "Welcome Back to FarmVest",
+        "subheading": "Access your agricultural investment portfolio, monitor crop telemetry, and manage dividend payouts."
+      },
+      "register": {
+        "title": "Create Investor Account",
+        "heading": "Start Investing in High-Yield Farmland",
+        "subheading": "Join over 18,400+ investors earning verified returns from sustainable, insured agricultural assets."
+      },
+      "forgot_password": {
+        "title": "Reset Your Password",
+        "heading": "Recover Your Account",
+        "subheading": "Enter your registered email address to receive a secure password reset link."
+      },
+      "verify_email": {
+        "title": "Verify Your Email",
+        "heading": "Email Verification Required",
+        "subheading": "We sent a 6-digit security code to your email. Enter it below to activate your account."
+      }
+    }
+  },
+  "site_components": {
+    "header": {
+      "announcement_text": "🌱 Spring 2026 Hydroponic Pools Open — Earn Up To 24.8% APY with 100% Crop Insurance",
+      "contact_phone": "+1 (800) 482-9102",
+      "contact_email": "support@farmvest.com",
+      "menu_items": [
+        { "label": "Home", "url": "/" },
+        { "label": "About Us", "url": "/about.html" },
+        { "label": "Projects", "url": "/projects.html" },
+        { "label": "Products", "url": "/products.html" },
+        { "label": "FAQ", "url": "/faq.html" },
+        { "label": "Contact", "url": "/contact.html" }
+      ],
+      "search_placeholder": "Search pools, crops, or produce...",
+      "cart_badge_label": "0 ITEMS $0",
+      "cta_button_text": "Get Started",
+      "cta_button_url": "/auth/register.html"
+    },
+    "footer": {
+      "brand_description": "FarmVest is the premier agricultural co-funding platform empowering everyday investors to earn inflation-hedged yields from certified sustainable farmland estates.",
+      "copyright_text": "© 2026 FarmVest Inc. All rights reserved.",
+      "quick_links": [
+        { "label": "About Us", "url": "/about.html" },
+        { "label": "Investment Pools", "url": "/projects.html" },
+        { "label": "Produce Store", "url": "/products.html" },
+        { "label": "Agronomy Insights", "url": "/blog.html" },
+        { "label": "Frequently Asked Questions", "url": "/faq.html" },
+        { "label": "Contact Support", "url": "/contact.html" }
+      ],
+      "legal_links": [
+        { "label": "Terms of Service", "url": "/terms-of-service.html" },
+        { "label": "Privacy Policy", "url": "/privacy-policy.html" },
+        { "label": "Refund Policy", "url": "/refund-policy.html" },
+        { "label": "Cookie Policy", "url": "/cookie-policy.html" }
+      ],
+      "newsletter": {
+        "heading": "Subscribe to Weekly Harvest Reports",
+        "subheading": "Get exclusive notifications when new high-yield farming cycles and fresh organic harvests open.",
+        "placeholder": "Enter your email address...",
+        "button_text": "Subscribe"
+      }
+    },
+    "social_icons": [
+      { "platform": "Twitter", "icon": "fa-x-twitter", "url": "https://twitter.com" },
+      { "platform": "LinkedIn", "icon": "fa-linkedin-in", "url": "https://linkedin.com" },
+      { "platform": "Facebook", "icon": "fa-facebook-f", "url": "https://facebook.com" },
+      { "platform": "Instagram", "icon": "fa-instagram", "url": "https://instagram.com" }
+    ],
+    "cookie_consent": {
+      "text": "FarmVest uses cookies to enhance platform telemetry, authenticate investor sessions, and optimize agricultural yields.",
+      "button_text": "Accept Cookies",
+      "policy_link": "/cookie-policy.html"
+    }
+  }
+}
