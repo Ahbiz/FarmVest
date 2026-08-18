@@ -115,6 +115,45 @@
   }
 }
 
+// Avatar button (used in topbar profile dropdowns)
+.dashboard__avatar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 2px solid var(--fv-border, #E2E8F0);
+  border-radius: 9999px;
+  background: var(--fv-card-bg, #FFFFFF);
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &:hover {
+    border-color: var(--primary-color, #16A34A);
+    box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.15);
+  }
+}
+
+[data-theme='dark'] .dashboard__avatar-btn {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: #1E293B;
+
+  &:hover {
+    border-color: #4ADE80;
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.15);
+  }
+}
+
 // Admin nav badges (pending items pill)
 .admin-badge {
   display: inline-flex;
@@ -394,4 +433,93 @@
     background: rgba(255, 255, 255, 0.02) !important;
   }
 }
+
+// Universal Table Alignment & Elevation Normalization
+.table,
+.admin-table,
+.data-table table {
+  thead th {
+    vertical-align: middle !important;
+  }
+
+  tbody td {
+    vertical-align: middle !important;
+
+    // Normalize inline elements so no row item sits higher or lower
+    > * {
+      vertical-align: middle;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      line-height: 1.2;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+    }
+
+    strong.d-block {
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+
+    span.text-xs {
+      line-height: 1.25;
+    }
+  }
+}
+
+// Cold-Chain Delivery Tracking Stepper (for dashboard/orders.html modal)
+.tracking-stepper {
+  position: relative;
+  padding-left: 28px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    bottom: 24px;
+    left: -4px;
+    width: 2px;
+    background: #E2E8F0;
+    z-index: 1;
+  }
+
+  .tracking-step,
+  > div {
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h6 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--fv-text, #0F172A);
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+
+    span.text-xs {
+      font-size: 0.75rem;
+      color: var(--fv-text-muted, #64748B);
+    }
+  }
+}
+
+[data-theme='dark'] .tracking-stepper {
+  &::before {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
 
