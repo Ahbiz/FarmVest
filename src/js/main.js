@@ -1,7 +1,11 @@
-import 'bootstrap';
+import * as bootstrap from 'bootstrap';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Lenis from 'lenis';
+import '../css/style.css';
+
+// Expose bootstrap globally for dynamic modal handlers
+window.bootstrap = bootstrap;
 
 // Icon fonts bundled from npm (no production CDN dependency)
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -9,19 +13,21 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'remixicon/fonts/remixicon.css';
 import { createIcons, icons } from 'lucide';
 
-import { initPreloader } from './components/preloader';
-import { initNavbar } from './components/navbar';
-import { initMobileNav } from './components/mobile-nav';
-import { initSliders } from './components/slider';
-import { initCounters } from './components/counter';
-import { initCookieConsent } from './components/cookie-consent';
-import { initBackToTop } from './components/back-to-top';
-import { initAboutAnimations } from './components/about-gsap';
-import { initYieldPools } from './components/yield-pools';
-import { initBlogInsights } from './components/blog-insights';
-import { initBlogDetails } from './components/blog-details';
-import { initFaqSearch } from './components/faq-search';
-import { initAuthForms } from './auth';
+import { initPreloader } from './components/preloader.js';
+import { initNavbar } from './components/navbar.js';
+import { initMobileNav } from './components/mobile-nav.js';
+import { initSliders } from './components/slider.js';
+import { initCounters } from './components/counter.js';
+import { initCookieConsent } from './components/cookie-consent.js';
+import { initBackToTop } from './components/back-to-top.js';
+import { initAboutAnimations } from './components/about-gsap.js';
+import { initYieldPools } from './components/yield-pools.js';
+import { initBlogInsights } from './components/blog-insights.js';
+import { initBlogDetails } from './components/blog-details.js';
+import { initFaqSearch } from './components/faq-search.js';
+import { initAuthForms } from './auth.js';
+import { initCartDrawer } from './components/cart-drawer.js';
+import { initStoreCatalog } from './components/store-catalog.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const lenis = new Lenis({
@@ -47,12 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
   initNavbar();
   initMobileNav();
+  initCartDrawer();
   initSliders();
   initCounters();
   initCookieConsent();
   initBackToTop();
   initAboutAnimations();
   initYieldPools();
+  initStoreCatalog();
   initBlogInsights();
   initBlogDetails();
   initFaqSearch();
