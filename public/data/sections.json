@@ -1,6 +1,6 @@
 {
   "site_name": "FarmVest - Smart Agriculture & Livestock Investment Platform",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "currency": "USD",
   "currency_symbol": "$",
   "contact": {
@@ -552,6 +552,16 @@
         "heading": "Welcome Back to FarmVest",
         "subheading": "Access your agricultural investment portfolio, monitor crop telemetry, and manage dividend payouts."
       },
+      "seller_login": {
+        "title": "Farmer & Producer Sign In — FarmVest",
+        "heading": "Direct Agricultural Trade. Guaranteed Harvest Revenue.",
+        "subheading": "List verified crop batches, connect with buyers, and track automated cold-chain logistics."
+      },
+      "admin_login": {
+        "title": "Administrator Sign In — FarmVest",
+        "heading": "Operations Command Center",
+        "subheading": "Restricted administrative access for platform operations and audit telemetry."
+      },
       "register": {
         "title": "Create Investor Account",
         "heading": "Start Investing in High-Yield Farmland",
@@ -566,6 +576,30 @@
         "title": "Verify Your Email",
         "heading": "Email Verification Required",
         "subheading": "We sent a 6-digit security code to your email. Enter it below to activate your account."
+      }
+    },
+    "dashboard_pages": {
+      "shop": {
+        "title": "Member Produce Store — FarmVest",
+        "meta_description": "Exclusive member pricing on certified organic farm harvests with 1-click wallet balance checkout."
+      },
+      "orders": {
+        "title": "My Orders & Delivery Tracking — FarmVest",
+        "meta_description": "Track cold-chain telemetry and view printable harvest delivery slips."
+      },
+      "seller": {
+        "title": "Farmer & Seller Hub — FarmVest",
+        "meta_description": "List harvest batches for direct marketplace sale with real-time revenue analytics."
+      }
+    },
+    "admin_pages": {
+      "products": {
+        "title": "Produce Catalog & Inventory — FarmVest Admin",
+        "meta_description": "Manage harvest batches, stock levels, and real-time produce listings."
+      },
+      "orders": {
+        "title": "Store Orders & Cold-Chain Dispatch — FarmVest Admin",
+        "meta_description": "Manage order fulfillment, delivery tracking codes, and status updates."
       }
     }
   },
