@@ -166,10 +166,19 @@
 
         <!-- Inventory Table Card -->
         <div class="admin-card overflow-hidden p-0">
-          <div class="p-3 border-bottom d-flex align-items-center justify-content-between bg-light">
-            <h6 class="fw-bold text-dark mb-0 font-serif fs-6">
-              <i class="fas fa-layer-group text-success me-2"></i> Farm Produce Catalog
-            </h6>
+          <div class="p-3 border-bottom d-flex flex-wrap align-items-center justify-content-between gap-3 bg-light">
+            <div class="d-flex flex-wrap align-items-center gap-2">
+              <h6 class="fw-bold text-dark mb-0 font-serif fs-6 me-2">
+                <i class="fas fa-layer-group text-success me-1"></i> Produce Catalog
+              </h6>
+              <div class="d-flex flex-wrap gap-1" id="adminProdCatFilter">
+                <button type="button" class="btn btn-sm btn-success rounded-pill px-3 py-1 text-xs fw-bold active" data-cat="all">All Items</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold" data-cat="vegetables">Fruits & Vegetables</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold" data-cat="meats">Pasture Meats</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold" data-cat="seafood">Seafood</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold" data-cat="dairy">Dairy & Honey</button>
+              </div>
+            </div>
             <span class="text-xs text-muted font-mono" id="adminProductsCount">Showing 8 produce items</span>
           </div>
 

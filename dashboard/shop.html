@@ -134,38 +134,45 @@
         <!-- Page Header & Action Buttons -->
         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
           <div>
-            <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs fw-bold mb-1">
-              <i class="fa-solid fa-basket-shopping me-1"></i> FARM DIRECT MARKETPLACE
-            </span>
-            <h2 class="font-serif fw-bold text-dark mb-0 fs-3">Member Produce Store</h2>
-            <p class="text-muted text-sm mb-0">Direct harvest produce delivered fresh with automatic wallet dividend payment.</p>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs fw-bold">
+                <i class="fa-solid fa-basket-shopping me-1"></i> FARM DIRECT MARKETPLACE
+              </span>
+              <span class="text-xs text-muted font-mono"><i class="fa-solid fa-truck-fast text-success me-1"></i> Refrigerated Cold-Chain</span>
+            </div>
+            <h2 class="font-serif fw-bold text-dark mb-1 fs-3">Member Produce Store</h2>
+            <p class="text-muted text-sm mb-0">Direct harvest produce delivered fresh from certified sustainable farms with 1-click dividend wallet payment.</p>
           </div>
-          <div class="d-flex gap-2">
+          <div class="d-flex flex-wrap gap-2">
             <a href="/dashboard/orders.html" class="btn btn-outline-success rounded-pill px-3 py-2 text-xs fw-bold">
               <i class="fa-solid fa-box me-1"></i> My Orders
             </a>
             <a href="/dashboard/seller.html" class="btn btn-success rounded-pill px-3 py-2 text-xs fw-bold shadow-sm">
-              <i class="fa-solid fa-tractor me-1"></i> Sell Your Harvest
+              <i class="fa-solid fa-tractor me-1"></i> Seller Hub
             </a>
           </div>
         </div>
 
-        <!-- Special Investor Perk Banner (Compact & Sleek) -->
-        <div class="card border-0 shadow-sm rounded-4 p-3 mb-4 text-white overflow-hidden position-relative" style="background: linear-gradient(135deg, #0F5132 0%, #16A34A 100%);">
+        <!-- Special Investor Perk Banner (Premium & Sleek) -->
+        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 text-white overflow-hidden position-relative" style="background: linear-gradient(135deg, #0A3622 0%, #157347 100%);">
           <div class="position-relative z-1 d-flex flex-wrap align-items-center justify-content-between gap-3">
             <div class="d-flex align-items-center gap-3">
-              <div class="rounded-circle bg-white text-success d-flex align-items-center justify-content-center shadow-sm" style="width: 42px; height: 42px; flex-shrink: 0;">
-                <i class="fa-solid fa-tags fs-5"></i>
+              <div class="rounded-circle bg-white text-success d-flex align-items-center justify-content-center shadow-sm" style="width: 46px; height: 46px; flex-shrink: 0;">
+                <i class="fa-solid fa-percent fs-5"></i>
               </div>
               <div>
-                <h6 class="fw-bold mb-0 text-white">Investor Perk: 10% Off All Fresh Harvests</h6>
-                <p class="text-white-80 text-xs mb-0">Free refrigerated delivery is included on all member orders settled via wallet balance.</p>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <h5 class="fw-bold mb-0 text-white font-serif">Investor Privilege: 10% Off All Produce</h5>
+                  <span class="badge bg-warning text-dark font-mono text-xs fw-bold px-2 py-0.5 rounded-pill">Active</span>
+                </div>
+                <p class="text-white-80 text-xs mb-0" style="max-width: 600px;">
+                  Automatic 10% discount applied at checkout. Enjoy zero delivery fees and refrigerated cold-chain dispatch on all orders settled with your FarmVest yield wallet.
+                </p>
               </div>
             </div>
-            <div class="d-flex align-items-center gap-2">
-              <span class="badge bg-white text-success font-mono px-3 py-2 rounded-pill fw-bold text-xs">
-                Wallet Available: <span id="bannerWalletBalance">$4,850.00</span>
-              </span>
+            <div class="d-flex flex-column align-items-end justify-content-center">
+              <span class="text-white-50 text-xs text-uppercase fw-bold">Yield Wallet Available</span>
+              <span class="font-mono fw-bold text-white fs-4" id="bannerWalletBalance">$4,850.00</span>
             </div>
           </div>
         </div>

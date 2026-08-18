@@ -476,6 +476,76 @@ export function initAuthForms() {
     });
   }
 
+  // Farmer / Seller Login Form
+  const sellerLoginForm = document.getElementById('sellerLoginForm');
+  if (sellerLoginForm) {
+    sellerLoginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('sellerEmail')?.value || 'farmer@farmvest.ag';
+      const password = document.getElementById('sellerPassword')?.value || 'farmerpassword';
+      
+      const users = getUsers();
+      let farmerUser = users.find(u => u.email.toLowerCase() === email.trim().toLowerCase());
+      if (!farmerUser) {
+        farmerUser = {
+          id: 'usr_farmer_001',
+          fullName: 'Mateo Hernandez (Highland Orchards)',
+          email: email.trim(),
+          password: password,
+          role: 'farmer',
+          verified: true,
+          walletBalance: 20037.50,
+          totalInvested: 0,
+          createdAt: '2024-02-10'
+        };
+        users.push(farmerUser);
+        localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+      }
+
+      const submitBtn = document.getElementById('sellerLoginBtn');
+      if (submitBtn) {
+        submitBtn.classList.add('is-loading');
+        submitBtn.disabled = true;
+      }
+
+      setCurrentUser(farmerUser);
+      showToast(`Welcome back, ${farmerUser.fullName.split(' ')[0]}! Opening Farmer Hub...`, 'success');
+      setTimeout(() => {
+        window.location.href = '/dashboard/seller.html';
+      }, 800);
+    });
+  }
+
+  // Quick Farmer Demo Button
+  const quickFarmerDemoBtn = document.getElementById('quickFarmerDemoBtn');
+  if (quickFarmerDemoBtn) {
+    quickFarmerDemoBtn.addEventListener('click', () => {
+      const users = getUsers();
+      let farmerUser = users.find(u => u.role === 'farmer' || u.email === 'farmer@farmvest.ag');
+      if (!farmerUser) {
+        farmerUser = {
+          id: 'usr_farmer_001',
+          fullName: 'Mateo Hernandez (Highland Orchards)',
+          email: 'farmer@farmvest.ag',
+          password: 'farmerpassword',
+          role: 'farmer',
+          verified: true,
+          walletBalance: 20037.50,
+          totalInvested: 0,
+          createdAt: '2024-02-10'
+        };
+        users.push(farmerUser);
+        localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
+      }
+
+      setCurrentUser(farmerUser);
+      showToast('Authenticated as Verified Farmer (Highland Orchards)! Opening Seller Hub...', 'success');
+      setTimeout(() => {
+        window.location.href = '/dashboard/seller.html';
+      }, 500);
+    });
+  }
+
   // Forgot Password Form
   const forgotForm = document.getElementById('forgotForm');
   if (forgotForm) {

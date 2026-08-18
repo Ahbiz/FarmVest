@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farmer &amp; Producer Portal Sign In — FarmVest</title>
+  <meta name="description" content="Sign in to the FarmVest Farmer &amp; Producer Hub to list your agricultural harvest batches, manage orders, and track sales revenue." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Scripts & Stylesheet -->
+  <script type="module" src="/src/js/auth.js"></script>
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="auth-page">
+  <div class="auth">
+    <!-- Brand sidebar panel -->
+    <aside class="auth__aside" style="background: linear-gradient(135deg, #0A3622 0%, #198754 100%);">
+      <a href="/index.html" class="auth__aside-logo">
+        <img src="/images/logo-white.svg" alt="FarmVest" />
+      </a>
+
+      <div class="my-auto">
+        <span class="badge bg-white text-success font-weight-bold rounded-pill px-3 py-2 text-xs mb-3">
+          <i class="fas fa-tractor me-1"></i> PRODUCER &amp; FARMER PORTAL
+        </span>
+        <h1 class="auth__aside-title">Direct Agricultural Trade. Guaranteed Harvest Revenue.</h1>
+        <p class="text-white-80 mt-3 text-sm">
+          Connect your farm directly with 18,400+ investors and retail buyers across the FarmVest network. Zero broker fees, real-time IoT cold-chain tracking, and instant automated bank payouts.
+        </p>
+
+        <div class="mt-4 d-flex flex-column gap-3">
+          <div class="d-flex align-items-center gap-3 text-white text-xs">
+            <div class="rounded-circle bg-white-20 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; flex-shrink: 0;">
+              <i class="fas fa-check text-warning"></i>
+            </div>
+            <span><strong>0% Intermediary Fees:</strong> Keep 100% of your listed produce revenue.</span>
+          </div>
+          <div class="d-flex align-items-center gap-3 text-white text-xs">
+            <div class="rounded-circle bg-white-20 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; flex-shrink: 0;">
+              <i class="fas fa-check text-warning"></i>
+            </div>
+            <span><strong>Cold-Chain Fleet:</strong> Refrigerated pickup directly from your farm gate.</span>
+          </div>
+          <div class="d-flex align-items-center gap-3 text-white text-xs">
+            <div class="rounded-circle bg-white-20 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px; flex-shrink: 0;">
+              <i class="fas fa-check text-warning"></i>
+            </div>
+            <span><strong>Munich Re Protected:</strong> 100% harvest quality insurance and payout guarantee.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth__aside-footer mt-auto pt-4 border-top border-white border-opacity-10">
+        <div class="d-flex align-items-center justify-content-between text-xs text-white-50">
+          <span>Certified Sustainable Agricultural Partner</span>
+          <span>FarmVest v2.4</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Form panel -->
+    <main class="auth__main">
+      <div class="auth__form-wrap">
+        <div class="auth__mobile-brand mb-4">
+          <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+        </div>
+
+        <!-- Header Badge -->
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <span class="badge bg-success-subtle text-success font-weight-bold rounded-pill px-3 py-2 text-xs">
+            <i class="fas fa-seedling me-1"></i> Farmer Hub Access
+          </span>
+          <a href="/products.html" class="text-xs text-muted font-weight-bold text-decoration-none hover-success">
+            <i class="fas fa-arrow-left me-1"></i> Back to Store
+          </a>
+        </div>
+
+        <h2 class="auth__title">Farmer &amp; Producer Sign In</h2>
+        <p class="auth__subtitle">Sign in to list harvest batches, manage stock, and view payout analytics.</p>
+
+        <!-- Demo Quick Credentials Box -->
+        <div class="demo-credentials-box p-3 mb-4 rounded-4 bg-light border text-sm shadow-sm">
+          <div class="fw-bold text-dark text-xs text-uppercase letter-spacing-1 mb-2 d-flex align-items-center justify-content-between">
+            <span><i class="fas fa-key text-success me-1"></i> Instant Demo Farmer Login:</span>
+            <span class="badge bg-success text-white text-xs">1-Click</span>
+          </div>
+          <button type="button" class="btn btn-success btn-sm w-100 rounded-pill py-2 font-weight-bold shadow-sm d-flex align-items-center justify-content-center gap-2" id="quickFarmerDemoBtn">
+            <i class="fas fa-tractor"></i> Sign In as Demo Farmer (Highland Orchards)
+          </button>
+        </div>
+
+        <!-- Farmer Login Form -->
+        <form id="sellerLoginForm" novalidate>
+          <!-- Email field -->
+          <div class="form-group mb-3">
+            <label for="sellerEmail" class="form-label text-xs fw-bold text-uppercase text-muted">Farm / Producer Email</label>
+            <div class="input-icon-wrap">
+              <i class="fas fa-envelope input-icon"></i>
+              <input
+                type="email"
+                id="sellerEmail"
+                name="email"
+                class="form-control"
+                placeholder="e.g. farmer@farmvest.ag"
+                value="farmer@farmvest.ag"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <span class="form-error" id="sellerEmail-error"></span>
+          </div>
+
+          <!-- Password field -->
+          <div class="form-group mb-3">
+            <div class="d-flex align-items-center justify-content-between mb-1">
+              <label for="sellerPassword" class="form-label text-xs fw-bold text-uppercase text-muted mb-0">Password</label>
+              <a href="/auth/forgot-password.html" class="auth__forgot-link text-xs">Forgot password?</a>
+            </div>
+            <div class="input-icon-wrap">
+              <i class="fas fa-lock input-icon"></i>
+              <input
+                type="password"
+                id="sellerPassword"
+                name="password"
+                class="form-control"
+                placeholder="••••••••••••"
+                value="farmerpassword"
+                required
+                autocomplete="current-password"
+              />
+              <button
+                type="button"
+                class="password-toggle"
+                data-toggle-password="sellerPassword"
+                aria-label="Toggle password visibility"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <span class="form-error" id="sellerPassword-error"></span>
+          </div>
+
+          <!-- Remember me checkbox -->
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="sellerRemember" name="remember" checked />
+            <label class="form-check-label text-xs text-muted" for="sellerRemember">
+              Keep me signed in to Farmer Hub
+            </label>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-agroly-connect w-100 py-3 mb-3 font-weight-bold" id="sellerLoginBtn">
+            <span>Sign In to Seller Hub</span>
+            <i class="fas fa-arrow-right ms-2"></i>
+          </button>
+        </form>
+
+        <div class="text-center mt-3 pt-3 border-top">
+          <p class="auth__switch-text mb-0">
+            Want to invest instead?
+            <a href="/auth/login.html" class="auth__switch-link fw-bold text-success">Investor Portal &rarr;</a>
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast notification container -->
+  <div class="toast-container"></div>
+</body>
+</html>

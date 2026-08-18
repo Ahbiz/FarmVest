@@ -36,9 +36,7 @@
   <main class="page-wrapper">
 
     <!-- HERO & GLASS FLOATING NAV BAR -->
-    <section class="hero-agroly inner-page-hero" style="min-height: auto;">
-      <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80" class="hero-agroly__bg" alt="Fresh Organic Farm Produce" fetchpriority="high" decoding="async" />
-
+    <section class="hero-agroly inner-page-hero" style="min-height: 280px; padding-bottom: 2.5rem; background: linear-gradient(135deg, #0A3622 0%, #157347 100%);">
       <div class="container position-relative z-2">
         <!-- Floating glass nav bar -->
         <nav class="agroly-nav">
@@ -98,19 +96,19 @@
           </div>
         </aside>
 
-        <!-- Inner page title block -->
-        <div class="hero-natural-content text-center py-5">
-          <div class="about-chip-label mx-auto mb-2 text-white bg-white-10 border border-white-20 rounded-pill px-3 py-1 d-inline-flex align-items-center gap-2">
+        <!-- Compact Inner page title block -->
+        <div class="hero-natural-content text-center pt-4 pb-2">
+          <div class="about-chip-label mx-auto mb-2 text-white bg-white-10 border border-white-20 rounded-pill px-3 py-1 d-inline-flex align-items-center gap-2" style="font-size: 11px;">
             <i class="fas fa-store text-warning"></i> FARM DIRECT MARKETPLACE
           </div>
-          <h1 class="natural-title text-white">
-            Fresh Farm Produce & Harvest Store
+          <h1 class="natural-title text-white fs-2 mb-2">
+            Fresh Farm Produce &amp; Harvest Store
           </h1>
-          <p class="natural-lead mx-auto text-white-80" style="max-width: 680px;">
+          <p class="natural-lead mx-auto text-white-80 mb-2 text-sm" style="max-width: 620px;">
             Buy organic vegetables, grass-fed beef, poultry, fresh fish, and artisanal dairy shipped directly from certified sustainable partner farms.
           </p>
-          <nav aria-label="breadcrumb" class="d-flex justify-content-center mt-3">
-            <ol class="breadcrumb mb-0 bg-transparent">
+          <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+            <ol class="breadcrumb mb-0 bg-transparent text-xs">
               <li class="breadcrumb-item"><a href="/index.html" class="text-white-50 text-decoration-none">Home</a></li>
               <li class="breadcrumb-item active text-white" aria-current="page">Products</li>
             </ol>
@@ -124,22 +122,21 @@
       <div class="container py-3">
 
         <!-- Farmer & Producer Seller Hub Callout Banner -->
-        <div class="alert border-0 shadow-sm rounded-4 p-3 p-md-4 mb-5 d-flex flex-wrap align-items-center justify-content-between gap-3 text-dark" style="background: #FFFFFF; border-left: 5px solid var(--primary-color) !important;">
+        <div class="alert border-0 shadow-sm rounded-4 p-3 p-md-4 mb-4 d-flex flex-wrap align-items-center justify-content-between gap-3 text-dark" style="background: #FFFFFF; border-left: 5px solid var(--primary-color) !important;">
           <div class="d-flex align-items-center gap-3">
             <div class="rounded-circle bg-success-subtle text-success d-flex align-items-center justify-content-center shadow-sm" style="width: 48px; height: 48px; flex-shrink: 0;">
               <i class="fas fa-tractor fs-5"></i>
             </div>
             <div>
               <h6 class="fw-bold text-dark mb-0">Are you a certified farmer or agricultural producer?</h6>
-              <p class="text-muted text-xs mb-0">Sell your harvests directly to 18,400+ investors and retail customers across the FarmVest network.</p>
+              <p class="text-muted text-xs mb-0">List your harvest batches and sell directly to 18,400+ investors and retail buyers across the FarmVest network.</p>
             </div>
           </div>
-          <div class="d-flex flex-wrap gap-2">
-            <a href="/dashboard/seller.html" class="btn btn-success rounded-pill px-4 py-2 text-xs fw-bold shadow-sm">
-              <i class="fas fa-plus me-1"></i> Start Selling Your Harvest
-            </a>
-            <a href="/auth/login.html" class="btn btn-outline-success rounded-pill px-3 py-2 text-xs fw-bold">
-              Farmer Login
+          <div>
+            <a href="/auth/seller-login.html" class="btn btn-success rounded-pill px-4 py-2 text-xs fw-bold shadow-sm d-inline-flex align-items-center gap-2">
+              <i class="fas fa-plus"></i>
+              <span>Start Selling Your Harvest</span>
+              <i class="fas fa-arrow-right text-xs"></i>
             </a>
           </div>
         </div>

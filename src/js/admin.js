@@ -618,19 +618,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const adminProductsTableBody = document.getElementById('adminProductsTableBody');
   if (adminProductsTableBody) {
     import('./services/ecommerce-store.js').then(({ getStoreProducts, upsertStoreProduct, deleteStoreProduct }) => {
+      let currentAdminCat = 'all';
+
       function renderAdminProducts() {
-        const products = getStoreProducts();
-        const totalUnits = products.reduce((acc, p) => acc + (p.stockQty || 0), 0);
+        const allProducts = getStoreProducts();
+        const totalUnits = allProducts.reduce((acc, p) => acc + (p.stockQty || 0), 0);
 
         const totalItemsEl = document.getElementById('adminKpiTotalItems');
         const stockUnitsEl = document.getElementById('adminKpiStockUnits');
         const countTextEl = document.getElementById('adminProductsCount');
 
-        if (totalItemsEl) totalItemsEl.textContent = `${products.length} Products`;
+        if (totalItemsEl) totalItemsEl.textContent = `${allProducts.length} Products`;
         if (stockUnitsEl) stockUnitsEl.textContent = `${totalUnits} units`;
-        if (countTextEl) countTextEl.textContent = `Showing ${products.length} produce items`;
 
-        adminProductsTableBody.innerHTML = products.map(p => `
+        const filtered = allProducts.filter(p => currentAdminCat === 'all' || p.category === currentAdminCat);
+        if (countTextEl) countTextEl.textContent = `Showing ${filtered.length} produce items`;
+
+        if (filtered.length === 0) {
+          adminProductsTableBody.innerHTML = `
+            <tr>
+              <td colspan="7" class="text-center py-5 text-muted">
+                <i class="fas fa-boxes-stacked fs-2 mb-2 d-block"></i>
+                No produce items in this category.
+              </td>
+            </tr>
+          `;
+          return;
+        }
+
+        adminProductsTableBody.innerHTML = filtered.map(p => `
           <tr>
             <td class="ps-4">
               <div class="d-flex align-items-center gap-3">
@@ -666,6 +682,20 @@ document.addEventListener('DOMContentLoaded', () => {
             </td>
           </tr>
         `).join('');
+
+        // Bind category filter tabs
+        document.querySelectorAll('#adminProdCatFilter button').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('#adminProdCatFilter button').forEach(b => {
+              b.classList.remove('active', 'btn-success');
+              b.classList.add('btn-outline-secondary');
+            });
+            btn.classList.add('active', 'btn-success');
+            btn.classList.remove('btn-outline-secondary');
+            currentAdminCat = btn.dataset.cat || 'all';
+            renderAdminProducts();
+          });
+        });
 
         // Bind delete buttons
         adminProductsTableBody.querySelectorAll('[data-delete-prod]').forEach(btn => {

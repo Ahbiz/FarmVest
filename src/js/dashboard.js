@@ -573,10 +573,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================
-  // 14. E-COMMERCE: Seller & Farmer Hub (dashboard/seller.html)
+  // 14. E-COMMERCE: Seller & Farmer Hub (dashboard/seller.html) — PROTECTED ROUTE
   // ============================================================
   const sellerListingsBody = document.getElementById('sellerListingsBody');
   if (sellerListingsBody) {
+    const loggedUser = getCurrentUser();
+    if (!loggedUser || loggedUser.role !== 'farmer') {
+      window.location.href = '/auth/seller-login.html';
+      return;
+    }
+
+    // Farmer Sign Out
+    document.querySelectorAll('[data-seller-logout], [data-logout-btn]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        logout();
+        window.location.href = '/auth/seller-login.html';
+      });
+    });
+
     import('./services/ecommerce-store.js').then(({ getSellerListings, createSellerListing }) => {
       function renderSellerHub() {
         const listings = getSellerListings();
