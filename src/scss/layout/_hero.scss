@@ -45,7 +45,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 0;
+    gap: 24px; // Guaranteed clear separation between logo, menu pill, and right actions
+    padding: 10px 0;
+    width: 100%;
 
     @include media-down(sm) {
       gap: 12px;
@@ -58,20 +60,21 @@
       gap: 12px;
       text-decoration: none;
       transition: all $transition-fast;
+      flex-shrink: 0;
 
       &:hover {
         transform: translateY(-1px);
       }
 
       img {
-        height: 46px;
-        width: 46px;
+        height: 44px;
+        width: 44px;
         object-fit: contain;
       }
 
       .brand-text {
         font-family: 'Fraunces', serif;
-        font-size: 1.65rem;
+        font-size: 1.6rem;
         font-weight: 800;
         color: #FFFFFF;
         letter-spacing: -0.02em;
@@ -87,14 +90,11 @@
       }
     }
 
-    // Perfectly Centered Glass Floating Navigation Pill
+    // Floating Navigation Pill - flex-spaced so it NEVER overlaps with action buttons
     .glass-menu-pill {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       padding: 6px 12px;
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(16px);
@@ -103,32 +103,40 @@
       border-radius: 9999px;
       list-style: none !important;
       margin: 0;
+      white-space: nowrap !important;
+      flex-wrap: nowrap !important;
+      flex-shrink: 0;
 
       @include media-down(lg) {
-        position: static;
-        transform: none;
+        display: none !important; // Hide desktop pill on mobile/tablet (handled by mobile drawer)
       }
 
       li {
         list-style: none !important;
         padding: 0;
         margin: 0;
+        white-space: nowrap !important;
+        flex-shrink: 0;
+        display: inline-block;
         &::before { display: none !important; }
       }
 
       a {
-        color: rgba(255, 255, 255, 0.85);
+        display: inline-block;
+        white-space: nowrap !important;
+        word-break: keep-all !important;
+        color: rgba(255, 255, 255, 0.9);
         font-family: $font-body;
         font-weight: 600;
-        font-size: 0.875rem;
-        padding: 8px 20px;
+        font-size: 0.825rem;
+        padding: 6px 13px;
         border-radius: 9999px;
         text-decoration: none;
         transition: all $transition-fast;
 
         &:hover {
           color: #FFFFFF;
-          background: rgba(255, 255, 255, 0.15);
+          background: rgba(255, 255, 255, 0.18);
         }
 
         &.active {
@@ -140,23 +148,138 @@
       }
     }
 
-    // Right Action Button
-    .btn-agroly-connect {
-      background: #FFFFFF;
-      color: #0F5132;
-      font-family: $font-body;
-      font-weight: 700;
-      font-size: 0.875rem;
-      padding: 10px 24px;
-      border-radius: 9999px;
-      text-decoration: none;
-      transition: all $transition-fast;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    // Right Action Cluster (Search + Cart + CTA)
+    .nav-actions-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px; // Clean spacing between Search button, Cart badge, and CTA
+      flex-shrink: 0;
 
-      &:hover {
-        background: #F8FAFC;
-        color: #16A34A;
-        transform: translateY(-1px);
+      @include media-down(sm) {
+        gap: 8px;
+
+        .btn-agroly-connect {
+          display: none !important; // Hidden on narrow mobile views to preserve space
+        }
+
+        .nav-icon-btn {
+          width: 38px;
+          height: 38px;
+          font-size: 0.95rem;
+        }
+
+        .nav-cart-btn {
+          padding: 6px 10px;
+          font-size: 0.75rem;
+
+          .cart-total-text {
+            display: none; // Show icon and badge on narrow mobile screens
+          }
+        }
+      }
+
+      .nav-icon-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.05rem;
+        cursor: pointer;
+        transition: all $transition-fast;
+        text-decoration: none;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.28);
+          color: #FBBF24;
+          transform: translateY(-1px);
+        }
+      }
+
+      .nav-cart-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 14px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #FFFFFF;
+        text-decoration: none;
+        font-family: $font-body;
+        font-weight: 700;
+        font-size: 0.825rem;
+        transition: all $transition-fast;
+        cursor: pointer;
+
+        .cart-icon-pos {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          i {
+            font-size: 1.1rem;
+            color: #4ADE80;
+          }
+
+          .cart-badge-pill {
+            position: absolute;
+            top: -7px;
+            right: -9px;
+            background: #EF4444;
+            color: #FFFFFF;
+            font-size: 0.65rem;
+            font-weight: 800;
+            min-width: 17px;
+            height: 17px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 3px;
+            border: 2px solid #0F5132;
+          }
+        }
+
+        .cart-total-text {
+          font-family: $font-mono;
+          font-size: 0.825rem;
+          color: #FBBF24;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.24);
+          transform: translateY(-1px);
+        }
+      }
+
+      .btn-agroly-connect {
+        background: #FFFFFF;
+        color: #0F5132;
+        font-family: $font-body;
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 9px 22px;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: all $transition-fast;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        white-space: nowrap !important;
+
+        &:hover {
+          background: #F8FAFC;
+          color: var(--primary-color);
+          transform: translateY(-1px);
+        }
       }
     }
 
@@ -261,7 +384,7 @@
       }
 
       .btn-invest-solid {
-        background: #16A34A;
+        background: var(--primary-color);
         color: #FFFFFF;
         font-family: $font-body;
         font-weight: 800;
@@ -375,7 +498,7 @@
   margin-bottom: 16px;
 
   a {
-    color: #16A34A;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
 

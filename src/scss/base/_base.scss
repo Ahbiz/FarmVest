@@ -4,9 +4,34 @@
 
 // ---- CSS Custom Properties ----
 :root {
-  @each $name, $color in $color-map {
-    --fv-#{$name}: #{$color};
-  }
+  --primary-color: #16A34A;
+  --primary-color-rgb: 22, 163, 74;
+  --primary-hover: #15803d;
+  --primary-active: #166534;
+  --primary-light: rgba(22, 163, 74, 0.12);
+  --primary-subtle: rgba(22, 163, 74, 0.06);
+  --primary-border: rgba(22, 163, 74, 0.25);
+  --primary-glow: 0 0 24px rgba(22, 163, 74, 0.35);
+
+  --fv-primary: var(--primary-color);
+  --fv-primary-dark: #0F5132;
+  --fv-primary-light: #22C55E;
+  --fv-accent: #F59E0B;
+  --fv-accent-light: #FBBF24;
+
+  --fv-neutral-900: #0B1320;
+  --fv-neutral-800: #1E293B;
+  --fv-neutral-700: #334155;
+  --fv-neutral-400: #64748B;
+  --fv-neutral-300: #CBD5E1;
+  --fv-neutral-100: #F1F5F9;
+  --fv-neutral-50: #F8FAFC;
+  --fv-white: #FFFFFF;
+
+  --fv-success: var(--primary-color);
+  --fv-danger: #EF4444;
+  --fv-info: #0284C7;
+  --fv-warning: #F59E0B;
   
   --fv-font-heading: #{$font-heading};
   --fv-font-body: #{$font-body};

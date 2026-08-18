@@ -16,7 +16,7 @@
 
   <!-- Stylesheet & scripts -->
   <script type="module" src="/src/js/main.js"></script>
-  <link rel="stylesheet" href="/src/scss/main.scss" />
+  <link rel="stylesheet" href="/src/css/style.css" />
 </head>
 <body class="blog-page">
 
@@ -47,17 +47,26 @@
           <a class="brand-logo" href="/index.html" title="FarmVest Home">
             <img src="/images/logo-mark-white.svg" alt="FarmVest Mark" width="46" height="46" />
             <span class="brand-text">Farm<span>Vest</span></span>
-          </a>
-
-          <ul class="glass-menu-pill d-none d-lg-flex">
+          </a>          <ul class="glass-menu-pill d-none d-lg-flex">
             <li><a href="/index.html">Home</a></li>
-            <li><a href="/about.html">About us</a></li>
-            <li><a href="/projects.html">Yield Pools</a></li>
-            <li><a href="/blog.html" class="active">Insights</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/products.html">Products</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
 
-          <a href="/auth/register.html" class="btn-agroly-connect d-none d-lg-inline-flex">Start Earning</a>
+          <div class="nav-actions-wrap d-none d-lg-flex">
+            <button type="button" class="nav-icon-btn" id="searchTriggerBtn" title="Search"><i class="fas fa-search"></i></button>
+            <button type="button" class="nav-cart-btn" id="cartDrawerBtn" title="Shopping Cart">
+              <span class="cart-icon-pos">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-badge-pill" id="cartCountBadge">0</span>
+              </span>
+              <span class="cart-total-text" id="cartTotalPill">$0.00</span>
+            </button>
+            <a href="/auth/register.html" class="btn-agroly-connect">Get Started</a>
+          </div>
 
           <button class="nav-burger d-lg-none" type="button" aria-label="Open navigation menu" aria-controls="mobileNav" aria-expanded="false" data-nav-open>
             <span></span><span></span><span></span>
@@ -73,17 +82,20 @@
               <span class="brand-text">Farm<span>Vest</span></span>
             </a>
             <button class="nav-close" type="button" aria-label="Close navigation menu" data-nav-close>
-              <i class="fas fa-times" aria-hidden="true"></i>
+              <i class="fas fa-times"></i>
             </button>
           </div>
           <ul class="mobile-nav__links">
             <li><a href="/index.html">Home</a></li>
-            <li><a href="/about.html">About us</a></li>
-            <li><a href="/projects.html">Yield Pools</a></li>
-            <li><a href="/blog.html" class="active">Insights</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/products.html">Products</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
-          <a href="/auth/register.html" class="btn-agroly-connect mobile-nav__cta">Start Earning</a>
+          <div class="d-flex flex-column gap-2 px-4 mt-3">
+            <a href="/auth/register.html" class="btn-agroly-connect text-center w-100">Get Started</a>
+          </div>
         </aside>
 
         <!-- Hero Content -->
@@ -539,6 +551,66 @@
       We use cookies to analyze performance and optimize your investment experience on FarmVest. Read our <a href="/cookie-policy.html">Cookie Policy</a> to learn more.
     </p>
     <button type="button" class="btn btn--primary btn--sm cookie-consent__btn">Accept All Cookies</button>
+  </div>
+
+  <!-- Slide-over Cart Drawer Component -->
+  <div class="cart-drawer-backdrop" id="cartDrawerBackdrop"></div>
+  <div class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <div class="cart-drawer__header">
+      <h5><i class="fas fa-shopping-bag text-success me-2"></i> Your Farm Produce Cart</h5>
+      <button type="button" class="close-drawer-btn" id="closeCartDrawerBtn" aria-label="Close Cart">&times;</button>
+    </div>
+    <div class="cart-drawer__body" id="cartDrawerBody">
+      <div class="cart-drawer__empty" id="cartEmptyState">
+        <i class="fas fa-basket-shopping"></i>
+        <h6>Your cart is currently empty</h6>
+        <p>Explore our fresh produce store to add organic vegetables, meats, and dairy directly from verified farms.</p>
+        <a href="/products.html" class="btn btn-success rounded-pill px-4 py-2 fw-bold">Browse Produce</a>
+      </div>
+      <ul class="cart-drawer__items d-none" id="cartItemsList">
+        <!-- Injected items -->
+      </ul>
+    </div>
+    <div class="cart-drawer__footer d-none" id="cartDrawerFooter">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span class="amount" id="cartDrawerSubtotal">$0.00</span>
+      </div>
+      <a href="/products.html" class="btn btn-success w-100 rounded-pill py-2 fw-bold mb-2">Proceed to Checkout</a>
+      <button type="button" class="btn btn-outline-secondary w-100 rounded-pill py-2 btn-sm" id="clearCartBtn">Clear Cart</button>
+    </div>
+  </div>
+
+  <!-- Quick Search Modal Overlay -->
+  <div class="modal fade" id="quickSearchModal" tabindex="-1" aria-labelledby="quickSearchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-header border-bottom px-4 py-3 bg-light">
+          <h5 class="modal-title font-serif fw-bold text-dark" id="quickSearchModalLabel">
+            <i class="fas fa-search text-success me-2"></i> Quick Search FarmVest
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="input-group input-group-lg flex-grow-1 rounded-pill overflow-hidden border shadow-sm">
+              <span class="input-group-text bg-white border-0 ps-4 pe-2"><i class="fas fa-search text-success"></i></span>
+              <input type="text" class="form-control border-0 ps-2" id="quickSearchInput" placeholder="Search investment pools, crops, fresh produce, articles..." />
+            </div>
+            <button type="button" class="btn btn-success rounded-pill px-4 py-3 fw-bold flex-shrink-0 shadow-sm" id="quickSearchSubmitBtn">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="quick-search-tags d-flex flex-wrap gap-2">
+            <span class="text-xs text-muted fw-bold text-uppercase w-100 mb-1">Popular Suggestions:</span>
+            <a href="/projects.html" class="badge bg-light text-dark border py-2 px-3 text-decoration-none">🥑 Avocado Orchard</a>
+            <a href="/projects.html" class="badge bg-light text-dark border py-2 px-3 text-decoration-none">🍅 Organic Greenhouse</a>
+            <a href="/products.html" class="badge bg-light text-dark border py-2 px-3 text-decoration-none">🥩 Grass-Fed Beef</a>
+            <a href="/products.html" class="badge bg-light text-dark border py-2 px-3 text-decoration-none">🥬 Hydroponic Lettuce</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Toast container -->

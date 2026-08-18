@@ -1,5 +1,6 @@
 // ============================================================
-// FarmVest Layout — Agrigo-Grade Premium Header & Navbar
+// FarmVest Layout — Global Navigation Header
+// Top announcement bar, high-contrast navbar, and action CTAs
 // ============================================================
 
 .header {
@@ -10,7 +11,7 @@
 
 // ---- Top Announcement Bar ----
 .header-top {
-  background-color: #0F4C2A; // Rich Agrigo Deep Forest Green
+  background-color: #0F4C2A; // Deep Forest Evergreen
   color: #FFFFFF;
   font-size: 0.8125rem;
   padding: 8px 0;
@@ -29,101 +30,113 @@
   &__left {
     display: flex;
     align-items: center;
-    gap: space(2);
-    font-weight: font-weight('medium');
+    gap: 24px;
 
-    span.highlight {
-      color: #4ADE80;
-      font-weight: font-weight('bold');
-      text-decoration: underline;
-    }
-
-    @include media-down(sm) {
-      text-align: center;
+    @include media-down(md) {
+      display: none;
     }
   }
 
-  &__center {
+  &__item {
     display: flex;
     align-items: center;
-    gap: space(4);
-    color: rgba(255, 255, 255, 0.9);
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.85);
 
     i {
-      color: #4ADE80;
-      margin-right: 6px;
+      color: #FBBF24; // Amber harvest accent
+      font-size: 0.875rem;
     }
 
-    .dot-separator {
-      color: #4ADE80;
-      font-size: 0.5rem;
-      vertical-align: middle;
-    }
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color $transition-fast;
 
-    // Contact details crowd narrow screens — hide below the desktop breakpoint.
-    @include media-down(lg) {
-      display: none;
+      &:hover {
+        color: #FFFFFF;
+      }
     }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
 
   &__socials {
     display: flex;
     align-items: center;
-    gap: space(3);
-    list-style: none !important;
-    margin: 0;
-    padding: 0;
+    gap: 12px;
 
-    li {
-      list-style: none !important;
-      margin: 0;
-      padding: 0;
+    a {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.85rem;
+      transition: color $transition-fast;
 
-      &::before { display: none !important; }
+      &:hover {
+        color: #FFFFFF;
+      }
     }
+  }
+
+  &__auth-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 16px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
 
     a {
       color: #FFFFFF;
-      font-size: 0.875rem;
-      opacity: 0.85;
-      transition: all $transition-fast;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity $transition-fast;
 
       &:hover {
-        opacity: 1;
-        color: #4ADE80;
-        transform: translateY(-1px);
+        opacity: 0.8;
       }
-    }
 
-    @include media-down(sm) {
-      display: none;
+      &.btn-auth-highlight {
+        background: #FBBF24;
+        color: #0F5132;
+        padding: 2px 10px;
+        border-radius: 4px;
+        font-weight: 700;
+
+        &:hover {
+          background: #F59E0B;
+          opacity: 1;
+        }
+      }
     }
   }
 }
 
-// ---- Main Header & Logo Bar ----
+// ---- Main Navigation Bar ----
 .header-main {
   background-color: #FFFFFF;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
   position: relative;
-  z-index: $z-header;
+  z-index: 10;
 
   &.is-sticky {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    animation: slideDown 300ms ease forwards;
+    animation: slideDown 0.35s ease-out;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.1);
   }
 }
 
 .navbar {
   padding: 0;
 
-  // Solid Green Logo Brand Box (Matching Agrigo)
+  // Solid Green Logo Brand Box
   .brand-block {
-    background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #15803D 100%);
     padding: 16px 28px;
     display: flex;
     align-items: center;
@@ -162,7 +175,7 @@
 
     &:hover,
     &.active {
-      color: #16A34A;
+      color: var(--primary-color);
     }
 
     i {
@@ -172,24 +185,89 @@
   }
 }
 
-// Right Action CTA Cluster (Agrigo Dual Button Style)
+// Right Action CTA Cluster (Search + Cart Badge + CTA Button)
 .header-actions {
   display: flex;
   align-items: center;
   gap: 16px;
 
   .action-icon-btn {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     @include flex-center;
     color: #1E293B;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     border-radius: $radius-full;
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
     transition: all $transition-fast;
+    cursor: pointer;
+    position: relative;
 
     &:hover {
-      color: #16A34A;
-      background: rgba(22, 163, 74, 0.08);
+      color: #FFFFFF;
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+
+  // Shopping Cart Badge Indicator
+  .cart-badge-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 9999px;
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
+    color: #1E293B;
+    text-decoration: none;
+    font-family: $font-body;
+    font-weight: 700;
+    font-size: 0.85rem;
+    transition: all $transition-fast;
+    cursor: pointer;
+
+    .cart-icon-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        font-size: 1.1rem;
+        color: var(--primary-color);
+      }
+
+      .badge-count {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background: #EF4444;
+        color: #FFFFFF;
+        font-size: 0.65rem;
+        font-weight: 800;
+        min-width: 18px;
+        height: 18px;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4px;
+        border: 2px solid #FFFFFF;
+      }
+    }
+
+    .cart-total-pill {
+      font-family: $font-mono;
+      font-size: 0.85rem;
+      color: #0F5132;
+    }
+
+    &:hover {
+      background: #E2E8F0;
+      border-color: #CBD5E1;
+      transform: translateY(-1px);
     }
   }
 
@@ -200,7 +278,7 @@
     gap: 4px;
 
     .btn-cta-main {
-      background: #22C55E;
+      background: var(--primary-color);
       color: #FFFFFF;
       font-family: $font-body;
       font-weight: 700;
@@ -210,17 +288,19 @@
       padding: 12px 24px;
       border-radius: 12px 4px 4px 12px;
       border: none;
+      text-decoration: none;
       transition: all $transition-fast;
-      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.35);
+      box-shadow: 0 4px 14px rgba(22, 163, 74, 0.35);
 
       &:hover {
-        background: #16A34A;
+        background: #15803D;
+        color: #FFFFFF;
         box-shadow: 0 6px 18px rgba(22, 163, 74, 0.45);
       }
     }
 
     .btn-cta-arrow {
-      background: #16A34A;
+      background: #15803D;
       color: #FFFFFF;
       width: 44px;
       height: 44px;
@@ -228,11 +308,187 @@
       border-radius: 4px 12px 12px 4px;
       border: none;
       font-size: 1rem;
+      text-decoration: none;
       transition: all $transition-fast;
 
       &:hover {
-        background: #15803D;
+        background: #0F5132;
+        color: #FFFFFF;
         transform: translateX(2px);
+      }
+    }
+  }
+}
+
+// ---- Slide-over Cart Drawer ----
+.cart-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 420px;
+  background: #FFFFFF;
+  z-index: 1060;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  &__header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #E2E8F0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F8FAF5;
+
+    h5 {
+      margin: 0;
+      font-family: $font-heading;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: #0F5132;
+    }
+
+    .close-drawer-btn {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: #64748B;
+      cursor: pointer;
+      line-height: 1;
+
+      &:hover {
+        color: #0F172A;
+      }
+    }
+  }
+
+  &__body {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: #64748B;
+
+    i {
+      font-size: 3.5rem;
+      color: #CBD5E1;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid #F1F5F9;
+
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        object-fit: cover;
+        background: #F1F5F9;
+      }
+
+      .item-info {
+        flex: 1;
+
+        h6 {
+          margin: 0 0 4px;
+          font-size: 0.9rem;
+          font-weight: 700;
+          color: #0F172A;
+        }
+
+        .item-meta {
+          font-size: 0.8rem;
+          color: #64748B;
+          margin-bottom: 6px;
+        }
+
+        .item-price {
+          font-family: $font-mono;
+          font-weight: 700;
+          color: var(--primary-color);
+          font-size: 0.9rem;
+        }
+      }
+
+      .item-remove {
+        background: none;
+        border: none;
+        color: #94A3B8;
+        cursor: pointer;
+        padding: 4px;
+
+        &:hover {
+          color: #EF4444;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    padding: 20px 24px;
+    border-top: 1px solid #E2E8F0;
+    background: #F8FAF5;
+
+    .cart-subtotal {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0F172A;
+
+      span.amount {
+        font-family: $font-mono;
+        font-size: 1.2rem;
+        color: var(--primary-color);
       }
     }
   }
