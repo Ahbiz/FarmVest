@@ -111,7 +111,7 @@
     padding: 6px 16px;
     border-radius: 50px;
     background: rgba(22, 163, 74, 0.12);
-    color: #16A34A;
+    color: var(--primary-color);
     font-size: 0.825rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -130,7 +130,7 @@
     padding: 6px 18px;
     border-radius: 50px;
     background: rgba(22, 163, 74, 0.14);
-    color: #16A34A;
+    color: var(--primary-color);
     font-size: 0.8rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -186,7 +186,7 @@
     gap: 12px;
     font-size: 0.875rem;
     font-weight: 700;
-    color: #16A34A;
+    color: var(--primary-color);
 
     .leaf-icon {
       width: 28px;
@@ -196,7 +196,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #16A34A;
+      color: var(--primary-color);
     }
   }
 
@@ -341,7 +341,7 @@
       margin-bottom: 16px;
 
       a {
-        color: #16A34A;
+        color: var(--primary-color);
         text-decoration: none;
         font-weight: 600;
 
@@ -681,7 +681,7 @@
         align-items: center;
         gap: 8px;
 
-        i { color: #16A34A; }
+        i { color: var(--primary-color); }
       }
     }
   }
@@ -839,7 +839,7 @@
 
         &.theme-green {
           background: rgba(22, 163, 74, 0.12);
-          color: #16A34A;
+          color: var(--primary-color);
         }
 
         &.theme-amber {
@@ -1133,7 +1133,7 @@
           transition: all 0.25s;
 
           &:hover {
-            background: #16A34A;
+            background: var(--primary-color);
             color: #FFFFFF;
           }
         }
@@ -1183,7 +1183,7 @@
 
         &.theme-green {
           background: rgba(22, 163, 74, 0.12);
-          color: #16A34A;
+          color: var(--primary-color);
         }
 
         &.theme-amber {
@@ -1218,7 +1218,7 @@
         padding: 6px 14px;
         border-radius: 50px;
         background: #F0FDF4;
-        color: #16A34A;
+        color: var(--primary-color);
         font-size: 0.8rem;
         font-weight: 700;
         width: fit-content;
@@ -1269,7 +1269,7 @@
 
         &.theme-green {
           background: rgba(22, 163, 74, 0.12);
-          color: #16A34A;
+          color: var(--primary-color);
         }
 
         &.theme-blue {
@@ -1318,7 +1318,7 @@
         padding: 5px 12px;
         border-radius: 50px;
         background: #F0FDF4;
-        color: #16A34A;
+        color: var(--primary-color);
         font-size: 0.78rem;
         font-weight: 700;
         width: fit-content;

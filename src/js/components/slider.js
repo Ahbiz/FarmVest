@@ -36,7 +36,7 @@ export function initSliders() {
     });
   }
 
-  // Popular Yield Offers Slider (Vid2.mp4 style)
+  // Active Farmland Yield Pools Slider
   if (document.querySelector('.offers-slider')) {
     new Swiper('.offers-slider', {
       modules: [Autoplay, Navigation, Pagination, Mousewheel],

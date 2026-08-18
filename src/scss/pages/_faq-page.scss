@@ -95,7 +95,7 @@
         background: #F0FDF4 !important;
 
         .faq-sug-text {
-          color: #16A34A !important;
+          color: var(--primary-color) !important;
         }
       }
 
@@ -130,7 +130,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #16A34A;
+      color: var(--primary-color);
       background: rgba(22, 163, 74, 0.1);
       padding: 4px 14px;
       border-radius: 50px;
@@ -165,7 +165,7 @@
       transition: all 0.25s ease;
 
       &:hover {
-        background: #16A34A;
+        background: var(--primary-color);
         color: #FFFFFF;
         transform: translateY(-2px);
         box-shadow: 0 10px 24px rgba(22, 163, 74, 0.3);

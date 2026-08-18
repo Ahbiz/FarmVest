@@ -1,7 +1,9 @@
 // ============================================================
-// FarmVest — About Section (Inspired by Agrigo Layout)
+// FarmVest — About Section Component
+// 3-Column Agricultural Showcase with Balanced Visual Image Flanks
 // ============================================================
 
+.about-farmvest,
 .about-agrigo {
   background-color: #F8FAF5; // Warm organic cream-white
   padding: 100px 0;
@@ -26,6 +28,11 @@
       height: 380px;
     }
 
+    @include media-down(md) {
+      height: 280px;
+      margin-bottom: space(6);
+    }
+
     img {
       position: absolute;
       inset: 0;
@@ -33,91 +40,119 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      transition: transform 0.6s ease;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     &:hover img {
-      transform: scale(1.04);
+      transform: scale(1.05);
     }
 
-    // Circular Floating ROI Badge on Right Image
-    .roi-float-badge {
+    // Top Floating Tag Badge
+    .floating-tag {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0F5132;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 2;
+    }
+
+    // Bottom Circular Floating Stat Badge
+    .stat-circle-badge {
       position: absolute;
       bottom: 24px;
       right: 24px;
       width: 72px;
       height: 72px;
       border-radius: 50%;
-      background: #16A34A;
+      background: var(--primary-color);
       color: #FFFFFF;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-family: $font-mono;
-      font-weight: 800;
-      font-size: 0.875rem;
-      box-shadow: 0 8px 24px rgba(22, 163, 74, 0.35);
-      border: 3px solid #FFFFFF;
+      box-shadow: 0 8px 24px rgba(22, 163, 74, 0.4);
       z-index: 2;
 
-      span.rate {
-        font-size: 1rem;
-        line-height: 1.1;
+      .number {
+        font-family: $font-mono;
+        font-weight: 800;
+        font-size: 1.25rem;
+        line-height: 1;
       }
-      span.lbl {
+
+      .text {
         font-size: 0.65rem;
-        text-transform: uppercase;
-        opacity: 0.9;
         font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
     }
   }
 
-  // Center Main Content Block
+  // Center High-Impact Typography & Feature Highlights
   .about-center-content {
-    display: flex;
-    flex-direction: column;
+    padding: 0 space(4);
 
-    .about-chip-label {
+    @include media-down(md) {
+      padding: 0;
+    }
+
+    .section-pill-tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: #16A34A;
+      color: var(--primary-color);
       font-family: $font-body;
       font-size: 0.85rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
+      letter-spacing: 1px;
       margin-bottom: space(3);
 
       i {
-        font-size: 0.95rem;
+        font-size: 0.75rem;
       }
     }
 
-    .about-heading-title {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 800;
-      color: #0F5132; // Deep Evergreen
-      line-height: 1.15;
+    .about-main-heading {
+      font-family: $font-heading;
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #0B1320;
       margin-bottom: space(4);
+
+      @include media-down(lg) {
+        font-size: 2.25rem;
+      }
+
+      @include media-down(sm) {
+        font-size: 1.85rem;
+      }
     }
 
-    .about-heading-desc {
+    .about-lead-text {
+      font-family: $font-body;
       font-size: 1.05rem;
       line-height: 1.65;
       color: #475569;
       margin-bottom: space(5);
     }
 
-    // Agrigo Pill CTA Button with Prominent Circle Arrow
+    // Pill CTA Button with Prominent Circle Arrow
+    .btn-farmvest-pill,
     .btn-agrigo-pill {
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: #16A34A;
+      background: var(--primary-color);
       color: #FFFFFF;
       font-family: $font-body;
       font-weight: 700;
@@ -180,7 +215,7 @@
         &:hover {
           transform: translateY(-3px);
           box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
-          border-color: #16A34A;
+          border-color: var(--primary-color);
         }
 
         .mini-icon {
@@ -188,7 +223,7 @@
           height: 48px;
           border-radius: 14px;
           background: #F0FDF4;
-          color: #16A34A;
+          color: var(--primary-color);
           display: flex;
           align-items: center;
           justify-content: center;

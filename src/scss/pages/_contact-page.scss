@@ -98,7 +98,7 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
 
     &:hover {
-      border-color: #16A34A;
+      border-color: var(--primary-color);
       transform: translateY(-4px);
       box-shadow: 0 16px 36px rgba(15, 81, 50, 0.1);
     }
@@ -108,7 +108,7 @@
       height: 48px;
       border-radius: 14px;
       background: rgba(22, 163, 74, 0.12);
-      color: #16A34A;
+      color: var(--primary-color);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -135,7 +135,7 @@
       font-size: 0.95rem;
 
       &:focus {
-        border-color: #16A34A;
+        border-color: var(--primary-color);
         box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12);
       }
     }

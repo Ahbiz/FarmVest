@@ -4,7 +4,7 @@ export function injectAdminModals() {
       <div class="modal fade" id="createPoolModal" tabindex="-1" aria-labelledby="createPoolModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden" style="background: var(--fv-card-bg); color: var(--fv-text);">
-            <div class="modal-header border-bottom px-4 py-3" style="background: linear-gradient(135deg, #0F5132 0%, #16A34A 100%); color: #FFFFFF;">
+            <div class="modal-header border-bottom px-4 py-3" style="background: linear-gradient(135deg, var(--fv-primary-dark, #0F5132) 0%, var(--primary-color, #16A34A) 100%); color: #FFFFFF;">
               <h5 class="modal-title font-serif fw-bold" id="createPoolModalLabel">
                 <i class="fas fa-plus-circle me-2"></i>Create New Agricultural Pool
               </h5>
@@ -72,7 +72,7 @@ export function injectAdminModals() {
       <div class="modal fade" id="editPoolModal" tabindex="-1" aria-labelledby="editPoolModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden" style="background: var(--fv-card-bg); color: var(--fv-text);">
-            <div class="modal-header border-bottom px-4 py-3" style="background: linear-gradient(135deg, #0F5132 0%, #16A34A 100%); color: #FFFFFF;">
+            <div class="modal-header border-bottom px-4 py-3" style="background: linear-gradient(135deg, var(--fv-primary-dark, #0F5132) 0%, var(--primary-color, #16A34A) 100%); color: #FFFFFF;">
               <h5 class="modal-title font-serif fw-bold" id="editPoolModalLabel">
                 <i class="fas fa-pen-to-square me-2"></i>Edit Agricultural Farm Pool
               </h5>

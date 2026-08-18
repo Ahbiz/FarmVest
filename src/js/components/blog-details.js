@@ -3,7 +3,7 @@
 // Parses URL query string (?id=X) and populates blog details
 // ============================================================
 
-import { articles, getArticleById, getArticleBySlug } from '../data/articles';
+import { articles, getArticleById, getArticleBySlug } from '../data/articles.js';
 
 export function initBlogDetails() {
   const page = document.querySelector('.blog-details-page');

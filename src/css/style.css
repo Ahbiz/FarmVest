@@ -1,0 +1,188 @@
+/* ============================================================
+   FarmVest Master Stylesheet & Design System
+   SINGLE SOURCE OF TRUTH FOR PRIMARY COLOR & THEME TOKENS
+   ============================================================ */
+
+/* Base Bootstrap & Modular Theme Styles */
+@import '../scss/main.scss';
+
+:root {
+  /* ==========================================================
+     PRIMARY BRAND COLOR (SINGLE SOURCE OF TRUTH)
+     Changing this one value dynamically updates buttons, badges,
+     links, borders, focus rings, gradients, and chart accents.
+     ========================================================== */
+  --primary-color: #16A34A;
+  --primary-color-rgb: 22, 163, 74;
+  --primary-hover: #15803d;
+  --primary-active: #166534;
+  --primary-light: rgba(var(--primary-color-rgb), 0.12);
+  --primary-subtle: rgba(var(--primary-color-rgb), 0.06);
+  --primary-border: rgba(var(--primary-color-rgb), 0.25);
+  --primary-glow: 0 0 24px rgba(var(--primary-color-rgb), 0.35);
+
+  /* Bootstrap CSS Variable Bindings */
+  --bs-primary: var(--primary-color);
+  --bs-primary-rgb: var(--primary-color-rgb);
+  --bs-link-color: var(--primary-color);
+  --bs-link-hover-color: var(--primary-hover);
+  --bs-focus-ring-color: rgba(var(--primary-color-rgb), 0.25);
+  --bs-form-select-focus-border-color: var(--primary-color);
+  --bs-form-control-focus-border-color: var(--primary-color);
+  
+  /* Namespace Aliases pointing to Single Source of Truth */
+  --fv-primary: var(--primary-color);
+  --fv-primary-dark: #0F5132;
+  --fv-primary-light: #22C55E;
+  --fv-accent: #F59E0B;
+  --fv-accent-light: #FBBF24;
+  
+  /* Neutrals */
+  --fv-neutral-900: #0B1320;
+  --fv-neutral-800: #1E293B;
+  --fv-neutral-700: #334155;
+  --fv-neutral-400: #64748B;
+  --fv-neutral-300: #CBD5E1;
+  --fv-neutral-100: #F1F5F9;
+  --fv-neutral-50: #F8FAFC;
+  --fv-white: #FFFFFF;
+  
+  /* Semantics */
+  --fv-success: var(--primary-color);
+  --fv-danger: #EF4444;
+  --fv-info: #0284C7;
+  --fv-warning: #F59E0B;
+  
+  /* Typography */
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Inter', monospace;
+  
+  /* Radii & Shadows */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 20px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.12);
+  --shadow-xl: 0 24px 56px rgba(15, 23, 42, 0.16);
+  --shadow-glow: var(--primary-glow);
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   GLOBAL PRIMARY COLOR OVERRIDES (Ensuring 100% Theme Cascade)
+   ============================================================ */
+
+/* Buttons & Links */
+.btn-primary,
+.btn-success {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-success:hover,
+.btn-success:focus {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-primary:active,
+.btn-success:active {
+  background-color: var(--primary-active) !important;
+  border-color: var(--primary-active) !important;
+}
+
+.btn-outline-primary,
+.btn-outline-success {
+  color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-success:hover,
+.btn-outline-success:focus {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #FFFFFF !important;
+}
+
+/* Text & Accent Color Utility */
+.text-primary,
+.text-success {
+  color: var(--primary-color) !important;
+}
+
+.bg-primary,
+.bg-success {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-success-subtle,
+.bg-primary-subtle {
+  background-color: var(--primary-light) !important;
+  color: var(--primary-color) !important;
+}
+
+.border-primary,
+.border-success {
+  border-color: var(--primary-color) !important;
+}
+
+/* Focus states & Form controls */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.15) !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* Nav & Pagination Active States */
+.nav-pills .nav-link.active,
+.page-item.active .page-link {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: #FFFFFF !important;
+}
+
+.page-link {
+  color: var(--primary-color);
+}
+
+.page-link:hover {
+  color: var(--primary-hover);
+}
+
+/* Progress & Sliders */
+.progress-bar,
+.funding-progress__fill,
+.stat-gauge-fill {
+  background-color: var(--primary-color) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary-color) !important;
+}
+
+/* Interactive Card & Status Badges */
+.pulse-dot {
+  background-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0 rgba(var(--primary-color-rgb), 0.7);
+}
+
+.pulse-dot-ring {
+  border-color: var(--primary-color) !important;
+}

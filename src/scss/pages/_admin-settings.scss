@@ -69,7 +69,7 @@
     transition: all 0.2s ease;
 
     &.active {
-      background: #16A34A !important;
+      background: var(--primary-color) !important;
       color: #FFFFFF !important;
       box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
     }
@@ -79,7 +79,7 @@
 
       &:hover {
         background: rgba(22, 163, 74, 0.1);
-        color: #16A34A;
+        color: var(--primary-color);
       }
     }
   }

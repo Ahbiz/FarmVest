@@ -1,15 +1,12 @@
 // ============================================================
-// FarmVest Brevo (Sendinblue) Transactional Email Service
-// ============================================================
-// INSTRUCTIONS FOR USER:
-// 1. Log in to your Brevo account (https://app.brevo.com/)
-// 2. Go to SMTP & API -> API Keys -> Generate a new API key
-// 3. Paste your API key in BREVO_CONFIG.apiKey below
-// 4. Update BREVO_CONFIG.senderEmail with your verified Brevo sender email
+// FarmVest Transactional Email Service
+// Handles REST dispatch for account verification OTPs,
+// password recovery tokens, and harvest payout notifications.
+// Reads API credentials from environment variables with fallback simulation.
 // ============================================================
 
 export const BREVO_CONFIG = {
-  apiKey: import.meta.env.VITE_BREVO_API_KEY || 'YOUR_BREVO_API_KEY_HERE',
+  apiKey: import.meta.env.VITE_BREVO_API_KEY || '',
   senderEmail: import.meta.env.VITE_BREVO_SENDER_EMAIL || 'support@farmvest.com',
   senderName: import.meta.env.VITE_BREVO_SENDER_NAME || 'FarmVest Agriculture Investments',
   apiEndpoint: 'https://api.brevo.com/v3/smtp/email'
@@ -19,8 +16,8 @@ export const BREVO_CONFIG = {
  * Send transactional email via Brevo REST API
  */
 export async function sendEmail({ to, subject, htmlContent, textContent }) {
-  if (!BREVO_CONFIG.apiKey || BREVO_CONFIG.apiKey === 'YOUR_BREVO_API_KEY_HERE') {
-    console.warn('[Brevo Email Service] API Key not configured. Simulating email dispatch to:', to);
+  if (!BREVO_CONFIG.apiKey) {
+    console.warn('[Email Service] API Key not configured. Simulating transactional email dispatch to:', to);
     return { success: true, simulated: true };
   }
 

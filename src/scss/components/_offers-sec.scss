@@ -118,8 +118,8 @@
       transition: all $transition-fast;
 
       &:hover {
-        background: #16A34A;
-        border-color: #16A34A;
+        background: var(--primary-color);
+        border-color: var(--primary-color);
         color: #FFFFFF;
         transform: translateY(-2px);
         box-shadow: 0 6px 16px rgba(22, 163, 74, 0.3);
@@ -173,7 +173,7 @@
         position: absolute;
         bottom: 14px;
         left: 14px;
-        background: #16A34A;
+        background: var(--primary-color);
         color: #FFFFFF;
         padding: 6px 14px;
         border-radius: 9999px;
@@ -267,8 +267,8 @@
           transition: all 0.3s ease;
 
           &:hover {
-            background: #16A34A;
-            border-color: #16A34A;
+            background: var(--primary-color);
+            border-color: var(--primary-color);
             color: #FFFFFF;
           }
         }
@@ -304,8 +304,8 @@
 
     // Hover: card inverts to solid green
     &:hover {
-      background: #16A34A;
-      border-color: #16A34A;
+      background: var(--primary-color);
+      border-color: var(--primary-color);
       transform: translateY(-6px);
       box-shadow: 0 16px 36px rgba(22, 163, 74, 0.28);
 
@@ -315,7 +315,7 @@
 
       .offer-roi-badge {
         background: #FFFFFF;
-        color: #16A34A;
+        color: var(--primary-color);
       }
 
       .offer-title {
@@ -337,7 +337,7 @@
         .btn-invest-now {
           background: #FFFFFF;
           border-color: #FFFFFF;
-          color: #16A34A;
+          color: var(--primary-color);
           font-weight: 800;
 
           &:hover {

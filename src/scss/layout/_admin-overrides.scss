@@ -57,7 +57,7 @@
     &.active {
       background: rgba(22, 163, 74, 0.22) !important;
       color: #4ADE80 !important;
-      border-left-color: #16A34A !important;
+      border-left-color: var(--primary-color) !important;
       font-weight: 600 !important;
 
       i {
@@ -95,7 +95,7 @@
     }
 
     &:hover {
-      border-color: #16A34A !important;
+      border-color: var(--primary-color) !important;
       background: rgba(22, 163, 74, 0.08) !important;
     }
   }
@@ -173,7 +173,7 @@
   &__fill {
     height: 100%;
     border-radius: 3px;
-    background: linear-gradient(90deg, #10B981, #16A34A);
+    background: linear-gradient(90deg, #10B981, var(--primary-color));
     transition: width 0.6s ease;
   }
 

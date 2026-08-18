@@ -1,4 +1,4 @@
-import { showToast } from '../components/toast';
+import { showToast } from '../components/toast.js';
 
 export function initThemeToggle() {
   const themeToggleBtns = document.querySelectorAll('[data-theme-toggle]');

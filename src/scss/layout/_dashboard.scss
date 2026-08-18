@@ -849,7 +849,7 @@
     font-size: 1.75rem;
   }
 
-  &--crop   { background: linear-gradient(135deg, #4ade80, #16A34A); }
+  &--crop   { background: linear-gradient(135deg, #4ade80, var(--primary-color)); }
   &--green  { background: linear-gradient(135deg, #34d399, #22C55E); }
   &--amber  { background: linear-gradient(135deg, #fbbf24, #F59E0B); }
   &--cow    { background: linear-gradient(135deg, #94a3b8, #475569); }
@@ -1226,7 +1226,7 @@
   .dashboard__user-menu {
     border-color: var(--fv-border) !important;
     &:hover {
-      border-color: #16A34A !important;
+      border-color: var(--primary-color) !important;
       background: rgba(22, 163, 74, 0.12) !important;
     }
   }
@@ -1440,12 +1440,12 @@
 
     &.is-active {
       .step-flow__step-num {
-        background: #16A34A;
-        border-color: #16A34A;
+        background: var(--primary-color);
+        border-color: var(--primary-color);
         color: #FFFFFF;
         box-shadow: 0 0 16px rgba(22, 163, 74, 0.4);
       }
-      .step-flow__step-label { color: #16A34A; }
+      .step-flow__step-label { color: var(--primary-color); }
     }
 
     &.is-completed {
@@ -1479,12 +1479,12 @@
   }
 
   &:hover {
-    border-color: #16A34A;
+    border-color: var(--primary-color);
     transform: translateY(-2px);
   }
 
   &.is-selected {
-    border-color: #16A34A;
+    border-color: var(--primary-color);
     background: rgba(22, 163, 74, 0.04);
     box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
   }

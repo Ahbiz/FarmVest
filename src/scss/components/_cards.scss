@@ -155,7 +155,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #16A34A 0%, #D4A03C 100%);
+    background: linear-gradient(90deg, var(--primary-color) 0%, #D4A03C 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -176,7 +176,7 @@
 
     i {
       font-size: 1.6rem;
-      color: #16A34A;
+      color: var(--primary-color);
       transition: color 0.3s ease, transform 0.3s ease;
     }
   }
@@ -214,7 +214,7 @@
 
       i {
         font-size: 0.75rem;
-        color: #16A34A;
+        color: var(--primary-color);
       }
     }
   }
@@ -230,8 +230,8 @@
     }
 
     .vision-card__icon {
-      background: linear-gradient(135deg, #16A34A 0%, #15803D 100%);
-      border-color: #16A34A;
+      background: linear-gradient(135deg, var(--primary-color) 0%, #15803D 100%);
+      border-color: var(--primary-color);
       box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
 
       i {
@@ -627,7 +627,7 @@
   }
 
   .section-heading__label {
-    color: #16A34A !important;
+    color: var(--primary-color) !important;
     font-weight: 800 !important;
     font-size: 0.85rem !important;
     letter-spacing: 1.5px;
@@ -714,7 +714,7 @@
       box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08), 0 0 20px rgba(34, 197, 94, 0.08);
 
       .process-icon-pod {
-        background: #16A34A;
+        background: var(--primary-color);
         color: #FFFFFF;
         box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
       }
@@ -727,7 +727,7 @@
       border-radius: 16px;
       background: #F0FDF4;
       border: 1px solid #DCFCE7;
-      color: #16A34A;
+      color: var(--primary-color);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -756,7 +756,7 @@
       .process-step-num {
         font-size: 0.75rem;
         font-weight: 800;
-        color: #16A34A;
+        color: var(--primary-color);
         background: #F0FDF4;
         border: 1px solid #BBF7D0;
         padding: 3px 12px;
@@ -772,4 +772,349 @@
     }
   }
 }
-  
+
+// ============================================================
+// Farm Produce Showcase Cards (E-Commerce Store Preview)
+// ============================================================
+.store-showcase-sec {
+  background-color: #F8FAF5;
+  padding: 90px 0;
+  position: relative;
+}
+
+.store-produce-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 420px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px 28px;
+  background: #0B1320;
+
+  @include media-down(md) {
+    height: 360px;
+    padding: 24px 20px;
+  }
+
+  .card-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.85;
+  }
+
+  .card-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.6) 45%, rgba(11, 19, 32, 0.95) 100%);
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
+
+    .card-bg-img {
+      transform: scale(1.08);
+    }
+  }
+
+  // Top Sale Badge
+  .store-tag-badge {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background: rgba(22, 163, 74, 0.92);
+    backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    z-index: 2;
+  }
+
+  .discount-circle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #FBBF24;
+    color: #0F5132;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+    font-weight: 800;
+    font-size: 0.8rem;
+    line-height: 1;
+    box-shadow: 0 4px 16px rgba(251, 191, 36, 0.4);
+    z-index: 2;
+
+    span.pct {
+      font-size: 0.95rem;
+    }
+    span.off {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+    }
+  }
+
+  .card-content-wrap {
+    position: relative;
+    z-index: 2;
+    color: #FFFFFF;
+
+    .card-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #86EFAC;
+      margin-bottom: 6px;
+    }
+
+    .card-title {
+      font-family: $font-heading;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .card-action-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .price-indicator {
+        font-family: $font-mono;
+        font-weight: 700;
+        font-size: 1rem;
+        color: #FBBF24;
+      }
+
+      .btn-store-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--primary-color);
+        color: #FFFFFF;
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 8px 18px;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: all $transition-fast;
+
+        &:hover {
+          background: #22C55E;
+          transform: translateX(2px);
+        }
+      }
+    }
+  }
+}
+
+// ============================================================
+// Investment Plans Comparison Matrix Cards
+// ============================================================
+.investment-plans-sec {
+  background-color: #071C12; // Deep Forest Evergreen
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  color: #FFFFFF;
+
+  .plans-glow-bg {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(22, 163, 74, 0.15) 0%, rgba(22, 163, 74, 0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+}
+
+.plan-card {
+  background: rgba(15, 43, 29, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 24px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+
+  &.is-featured {
+    background: rgba(15, 51, 34, 0.85);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 16px 40px rgba(22, 163, 74, 0.25);
+    transform: scale(1.03);
+
+    @include media-down(lg) {
+      transform: none;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: #4ADE80;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+
+    &.is-featured {
+      transform: scale(1.03) translateY(-8px);
+      @include media-down(lg) {
+        transform: translateY(-8px);
+      }
+    }
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(74, 222, 128, 0.4);
+    color: #4ADE80;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    border-radius: 9999px;
+  }
+
+  .plan-header {
+    margin-bottom: 24px;
+
+    .plan-title {
+      font-family: $font-heading;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .plan-roi-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 12px;
+
+      .roi-number {
+        font-family: $font-mono;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #4ADE80;
+        line-height: 1;
+      }
+
+      .roi-label {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+
+    .plan-capital-range {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 8px 14px;
+      font-family: $font-mono;
+      font-size: 0.85rem;
+      color: #FBBF24;
+      font-weight: 700;
+    }
+  }
+
+  .plan-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    flex: 1;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 14px;
+
+      i {
+        color: #4ADE80;
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  .btn-plan-select {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 9999px;
+    font-family: $font-body;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-decoration: none;
+    transition: all $transition-fast;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    &--primary {
+      background: var(--primary-color);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(22, 163, 74, 0.4);
+
+      &:hover {
+        background: #22C55E;
+        color: #FFFFFF;
+        box-shadow: 0 8px 24px rgba(34, 197, 94, 0.5);
+      }
+    }
+
+    &--outline {
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.16);
+        color: #FFFFFF;
+        border-color: #FFFFFF;
+      }
+    }
+  }
+}

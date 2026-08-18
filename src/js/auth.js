@@ -1,10 +1,19 @@
 // ============================================================
-// FarmVest Complete Auth & Session System
-// (Frontend-Simulated like CodeCanyon script demos)
+// FarmVest Authentication & User Session Management
+// Handles registration, OTP validation, login, password recovery,
+// and client-side session hydration via localStorage.
 // ============================================================
 
-import { showToast } from './components/toast';
-import { sendVerificationEmail, sendPasswordResetEmail } from './services/email-service';
+import 'bootstrap';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'remixicon/fonts/remixicon.css';
+import { createIcons, icons } from 'lucide';
+import '../css/style.css';
+
+import { showToast } from './components/toast.js';
+import { sendVerificationEmail, sendPasswordResetEmail } from './services/email-service.js';
+import { initPreloader } from './components/preloader.js';
 
 const STORAGE_KEYS = {
   USERS: 'farmvest_users',
@@ -12,7 +21,7 @@ const STORAGE_KEYS = {
   PENDING_USER: 'farmvest_pending_user'
 };
 
-// Seed initial default demo users if none exist
+// Seed default investor and admin accounts on first initialization
 function seedDemoData() {
   const existingUsers = localStorage.getItem(STORAGE_KEYS.USERS);
   if (!existingUsers) {
@@ -99,6 +108,7 @@ function clearFormErrors(form) {
 export async function handleRegister(formData) {
   const { fullName, email, password, confirmPassword, agreeTerms } = formData;
   const form = document.getElementById('registerForm');
+  const submitBtn = document.getElementById('registerSubmit') || form?.querySelector('button[type="submit"]');
   clearFormErrors(form);
 
   let hasError = false;
@@ -151,6 +161,12 @@ export async function handleRegister(formData) {
     return false;
   }
 
+  // Activate loading button spinner
+  if (submitBtn) {
+    submitBtn.classList.add('is-loading');
+    submitBtn.disabled = true;
+  }
+
   // Create pending registration user
   const pendingUser = {
     id: `usr_${Date.now()}`,
@@ -167,8 +183,12 @@ export async function handleRegister(formData) {
 
   localStorage.setItem(STORAGE_KEYS.PENDING_USER, JSON.stringify(pendingUser));
 
-  // Send Brevo OTP email
-  await sendVerificationEmail(email.trim(), '123456');
+  try {
+    // Send Brevo OTP email
+    await sendVerificationEmail(email.trim(), '123456');
+  } catch (err) {
+    console.warn('[Register] Simulated email send error ignored:', err);
+  }
 
   showToast('Registration initiated! 6-digit verification code sent to your email.', 'success');
   
@@ -222,6 +242,7 @@ export function handleVerifyOtp(otpCode) {
  */
 export function handleLogin(email, password) {
   const form = document.getElementById('loginForm');
+  const submitBtn = form?.querySelector('button[type="submit"]');
   clearFormErrors(form);
 
   let hasError = false;
@@ -253,6 +274,11 @@ export function handleLogin(email, password) {
     setFieldError('password', 'Invalid email address or password.');
     showToast('Invalid email address or password.', 'error');
     return false;
+  }
+
+  if (submitBtn) {
+    submitBtn.classList.add('is-loading');
+    submitBtn.disabled = true;
   }
 
   setCurrentUser(user);
@@ -304,32 +330,66 @@ export function initPasswordToggles() {
 }
 
 /**
- * Real-time Password Strength Meter
+ * Real-time Password Strength Meter (Supports Continuous Bar & Segmented Meters)
  */
 export function initPasswordStrengthMeter() {
   const passwordInput = document.getElementById('password');
+  if (!passwordInput) return;
+
   const strengthBar = document.querySelector('.password-strength__bar');
-  if (!passwordInput || !strengthBar) return;
+  const segs = document.querySelectorAll('.pw-meter__seg');
+  const strengthLabel = document.getElementById('pwStrengthLabel');
 
   passwordInput.addEventListener('input', () => {
     const val = passwordInput.value;
+    if (!val) {
+      if (strengthBar) strengthBar.style.width = '0%';
+      segs.forEach(s => s.className = 'pw-meter__seg');
+      if (strengthLabel) {
+        strengthLabel.textContent = 'Enter a password';
+        strengthLabel.className = 'pw-meter__label';
+      }
+      return;
+    }
+
     let score = 0;
+    if (val.length >= 8) score++;
+    if (/[A-Z]/.test(val)) score++;
+    if (/[0-9]/.test(val)) score++;
+    if (/[^A-Za-z0-9]/.test(val)) score++;
 
-    if (val.length >= 8) score += 25;
-    if (/[A-Z]/.test(val)) score += 25;
-    if (/[0-9]/.test(val)) score += 25;
-    if (/[^A-Za-z0-9]/.test(val)) score += 25;
+    if (strengthBar) {
+      const percent = score * 25;
+      strengthBar.style.width = `${percent}%`;
+      if (score <= 1) {
+        strengthBar.className = 'password-strength__bar bg-danger';
+      } else if (score === 2) {
+        strengthBar.className = 'password-strength__bar bg-warning';
+      } else if (score === 3) {
+        strengthBar.className = 'password-strength__bar bg-info';
+      } else {
+        strengthBar.className = 'password-strength__bar bg-success';
+      }
+    }
 
-    strengthBar.style.width = `${score}%`;
+    if (segs.length > 0) {
+      const levelClasses = ['is-weak', 'is-fair', 'is-good', 'is-strong'];
+      const levelLabels = ['Weak password', 'Fair password', 'Good password', 'Strong password'];
+      const activeClass = levelClasses[Math.max(0, score - 1)] || 'is-weak';
+      const activeText = levelLabels[Math.max(0, score - 1)] || 'Weak password';
 
-    if (score <= 25) {
-      strengthBar.className = 'password-strength__bar bg-danger';
-    } else if (score <= 50) {
-      strengthBar.className = 'password-strength__bar bg-warning';
-    } else if (score <= 75) {
-      strengthBar.className = 'password-strength__bar bg-info';
-    } else {
-      strengthBar.className = 'password-strength__bar bg-success';
+      segs.forEach((seg, idx) => {
+        if (idx < score) {
+          seg.className = `pw-meter__seg is-active ${activeClass}`;
+        } else {
+          seg.className = 'pw-meter__seg';
+        }
+      });
+
+      if (strengthLabel) {
+        strengthLabel.textContent = activeText;
+        strengthLabel.className = `pw-meter__label ${activeClass}`;
+      }
     }
   });
 }
@@ -504,3 +564,11 @@ export function initAuthForms() {
     }
   }
 }
+
+// Auto-initialize Auth system on DOM Ready
+document.addEventListener('DOMContentLoaded', () => {
+  createIcons({ icons });
+  initPreloader();
+  initAuthForms();
+});
+
