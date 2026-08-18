@@ -4,12 +4,15 @@
 // live deposit/withdrawal simulation, and theme toggling.
 // ============================================================
 
-import 'bootstrap';
+import * as bootstrap from 'bootstrap';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'remixicon/fonts/remixicon.css';
 import { createIcons, icons } from 'lucide';
 import '../css/style.css';
+
+// Expose bootstrap globally for dynamic modal handlers
+window.bootstrap = bootstrap;
 
 import { getCurrentUser, setCurrentUser, logout } from './auth.js';
 import { showToast } from './components/toast.js';
@@ -17,6 +20,7 @@ import { initYieldChart, initAllocationChart, initSparkline } from './components
 import { animateCounters, initStaggerEntrance } from './components/animations.js';
 import { initThemeToggle } from './services/theme.js';
 import { initSidebarToggle } from './components/sidebar.js';
+import { getWalletBalance } from './services/ecommerce-store.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   createIcons({ icons });
@@ -24,24 +28,33 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initSidebarToggle();
 
-  // Hydrate investor session and wallet state
-  const currentUser = getCurrentUser() || {
-    fullName: 'James Wilson',
-    email: 'james@example.com',
-    walletBalance: 2180.00,
-    totalInvested: 40000.00,
-    role: 'investor'
-  };
+  // Authentication Route Guard for all dashboard pages
+  const currentUser = getCurrentUser();
+  if (!currentUser) {
+    window.location.href = '/auth/login.html';
+    return;
+  }
 
-  // Update Topbar User Name & Avatar
-  const userNameElements = document.querySelectorAll('.dashboard__user-name, .dashboard__page-title-name');
-  userNameElements.forEach(el => {
+  // Hydrate user session and wallet displays across topbar, sidebar, and body
+  const userFirstNames = document.querySelectorAll('.dashboard__user-name, .dashboard__page-title-name');
+  userFirstNames.forEach(el => {
     el.textContent = currentUser.fullName.split(' ')[0];
   });
 
+  const userFullNames = document.querySelectorAll('[data-user-fullname]');
+  userFullNames.forEach(el => {
+    el.textContent = currentUser.fullName;
+  });
+
+  const userEmails = document.querySelectorAll('[data-user-email]');
+  userEmails.forEach(el => {
+    el.textContent = currentUser.email;
+  });
+
+  const activeBal = currentUser.walletBalance !== undefined ? currentUser.walletBalance : getWalletBalance();
   const walletDisplayElements = document.querySelectorAll('[data-wallet-balance]');
   walletDisplayElements.forEach(el => {
-    el.textContent = `$${currentUser.walletBalance.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+    el.textContent = `$${activeBal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
   });
 
   // 4. Initialize Charts & Animations
