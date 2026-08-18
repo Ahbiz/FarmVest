@@ -4,12 +4,15 @@
 // and client-side session hydration via localStorage.
 // ============================================================
 
-import 'bootstrap';
+import * as bootstrap from 'bootstrap';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'remixicon/fonts/remixicon.css';
 import { createIcons, icons } from 'lucide';
 import '../css/style.css';
+
+// Expose bootstrap globally for dynamic modal handlers
+window.bootstrap = bootstrap;
 
 import { showToast } from './components/toast.js';
 import { sendVerificationEmail, sendPasswordResetEmail } from './services/email-service.js';
