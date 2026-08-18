@@ -31,7 +31,22 @@ function getThemeColor(variableName, fallbackHex) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const isLoginPage = window.location.pathname.includes('/admin/login.html');
   const currentUser = getCurrentUser();
+
+  // Authentication Route Guard for Admin panel
+  if (!isLoginPage && (!currentUser || currentUser.role !== 'admin')) {
+    window.location.href = '/admin/login.html';
+    return;
+  }
+
+  // Hydrate Supervisor details
+  if (currentUser) {
+    document.querySelectorAll('.dashboard__user-name').forEach(el => {
+      el.textContent = currentUser.fullName || 'Admin Supervisor';
+    });
+  }
+
   const primaryColor = getThemeColor('--primary-color', '#16A34A');
 
   initThemeToggle();
@@ -43,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       logout();
+      window.location.href = '/admin/login.html';
     });
   });
   injectAdminModals();
