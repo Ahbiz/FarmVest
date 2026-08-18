@@ -661,14 +661,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         adminProductsTableBody.innerHTML = filtered.map(p => `
           <tr>
-            <td class="ps-4">
-              <div class="d-flex align-items-center gap-3">
-                <img src="${p.image}" class="rounded-3 shadow-sm flex-shrink-0" width="40" height="40" style="object-fit: cover; border: 1px solid rgba(0,0,0,0.08);" alt="${p.title}" />
+            <td class="ps-3 ps-md-4">
+              <div class="d-flex align-items-center gap-2.5">
+                <img src="${p.image}" class="rounded-2 shadow-sm flex-shrink-0" width="36" height="36" style="object-fit: cover; border: 1px solid rgba(0,0,0,0.08);" alt="${p.title}" />
                 <div style="min-width: 0;">
                   <strong class="text-dark d-block text-sm text-truncate" style="max-width: 220px;" title="${p.title}">${p.title}</strong>
-                  <div class="d-flex align-items-center gap-1">
-                    <span class="text-xs text-muted font-mono">${p.id}</span>
-                    <span class="badge bg-light text-dark border text-uppercase" style="font-size: 9px; padding: 2px 6px; letter-spacing: 0.03em;">${p.badge || 'Direct Harvest'}</span>
+                  <div class="d-flex align-items-center gap-1.5 flex-wrap">
+                    <span class="text-xs text-muted font-mono" style="font-size: 11px;">${p.id}</span>
+                    <span class="badge bg-light text-muted border text-uppercase" style="font-size: 9px; padding: 1px 5px; letter-spacing: 0.02em;">${p.badge || 'Direct Harvest'}</span>
                   </div>
                 </div>
               </div>
@@ -677,23 +677,25 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="badge bg-light text-dark border text-capitalize text-xs font-weight-normal">${p.category}</span>
             </td>
             <td>
-              <strong class="font-mono text-success fs-6">$${p.price.toFixed(2)}</strong>
-              <span class="text-xs text-muted">/ ${p.unit}</span>
+              <strong class="font-mono text-success text-sm">$${p.price.toFixed(2)}</strong>
+              <span class="text-xs text-muted">/${p.unit}</span>
             </td>
             <td>
-              <span class="text-xs text-dark d-inline-flex align-items-center"><i class="fas fa-location-dot text-success me-1"></i>${p.origin}</span>
-            </td>
-            <td>
-              <span class="font-mono fw-bold text-sm ${p.stockQty > 20 ? 'text-dark' : 'text-danger'}">${p.stockQty || 50} units</span>
-            </td>
-            <td>
-              <span class="badge rounded-pill px-2.5 py-1 text-xs ${p.stockQty > 20 ? 'bg-success-subtle text-success border border-success-subtle' : 'bg-warning-subtle text-warning border border-warning-subtle'}">
-                <i class="fas fa-circle me-1" style="font-size: 7px;"></i> ${p.stockQty > 20 ? 'In Stock' : 'Low Stock'}
+              <span class="text-xs text-dark text-truncate d-inline-flex align-items-center" style="max-width: 170px;" title="${p.origin}">
+                <span class="text-success me-1.5" style="font-size: 8px;">●</span>${p.origin}
               </span>
             </td>
-            <td class="text-end pe-4">
-              <button type="button" class="btn btn-outline-danger btn-sm rounded-circle p-1" style="width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center;" data-delete-prod="${p.id}" title="Remove Produce">
-                <i class="fas fa-trash-can" style="font-size: 11px;"></i>
+            <td>
+              <span class="font-mono text-sm fw-bold ${p.stockQty > 20 ? 'text-dark' : 'text-danger'}">${p.stockQty || 50} units</span>
+            </td>
+            <td>
+              <span class="badge rounded-pill px-2.5 py-0.5 text-xs ${p.stockQty > 20 ? 'bg-success-subtle text-success border border-success-subtle' : 'bg-warning-subtle text-warning border border-warning-subtle'}" style="font-size: 11px;">
+                <i class="fas fa-circle me-1" style="font-size: 6px;"></i> ${p.stockQty > 20 ? 'IN STOCK' : 'LOW STOCK'}
+              </span>
+            </td>
+            <td class="text-end pe-3 pe-md-4">
+              <button type="button" class="btn btn-outline-danger btn-sm rounded-circle p-1" style="width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;" data-delete-prod="${p.id}" title="Remove Produce">
+                <i class="fas fa-trash-can" style="font-size: 10px;"></i>
               </button>
             </td>
           </tr>

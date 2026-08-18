@@ -21,7 +21,7 @@
 <body class="admin-dashboard-page">
   <div class="dashboard">
 
-    <!-- ADMIN SIDEBAR — Unified Dark Command Shell -->
+    <!-- 1. ADMIN SIDEBAR — Unified Dark Command Shell (260px) -->
     <aside class="dashboard__sidebar admin-sidebar">
       <div class="dashboard__brand">
         <a href="/admin/index.html"><img src="/images/logo-white.svg" alt="FarmVest Admin" /></a>
@@ -31,7 +31,7 @@
         <div class="dashboard__nav-section">
           <p class="dashboard__nav-section-title">Overview</p>
           <a href="/admin/index.html" class="dashboard__nav-item"><i class="fas fa-gauge-high"></i> Admin Dashboard</a>
-          <a href="/admin/reports.html" class="dashboard__nav-item"><i class="fas fa-chart-column"></i> Reports & Analytics</a>
+          <a href="/admin/reports.html" class="dashboard__nav-item"><i class="fas fa-chart-column"></i> Reports &amp; Analytics</a>
         </div>
 
         <div class="dashboard__nav-section">
@@ -48,7 +48,7 @@
         </div>
 
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">System & Config</p>
+          <p class="dashboard__nav-section-title">System &amp; Config</p>
           <a href="/admin/settings.html" class="dashboard__nav-item"><i class="fas fa-gear"></i> System Settings</a>
           <a href="/index.html" class="dashboard__nav-item"><i class="fas fa-globe"></i> View Live Site</a>
         </div>
@@ -65,28 +65,28 @@
     </aside>
     <div class="dashboard-backdrop"></div>
 
-    <!-- ADMIN MAIN CONTENT -->
+    <!-- 2. ADMIN MAIN CONTENT WRAPPER -->
     <div class="dashboard__main">
 
-      <!-- COMPACT ADMIN TOPBAR (56-64px) -->
+      <!-- TOPBAR (56-64px) -->
       <header class="dashboard__topbar">
         <div class="dashboard__topbar-left">
           <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></button>
           <div class="dashboard__search">
             <i class="fas fa-search"></i>
-            <input type="search" id="adminHeaderSearch" placeholder="Search produce item, SKU, estate origin…" aria-label="Search produce" />
+            <input type="search" id="adminHeaderSearch" placeholder="Search produce item, SKU, origin…" aria-label="Search produce" />
           </div>
         </div>
 
         <div class="dashboard__topbar-right">
-          <!-- Dark / Light Mode Toggle Button -->
+          <!-- Dark / Light Mode Toggle -->
           <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
             <i class="fas fa-moon"></i>
           </button>
 
           <!-- Admin Profile Dropdown -->
           <div class="dropdown">
-            <button class="dashboard__avatar-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Admin menu">
+            <button class="dashboard__avatar-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Admin profile menu">
               <img src="/images/team-sarah.png" alt="Admin" />
             </button>
             <ul class="dropdown-menu dropdown-menu-end shadow-sm">
@@ -103,17 +103,17 @@
         </div>
       </header>
 
-      <!-- ADMIN CONTENT CONTAINER -->
-      <main class="dashboard__content p-3 p-md-4">
+      <!-- MAIN DASHBOARD CONTENT (Uniform 24-28px padding) -->
+      <main class="dashboard__content">
 
-        <!-- 1. COMPACT PAGE HERO / HEADER (180-220px) -->
+        <!-- 1. COMPACT PAGE HERO / HEADER (170-210px) -->
         <div class="admin-hero-card mb-4 position-relative overflow-hidden">
-          <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-4">
+          <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
             
-            <!-- LEFT: Eyebrow, Title, Description, Primary Action & Meta -->
-            <div class="d-flex flex-column" style="max-width: 620px;">
-              <div class="d-flex align-items-center gap-2 mb-2">
-                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs fw-bold font-mono">
+            <!-- LEFT: Eyebrow, Title, Description, Primary Action & Context -->
+            <div class="d-flex flex-column" style="max-width: 600px;">
+              <div class="d-flex align-items-center gap-2 mb-1.5">
+                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2.5 py-0.5 text-xs fw-bold font-mono">
                   <i class="fas fa-boxes-stacked me-1"></i> INVENTORY CONTROL
                 </span>
                 <span class="badge bg-light text-muted border rounded-pill px-2 py-0.5 text-xs font-mono">
@@ -122,11 +122,11 @@
               </div>
               <h1 class="font-serif fw-bold text-dark mb-1 fs-3">Produce Catalog &amp; Inventory</h1>
               <p class="text-muted text-sm mb-3">
-                Manage verified farm harvest batches, monitor cold-chain warehouse stock levels, and configure real-time market pricing across the FarmVest marketplace.
+                Manage verified farm harvest batches, monitor warehouse stock thresholds, and configure real-time market pricing.
               </p>
               
               <div class="d-flex flex-wrap align-items-center gap-3">
-                <button type="button" class="btn btn-success rounded-pill px-4 py-2 text-xs fw-bold shadow-sm d-inline-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#adminAddProductModal">
+                <button type="button" class="btn btn-success rounded-pill px-3.5 py-1.5 text-xs fw-bold shadow-sm d-inline-flex align-items-center gap-1.5" data-bs-toggle="modal" data-bs-target="#adminAddProductModal">
                   <i class="fas fa-plus"></i>
                   <span>Add New Produce</span>
                 </button>
@@ -136,19 +136,19 @@
               </div>
             </div>
 
-            <!-- RIGHT: Intelligently Cropped Compact Agricultural Image (~160px) -->
-            <div class="d-none d-lg-block" style="width: 240px; height: 140px; flex-shrink: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.08);">
-              <img src="/images/hero-bg-natural-farmer.png" alt="Farm Harvest Inventory" style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;" />
+            <!-- RIGHT: Intelligently Cropped Agricultural Image (~140px) -->
+            <div class="d-none d-lg-block" style="width: 220px; height: 135px; flex-shrink: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.06); border: 1px solid rgba(0,0,0,0.06);">
+              <img src="/images/hero-bg-natural-farmer.png" alt="Farm Harvest Inventory" style="width: 100%; height: 100%; object-fit: cover; object-position: center 25%;" />
             </div>
 
           </div>
         </div>
 
-        <!-- 2. STATISTICS SECTION (4 Equal-Width Cards) -->
+        <!-- 2. STATISTICS SECTION (4 Equal-Width Cards in 1 Row) -->
         <div class="row g-3 mb-4">
-          <div class="col-sm-6 col-xl-3">
+          <div class="col-6 col-xl-3">
             <div class="admin-card p-3 h-100">
-              <div class="d-flex align-items-center justify-content-between mb-2">
+              <div class="d-flex align-items-center justify-content-between mb-1.5">
                 <span class="text-xs text-muted text-uppercase fw-bold">Stocked Items</span>
                 <span class="admin-card__icon text-primary"><i class="fas fa-boxes-stacked"></i></span>
               </div>
@@ -156,9 +156,9 @@
               <span class="text-xs text-muted">4 harvest categories</span>
             </div>
           </div>
-          <div class="col-sm-6 col-xl-3">
+          <div class="col-6 col-xl-3">
             <div class="admin-card p-3 h-100">
-              <div class="d-flex align-items-center justify-content-between mb-2">
+              <div class="d-flex align-items-center justify-content-between mb-1.5">
                 <span class="text-xs text-muted text-uppercase fw-bold">Total Stock Units</span>
                 <span class="admin-card__icon text-success"><i class="fas fa-warehouse"></i></span>
               </div>
@@ -166,9 +166,9 @@
               <span class="text-xs text-muted">Active warehouse stock</span>
             </div>
           </div>
-          <div class="col-sm-6 col-xl-3">
+          <div class="col-6 col-xl-3">
             <div class="admin-card p-3 h-100">
-              <div class="d-flex align-items-center justify-content-between mb-2">
+              <div class="d-flex align-items-center justify-content-between mb-1.5">
                 <span class="text-xs text-muted text-uppercase fw-bold">Gross Store GMV</span>
                 <span class="admin-card__icon text-warning"><i class="fas fa-dollar-sign"></i></span>
               </div>
@@ -176,9 +176,9 @@
               <span class="text-xs text-muted">Direct marketplace sales</span>
             </div>
           </div>
-          <div class="col-sm-6 col-xl-3">
+          <div class="col-6 col-xl-3">
             <div class="admin-card p-3 h-100">
-              <div class="d-flex align-items-center justify-content-between mb-2">
+              <div class="d-flex align-items-center justify-content-between mb-1.5">
                 <span class="text-xs text-muted text-uppercase fw-bold">Cold-Chain Fleet</span>
                 <span class="admin-card__icon text-info"><i class="fas fa-truck-fast"></i></span>
               </div>
@@ -189,7 +189,7 @@
         </div>
 
         <!-- 3. INVENTORY TOOLBAR & PRODUCT CATALOG TABLE CARD -->
-        <div class="admin-card overflow-hidden p-0 mb-4 shadow-sm">
+        <div class="admin-card overflow-hidden p-0 mb-4">
           
           <!-- Unified Toolbar Header -->
           <div class="p-3 border-bottom bg-light">
@@ -198,12 +198,12 @@
                 <h5 class="fw-bold text-dark mb-0 font-serif fs-6">
                   <i class="fas fa-layer-group text-success me-2"></i> Produce Catalog
                 </h5>
-                <span class="badge bg-white text-dark border text-xs font-mono" id="adminProductsCount">Showing 8 produce items</span>
+                <span class="badge bg-white text-dark border text-xs font-mono" id="adminProductsCount">Showing 8 items</span>
               </div>
               <div class="d-flex align-items-center gap-2">
                 <div class="input-group input-group-sm" style="width: 220px;">
                   <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-search"></i></span>
-                  <input type="search" class="form-control border-start-0 text-xs bg-white" id="adminTableSearchInput" placeholder="Filter items…" />
+                  <input type="search" class="form-control border-start-0 text-xs bg-white" id="adminTableSearchInput" placeholder="Filter items…" aria-label="Filter items" />
                 </div>
               </div>
             </div>
@@ -218,18 +218,18 @@
             </div>
           </div>
 
-          <!-- Product Catalog Table -->
-          <div class="table-responsive">
+          <!-- Product Catalog Table (Flexible Desktop Sizing & Isolated Table Scroll on Mobile) -->
+          <div class="table-wrapper">
             <table class="table admin-table align-middle mb-0">
               <thead>
                 <tr>
-                  <th class="ps-4" style="min-width: 240px;">Product &amp; SKU</th>
-                  <th style="min-width: 120px;">Category</th>
-                  <th style="min-width: 110px;">Retail Price</th>
-                  <th style="min-width: 160px;">Origin Estate</th>
-                  <th style="min-width: 110px;">Stock</th>
-                  <th style="min-width: 100px;">Status</th>
-                  <th class="text-end pe-4" style="min-width: 80px;">Actions</th>
+                  <th class="ps-3 ps-md-4" style="width: 34%;">Product &amp; SKU</th>
+                  <th style="width: 14%;">Category</th>
+                  <th style="width: 13%;">Retail Price</th>
+                  <th style="width: 17%;">Origin Estate</th>
+                  <th style="width: 10%;">Stock</th>
+                  <th style="width: 8%;">Status</th>
+                  <th class="text-end pe-3 pe-md-4" style="width: 4%;">Actions</th>
                 </tr>
               </thead>
               <tbody id="adminProductsTableBody">
