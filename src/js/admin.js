@@ -634,15 +634,15 @@ document.addEventListener('DOMContentLoaded', () => {
           <tr>
             <td class="ps-4">
               <div class="d-flex align-items-center gap-3">
-                <img src="${p.image}" class="rounded-3 shadow-sm" width="48" height="48" style="object-fit: cover;" alt="${p.title}" />
+                <img src="${p.image}" class="rounded-3 shadow-sm" width="38" height="38" style="object-fit: cover;" alt="${p.title}" />
                 <div>
-                  <strong class="text-dark d-block">${p.title}</strong>
+                  <strong class="text-dark d-block text-sm">${p.title}</strong>
                   <span class="text-xs text-muted font-mono">${p.id} · <span class="badge bg-light text-dark border">${p.badge || 'Organic'}</span></span>
                 </div>
               </div>
             </td>
             <td>
-              <span class="badge bg-light text-dark border text-capitalize">${p.category}</span>
+              <span class="badge bg-light text-dark border text-capitalize text-xs">${p.category}</span>
             </td>
             <td>
               <strong class="font-mono text-success fs-6">$${p.price.toFixed(2)}</strong>
@@ -652,10 +652,10 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="text-sm text-dark">${p.origin}</span>
             </td>
             <td>
-              <span class="font-mono fw-bold ${p.stockQty > 20 ? 'text-dark' : 'text-danger'}">${p.stockQty || 50} units</span>
+              <span class="font-mono fw-bold text-sm ${p.stockQty > 20 ? 'text-dark' : 'text-danger'}">${p.stockQty || 50} units</span>
             </td>
             <td>
-              <span class="badge rounded-pill px-3 py-1 bg-success-subtle text-success border border-success-subtle">
+              <span class="badge rounded-pill px-3 py-1 text-xs bg-success-subtle text-success border border-success-subtle">
                 In Stock
               </span>
             </td>

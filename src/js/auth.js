@@ -47,6 +47,17 @@ function seedDemoData() {
         walletBalance: 15000.00,
         totalInvested: 0,
         createdAt: '2023-11-01'
+      },
+      {
+        id: 'usr_003',
+        fullName: 'Mateo Hernandez (Highland Orchards)',
+        email: 'farmer@farmvest.ag',
+        password: 'farmerpassword',
+        role: 'farmer',
+        verified: true,
+        walletBalance: 20037.50,
+        totalInvested: 0,
+        createdAt: '2024-02-10'
       }
     ];
     localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(defaultUsers));
@@ -287,6 +298,8 @@ export function handleLogin(email, password) {
   setTimeout(() => {
     if (user.role === 'admin') {
       window.location.href = '/admin/index.html';
+    } else if (user.role === 'farmer') {
+      window.location.href = '/dashboard/seller.html';
     } else {
       window.location.href = '/dashboard/index.html';
     }

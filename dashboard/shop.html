@@ -51,7 +51,7 @@
         <div class="dashboard__nav-section">
           <p class="dashboard__nav-section-title">Marketplace & Trade</p>
           <a href="/dashboard/shop.html" class="dashboard__nav-item active"><i class="fa-solid fa-store me-2"></i> Farm Store</a>
-          <a href="/dashboard/orders.html" class="dashboard__nav-item"><i class="fa-solid fa-box-open me-2"></i> My Orders <span class="badge bg-success ms-auto">2</span></a>
+          <a href="/dashboard/orders.html" class="dashboard__nav-item"><i class="fa-solid fa-box-open me-2"></i> My Orders</a>
           <a href="/dashboard/seller.html" class="dashboard__nav-item"><i class="fa-solid fa-tractor me-2"></i> Seller Hub</a>
         </div>
 
@@ -86,16 +86,21 @@
           <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
           <div class="dashboard__search">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search" id="memberStoreSearch" placeholder="Search fresh cuts, organic vegetables, honey, seafood…" aria-label="Search produce" />
+            <input type="search" id="memberStoreSearch" placeholder="Search fresh produce, cuts, dairy, honey…" aria-label="Search produce" />
           </div>
         </div>
 
         <div class="dashboard__topbar-right">
           <!-- Wallet Balance Pill -->
-          <div class="d-flex align-items-center gap-2 px-3 py-2 bg-success-subtle text-success rounded-pill border border-success-subtle">
+          <div class="d-flex align-items-center gap-2 px-3 py-1 bg-success-subtle text-success rounded-pill border border-success-subtle">
             <i class="fa-solid fa-wallet"></i>
             <span class="text-xs fw-bold">Yield Wallet:</span>
-            <span class="fw-bold font-mono" id="topbarWalletBalance">$4,850.00</span>
+            <span class="fw-bold font-mono text-sm" id="topbarWalletBalance">$4,850.00</span>
+          </div>
+
+          <div class="d-none d-md-flex align-items-center gap-2 px-3 py-1 bg-light rounded-pill border text-xs text-muted">
+            <span class="pulse-dot"></span>
+            <span>Munich Re Protected</span>
           </div>
 
           <!-- Dark / Light Mode Toggle Button -->
@@ -115,6 +120,7 @@
               </li>
               <li><a class="dropdown-item" href="/dashboard/profile.html"><i class="fa-solid fa-user me-2 text-muted"></i> Profile Settings</a></li>
               <li><a class="dropdown-item" href="/dashboard/orders.html"><i class="fa-solid fa-box-open me-2 text-muted"></i> My Orders</a></li>
+              <li><a class="dropdown-item" href="/dashboard/seller.html"><i class="fa-solid fa-tractor me-2 text-muted"></i> Seller Hub</a></li>
               <li><hr class="dropdown-divider" /></li>
               <li><button type="button" data-logout-btn class="dropdown-item text-danger"><i class="fa-solid fa-right-from-bracket me-2"></i> Log Out</button></li>
             </ul>
@@ -125,76 +131,79 @@
       <!-- DASHBOARD BODY CONTAINER -->
       <main class="dashboard__content p-4">
 
-        <!-- Page Header & Investor Perk Banner -->
+        <!-- Page Header & Action Buttons -->
         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
           <div>
             <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs fw-bold mb-1">
               <i class="fa-solid fa-basket-shopping me-1"></i> FARM DIRECT MARKETPLACE
             </span>
-            <h2 class="font-serif fw-bold text-dark mb-0">Member Produce Store</h2>
-            <p class="text-muted text-sm mb-0">Purchase 100% verified organic harvest directly using your harvested investment dividends.</p>
+            <h2 class="font-serif fw-bold text-dark mb-0 fs-3">Member Produce Store</h2>
+            <p class="text-muted text-sm mb-0">Direct harvest produce delivered fresh with automatic wallet dividend payment.</p>
           </div>
           <div class="d-flex gap-2">
-            <a href="/dashboard/orders.html" class="btn btn-outline-success rounded-pill px-3 py-2 text-sm fw-bold">
-              <i class="fa-solid fa-box me-1"></i> Track Orders
+            <a href="/dashboard/orders.html" class="btn btn-outline-success rounded-pill px-3 py-2 text-xs fw-bold">
+              <i class="fa-solid fa-box me-1"></i> My Orders
             </a>
-            <a href="/dashboard/seller.html" class="btn btn-success rounded-pill px-3 py-2 text-sm fw-bold">
+            <a href="/dashboard/seller.html" class="btn btn-success rounded-pill px-3 py-2 text-xs fw-bold shadow-sm">
               <i class="fa-solid fa-tractor me-1"></i> Sell Your Harvest
             </a>
           </div>
         </div>
 
-        <!-- Special Investor Perk Banner -->
-        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 text-white overflow-hidden position-relative" style="background: linear-gradient(135deg, #0F5132 0%, #16A34A 100%);">
+        <!-- Special Investor Perk Banner (Compact & Sleek) -->
+        <div class="card border-0 shadow-sm rounded-4 p-3 mb-4 text-white overflow-hidden position-relative" style="background: linear-gradient(135deg, #0F5132 0%, #16A34A 100%);">
           <div class="position-relative z-1 d-flex flex-wrap align-items-center justify-content-between gap-3">
-            <div>
-              <span class="badge bg-warning text-dark rounded-pill px-3 py-1 text-xs fw-bold mb-2">⭐ INVESTOR BENEFIT APPLIED</span>
-              <h4 class="font-serif fw-bold mb-1">Enjoy 10% Off & Free Cold-Chain Refrigerated Delivery</h4>
-              <p class="mb-0 text-white-80 text-sm" style="max-width: 600px;">
-                As an active farm yield investor, your produce orders are shipped directly from certified partner orchards with prioritized cold-chain delivery.
-              </p>
+            <div class="d-flex align-items-center gap-3">
+              <div class="rounded-circle bg-white text-success d-flex align-items-center justify-content-center shadow-sm" style="width: 42px; height: 42px; flex-shrink: 0;">
+                <i class="fa-solid fa-tags fs-5"></i>
+              </div>
+              <div>
+                <h6 class="fw-bold mb-0 text-white">Investor Perk: 10% Off All Fresh Harvests</h6>
+                <p class="text-white-80 text-xs mb-0">Free refrigerated delivery is included on all member orders settled via wallet balance.</p>
+              </div>
             </div>
-            <div class="bg-white-10 border border-white-20 rounded-4 p-3 text-center">
-              <span class="text-xs text-white-70 d-block">Available Harvest Balance</span>
-              <h3 class="font-mono fw-bold text-warning mb-0" id="bannerWalletBalance">$4,850.00</h3>
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge bg-white text-success font-mono px-3 py-2 rounded-pill fw-bold text-xs">
+                Wallet Available: <span id="bannerWalletBalance">$4,850.00</span>
+              </span>
             </div>
           </div>
         </div>
 
-        <!-- Filter and Categories Nav -->
-        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 bg-white p-3 rounded-4 shadow-sm mb-4">
+        <!-- Category Filters & Toolbar -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
           <div class="d-flex flex-wrap gap-2" id="memberStoreCatFilter">
-            <button type="button" class="btn btn-sm btn-success rounded-pill px-3 fw-bold active" data-cat="all">
-              <i class="fa-solid fa-border-all me-1"></i> All Items
+            <button type="button" class="btn btn-sm btn-success rounded-pill px-3 py-1 text-xs fw-bold active" data-cat="all">
+              <i class="fa-solid fa-border-all me-1"></i> All Produce
             </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 fw-bold" data-cat="vegetables">
-              <i class="fa-solid fa-seedling me-1 text-success"></i> Vegetables & Fruits
+            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold" data-cat="vegetables">
+              <i class="fa-solid fa-carrot me-1"></i> Fruits & Vegetables
             </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 fw-bold" data-cat="meats">
-              <i class="fa-solid fa-drumstick-bite me-1 text-danger"></i> Pasture Meats
+            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold" data-cat="meats">
+              <i class="fa-solid fa-drumstick-bite me-1"></i> Pasture Meats
             </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 fw-bold" data-cat="seafood">
-              <i class="fa-solid fa-fish me-1 text-info"></i> Seafood
+            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold" data-cat="seafood">
+              <i class="fa-solid fa-fish me-1"></i> Seafood
             </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 fw-bold" data-cat="dairy">
-              <i class="fa-solid fa-jar me-1 text-warning"></i> Honey & Dairy
+            <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold" data-cat="dairy">
+              <i class="fa-solid fa-jar me-1"></i> Dairy & Honey
             </button>
           </div>
 
           <div class="d-flex align-items-center gap-2">
-            <span class="text-xs text-muted text-uppercase fw-bold">Sort:</span>
-            <select class="form-select form-select-sm rounded-pill font-body" id="memberStoreSort" style="width: auto;">
-              <option value="popular">Best Selling</option>
+            <span class="text-xs text-muted fw-bold">Sort By:</span>
+            <select class="form-select form-select-sm rounded-pill font-body text-xs" id="memberStoreSort" style="width: auto;">
+              <option value="popular">Most Popular</option>
               <option value="price-asc">Price: Low to High</option>
               <option value="price-desc">Price: High to Low</option>
-              <option value="rating">Highest Rated</option>
+              <option value="rating">Top Rated</option>
             </select>
           </div>
         </div>
 
-        <!-- Products Grid Container -->
-        <div class="row g-4" id="memberStoreGrid">
-          <!-- Injected dynamically by dashboard.js using ecommerce-store.js -->
+        <!-- Dynamic Member Produce Card Grid -->
+        <div class="row g-3" id="memberStoreGrid">
+          <!-- Dynamically populated with compact, crisp produce cards -->
         </div>
 
       </main>
@@ -207,75 +216,81 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
         <div class="modal-header border-bottom px-4 py-3 bg-light">
-          <h5 class="modal-title font-serif fw-bold text-dark" id="walletCheckoutModalLabel">
-            <i class="fa-solid fa-bag-shopping text-success me-2"></i> Confirm Farm Produce Order
+          <h5 class="modal-title font-serif fw-bold text-dark fs-5" id="walletCheckoutModalLabel">
+            <i class="fa-solid fa-bolt text-success me-2"></i> 1-Click Wallet Checkout
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-4">
-          <div class="d-flex align-items-center gap-3 p-3 bg-light rounded-4 mb-3 border">
-            <img src="" id="checkoutModalImg" class="rounded-3 shadow-sm" width="60" height="60" style="object-fit: cover;" alt="Produce" />
+
+          <!-- Produce Preview -->
+          <div class="d-flex align-items-center gap-3 p-3 bg-light rounded-4 border mb-3">
+            <img id="checkoutModalImg" src="" alt="Produce" class="rounded-3 shadow-sm" style="width: 56px; height: 56px; object-fit: cover;" />
             <div class="flex-grow-1">
-              <h6 class="fw-bold text-dark mb-0" id="checkoutModalTitle">Produce Title</h6>
-              <span class="text-xs text-muted" id="checkoutModalOrigin">Origin Farm</span>
-              <div class="text-success fw-bold font-mono mt-1" id="checkoutModalPrice">$0.00</div>
+              <h6 class="fw-bold text-dark mb-0 fs-6" id="checkoutModalTitle">Produce Item</h6>
+              <span class="text-xs text-muted d-block" id="checkoutModalOrigin">Origin Farm</span>
+              <strong class="text-success font-mono text-sm" id="checkoutModalPrice">$0.00</strong>
             </div>
-            <div class="d-flex align-items-center gap-2">
-              <button type="button" class="btn btn-outline-secondary btn-sm rounded-circle px-2 py-0" id="qtyMinusBtn">-</button>
-              <span class="fw-bold font-mono" id="checkoutQty">1</span>
-              <button type="button" class="btn btn-outline-secondary btn-sm rounded-circle px-2 py-0" id="qtyPlusBtn">+</button>
+            <div class="d-flex align-items-center border rounded-pill bg-white px-2 py-1">
+              <button type="button" class="btn btn-sm btn-link p-0 text-dark text-decoration-none" id="qtyMinusBtn" style="width: 20px;">-</button>
+              <span class="px-2 font-mono fw-bold text-xs" id="checkoutQty">1</span>
+              <button type="button" class="btn btn-sm btn-link p-0 text-dark text-decoration-none" id="qtyPlusBtn" style="width: 20px;">+</button>
             </div>
           </div>
 
-          <!-- Delivery Address -->
+          <!-- Shipping Destination -->
           <div class="mb-3">
-            <label class="form-label text-xs fw-bold text-uppercase text-muted">Shipping Destination</label>
-            <div class="input-group">
-              <span class="input-group-text bg-light"><i class="fa-solid fa-location-dot text-muted"></i></span>
-              <input type="text" class="form-control text-sm" id="checkoutShippingAddress" value="742 Evergreen Terrace, Austin, TX 78701" />
-            </div>
+            <label class="form-label text-xs fw-bold text-uppercase text-muted">Delivery Address</label>
+            <input type="text" class="form-control text-sm" id="checkoutShippingAddress" value="742 Evergreen Terrace, Austin, TX 78701" />
+            <span class="text-xs text-muted mt-1 d-block"><i class="fa-solid fa-truck-snowflake text-success me-1"></i> Free Refrigerated Delivery included</span>
           </div>
 
-          <!-- Payment Method Selector -->
+          <!-- Payment Source Select -->
           <div class="mb-3">
             <label class="form-label text-xs fw-bold text-uppercase text-muted">Payment Source</label>
-            <div class="form-check p-3 border rounded-3 mb-2 bg-success-subtle border-success-subtle">
-              <input class="form-check-input" type="radio" name="paymentOption" id="payWalletRadio" checked />
-              <label class="form-check-label text-sm fw-bold d-flex justify-content-between w-100" for="payWalletRadio">
-                <span><i class="fa-solid fa-wallet text-success me-1"></i> FarmVest Yield Wallet</span>
-                <span class="text-success font-mono" id="modalWalletBalance">$4,850.00</span>
+            <div class="d-flex flex-column gap-2">
+              <label class="p-2 border rounded-3 d-flex align-items-center justify-content-between cursor-pointer">
+                <div class="d-flex align-items-center gap-2">
+                  <input type="radio" name="paySource" id="payWalletRadio" checked />
+                  <span class="text-xs fw-bold text-dark">FarmVest Dividend Wallet</span>
+                </div>
+                <span class="badge bg-success-subtle text-success border font-mono text-xs" id="modalWalletBalance">$4,850.00</span>
               </label>
-            </div>
-            <div class="form-check p-3 border rounded-3">
-              <input class="form-check-input" type="radio" name="paymentOption" id="payCardRadio" />
-              <label class="form-check-label text-sm fw-bold d-flex justify-content-between w-100" for="payCardRadio">
-                <span><i class="fa-solid fa-credit-card text-muted me-1"></i> Instant Card / Gateway</span>
-                <span class="text-muted">•••• 4242</span>
+              <label class="p-2 border rounded-3 d-flex align-items-center justify-content-between cursor-pointer">
+                <div class="d-flex align-items-center gap-2">
+                  <input type="radio" name="paySource" id="payCardRadio" />
+                  <span class="text-xs fw-bold text-dark">Credit / Debit Card (•••• 4242)</span>
+                </div>
+                <span class="badge bg-light text-muted border text-xs">Instant</span>
               </label>
             </div>
           </div>
 
-          <!-- Price Calculation -->
-          <div class="p-3 bg-light rounded-3 text-sm">
-            <div class="d-flex justify-content-between mb-1">
-              <span class="text-muted">Subtotal:</span>
-              <span class="font-mono fw-bold" id="checkoutSubtotal">$0.00</span>
+          <!-- Summary Deductions -->
+          <div class="p-3 bg-light rounded-3 border">
+            <div class="d-flex justify-content-between text-xs text-muted mb-1">
+              <span>Produce Subtotal:</span>
+              <span class="font-mono text-dark" id="checkoutSubtotal">$0.00</span>
             </div>
-            <div class="d-flex justify-content-between mb-1">
-              <span class="text-muted">Member Shipping (Cold-Chain):</span>
-              <span class="text-success fw-bold">FREE (Investor Perk)</span>
+            <div class="d-flex justify-content-between text-xs text-muted mb-1">
+              <span>Cold-Chain Shipping:</span>
+              <span class="text-success fw-bold">FREE ($0.00)</span>
             </div>
-            <hr class="my-2" />
-            <div class="d-flex justify-content-between fs-6 fw-bold">
-              <span>Total Deducted:</span>
-              <span class="text-success font-mono" id="checkoutGrandTotal">$0.00</span>
+            <div class="d-flex justify-content-between text-xs text-muted mb-2">
+              <span>Investor Perk Discount:</span>
+              <span class="text-success fw-bold">-10% APPLIED</span>
+            </div>
+            <div class="d-flex justify-content-between fs-6 fw-bold border-top pt-2 text-dark">
+              <span>Total Payment:</span>
+              <span class="font-mono text-success" id="checkoutGrandTotal">$0.00</span>
             </div>
           </div>
+
         </div>
         <div class="modal-footer border-top px-4 py-3 bg-light d-flex justify-content-between">
-          <button type="button" class="btn btn-outline-secondary rounded-pill px-4" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-success rounded-pill px-4 fw-bold" id="confirmOrderBtn">
-            <i class="fa-solid fa-check me-1"></i> Confirm & Pay
+          <button type="button" class="btn btn-outline-secondary rounded-pill px-3 py-1 text-xs" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-success rounded-pill px-4 py-2 text-xs fw-bold shadow-sm" id="confirmOrderBtn">
+            <i class="fa-solid fa-check me-1"></i> Confirm & Deduct Wallet
           </button>
         </div>
       </div>

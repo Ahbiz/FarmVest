@@ -225,31 +225,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         memberStoreGrid.innerHTML = filtered.map(p => `
-          <div class="col-md-6 col-xl-4">
-            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white">
-              <div class="position-relative">
-                <img src="${p.image}" class="card-img-top" alt="${p.title}" style="height: 200px; object-fit: cover;" />
-                <span class="badge bg-success position-absolute top-0 start-0 m-3 px-3 py-2 rounded-pill font-mono shadow-sm">
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+            <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white hover-shadow-md transition-base">
+              <div class="position-relative overflow-hidden" style="height: 130px; background: #f8fafc;">
+                <img src="${p.image}" class="w-100 h-100" alt="${p.title}" style="object-fit: cover;" />
+                <span class="badge bg-success position-absolute top-0 start-0 m-2 px-2 py-1 rounded-pill font-mono shadow-sm" style="font-size: 10px;">
                   ${p.badge || 'Direct Harvest'}
                 </span>
-                <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3 px-2 py-1 rounded-pill font-mono text-xs fw-bold">
-                  10% Investor Off
+                <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2 px-2 py-1 rounded-pill font-mono fw-bold" style="font-size: 10px;">
+                  10% Off
                 </span>
               </div>
-              <div class="card-body p-4 d-flex flex-column">
-                <div class="d-flex align-items-center gap-1 text-warning text-xs mb-2">
+              <div class="card-body p-3 d-flex flex-column">
+                <div class="d-flex align-items-center gap-1 text-warning text-xs mb-1" style="font-size: 11px;">
                   <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                  <span class="text-muted ms-1">(${p.rating || 4.9} / ${p.reviewsCount || 20} reviews)</span>
+                  <span class="text-muted ms-1">(${p.rating || 4.9})</span>
                 </div>
-                <h5 class="card-title font-heading fw-bold text-dark mb-1">${p.title}</h5>
-                <p class="text-xs text-muted mb-3"><i class="fa-solid fa-location-dot text-success me-1"></i>${p.origin}</p>
-                <div class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between">
+                <h6 class="card-title font-heading fw-bold text-dark mb-1 text-truncate" title="${p.title}" style="font-size: 0.95rem;">${p.title}</h6>
+                <p class="text-xs text-muted mb-2 text-truncate" style="font-size: 11px;"><i class="fa-solid fa-location-dot text-success me-1"></i>${p.origin}</p>
+                <div class="mt-auto pt-2 border-top d-flex align-items-center justify-content-between">
                   <div>
-                    <span class="text-xs text-muted d-block">Price / ${p.unit}</span>
-                    <span class="font-mono fw-bold text-success fs-5">$${p.price.toFixed(2)}</span>
+                    <span class="text-muted d-block" style="font-size: 10px;">Price / ${p.unit}</span>
+                    <span class="font-mono fw-bold text-success" style="font-size: 1.05rem;">$${p.price.toFixed(2)}</span>
                   </div>
-                  <button type="button" class="btn btn-success btn-sm rounded-pill px-3 fw-bold" data-buy-wallet data-product-id="${p.id}">
-                    <i class="fa-solid fa-bolt me-1"></i> Quick Buy
+                  <button type="button" class="btn btn-success btn-sm rounded-pill px-3 py-1 fw-bold text-xs shadow-sm" data-buy-wallet data-product-id="${p.id}">
+                    <i class="fa-solid fa-bolt me-1"></i> Buy
                   </button>
                 </div>
               </div>
@@ -422,11 +422,11 @@ document.addEventListener('DOMContentLoaded', () => {
           <tr>
             <td class="ps-4">
               <strong class="font-mono text-dark d-block">#${o.id}</strong>
-              <span class="text-xs text-muted">${o.date}</span>
+              <span class="text-xs text-muted font-mono">${o.date}</span>
             </td>
             <td>
               <div class="text-sm fw-bold text-dark">${o.items.map(i => `${i.qty}× ${i.title}`).join(', ')}</div>
-              <span class="text-xs text-muted">${o.shippingAddress}</span>
+              <span class="text-xs text-muted"><i class="fa-solid fa-location-dot text-success me-1"></i>${o.shippingAddress}</span>
             </td>
             <td>
               <strong class="font-mono text-success fs-6">$${o.total.toFixed(2)}</strong>
@@ -440,10 +440,10 @@ document.addEventListener('DOMContentLoaded', () => {
               </span>
             </td>
             <td class="text-end pe-4">
-              <button type="button" class="btn btn-outline-success btn-sm rounded-pill px-3 me-1 fw-bold" data-track-order="${o.id}">
+              <button type="button" class="btn btn-outline-success btn-sm rounded-pill px-3 py-1 me-1 text-xs fw-bold" data-track-order="${o.id}">
                 <i class="fa-solid fa-location-crosshairs me-1"></i> Track
               </button>
-              <button type="button" class="btn btn-light btn-sm rounded-pill px-3 border text-dark fw-bold" data-view-invoice="${o.id}">
+              <button type="button" class="btn btn-light btn-sm rounded-pill px-3 py-1 border text-dark text-xs fw-bold" data-view-invoice="${o.id}">
                 <i class="fa-solid fa-file-invoice me-1"></i> Slip
               </button>
             </td>
@@ -470,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="position-absolute start-0 translate-middle-x rounded-circle ${step.completed ? 'bg-success text-white' : 'bg-light text-muted border'}" style="left: -16px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 11px;">
                       <i class="fa-solid ${step.completed ? 'fa-check' : 'fa-circle'}"></i>
                     </span>
-                    <h6 class="fw-bold ${step.completed ? 'text-dark' : 'text-muted'} mb-0">${step.stage}</h6>
+                    <h6 class="fw-bold ${step.completed ? 'text-dark' : 'text-muted'} mb-0 text-sm">${step.stage}</h6>
                     <span class="text-xs text-muted">${step.time}</span>
                   </div>
                 `).join('');
@@ -594,18 +594,23 @@ document.addEventListener('DOMContentLoaded', () => {
         sellerListingsBody.innerHTML = listings.map(l => `
           <tr>
             <td class="ps-4">
-              <strong class="text-dark d-block">${l.produceName}</strong>
-              <span class="text-xs text-muted font-mono">${l.harvestBatch} · ${l.originFarm}</span>
+              <div class="d-flex align-items-center gap-3">
+                <img src="${l.image || 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=100&q=80'}" class="rounded-3 shadow-sm" width="38" height="38" style="object-fit: cover;" alt="${l.produceName}" />
+                <div>
+                  <strong class="text-dark d-block text-sm">${l.produceName}</strong>
+                  <span class="text-xs text-muted font-mono">${l.harvestBatch} · ${l.originFarm}</span>
+                </div>
+              </div>
             </td>
             <td>
-              <span class="badge bg-light text-dark border text-capitalize">${l.category}</span>
+              <span class="badge bg-light text-dark border text-capitalize text-xs">${l.category}</span>
             </td>
-            <td class="font-mono fw-bold">${l.totalVolume}</td>
-            <td class="font-mono text-muted">${l.unitsSold}</td>
-            <td class="font-mono text-success fw-bold">$${l.unitPrice.toFixed(2)} / ${l.priceUnit}</td>
-            <td class="font-mono text-dark fw-bold">$${l.totalRevenue.toFixed(2)}</td>
+            <td class="font-mono fw-bold text-sm">${l.totalVolume}</td>
+            <td class="font-mono text-muted text-sm">${l.unitsSold}</td>
+            <td class="font-mono text-success fw-bold text-sm">$${l.unitPrice.toFixed(2)} / ${l.priceUnit}</td>
+            <td class="font-mono text-dark fw-bold text-sm">$${l.totalRevenue.toFixed(2)}</td>
             <td>
-              <span class="badge rounded-pill px-3 py-1 ${l.status === 'Active' ? 'bg-success-subtle text-success border border-success-subtle' : 'bg-secondary-subtle text-secondary border'}">
+              <span class="badge rounded-pill px-3 py-1 text-xs ${l.status === 'Active' ? 'bg-success-subtle text-success border border-success-subtle' : 'bg-secondary-subtle text-secondary border'}">
                 ${l.status}
               </span>
             </td>
