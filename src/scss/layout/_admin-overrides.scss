@@ -249,3 +249,56 @@
   }
 }
 
+// Admin Hero Card
+.admin-hero-card {
+  background: var(--fv-card-bg, #FFFFFF);
+  border: 1px solid var(--fv-border, #E2E8F0);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .admin-hero-card {
+  background: #1E293B !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+// Admin Table Card & Styling
+.admin-table {
+  th {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.04em !important;
+    color: var(--fv-text-muted, #64748B) !important;
+    background: var(--fv-card-bg-subtle, #F8FAFC) !important;
+    border-bottom: 1px solid var(--fv-border, #E2E8F0) !important;
+    padding: 0.75rem 1rem !important;
+    white-space: nowrap !important;
+  }
+
+  td {
+    padding: 0.85rem 1rem !important;
+    vertical-align: middle !important;
+    border-bottom: 1px solid var(--fv-border, #E2E8F0) !important;
+    font-size: 0.85rem !important;
+  }
+
+  tr:hover td {
+    background: rgba(22, 163, 74, 0.03) !important;
+  }
+}
+
+[data-theme='dark'] .admin-table {
+  th {
+    background: #0F172A !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+  }
+  td {
+    border-color: rgba(255, 255, 255, 0.06) !important;
+  }
+  tr:hover td {
+    background: rgba(255, 255, 255, 0.03) !important;
+  }
+}
+

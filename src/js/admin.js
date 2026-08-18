@@ -619,6 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (adminProductsTableBody) {
     import('./services/ecommerce-store.js').then(({ getStoreProducts, upsertStoreProduct, deleteStoreProduct }) => {
       let currentAdminCat = 'all';
+      let currentSearchTerm = '';
 
       function renderAdminProducts() {
         const allProducts = getStoreProducts();
@@ -631,15 +632,27 @@ document.addEventListener('DOMContentLoaded', () => {
         if (totalItemsEl) totalItemsEl.textContent = `${allProducts.length} Products`;
         if (stockUnitsEl) stockUnitsEl.textContent = `${totalUnits} units`;
 
-        const filtered = allProducts.filter(p => currentAdminCat === 'all' || p.category === currentAdminCat);
-        if (countTextEl) countTextEl.textContent = `Showing ${filtered.length} produce items`;
+        const filtered = allProducts.filter(p => {
+          const matchesCat = currentAdminCat === 'all' || p.category === currentAdminCat;
+          const query = currentSearchTerm.trim().toLowerCase();
+          const matchesSearch = !query || 
+            (p.title && p.title.toLowerCase().includes(query)) ||
+            (p.origin && p.origin.toLowerCase().includes(query)) ||
+            (p.id && p.id.toLowerCase().includes(query)) ||
+            (p.category && p.category.toLowerCase().includes(query)) ||
+            (p.badge && p.badge.toLowerCase().includes(query));
+          return matchesCat && matchesSearch;
+        });
+
+        if (countTextEl) countTextEl.textContent = `Showing ${filtered.length} of ${allProducts.length} items`;
 
         if (filtered.length === 0) {
           adminProductsTableBody.innerHTML = `
             <tr>
               <td colspan="7" class="text-center py-5 text-muted">
-                <i class="fas fa-boxes-stacked fs-2 mb-2 d-block"></i>
-                No produce items in this category.
+                <i class="fas fa-boxes-stacked fs-2 mb-2 d-block text-muted opacity-50"></i>
+                <span class="d-block fw-bold text-dark mb-1">No produce items found</span>
+                <span class="text-xs">Try adjusting your search terms or category filter.</span>
               </td>
             </tr>
           `;
@@ -650,52 +663,41 @@ document.addEventListener('DOMContentLoaded', () => {
           <tr>
             <td class="ps-4">
               <div class="d-flex align-items-center gap-3">
-                <img src="${p.image}" class="rounded-3 shadow-sm" width="38" height="38" style="object-fit: cover;" alt="${p.title}" />
-                <div>
-                  <strong class="text-dark d-block text-sm">${p.title}</strong>
-                  <span class="text-xs text-muted font-mono">${p.id} · <span class="badge bg-light text-dark border">${p.badge || 'Organic'}</span></span>
+                <img src="${p.image}" class="rounded-3 shadow-sm flex-shrink-0" width="40" height="40" style="object-fit: cover; border: 1px solid rgba(0,0,0,0.08);" alt="${p.title}" />
+                <div style="min-width: 0;">
+                  <strong class="text-dark d-block text-sm text-truncate" style="max-width: 220px;" title="${p.title}">${p.title}</strong>
+                  <div class="d-flex align-items-center gap-1">
+                    <span class="text-xs text-muted font-mono">${p.id}</span>
+                    <span class="badge bg-light text-dark border text-uppercase" style="font-size: 9px; padding: 2px 6px; letter-spacing: 0.03em;">${p.badge || 'Direct Harvest'}</span>
+                  </div>
                 </div>
               </div>
             </td>
             <td>
-              <span class="badge bg-light text-dark border text-capitalize text-xs">${p.category}</span>
+              <span class="badge bg-light text-dark border text-capitalize text-xs font-weight-normal">${p.category}</span>
             </td>
             <td>
               <strong class="font-mono text-success fs-6">$${p.price.toFixed(2)}</strong>
               <span class="text-xs text-muted">/ ${p.unit}</span>
             </td>
             <td>
-              <span class="text-sm text-dark">${p.origin}</span>
+              <span class="text-xs text-dark d-inline-flex align-items-center"><i class="fas fa-location-dot text-success me-1"></i>${p.origin}</span>
             </td>
             <td>
               <span class="font-mono fw-bold text-sm ${p.stockQty > 20 ? 'text-dark' : 'text-danger'}">${p.stockQty || 50} units</span>
             </td>
             <td>
-              <span class="badge rounded-pill px-3 py-1 text-xs bg-success-subtle text-success border border-success-subtle">
-                In Stock
+              <span class="badge rounded-pill px-2.5 py-1 text-xs ${p.stockQty > 20 ? 'bg-success-subtle text-success border border-success-subtle' : 'bg-warning-subtle text-warning border border-warning-subtle'}">
+                <i class="fas fa-circle me-1" style="font-size: 7px;"></i> ${p.stockQty > 20 ? 'In Stock' : 'Low Stock'}
               </span>
             </td>
             <td class="text-end pe-4">
-              <button type="button" class="btn btn-outline-danger btn-sm rounded-circle p-2" data-delete-prod="${p.id}" title="Remove Product">
-                <i class="fas fa-trash-can"></i>
+              <button type="button" class="btn btn-outline-danger btn-sm rounded-circle p-1" style="width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center;" data-delete-prod="${p.id}" title="Remove Produce">
+                <i class="fas fa-trash-can" style="font-size: 11px;"></i>
               </button>
             </td>
           </tr>
         `).join('');
-
-        // Bind category filter tabs
-        document.querySelectorAll('#adminProdCatFilter button').forEach(btn => {
-          btn.addEventListener('click', () => {
-            document.querySelectorAll('#adminProdCatFilter button').forEach(b => {
-              b.classList.remove('active', 'btn-success');
-              b.classList.add('btn-outline-secondary');
-            });
-            btn.classList.add('active', 'btn-success');
-            btn.classList.remove('btn-outline-secondary');
-            currentAdminCat = btn.dataset.cat || 'all';
-            renderAdminProducts();
-          });
-        });
 
         // Bind delete buttons
         adminProductsTableBody.querySelectorAll('[data-delete-prod]').forEach(btn => {
@@ -709,6 +711,36 @@ document.addEventListener('DOMContentLoaded', () => {
           });
         });
       }
+
+      // Bind in-table and header search inputs
+      const tableSearch = document.getElementById('adminTableSearchInput');
+      const headerSearch = document.getElementById('adminHeaderSearch');
+      
+      tableSearch?.addEventListener('input', (e) => {
+        currentSearchTerm = e.target.value;
+        if (headerSearch) headerSearch.value = currentSearchTerm;
+        renderAdminProducts();
+      });
+
+      headerSearch?.addEventListener('input', (e) => {
+        currentSearchTerm = e.target.value;
+        if (tableSearch) tableSearch.value = currentSearchTerm;
+        renderAdminProducts();
+      });
+
+      // Bind category filter tabs
+      document.querySelectorAll('#adminProdCatFilter button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#adminProdCatFilter button').forEach(b => {
+            b.classList.remove('active', 'btn-success');
+            b.classList.add('btn-outline-secondary');
+          });
+          btn.classList.add('active', 'btn-success');
+          btn.classList.remove('btn-outline-secondary');
+          currentAdminCat = btn.dataset.cat || 'all';
+          renderAdminProducts();
+        });
+      });
 
       // Add Product Form
       const addForm = document.getElementById('adminAddProductForm');
