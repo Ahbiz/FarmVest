@@ -52,20 +52,25 @@
           <p class="dashboard__nav-section-title">Marketplace & Trade</p>
           <a href="/dashboard/shop.html" class="dashboard__nav-item"><i class="fa-solid fa-store me-2"></i> Farm Store</a>
           <a href="/dashboard/orders.html" class="dashboard__nav-item active"><i class="fa-solid fa-box-open me-2"></i> My Orders</a>
+          <a href="/dashboard/wishlist.html" class="dashboard__nav-item"><i class="fa-solid fa-heart me-2 text-danger"></i> Wishlist <span class="badge bg-danger-subtle text-danger rounded-pill px-2 ms-auto text-xs" data-wishlist-count>0</span></a>
           <a href="/dashboard/seller.html" class="dashboard__nav-item"><i class="fa-solid fa-tractor me-2"></i> Seller Hub</a>
         </div>
 
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">Capital Management</p>
+          <p class="dashboard__nav-section-title">Capital & Yields</p>
           <a href="/dashboard/deposit.html" class="dashboard__nav-item"><i class="fa-solid fa-wallet me-2"></i> Deposit Funds</a>
-          <a href="/dashboard/withdraw.html" class="dashboard__nav-item"><i class="fa-solid fa-money-bill-transfer me-2"></i> Withdraw Yield</a>
+          <a href="/dashboard/payout.html" class="dashboard__nav-item"><i class="fa-solid fa-money-bill-transfer me-2"></i> Payout / Withdraw</a>
+          <a href="/dashboard/payout-history.html" class="dashboard__nav-item"><i class="fa-solid fa-clock-rotate-left me-2"></i> Payout History</a>
+          <a href="/dashboard/referrals.html" class="dashboard__nav-item"><i class="fa-solid fa-users-rays me-2"></i> Referrals & Bonus</a>
         </div>
 
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">Account & Services</p>
-          <a href="/dashboard/profile.html" class="dashboard__nav-item"><i class="fa-solid fa-user-gear me-2"></i> Profile & Security</a>
-          <a href="/dashboard/support.html" class="dashboard__nav-item"><i class="fa-solid fa-headset me-2"></i> Agronomist Support</a>
-          <a href="/projects.html" class="dashboard__nav-item"><i class="fa-solid fa-seedling me-2"></i> Explore Open Pools</a>
+          <p class="dashboard__nav-section-title">Account & Security</p>
+          <a href="/dashboard/profile.html" class="dashboard__nav-item"><i class="fa-solid fa-user-gear me-2"></i> Account Settings</a>
+          <a href="/dashboard/2fa.html" class="dashboard__nav-item"><i class="fa-solid fa-key me-2"></i> 2 FA Security</a>
+          <a href="/dashboard/kyc.html" class="dashboard__nav-item"><i class="fa-solid fa-id-card-clip me-2"></i> Verification Center</a>
+          <a href="/dashboard/badges.html" class="dashboard__nav-item"><i class="fa-solid fa-award me-2"></i> Investor Badges</a>
+          <a href="/dashboard/support.html" class="dashboard__nav-item"><i class="fa-solid fa-headset me-2"></i> Support Tickets</a>
         </div>
       </nav>
 
@@ -109,20 +114,35 @@
 
           <!-- User Menu Dropdown -->
           <div class="dropdown">
-            <button class="dashboard__avatar-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="User profile menu">
-              <img src="/images/team-sarah.png" alt="James Wilson" />
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end shadow-sm">
-              <li class="px-3 py-2 border-bottom">
-                <span class="d-block fw-bold text-dark text-sm">James Wilson</span>
-                <span class="d-block text-xs text-muted">james.wilson@example.com</span>
-              </li>
-              <li><a class="dropdown-item" href="/dashboard/profile.html"><i class="fa-solid fa-user me-2 text-muted"></i> Profile Settings</a></li>
-              <li><a class="dropdown-item" href="/dashboard/shop.html"><i class="fa-solid fa-store me-2 text-muted"></i> Farm Store</a></li>
-              <li><a class="dropdown-item" href="/dashboard/seller.html"><i class="fa-solid fa-tractor me-2 text-muted"></i> Seller Hub</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><button type="button" data-logout-btn class="dropdown-item text-danger"><i class="fa-solid fa-right-from-bracket me-2"></i> Log Out</button></li>
-            </ul>
+            <div class="dashboard__user-menu" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="dashboard__user-avatar">
+                <img src="/images/team-sarah.png" alt="James Wilson" />
+              </div>
+              <span class="dashboard__user-name">James Wilson</span>
+              <i class="fa-solid fa-chevron-down text-xs text-muted ms-1"></i>
+            </div>
+            <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 p-2 mt-2 user-profile-dropdown" style="min-width: 240px;">
+              <div class="p-3 mb-2 rounded-3 bg-light d-flex align-items-center gap-3">
+                <img src="/images/team-sarah.png" alt="James Wilson" class="rounded-circle border border-2 border-success" width="44" height="44" style="object-fit: cover;" />
+                <div class="overflow-hidden">
+                  <h6 class="fw-bold text-dark mb-0 text-truncate dashboard__user-name">James Wilson</h6>
+                  <span class="text-xs text-muted d-block font-mono">@demouser</span>
+                </div>
+              </div>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/profile.html">
+                <i class="fa-regular fa-user text-muted" style="width: 18px;"></i> Account Settings
+              </a>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/2fa.html">
+                <i class="fa-solid fa-key text-muted" style="width: 18px;"></i> 2 FA Security
+              </a>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/kyc.html">
+                <i class="fa-regular fa-address-card text-muted" style="width: 18px;"></i> Verification Center
+              </a>
+              <hr class="dropdown-divider my-2 opacity-50">
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm text-danger d-flex align-items-center gap-2" href="#" data-logout-btn>
+                <i class="fa-solid fa-arrow-right-from-bracket" style="width: 18px;"></i> Sign Out
+              </a>
+            </div>
           </div>
         </div>
       </header>
@@ -254,8 +274,10 @@
           </div>
 
           <!-- Stepper Timeline -->
-          <h6 class="fw-bold text-dark mb-3 fs-6">Fulfillment Journey</h6>
-          <div class="tracking-stepper position-relative ps-4" id="trackingTimeline">
+          <h6 class="fw-bold text-dark mb-3 fs-6">
+            <i class="fa-solid fa-route text-success me-2"></i>Fulfillment Journey
+          </h6>
+          <div class="tracking-stepper" id="trackingTimeline">
             <!-- Rendered dynamically -->
           </div>
         </div>
