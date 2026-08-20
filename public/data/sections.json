@@ -579,6 +579,46 @@
       }
     },
     "dashboard_pages": {
+      "index": {
+        "title": "Investor Command Dashboard — FarmVest",
+        "meta_description": "Live agricultural portfolio valuation, harvest yield compounding metrics, and telemetry charts."
+      },
+      "investments": {
+        "title": "My Farmland Investments & Active Crop Cycles — FarmVest",
+        "meta_description": "Track active agricultural investments, dividend maturities, and harvest cycle stages."
+      },
+      "deposit": {
+        "title": "Fund Wallet & Deposit Methods — FarmVest",
+        "meta_description": "Deposit capital via instant Stripe card checkout, crypto stablecoins (USDC), and bank wire."
+      },
+      "withdraw": {
+        "title": "Request Withdrawal & Payouts — FarmVest",
+        "meta_description": "Disburse realized harvest profits directly to verified bank accounts or crypto wallets."
+      },
+      "payout": {
+        "title": "Request Dividend Payout — FarmVest",
+        "meta_description": "Initiate automated harvest dividend payouts and liquidity withdrawals."
+      },
+      "payout_history": {
+        "title": "Payout History & Disbursements Ledger — FarmVest",
+        "meta_description": "Audit trail of all processed harvest dividends and withdrawal transactions."
+      },
+      "transactions": {
+        "title": "Account Transactions & Yield Ledger — FarmVest",
+        "meta_description": "Comprehensive accounting ledger of wallet balance credits, harvest distributions, and store purchases."
+      },
+      "referrals": {
+        "title": "Affiliate Program & Referral Earnings — FarmVest",
+        "meta_description": "Earn commission dividends by inviting friends and syndicate investors to FarmVest."
+      },
+      "badges": {
+        "title": "Investor Rankings, Tier Badges & Multipliers — FarmVest",
+        "meta_description": "Progress through investor milestone ranks to unlock dividend boosters and priority pool access."
+      },
+      "wishlist": {
+        "title": "Saved Farm Produce Wishlist — FarmVest",
+        "meta_description": "Curated organic produce and farm fresh harvests saved for future marketplace orders."
+      },
       "shop": {
         "title": "Member Produce Store — FarmVest",
         "meta_description": "Exclusive member pricing on certified organic farm harvests with 1-click wallet balance checkout."
@@ -590,16 +630,136 @@
       "seller": {
         "title": "Farmer & Seller Hub — FarmVest",
         "meta_description": "List harvest batches for direct marketplace sale with real-time revenue analytics."
+      },
+      "support": {
+        "title": "Investor Support & Agronomy Helpdesk — FarmVest",
+        "meta_description": "Direct communication channel with dedicated platform agronomists and support specialists."
+      },
+      "profile": {
+        "title": "Account Settings & Investor Profile — FarmVest",
+        "meta_description": "Manage personal contact details, security credentials, and payout preferences."
+      },
+      "kyc": {
+        "title": "Identity Verification & AML Compliance — FarmVest",
+        "meta_description": "Verify your investor identity to unlock higher capital limits and instant withdrawals."
+      },
+      "2fa": {
+        "title": "Two-Factor Authentication Security — FarmVest",
+        "meta_description": "Protect your capital and dividend wallet with TOTP multi-factor authentication."
       }
     },
     "admin_pages": {
+      "index": {
+        "title": "Admin Command Dashboard — FarmVest",
+        "meta_description": "Centralized executive overview of platform capital, investments, user telemetry, and operations."
+      },
+      "plans": {
+        "title": "Investment Plan Manager — FarmVest Admin",
+        "meta_description": "Configure fixed-yield investment tiers, APY rates, terms, and eligibility rules."
+      },
+      "plan_invest_history": {
+        "title": "Plan Invest History & Yield Ledger — FarmVest Admin",
+        "meta_description": "Audit subscriptions and next dividend distributions across all fixed-yield plans."
+      },
+      "projects": {
+        "title": "Manage Projects & Farm Pools — FarmVest Admin",
+        "meta_description": "Deploy, fund, and manage live agricultural projects and crowdfunding pools."
+      },
+      "project_invest_history": {
+        "title": "Project Invest History & Equity Ledger — FarmVest Admin",
+        "meta_description": "Track user equity allocations and capital flow across live farm project pools."
+      },
       "products": {
         "title": "Produce Catalog & Inventory — FarmVest Admin",
         "meta_description": "Manage harvest batches, stock levels, and real-time produce listings."
       },
+      "shipping_areas": {
+        "title": "Logistics Areas & Shipping Control — FarmVest Admin",
+        "meta_description": "Manage cold-chain shipping zones, delivery rate tiers, and fulfillment thresholds."
+      },
       "orders": {
         "title": "Store Orders & Cold-Chain Dispatch — FarmVest Admin",
-        "meta_description": "Manage order fulfillment, delivery tracking codes, and status updates."
+        "meta_description": "Manage order fulfillment, delivery tracking codes, and dispatch status."
+      },
+      "user_ranking": {
+        "title": "User Ranking & APY Milestone Multipliers — FarmVest Admin",
+        "meta_description": "Configure milestone investor rankings, badge perks, and dividend multipliers."
+      },
+      "referrals": {
+        "title": "Affiliate Commission System Setup — FarmVest Admin",
+        "meta_description": "Configure multi-level affiliate commission structures and partner volume rules."
+      },
+      "commissions": {
+        "title": "Affiliate Commission Log — FarmVest Admin",
+        "meta_description": "Audit trail of all affiliate commission disbursements and bonus credits."
+      },
+      "transactions": {
+        "title": "Financial Transactions Ledger — FarmVest Admin",
+        "meta_description": "Master financial audit trail of all platform capital movements and settlements."
+      },
+      "withdraw_log": {
+        "title": "Withdrawal Disbursements Log — FarmVest Admin",
+        "meta_description": "Audit outbound disbursements and processing statuses across all payment rails."
+      },
+      "payment_log": {
+        "title": "Inbound Payment & Deposit Log — FarmVest Admin",
+        "meta_description": "Record of all inbound wallet deposits, gateway transactions, and direct settlement receipts."
+      },
+      "payment_requests": {
+        "title": "Manual Payment Requests Queue — FarmVest Admin",
+        "meta_description": "Review and approve pending manual wire transfers, offline deposits, and proof-of-payment receipts."
+      },
+      "support_tickets": {
+        "title": "Support Tickets & Help Desk — FarmVest Admin",
+        "meta_description": "Help desk management, agronomist ticket assignment, and investor communications."
+      },
+      "kyc_settings": {
+        "title": "KYC Compliance Tier Settings — FarmVest Admin",
+        "meta_description": "Configure identity verification criteria, accepted document types, and compliance rules."
+      },
+      "kyc_requests": {
+        "title": "KYC Identity Verification Queue — FarmVest Admin",
+        "meta_description": "Review user identity verification submissions, inspect documents, and approve KYC."
+      },
+      "users": {
+        "title": "User Management Directory — FarmVest Admin",
+        "meta_description": "Manage registered investor and farmer accounts, permissions, and security status."
+      },
+      "investors": {
+        "title": "Top Investors Directory — FarmVest Admin",
+        "meta_description": "High-volume capital providers, portfolio balances, lifetime yields, and relationship management."
+      },
+      "settings": {
+        "title": "Control Panel & System Settings — FarmVest Admin",
+        "meta_description": "Configure core platform parameters, automated cron jobs, and notification settings."
+      },
+      "payment_gateways": {
+        "title": "Payment Gateways Configuration — FarmVest Admin",
+        "meta_description": "Configure Stripe, PayPal, Crypto (USDC), and Bank Wire automated payment gateways."
+      },
+      "withdraw_settings": {
+        "title": "Withdrawal Limits & Payout Rules — FarmVest Admin",
+        "meta_description": "Configure payout rules, daily maximum limits, minimum withdrawal floors, and fees."
+      },
+      "reports": {
+        "title": "Financial Reports & Platform Analytics — FarmVest Admin",
+        "meta_description": "In-depth financial telemetry, capital flows, category performance, and audit reports."
+      },
+      "pages": {
+        "title": "Frontend Static Pages Manager — FarmVest Admin",
+        "meta_description": "Manage public website static pages, SEO metadata tags, and URL routes."
+      },
+      "media": {
+        "title": "Media Asset Gallery — FarmVest Admin",
+        "meta_description": "Centralized media repository for farm imagery, partner certificate scans, and banner photography."
+      },
+      "content": {
+        "title": "Homepage Content & Hero Copy Editor — FarmVest Admin",
+        "meta_description": "Edit hero headline copy, testimonial quotes, stats counters, and homepage value propositions."
+      },
+      "blog": {
+        "title": "Agricultural Blog & Research Manager — FarmVest Admin",
+        "meta_description": "Publish articles, agronomist research papers, market analysis, and harvest insights."
       }
     }
   },
