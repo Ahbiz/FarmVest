@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payout & Yield Settlement — FarmVest</title>
+  <meta name="description" content="Request harvest yield payouts, select bank wire, instant ACH or USDC settlement, and manage withdrawal destinations." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Scripts & Stylesheet -->
+  <script type="module" src="/src/js/dashboard.js"></script>
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="dashboard-page">
+  <div class="dashboard">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dashboard__sidebar">
+      <div class="dashboard__brand">
+        <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+      </div>
+
+      <!-- User Profile Badge in Sidebar -->
+      <div class="p-3 mx-3 mt-3 rounded-4 bg-light border text-center">
+        <div class="position-relative d-inline-block mb-2">
+          <img src="/images/team-sarah.png" alt="User Profile" class="rounded-circle border border-2 border-success" width="54" height="54" style="object-fit:cover;" />
+          <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" style="width:12px;height:12px;"></span>
+        </div>
+        <h6 class="fw-bold text-dark mb-0 dashboard__user-name">James Wilson</h6>
+        <span class="text-xs text-muted d-block mb-2">Verified Investor</span>
+        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs">
+          <i class="fa-solid fa-circle-check me-1"></i> Active Portfolio
+        </span>
+      </div>
+
+      <nav class="dashboard__nav">
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Portfolio & Growth</p>
+          <a href="/dashboard/index.html" class="dashboard__nav-item"><i class="fa-solid fa-chart-pie me-2"></i> Overview</a>
+          <a href="/dashboard/investments.html" class="dashboard__nav-item"><i class="fa-solid fa-wheat-awn me-2"></i> My Farm Pools</a>
+          <a href="/dashboard/transactions.html" class="dashboard__nav-item"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Payout Ledger</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Marketplace & Trade</p>
+          <a href="/dashboard/shop.html" class="dashboard__nav-item"><i class="fa-solid fa-store me-2"></i> Farm Store</a>
+          <a href="/dashboard/orders.html" class="dashboard__nav-item"><i class="fa-solid fa-box-open me-2"></i> My Orders</a>
+          <a href="/dashboard/wishlist.html" class="dashboard__nav-item"><i class="fa-solid fa-heart me-2 text-danger"></i> Wishlist <span class="badge bg-danger-subtle text-danger rounded-pill px-2 ms-auto text-xs" data-wishlist-count>0</span></a>
+          <a href="/dashboard/seller.html" class="dashboard__nav-item"><i class="fa-solid fa-tractor me-2"></i> Seller Hub</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Capital & Yields</p>
+          <a href="/dashboard/deposit.html" class="dashboard__nav-item"><i class="fa-solid fa-wallet me-2"></i> Deposit Funds</a>
+          <a href="/dashboard/payout.html" class="dashboard__nav-item active"><i class="fa-solid fa-money-bill-transfer me-2"></i> Payout / Withdraw</a>
+          <a href="/dashboard/payout-history.html" class="dashboard__nav-item"><i class="fa-solid fa-clock-rotate-left me-2"></i> Payout History</a>
+          <a href="/dashboard/referrals.html" class="dashboard__nav-item"><i class="fa-solid fa-users-rays me-2"></i> Referrals & Bonus</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Account & Security</p>
+          <a href="/dashboard/profile.html" class="dashboard__nav-item"><i class="fa-solid fa-user-gear me-2"></i> Account Settings</a>
+          <a href="/dashboard/2fa.html" class="dashboard__nav-item"><i class="fa-solid fa-key me-2"></i> 2 FA Security</a>
+          <a href="/dashboard/kyc.html" class="dashboard__nav-item"><i class="fa-solid fa-id-card-clip me-2"></i> Verification Center</a>
+          <a href="/dashboard/badges.html" class="dashboard__nav-item"><i class="fa-solid fa-award me-2"></i> Investor Badges</a>
+          <a href="/dashboard/support.html" class="dashboard__nav-item"><i class="fa-solid fa-headset me-2"></i> Support Tickets</a>
+        </div>
+      </nav>
+
+      <div class="dashboard__sidebar-footer">
+        <button type="button" data-logout-btn class="btn btn-outline-danger w-100 rounded-pill btn-sm font-weight-bold">
+          <i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-backdrop"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard__main">
+
+      <!-- TOPBAR -->
+      <header class="dashboard__topbar">
+        <div class="dashboard__topbar-left">
+          <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="dashboard__search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search farm pools, yields, payout dates…" aria-label="Search dashboard" />
+          </div>
+        </div>
+
+        <div class="dashboard__topbar-right">
+          <!-- Dark / Light Mode Toggle Button -->
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <!-- User Menu Dropdown -->
+          <div class="dropdown">
+            <div class="dashboard__user-menu" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="dashboard__user-avatar">
+                <img src="/images/team-sarah.png" alt="James Wilson" />
+              </div>
+              <span class="dashboard__user-name">James Wilson</span>
+              <i class="fa-solid fa-chevron-down text-xs text-muted ms-1"></i>
+            </div>
+            <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 p-2 mt-2 user-profile-dropdown" style="min-width: 240px;">
+              <div class="p-3 mb-2 rounded-3 bg-light d-flex align-items-center gap-3">
+                <img src="/images/team-sarah.png" alt="James Wilson" class="rounded-circle border border-2 border-success" width="44" height="44" style="object-fit: cover;" />
+                <div class="overflow-hidden">
+                  <h6 class="fw-bold text-dark mb-0 text-truncate dashboard__user-name">James Wilson</h6>
+                  <span class="text-xs text-muted d-block font-mono">@demouser</span>
+                </div>
+              </div>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/profile.html">
+                <i class="fa-regular fa-user text-muted" style="width: 18px;"></i> Account Settings
+              </a>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/2fa.html">
+                <i class="fa-solid fa-key text-muted" style="width: 18px;"></i> 2 FA Security
+              </a>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/kyc.html">
+                <i class="fa-regular fa-address-card text-muted" style="width: 18px;"></i> Verification Center
+              </a>
+              <hr class="dropdown-divider my-2 opacity-50">
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm text-danger d-flex align-items-center gap-2" href="#" data-logout-btn>
+                <i class="fa-solid fa-arrow-right-from-bracket" style="width: 18px;"></i> Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <main class="dashboard__content">
+
+        <!-- Page Header -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <h1 class="dashboard__page-title mb-0">Payout & Yield Settlement</h1>
+              <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">
+                <i class="fa-solid fa-shield-check me-1"></i> Zero Withdrawal Fees
+              </span>
+            </div>
+            <p class="dashboard__page-desc mb-0">Disburse realized crop harvest profits and dividend returns directly to your bank or crypto wallet.</p>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="/dashboard/payout-history.html" class="btn btn-outline-secondary rounded-pill px-3 py-2 text-xs fw-bold">
+              <i class="fa-solid fa-clock-rotate-left me-1"></i> Payout History
+            </a>
+            <a href="/dashboard/transactions.html" class="btn btn-light rounded-pill px-3 py-2 text-xs fw-bold border">
+              <i class="fa-solid fa-file-invoice-dollar me-1"></i> Full Ledger
+            </a>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Left Column: Payout Form -->
+          <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+              <h5 class="font-heading fw-bold text-dark mb-3">1. Select Payout Method</h5>
+              
+              <div class="row g-3 mb-4" id="payoutMethodSelector">
+                <div class="col-sm-6 col-md-4">
+                  <div class="border rounded-4 p-3 cursor-pointer payout-method-card is-selected" data-method="Bank Wire Transfer" data-account="JPMorgan Chase (•••• 8912)">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                      <i class="fa-solid fa-building-columns text-success fs-4"></i>
+                      <span class="badge bg-success-subtle text-success rounded-pill text-xs">Recommended</span>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1 fs-6">Bank Wire</h6>
+                    <span class="text-xs text-muted d-block font-mono">Chase •••• 8912</span>
+                    <span class="text-xs text-success mt-1 d-block">1–2 business hours</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                  <div class="border rounded-4 p-3 cursor-pointer payout-method-card" data-method="Instant ACH Settlement" data-account="Wells Fargo Checking (•••• 3301)">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                      <i class="fa-solid fa-bolt text-warning fs-4"></i>
+                      <span class="badge bg-light text-muted border text-xs">Instant</span>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1 fs-6">Instant ACH</h6>
+                    <span class="text-xs text-muted d-block font-mono">Wells Fargo •••• 3301</span>
+                    <span class="text-xs text-muted mt-1 d-block">&lt; 30 minutes</span>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                  <div class="border rounded-4 p-3 cursor-pointer payout-method-card" data-method="USDC Digital Dollar" data-account="Solana (7xKv...91pQ)">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                      <i class="fa-solid fa-coins text-primary fs-4"></i>
+                      <span class="badge bg-primary-subtle text-primary rounded-pill text-xs">Crypto</span>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-1 fs-6">USDC (Solana)</h6>
+                    <span class="text-xs text-muted d-block font-mono">7xKv...91pQ</span>
+                    <span class="text-xs text-muted mt-1 d-block">Instant on-chain</span>
+                  </div>
+                </div>
+              </div>
+
+              <h5 class="font-heading fw-bold text-dark mb-3">2. Payout Amount</h5>
+              <form id="payoutForm">
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between text-xs mb-1">
+                    <span class="text-muted text-uppercase fw-bold">Amount to Disburse (USD)</span>
+                    <span class="text-muted">Available: <strong class="font-mono text-success" id="payoutAvailableBalance">$4,850.00</strong></span>
+                  </div>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-light font-mono fw-bold text-muted">$</span>
+                    <input type="number" step="0.01" min="10" max="100000" id="payoutAmountInput" class="form-control font-mono fw-bold text-dark fs-4" placeholder="0.00" required />
+                  </div>
+                </div>
+
+                <!-- Percentage Quick Select -->
+                <div class="d-flex gap-2 mb-4">
+                  <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold payout-quick-pct" data-pct="0.25">25%</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold payout-quick-pct" data-pct="0.50">50%</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold payout-quick-pct" data-pct="0.75">75%</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 text-xs fw-bold payout-quick-pct" data-pct="1.00">Max (100%)</button>
+                </div>
+
+                <div class="p-3 bg-light rounded-4 border mb-4">
+                  <div class="d-flex justify-content-between text-xs py-1">
+                    <span class="text-muted">Requested Amount:</span>
+                    <strong class="font-mono text-dark" id="summaryRequested">$0.00</strong>
+                  </div>
+                  <div class="d-flex justify-content-between text-xs py-1">
+                    <span class="text-muted">Platform Commission:</span>
+                    <span class="text-success font-mono">0.00% (Free for Members)</span>
+                  </div>
+                  <div class="d-flex justify-content-between text-xs py-1 border-top mt-1 pt-2">
+                    <span class="fw-bold text-dark">Net Disbursed:</span>
+                    <strong class="font-mono text-success fs-6" id="summaryNet">$0.00</strong>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100 py-3 rounded-pill fw-bold fs-6 shadow-sm">
+                  <i class="fa-solid fa-paper-plane me-2"></i> Confirm & Authorize Payout
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right Column: Balance & Summary -->
+          <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-light">
+              <span class="text-xs text-muted text-uppercase fw-bold d-block mb-1">Yield Wallet Balance</span>
+              <h2 class="font-mono fw-bold text-success mb-2 fs-3" id="sideWalletBalance">$4,850.00</h2>
+              <p class="text-xs text-muted mb-4">Realized crop dividends ready for instant bank disbursement or reinvestment into active farm pools.</p>
+              
+              <div class="d-flex flex-column gap-3 border-top pt-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="rounded-circle bg-success-subtle text-success p-2" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark">Munich Re Insured</strong>
+                    <span class="text-xs text-muted">100% Principal & Yield Security</span>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                  <div class="rounded-circle bg-primary-subtle text-primary p-2" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                  </div>
+                  <div>
+                    <strong class="d-block text-xs text-dark">Instant Settlement</strong>
+                    <span class="text-xs text-muted">Direct ACH & Wire APIs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+</body>
+</html>
