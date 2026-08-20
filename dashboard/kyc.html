@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verification Center (KYC) — FarmVest</title>
+  <meta name="description" content="Verify your investor identity, upload government-issued credentials, and unlock unlimited agricultural pool allocations." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Scripts & Stylesheet -->
+  <script type="module" src="/src/js/dashboard.js"></script>
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="dashboard-page">
+  <div class="dashboard">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dashboard__sidebar">
+      <div class="dashboard__brand">
+        <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+      </div>
+
+      <!-- User Profile Badge in Sidebar -->
+      <div class="p-3 mx-3 mt-3 rounded-4 bg-light border text-center">
+        <div class="position-relative d-inline-block mb-2">
+          <img src="/images/team-sarah.png" alt="User Profile" class="rounded-circle border border-2 border-success" width="54" height="54" style="object-fit:cover;" />
+          <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" style="width:12px;height:12px;"></span>
+        </div>
+        <h6 class="fw-bold text-dark mb-0 dashboard__user-name">James Wilson</h6>
+        <span class="text-xs text-muted d-block mb-2">Verified Investor</span>
+        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs">
+          <i class="fa-solid fa-circle-check me-1"></i> Active Portfolio
+        </span>
+      </div>
+
+      <nav class="dashboard__nav">
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Portfolio & Growth</p>
+          <a href="/dashboard/index.html" class="dashboard__nav-item"><i class="fa-solid fa-chart-pie me-2"></i> Overview</a>
+          <a href="/dashboard/investments.html" class="dashboard__nav-item"><i class="fa-solid fa-wheat-awn me-2"></i> My Farm Pools</a>
+          <a href="/dashboard/transactions.html" class="dashboard__nav-item"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Payout Ledger</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Marketplace & Trade</p>
+          <a href="/dashboard/shop.html" class="dashboard__nav-item"><i class="fa-solid fa-store me-2"></i> Farm Store</a>
+          <a href="/dashboard/orders.html" class="dashboard__nav-item"><i class="fa-solid fa-box-open me-2"></i> My Orders</a>
+          <a href="/dashboard/wishlist.html" class="dashboard__nav-item"><i class="fa-solid fa-heart me-2 text-danger"></i> Wishlist <span class="badge bg-danger-subtle text-danger rounded-pill px-2 ms-auto text-xs" data-wishlist-count>0</span></a>
+          <a href="/dashboard/seller.html" class="dashboard__nav-item"><i class="fa-solid fa-tractor me-2"></i> Seller Hub</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Capital & Yields</p>
+          <a href="/dashboard/deposit.html" class="dashboard__nav-item"><i class="fa-solid fa-wallet me-2"></i> Deposit Funds</a>
+          <a href="/dashboard/payout.html" class="dashboard__nav-item"><i class="fa-solid fa-money-bill-transfer me-2"></i> Payout / Withdraw</a>
+          <a href="/dashboard/payout-history.html" class="dashboard__nav-item"><i class="fa-solid fa-clock-rotate-left me-2"></i> Payout History</a>
+          <a href="/dashboard/referrals.html" class="dashboard__nav-item"><i class="fa-solid fa-users-rays me-2"></i> Referrals & Bonus</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Account & Security</p>
+          <a href="/dashboard/profile.html" class="dashboard__nav-item"><i class="fa-solid fa-user-gear me-2"></i> Account Settings</a>
+          <a href="/dashboard/2fa.html" class="dashboard__nav-item"><i class="fa-solid fa-key me-2"></i> 2 FA Security</a>
+          <a href="/dashboard/kyc.html" class="dashboard__nav-item active"><i class="fa-solid fa-id-card-clip me-2"></i> Verification Center</a>
+          <a href="/dashboard/badges.html" class="dashboard__nav-item"><i class="fa-solid fa-award me-2"></i> Investor Badges</a>
+          <a href="/dashboard/support.html" class="dashboard__nav-item"><i class="fa-solid fa-headset me-2"></i> Support Tickets</a>
+        </div>
+      </nav>
+
+      <div class="dashboard__sidebar-footer">
+        <button type="button" data-logout-btn class="btn btn-outline-danger w-100 rounded-pill btn-sm font-weight-bold">
+          <i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-backdrop"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard__main">
+
+      <!-- TOPBAR -->
+      <header class="dashboard__topbar">
+        <div class="dashboard__topbar-left">
+          <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="dashboard__search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search verification documents, status…" aria-label="Search dashboard" />
+          </div>
+        </div>
+
+        <div class="dashboard__topbar-right">
+          <!-- Dark / Light Mode Toggle Button -->
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <!-- User Menu Dropdown -->
+          <div class="dropdown">
+            <div class="dashboard__user-menu" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="dashboard__user-avatar">
+                <img src="/images/team-sarah.png" alt="James Wilson" />
+              </div>
+              <span class="dashboard__user-name">James Wilson</span>
+              <i class="fa-solid fa-chevron-down text-xs text-muted ms-1"></i>
+            </div>
+            <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 p-2 mt-2 user-profile-dropdown" style="min-width: 240px;">
+              <div class="p-3 mb-2 rounded-3 bg-light d-flex align-items-center gap-3">
+                <img src="/images/team-sarah.png" alt="James Wilson" class="rounded-circle border border-2 border-success" width="44" height="44" style="object-fit: cover;" />
+                <div class="overflow-hidden">
+                  <h6 class="fw-bold text-dark mb-0 text-truncate dashboard__user-name">James Wilson</h6>
+                  <span class="text-xs text-muted d-block font-mono">@demouser</span>
+                </div>
+              </div>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/profile.html">
+                <i class="fa-regular fa-user text-muted" style="width: 18px;"></i> Account Settings
+              </a>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/2fa.html">
+                <i class="fa-solid fa-key text-muted" style="width: 18px;"></i> 2 FA Security
+              </a>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/kyc.html">
+                <i class="fa-regular fa-address-card text-muted" style="width: 18px;"></i> Verification Center
+              </a>
+              <hr class="dropdown-divider my-2 opacity-50">
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm text-danger d-flex align-items-center gap-2" href="#" data-logout-btn>
+                <i class="fa-solid fa-arrow-right-from-bracket" style="width: 18px;"></i> Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <main class="dashboard__content">
+
+        <!-- Page Header -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <h1 class="dashboard__page-title mb-0">Verification Center (KYC)</h1>
+              <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">
+                <i class="fa-solid fa-circle-check me-1"></i> Level 3: Fully Verified
+              </span>
+            </div>
+            <p class="dashboard__page-desc mb-0">Verify your investor identity to unlock institutional pool allocations and high-volume automated payouts.</p>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="/dashboard/profile.html" class="btn btn-outline-secondary rounded-pill px-3 py-2 text-xs fw-bold">
+              <i class="fa-solid fa-user-gear me-1"></i> Account Details
+            </a>
+          </div>
+        </div>
+
+        <!-- Verification Tier Progress Card -->
+        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+          <h5 class="font-heading fw-bold text-dark mb-3">Verification Tier Levels</h5>
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="p-3 rounded-4 border bg-light h-100 position-relative">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="badge bg-success text-white rounded-pill px-2 py-1 text-xs"><i class="fa-solid fa-check me-1"></i> Completed</span>
+                  <span class="text-xs text-muted font-mono">Tier 1</span>
+                </div>
+                <h6 class="fw-bold text-dark mb-1">Basic Identity</h6>
+                <p class="text-xs text-muted mb-2">Email address, phone number, and residential address verified.</p>
+                <span class="text-xs text-success fw-bold d-block font-mono">$10,000 / cycle limit</span>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="p-3 rounded-4 border bg-light h-100 position-relative">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="badge bg-success text-white rounded-pill px-2 py-1 text-xs"><i class="fa-solid fa-check me-1"></i> Completed</span>
+                  <span class="text-xs text-muted font-mono">Tier 2</span>
+                </div>
+                <h6 class="fw-bold text-dark mb-1">Government ID</h6>
+                <p class="text-xs text-muted mb-2">Passport / National Driver's License & Biometric Liveness Check.</p>
+                <span class="text-xs text-success fw-bold d-block font-mono">$100,000 / cycle limit</span>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="p-3 rounded-4 border bg-success-subtle border-success-subtle h-100 position-relative">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                  <span class="badge bg-success text-white rounded-pill px-2 py-1 text-xs"><i class="fa-solid fa-shield-check me-1"></i> Active (Current)</span>
+                  <span class="text-xs text-success font-mono fw-bold">Tier 3</span>
+                </div>
+                <h6 class="fw-bold text-dark mb-1">Accredited Partner</h6>
+                <p class="text-xs text-muted mb-2">Bank statement, proof of funds, and Munich Re insurance policy.</p>
+                <span class="text-xs text-success fw-bold d-block font-mono">Unlimited Allocation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Document Upload & Status Portal -->
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+              <h5 class="font-heading fw-bold text-dark mb-3">Submitted Verification Documents</h5>
+              <div class="d-flex flex-column gap-3 mb-4">
+                
+                <div class="p-3 border rounded-3 d-flex flex-wrap align-items-center justify-content-between gap-3 bg-light">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="fa-solid fa-passport text-success fs-3"></i>
+                    <div>
+                      <strong class="text-dark text-xs d-block">US Passport & Driver's License</strong>
+                      <span class="text-xs text-muted">Expires: Oct 2031 &bull; Verified by Jumio Identity API</span>
+                    </div>
+                  </div>
+                  <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">Approved</span>
+                </div>
+
+                <div class="p-3 border rounded-3 d-flex flex-wrap align-items-center justify-content-between gap-3 bg-light">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="fa-solid fa-file-invoice text-success fs-3"></i>
+                    <div>
+                      <strong class="text-dark text-xs d-block">Utility Bill / Proof of Residence</strong>
+                      <span class="text-xs text-muted">742 Evergreen Terrace, Austin, TX &bull; Verified July 2026</span>
+                    </div>
+                  </div>
+                  <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">Approved</span>
+                </div>
+
+                <div class="p-3 border rounded-3 d-flex flex-wrap align-items-center justify-content-between gap-3 bg-light">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="fa-solid fa-camera-retro text-success fs-3"></i>
+                    <div>
+                      <strong class="text-dark text-xs d-block">Biometric 3D Liveness Selfie</strong>
+                      <span class="text-xs text-muted">Facial match 99.8% confidence score</span>
+                    </div>
+                  </div>
+                  <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">Approved</span>
+                </div>
+
+              </div>
+
+              <h6 class="fw-bold text-dark mb-2 fs-6">Upload Additional Document (Optional)</h6>
+              <div class="border-2 border-dashed rounded-4 p-4 text-center bg-light">
+                <i class="fa-solid fa-cloud-arrow-up text-success fs-2 mb-2 d-block"></i>
+                <h6 class="fw-bold text-dark mb-1 text-sm">Drag & drop accredited entity documents</h6>
+                <p class="text-xs text-muted mb-3">PDF, JPEG or PNG up to 15MB. All files encrypted with AES-256.</p>
+                <input type="file" id="kycFileInput" class="d-none" />
+                <button type="button" class="btn btn-outline-success btn-sm rounded-pill px-4 fw-bold" onclick="document.getElementById('kycFileInput').click()">
+                  Select Document
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Compliance Badge -->
+          <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-light">
+              <span class="text-xs text-muted text-uppercase fw-bold d-block mb-1">Regulatory Compliance</span>
+              <h4 class="font-heading fw-bold text-success mb-2">SEC Reg-D & FINCEN Compliant</h4>
+              <p class="text-xs text-muted mb-4">FarmVest complies with all US Federal and international agricultural tokenization and yield syndicate regulations.</p>
+
+              <div class="p-3 bg-white rounded-3 border mb-3">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <i class="fa-solid fa-shield-halved text-success"></i>
+                  <strong class="text-dark text-xs">Insurance Protection</strong>
+                </div>
+                <span class="text-xs text-muted">Munich Re covers pool allocations up to $2,500,000 per verified user account.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+</body>
+</html>

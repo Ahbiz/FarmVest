@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2FA Security & Session Controls — FarmVest</title>
+  <meta name="description" content="Configure multi-factor authentication (TOTP & SMS), generate offline recovery codes, and manage active session devices." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+
+  <!-- Scripts & Stylesheet -->
+  <script type="module" src="/src/js/dashboard.js"></script>
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="dashboard-page">
+  <div class="dashboard">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="dashboard__sidebar">
+      <div class="dashboard__brand">
+        <a href="/index.html"><img src="/images/logo.svg" alt="FarmVest" /></a>
+      </div>
+
+      <!-- User Profile Badge in Sidebar -->
+      <div class="p-3 mx-3 mt-3 rounded-4 bg-light border text-center">
+        <div class="position-relative d-inline-block mb-2">
+          <img src="/images/team-sarah.png" alt="User Profile" class="rounded-circle border border-2 border-success" width="54" height="54" style="object-fit:cover;" />
+          <span class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-white" style="width:12px;height:12px;"></span>
+        </div>
+        <h6 class="fw-bold text-dark mb-0 dashboard__user-name">James Wilson</h6>
+        <span class="text-xs text-muted d-block mb-2">Verified Investor</span>
+        <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-1 text-xs">
+          <i class="fa-solid fa-circle-check me-1"></i> Active Portfolio
+        </span>
+      </div>
+
+      <nav class="dashboard__nav">
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Portfolio & Growth</p>
+          <a href="/dashboard/index.html" class="dashboard__nav-item"><i class="fa-solid fa-chart-pie me-2"></i> Overview</a>
+          <a href="/dashboard/investments.html" class="dashboard__nav-item"><i class="fa-solid fa-wheat-awn me-2"></i> My Farm Pools</a>
+          <a href="/dashboard/transactions.html" class="dashboard__nav-item"><i class="fa-solid fa-file-invoice-dollar me-2"></i> Payout Ledger</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Marketplace & Trade</p>
+          <a href="/dashboard/shop.html" class="dashboard__nav-item"><i class="fa-solid fa-store me-2"></i> Farm Store</a>
+          <a href="/dashboard/orders.html" class="dashboard__nav-item"><i class="fa-solid fa-box-open me-2"></i> My Orders</a>
+          <a href="/dashboard/wishlist.html" class="dashboard__nav-item"><i class="fa-solid fa-heart me-2 text-danger"></i> Wishlist <span class="badge bg-danger-subtle text-danger rounded-pill px-2 ms-auto text-xs" data-wishlist-count>0</span></a>
+          <a href="/dashboard/seller.html" class="dashboard__nav-item"><i class="fa-solid fa-tractor me-2"></i> Seller Hub</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Capital & Yields</p>
+          <a href="/dashboard/deposit.html" class="dashboard__nav-item"><i class="fa-solid fa-wallet me-2"></i> Deposit Funds</a>
+          <a href="/dashboard/payout.html" class="dashboard__nav-item"><i class="fa-solid fa-money-bill-transfer me-2"></i> Payout / Withdraw</a>
+          <a href="/dashboard/payout-history.html" class="dashboard__nav-item"><i class="fa-solid fa-clock-rotate-left me-2"></i> Payout History</a>
+          <a href="/dashboard/referrals.html" class="dashboard__nav-item"><i class="fa-solid fa-users-rays me-2"></i> Referrals & Bonus</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">Account & Security</p>
+          <a href="/dashboard/profile.html" class="dashboard__nav-item"><i class="fa-solid fa-user-gear me-2"></i> Account Settings</a>
+          <a href="/dashboard/2fa.html" class="dashboard__nav-item active"><i class="fa-solid fa-key me-2"></i> 2 FA Security</a>
+          <a href="/dashboard/kyc.html" class="dashboard__nav-item"><i class="fa-solid fa-id-card-clip me-2"></i> Verification Center</a>
+          <a href="/dashboard/badges.html" class="dashboard__nav-item"><i class="fa-solid fa-award me-2"></i> Investor Badges</a>
+          <a href="/dashboard/support.html" class="dashboard__nav-item"><i class="fa-solid fa-headset me-2"></i> Support Tickets</a>
+        </div>
+      </nav>
+
+      <div class="dashboard__sidebar-footer">
+        <button type="button" data-logout-btn class="btn btn-outline-danger w-100 rounded-pill btn-sm font-weight-bold">
+          <i class="fa-solid fa-right-from-bracket me-2"></i> Sign Out
+        </button>
+      </div>
+    </aside>
+    <div class="dashboard-backdrop"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard__main">
+
+      <!-- TOPBAR -->
+      <header class="dashboard__topbar">
+        <div class="dashboard__topbar-left">
+          <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></button>
+          <div class="dashboard__search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" placeholder="Search security settings, sessions…" aria-label="Search dashboard" />
+          </div>
+        </div>
+
+        <div class="dashboard__topbar-right">
+          <!-- Dark / Light Mode Toggle Button -->
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+          <!-- User Menu Dropdown -->
+          <div class="dropdown">
+            <div class="dashboard__user-menu" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="dashboard__user-avatar">
+                <img src="/images/team-sarah.png" alt="James Wilson" />
+              </div>
+              <span class="dashboard__user-name">James Wilson</span>
+              <i class="fa-solid fa-chevron-down text-xs text-muted ms-1"></i>
+            </div>
+            <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 p-2 mt-2 user-profile-dropdown" style="min-width: 240px;">
+              <div class="p-3 mb-2 rounded-3 bg-light d-flex align-items-center gap-3">
+                <img src="/images/team-sarah.png" alt="James Wilson" class="rounded-circle border border-2 border-success" width="44" height="44" style="object-fit: cover;" />
+                <div class="overflow-hidden">
+                  <h6 class="fw-bold text-dark mb-0 text-truncate dashboard__user-name">James Wilson</h6>
+                  <span class="text-xs text-muted d-block font-mono">@demouser</span>
+                </div>
+              </div>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/profile.html">
+                <i class="fa-regular fa-user text-muted" style="width: 18px;"></i> Account Settings
+              </a>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/2fa.html">
+                <i class="fa-solid fa-key text-muted" style="width: 18px;"></i> 2 FA Security
+              </a>
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm d-flex align-items-center gap-2" href="/dashboard/kyc.html">
+                <i class="fa-regular fa-address-card text-muted" style="width: 18px;"></i> Verification Center
+              </a>
+              <hr class="dropdown-divider my-2 opacity-50">
+              <a class="dropdown-item rounded-3 py-2 px-3 text-sm text-danger d-flex align-items-center gap-2" href="#" data-logout-btn>
+                <i class="fa-solid fa-arrow-right-from-bracket" style="width: 18px;"></i> Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- BODY CONTENT -->
+      <main class="dashboard__content">
+
+        <!-- Page Header -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <h1 class="dashboard__page-title mb-0">Two-Factor Authentication (2FA)</h1>
+              <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">
+                <i class="fa-solid fa-shield-halved me-1"></i> Enhanced Protection
+              </span>
+            </div>
+            <p class="dashboard__page-desc mb-0">Protect your investment capital, dividend payouts, and personal data with multi-layer authentication.</p>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="/dashboard/profile.html" class="btn btn-outline-secondary rounded-pill px-3 py-2 text-xs fw-bold">
+              <i class="fa-solid fa-user-gear me-1"></i> Account Settings
+            </a>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Left Column: 2FA Methods -->
+          <div class="col-lg-8">
+            
+            <!-- Primary Authenticator App (TOTP) Card -->
+            <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="rounded-circle bg-success-subtle text-success p-3 fs-5">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-heading fw-bold text-dark mb-1">Authenticator App (Recommended)</h5>
+                    <p class="text-xs text-muted mb-0">Use Google Authenticator, Authy, or 1Password to generate time-based one-time passwords (TOTP).</p>
+                  </div>
+                </div>
+                <div class="form-check form-switch fs-4">
+                  <input class="form-check-input" type="checkbox" id="totpToggle" checked />
+                </div>
+              </div>
+
+              <!-- Setup QR Code Box -->
+              <div class="p-3 bg-light rounded-4 border mt-3">
+                <div class="row g-3 align-items-center">
+                  <div class="col-sm-4 text-center">
+                    <!-- Clean SVG simulated QR code -->
+                    <div class="bg-white p-2 rounded-3 border d-inline-block shadow-sm">
+                      <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="120" height="120" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 10H50V50H10V10ZM20 20H40V40H20V20ZM70 10H110V50H70V10ZM80 20H100V40H80V20ZM10 70H50V110H10V70ZM20 80H40V100H20V80ZM70 70H85V85H70V70ZM95 70H110V85H95V70ZM85 85H95V95H85V85ZM70 95H85V110H70V95ZM95 95H110V110H95V95ZM55 20H65V30H55V20ZM55 40H65V50H55V40ZM20 55H30V65H20V55ZM40 55H50V65H40V55ZM55 55H65V65H55V55ZM70 55H80V65H70V55ZM90 55H100V65H90V55ZM55 70H65V80H55V70ZM55 90H65V100H55V90ZM55 100H65V110H55V100Z" fill="#151F32"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <span class="text-xs text-muted text-uppercase fw-bold d-block mb-1">Manual Secret Key</span>
+                    <div class="input-group input-group-sm mb-2">
+                      <input type="text" class="form-control font-mono text-dark bg-white" value="FVST-2026-X91K-8820-MN42" id="totpSecretKey" readonly />
+                      <button class="btn btn-outline-secondary" type="button" id="copySecretKeyBtn"><i class="fa-solid fa-copy"></i></button>
+                    </div>
+                    <span class="text-xs text-muted d-block mb-3">Scan this code with your mobile authenticator app or enter the secret key manually.</span>
+                    
+                    <div class="d-flex gap-2">
+                      <input type="text" class="form-control form-control-sm font-mono text-center" placeholder="6-digit code" maxlength="6" id="totpTestCode" style="max-width: 140px;" />
+                      <button type="button" class="btn btn-sm btn-success rounded-pill px-3 fw-bold" id="verify2faBtn">Verify & Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Backup Recovery Codes -->
+            <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <div>
+                  <h5 class="font-heading fw-bold text-dark mb-1">Backup Recovery Codes</h5>
+                  <p class="text-xs text-muted mb-0">Use one-time recovery codes if you lose access to your primary mobile phone.</p>
+                </div>
+                <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3 fw-bold text-xs" id="genCodesBtn">
+                  <i class="fa-solid fa-arrows-rotate me-1"></i> Regenerate
+                </button>
+              </div>
+
+              <div class="p-3 bg-light rounded-4 border font-mono text-xs text-dark mt-3">
+                <div class="row g-2 text-center" id="recoveryCodesGrid">
+                  <div class="col-6 col-sm-3"><span class="p-2 bg-white rounded border d-block">8921-4401</span></div>
+                  <div class="col-6 col-sm-3"><span class="p-2 bg-white rounded border d-block">7710-9281</span></div>
+                  <div class="col-6 col-sm-3"><span class="p-2 bg-white rounded border d-block">3104-5820</span></div>
+                  <div class="col-6 col-sm-3"><span class="p-2 bg-white rounded border d-block">9912-6714</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Login Sessions Card -->
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+              <h5 class="font-heading fw-bold text-dark mb-3">Active Login Sessions</h5>
+              <div class="d-flex flex-column gap-3">
+                <div class="d-flex align-items-center justify-content-between p-3 bg-light rounded-3 border">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="fa-solid fa-laptop text-success fs-4"></i>
+                    <div>
+                      <strong class="text-dark text-xs d-block">MacBook Pro &bull; Chrome 127.0</strong>
+                      <span class="text-xs text-muted">San Francisco, CA &bull; IP: 198.51.100.42 (Current Session)</span>
+                    </div>
+                  </div>
+                  <span class="badge bg-success-subtle text-success rounded-pill px-2 py-1 text-xs">Active Now</span>
+                </div>
+                <div class="d-flex align-items-center justify-content-between p-3 bg-light rounded-3 border">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="fa-solid fa-mobile-screen text-muted fs-4"></i>
+                    <div>
+                      <strong class="text-dark text-xs d-block">iPhone 15 Pro &bull; FarmVest Mobile App</strong>
+                      <span class="text-xs text-muted">Austin, TX &bull; Last active 2 hours ago</span>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-outline-danger btn-sm rounded-pill text-xs px-3" onclick="this.closest('.p-3').remove()">Revoke</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Status Summary -->
+          <div class="col-lg-4">
+            <div class="card border-0 shadow-sm rounded-4 p-4 bg-light">
+              <span class="text-xs text-muted text-uppercase fw-bold d-block mb-1">Account Security Level</span>
+              <h3 class="font-heading fw-bold text-success mb-2 fs-4">High Security (Grade A)</h3>
+              <p class="text-xs text-muted mb-4">Your account meets all institutional security compliance standards for automated yield disbursements and pool participation.</p>
+
+              <div class="d-flex flex-column gap-3 border-top pt-3">
+                <div class="d-flex align-items-center justify-content-between text-xs">
+                  <span class="text-dark fw-bold"><i class="fa-solid fa-circle-check text-success me-2"></i>Password Strength</span>
+                  <span class="badge bg-success-subtle text-success rounded-pill">Strong</span>
+                </div>
+                <div class="d-flex align-items-center justify-content-between text-xs">
+                  <span class="text-dark fw-bold"><i class="fa-solid fa-circle-check text-success me-2"></i>2FA Status</span>
+                  <span class="badge bg-success-subtle text-success rounded-pill">Active</span>
+                </div>
+                <div class="d-flex align-items-center justify-content-between text-xs">
+                  <span class="text-dark fw-bold"><i class="fa-solid fa-circle-check text-success me-2"></i>KYC Status</span>
+                  <span class="badge bg-success-subtle text-success rounded-pill">Level 3 Verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div class="toast-container"></div>
+</body>
+</html>
