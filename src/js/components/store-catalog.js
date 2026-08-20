@@ -2,6 +2,8 @@
 // FarmVest Store Marketplace — Live Filtering, Search, Sort & Pagination
 // ============================================================
 
+import { toggleWishlist, isInWishlist, updateWishlistBadges } from '../services/wishlist.js';
+
 /**
  * Initialize Store Catalog Component
  */
@@ -306,7 +308,48 @@ export function initStoreCatalog() {
     resetFilters();
   });
 
+  // Wishlist toggle buttons
+  function refreshWishlistButtons() {
+    grid.querySelectorAll('[data-wishlist-toggle]').forEach(btn => {
+      const prodId = btn.dataset.productId;
+      const icon = btn.querySelector('i');
+      if (icon) {
+        if (isInWishlist(prodId)) {
+          icon.className = 'fa-solid fa-heart text-danger';
+        } else {
+          icon.className = 'fa-regular fa-heart text-muted';
+        }
+      }
+    });
+  }
+
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('[data-wishlist-toggle]');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+
+    const product = {
+      id: btn.dataset.productId,
+      title: btn.dataset.productTitle || 'Farm Produce Item',
+      price: parseFloat(btn.dataset.productPrice) || 5.00,
+      unit: btn.dataset.productUnit || 'kg',
+      category: btn.dataset.productCategory || 'vegetables',
+      origin: btn.dataset.productOrigin || 'Partner Farm',
+      image: btn.dataset.productImage || ''
+    };
+
+    toggleWishlist(product);
+    refreshWishlistButtons();
+  });
+
+  window.addEventListener('farmvest:wishlist-updated', () => {
+    refreshWishlistButtons();
+  });
+
   // Initial setup
   applyUrlParams();
   updateCatalog();
+  refreshWishlistButtons();
+  updateWishlistBadges();
 }
