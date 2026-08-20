@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Withdrawal Logs — FarmVest Admin</title>
+  <meta name="description" content="Audit all user withdrawal disbursements, settlement rails, processing fees, and supervisor approvals." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+  <script type="module" src="/src/js/admin.js"></script>
+  <link rel="stylesheet" href="/src/css/style.css" />
+</head>
+<body class="admin-dashboard-page">
+
+  <div class="dashboard">
+
+    <!-- ADMIN SIDEBAR -->
+    <aside class="dashboard__sidebar admin-sidebar">
+      <div class="dashboard__brand">
+        <a href="/admin/index.html"><img src="/images/logo-white.svg" alt="FarmVest Admin" /></a>
+      </div>
+
+      <nav class="dashboard__nav">
+        <a href="/admin/index.html" class="dashboard__nav-item"><i class="fas fa-gauge-high"></i> Dashboard</a>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">MANAGE PLAN</p>
+          <a href="/admin/plans.html" class="dashboard__nav-item"><i class="fas fa-cubes"></i> Investment Plan</a>
+          <a href="/admin/plan-invest-history.html" class="dashboard__nav-item"><i class="fas fa-clock-rotate-left"></i> Plan Invest History</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">MANAGE PROJECT</p>
+          <a href="/admin/projects.html" class="dashboard__nav-item"><i class="fas fa-seedling"></i> Projects</a>
+          <a href="/admin/project-invest-history.html" class="dashboard__nav-item"><i class="fas fa-layer-group"></i> Project Invest History</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">PRODUCT SETTING</p>
+          <a href="/admin/products.html" class="dashboard__nav-item"><i class="fas fa-boxes-stacked"></i> Product Setting</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">SHIPPING CONTROL</p>
+          <a href="/admin/shipping-areas.html" class="dashboard__nav-item"><i class="fas fa-map-location-dot"></i> Areas</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">ORDERS</p>
+          <a href="/admin/orders.html" class="dashboard__nav-item"><i class="fas fa-truck-fast"></i> Orders <span class="admin-badge admin-badge--warn">3</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">MANAGE RANKING</p>
+          <a href="/admin/user-ranking.html" class="dashboard__nav-item"><i class="fas fa-trophy"></i> User Ranking</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">MANAGE COMMISSION</p>
+          <a href="/admin/referrals.html" class="dashboard__nav-item"><i class="fas fa-users-rays"></i> Referral</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">TRANSACTIONS</p>
+          <a href="/admin/transactions.html" class="dashboard__nav-item"><i class="fas fa-file-invoice-dollar"></i> Transaction</a>
+          <a href="/admin/commissions.html" class="dashboard__nav-item"><i class="fas fa-hand-holding-dollar"></i> Commissions</a>
+          <a href="/admin/withdraw-log.html" class="dashboard__nav-item active"><i class="fas fa-money-bill-transfer"></i> Withdraw Log</a>
+          <a href="/admin/payment-log.html" class="dashboard__nav-item"><i class="fas fa-receipt"></i> Payment Log</a>
+          <a href="/admin/payment-requests.html" class="dashboard__nav-item"><i class="fas fa-clock"></i> Payment Request <span class="admin-badge admin-badge--warn">4</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">TICKET PANEL</p>
+          <a href="/admin/support-tickets.html" class="dashboard__nav-item"><i class="fas fa-headset"></i> Support Ticket <span class="admin-badge admin-badge--warn">6</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">KYC MANAGEMENT</p>
+          <a href="/admin/kyc-settings.html" class="dashboard__nav-item"><i class="fas fa-user-shield"></i> KYC Setting</a>
+          <a href="/admin/kyc-requests.html" class="dashboard__nav-item"><i class="fas fa-id-card-clip"></i> KYC Request <span class="admin-badge admin-badge--warn">1</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">USER INFO</p>
+          <a href="/admin/users.html" class="dashboard__nav-item"><i class="fas fa-users-gear"></i> User Management</a>
+          <a href="/admin/investors.html" class="dashboard__nav-item"><i class="fas fa-user-tie"></i> Investors</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">SETTINGS & SETUP</p>
+          <a href="/admin/settings.html" class="dashboard__nav-item"><i class="fas fa-sliders"></i> Control Panel</a>
+          <a href="/admin/payment-gateways.html" class="dashboard__nav-item"><i class="fas fa-credit-card"></i> Payment Setting</a>
+          <a href="/admin/withdraw-settings.html" class="dashboard__nav-item"><i class="fas fa-wallet"></i> Withdraw Setting</a>
+          <a href="/admin/reports.html" class="dashboard__nav-item"><i class="fas fa-chart-pie"></i> Reports & Analytics</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">FRONTEND SETTINGS</p>
+          <a href="/admin/pages.html" class="dashboard__nav-item"><i class="fas fa-file-code"></i> Pages</a>
+          <a href="/admin/media.html" class="dashboard__nav-item"><i class="fas fa-photo-film"></i> Manage Media</a>
+          <a href="/admin/content.html" class="dashboard__nav-item"><i class="fas fa-pen-to-square"></i> Manage Content</a>
+          <a href="/admin/blog.html" class="dashboard__nav-item"><i class="fas fa-newspaper"></i> Manage Blog</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">APPLICATION PANEL</p>
+          <button type="button" class="dashboard__nav-item text-warning border-0 bg-transparent w-100 text-start" data-cache-clear>
+            <i class="fas fa-broom"></i> Cache Clear
+          </button>
+          <a href="/index.html" target="_blank" class="dashboard__nav-item"><i class="fas fa-globe"></i> View Live Site</a>
+        </div>
+      </nav>
+
+      <div class="dashboard__sidebar-footer">
+        <div class="admin-system-status">
+          <span class="pulse-dot"></span> <span>All Systems Operational</span>
+        </div>
+        <a href="/auth/login.html" data-logout-btn class="dashboard__nav-item text-danger">
+          <i class="fas fa-right-from-bracket me-2"></i> Exit Admin
+        </a>
+      </div>
+    </aside>
+    <div class="dashboard-backdrop"></div>
+
+    <!-- MAIN CONTENT -->
+    <div class="dashboard__main">
+
+      <!-- TOPBAR -->
+      <header class="dashboard__topbar">
+        <div class="dashboard__topbar-left">
+          <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></button>
+          <div class="dashboard__search">
+            <i class="fas fa-search"></i>
+            <input type="search" placeholder="Search withdrawal ID, investor, bank account… Ctrl + K" aria-label="Search admin portal" />
+          </div>
+        </div>
+
+        <div class="dashboard__topbar-right">
+          <a href="/index.html" target="_blank" class="dashboard__topbar-btn text-muted" title="View Live Website"><i class="fas fa-globe"></i></a>
+          <button class="dashboard__topbar-btn position-relative" aria-label="Notifications">
+            <i class="fas fa-bell"></i>
+            <span class="position-absolute top-0 end-0 p-1 bg-danger border border-light rounded-circle" style="width: 8px; height: 8px; margin-top: 4px; margin-right: 4px;"></span>
+          </button>
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+          
+          <div class="dropdown">
+            <div class="d-flex align-items-center gap-2 position-relative" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+              <div class="position-relative">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=admin" class="rounded-circle border border-2 border-primary-subtle" style="width: 38px; height: 38px;" alt="Admin" />
+                <span class="position-absolute bottom-0 end-0 bg-success border border-white rounded-circle" style="width: 10px; height: 10px;"></span>
+              </div>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 mt-2 py-2" style="min-width: 230px;">
+              <li class="px-3 py-2 d-flex align-items-center gap-2">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=admin" class="rounded-circle border" style="width: 38px; height: 38px;" alt="Admin Avatar" />
+                <div>
+                  <strong class="d-block text-dark fw-bold admin-user-fullname" style="font-size: 0.9rem;">MR Admin</strong>
+                  <span class="text-xs text-muted admin-user-email" style="font-size: 0.75rem;">admin@website.com</span>
+                </div>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li>
+                <a class="dropdown-item py-2 px-3 text-sm d-flex align-items-center text-dark" href="/admin/settings.html">
+                  <i class="fas fa-user-gear me-2 text-muted"></i> Profile & account
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li>
+                <a class="dropdown-item py-2 px-3 text-sm d-flex align-items-center text-danger" href="/auth/login.html" data-logout-btn>
+                  <i class="fas fa-right-from-bracket me-2"></i> Sign out
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <main class="dashboard__content">
+
+        <!-- Page Header -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h1 class="dashboard__page-title mb-1">Withdrawal Logs</h1>
+            <p class="dashboard__page-desc mb-0">Full historical record of all capital and yield payouts disbursed to verified investor accounts.</p>
+          </div>
+          <button class="btn btn-outline-secondary rounded-pill px-3 py-2 text-xs fw-bold"><i class="fas fa-file-export me-1"></i> Export Ledger</button>
+        </div>
+
+        <!-- Withdrawals Table Card -->
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
+          <div class="card-header bg-white py-3 px-4 d-flex flex-wrap align-items-center justify-content-between gap-2 border-bottom">
+            <div class="d-flex gap-2">
+              <button class="btn btn-success btn-sm rounded-pill px-3 active">All (128)</button>
+              <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">Completed (116)</button>
+              <button class="btn btn-outline-secondary btn-sm rounded-pill px-3">Processing (12)</button>
+            </div>
+            <input type="search" class="form-control form-control-sm rounded-pill px-3" placeholder="Filter withdrawals…" style="width: 220px;" />
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+              <thead class="bg-light text-xs text-muted text-uppercase font-mono">
+                <tr>
+                  <th class="ps-4">Disbursement ID</th>
+                  <th>Investor</th>
+                  <th>Gross Amount</th>
+                  <th>Rail / Destination</th>
+                  <th>Processing Fee</th>
+                  <th>Disbursed Date</th>
+                  <th>Status</th>
+                  <th class="text-end pe-4">Receipt</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm">
+                <tr>
+                  <td class="ps-4 font-mono fw-bold text-dark">#WTH-2026-9081</td>
+                  <td>
+                    <strong class="text-dark d-block">James Wilson</strong>
+                    <span class="text-xs text-muted font-mono">@demouser</span>
+                  </td>
+                  <td class="font-mono fw-bold text-dark fs-6">$6,800.00</td>
+                  <td>
+                    <span class="text-xs text-dark fw-bold d-block"><i class="fas fa-building-columns text-muted me-1"></i>Bank Wire (ACH)</span>
+                    <span class="text-xs font-mono text-muted">JPMorgan Chase ****4821</span>
+                  </td>
+                  <td class="font-mono text-muted">$0.00</td>
+                  <td><span class="text-xs font-mono text-muted">2026-08-14 11:15</span></td>
+                  <td><span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">Completed</span></td>
+                  <td class="text-end pe-4">
+                    <button class="btn btn-outline-secondary btn-sm rounded-circle" style="width:32px;height:32px;padding:0;"><i class="fas fa-file-invoice text-xs"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4 font-mono fw-bold text-dark">#WTH-2026-8942</td>
+                  <td>
+                    <strong class="text-dark d-block">Karim Halim</strong>
+                    <span class="text-xs text-muted font-mono">karim.usman@gmail.com</span>
+                  </td>
+                  <td class="font-mono fw-bold text-dark fs-6">$12,500.00</td>
+                  <td>
+                    <span class="text-xs text-dark fw-bold d-block"><i class="fas fa-wallet text-muted me-1"></i>USDC (ERC-20)</span>
+                    <span class="text-xs font-mono text-muted">0x742d...44e</span>
+                  </td>
+                  <td class="font-mono text-muted">$0.00</td>
+                  <td><span class="text-xs font-mono text-muted">2026-08-10 16:40</span></td>
+                  <td><span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">Completed</span></td>
+                  <td class="text-end pe-4">
+                    <button class="btn btn-outline-secondary btn-sm rounded-circle" style="width:32px;height:32px;padding:0;"><i class="fas fa-file-invoice text-xs"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ps-4 font-mono fw-bold text-dark">#WTH-2026-8805</td>
+                  <td>
+                    <strong class="text-dark d-block">Ishtiaq Iqbal</strong>
+                    <span class="text-xs text-muted font-mono">iiqbal@test.com</span>
+                  </td>
+                  <td class="font-mono fw-bold text-dark fs-6">$3,200.00</td>
+                  <td>
+                    <span class="text-xs text-dark fw-bold d-block"><i class="fas fa-building-columns text-muted me-1"></i>Instant ACH</span>
+                    <span class="text-xs font-mono text-muted">Wells Fargo ****1190</span>
+                  </td>
+                  <td class="font-mono text-muted">$0.00</td>
+                  <td><span class="text-xs font-mono text-muted">2026-08-05 09:20</span></td>
+                  <td><span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">Completed</span></td>
+                  <td class="text-end pe-4">
+                    <button class="btn btn-outline-secondary btn-sm rounded-circle" style="width:32px;height:32px;padding:0;"><i class="fas fa-file-invoice text-xs"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+</body>
+</html>
