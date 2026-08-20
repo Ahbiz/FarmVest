@@ -27,29 +27,93 @@
       </div>
 
       <nav class="dashboard__nav">
+        <a href="/admin/index.html" class="dashboard__nav-item"><i class="fas fa-gauge-high"></i> Dashboard</a>
+
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">Overview</p>
-          <a href="/admin/index.html" class="dashboard__nav-item"><i class="fas fa-gauge-high"></i> Admin Dashboard</a>
-          <a href="/admin/reports.html" class="dashboard__nav-item"><i class="fas fa-chart-column"></i> Reports & Analytics</a>
+          <p class="dashboard__nav-section-title">MANAGE PLAN</p>
+          <a href="/admin/plans.html" class="dashboard__nav-item"><i class="fas fa-cubes"></i> Investment Plan</a>
+          <a href="/admin/plan-invest-history.html" class="dashboard__nav-item"><i class="fas fa-clock-rotate-left"></i> Plan Invest History</a>
         </div>
 
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">Management</p>
-          <a href="/admin/projects.html" class="dashboard__nav-item active"><i class="fas fa-layer-group"></i> Manage Pools</a>
-          <a href="/admin/users.html" class="dashboard__nav-item"><i class="fas fa-users"></i> Manage Users <span class="admin-badge">57</span></a>
-          <a href="/admin/transactions.html" class="dashboard__nav-item"><i class="fas fa-money-bill-transfer"></i> Transactions <span class="admin-badge admin-badge--warn">24</span></a>
+          <p class="dashboard__nav-section-title">MANAGE PROJECT</p>
+          <a href="/admin/projects.html" class="dashboard__nav-item active"><i class="fas fa-seedling"></i> Projects</a>
+          <a href="/admin/project-invest-history.html" class="dashboard__nav-item"><i class="fas fa-layer-group"></i> Project Invest History</a>
         </div>
 
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">Marketplace Management</p>
-          <a href="/admin/products.html" class="dashboard__nav-item"><i class="fas fa-boxes-stacked"></i> Produce Inventory</a>
-          <a href="/admin/orders.html" class="dashboard__nav-item"><i class="fas fa-truck-fast"></i> Store Orders <span class="admin-badge admin-badge--warn">1</span></a>
+          <p class="dashboard__nav-section-title">PRODUCT SETTING</p>
+          <a href="/admin/products.html" class="dashboard__nav-item"><i class="fas fa-boxes-stacked"></i> Product Setting</a>
         </div>
 
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">System & Config</p>
-          <a href="/admin/settings.html" class="dashboard__nav-item"><i class="fas fa-gear"></i> System Settings</a>
-          <a href="/index.html" class="dashboard__nav-item"><i class="fas fa-globe"></i> View Live Site</a>
+          <p class="dashboard__nav-section-title">SHIPPING CONTROL</p>
+          <a href="/admin/shipping-areas.html" class="dashboard__nav-item"><i class="fas fa-map-location-dot"></i> Areas</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">ORDERS</p>
+          <a href="/admin/orders.html" class="dashboard__nav-item"><i class="fas fa-truck-fast"></i> Orders <span class="admin-badge admin-badge--warn">3</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">MANAGE RANKING</p>
+          <a href="/admin/user-ranking.html" class="dashboard__nav-item"><i class="fas fa-trophy"></i> User Ranking</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">MANAGE COMMISSION</p>
+          <a href="/admin/referrals.html" class="dashboard__nav-item"><i class="fas fa-users-rays"></i> Referral</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">TRANSACTIONS</p>
+          <a href="/admin/transactions.html" class="dashboard__nav-item"><i class="fas fa-file-invoice-dollar"></i> Transaction</a>
+          <a href="/admin/commissions.html" class="dashboard__nav-item"><i class="fas fa-hand-holding-dollar"></i> Commissions</a>
+          <a href="/admin/withdraw-log.html" class="dashboard__nav-item"><i class="fas fa-money-bill-transfer"></i> Withdraw Log</a>
+          <a href="/admin/payment-log.html" class="dashboard__nav-item"><i class="fas fa-receipt"></i> Payment Log</a>
+          <a href="/admin/payment-requests.html" class="dashboard__nav-item"><i class="fas fa-clock"></i> Payment Request <span class="admin-badge admin-badge--warn">4</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">TICKET PANEL</p>
+          <a href="/admin/support-tickets.html" class="dashboard__nav-item"><i class="fas fa-headset"></i> Support Ticket <span class="admin-badge admin-badge--warn">6</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">KYC MANAGEMENT</p>
+          <a href="/admin/kyc-settings.html" class="dashboard__nav-item"><i class="fas fa-user-shield"></i> KYC Setting</a>
+          <a href="/admin/kyc-requests.html" class="dashboard__nav-item"><i class="fas fa-id-card-clip"></i> KYC Request <span class="admin-badge admin-badge--warn">1</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">USER INFO</p>
+          <a href="/admin/users.html" class="dashboard__nav-item"><i class="fas fa-users-gear"></i> User Management</a>
+          <a href="/admin/investors.html" class="dashboard__nav-item"><i class="fas fa-user-tie"></i> Investors</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">SETTINGS & SETUP</p>
+          <a href="/admin/settings.html" class="dashboard__nav-item"><i class="fas fa-sliders"></i> Control Panel</a>
+          <a href="/admin/payment-gateways.html" class="dashboard__nav-item"><i class="fas fa-credit-card"></i> Payment Setting</a>
+          <a href="/admin/withdraw-settings.html" class="dashboard__nav-item"><i class="fas fa-wallet"></i> Withdraw Setting</a>
+          <a href="/admin/reports.html" class="dashboard__nav-item"><i class="fas fa-chart-pie"></i> Reports & Analytics</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">FRONTEND SETTINGS</p>
+          <a href="/admin/pages.html" class="dashboard__nav-item"><i class="fas fa-file-code"></i> Pages</a>
+          <a href="/admin/media.html" class="dashboard__nav-item"><i class="fas fa-photo-film"></i> Manage Media</a>
+          <a href="/admin/content.html" class="dashboard__nav-item"><i class="fas fa-pen-to-square"></i> Manage Content</a>
+          <a href="/admin/blog.html" class="dashboard__nav-item"><i class="fas fa-newspaper"></i> Manage Blog</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">APPLICATION PANEL</p>
+          <button type="button" class="dashboard__nav-item text-warning border-0 bg-transparent w-100 text-start" data-cache-clear>
+            <i class="fas fa-broom"></i> Cache Clear
+          </button>
+          <a href="/index.html" target="_blank" class="dashboard__nav-item"><i class="fas fa-globe"></i> View Live Site</a>
         </div>
       </nav>
 
@@ -123,17 +187,32 @@
 
           <!-- User Menu -->
           <div class="dropdown">
-            <div class="dashboard__user-menu" data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="dashboard__user-avatar bg-dark text-white d-flex align-items-center justify-content-center">
-                <i class="fas fa-user-shield"></i>
+            <div class="d-flex align-items-center gap-2 position-relative" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+              <div class="position-relative">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=admin" class="rounded-circle border border-2 border-primary-subtle" style="width: 38px; height: 38px;" alt="Admin" />
+                <span class="position-absolute bottom-0 end-0 bg-success border border-white rounded-circle" style="width: 10px; height: 10px;"></span>
               </div>
-              <span class="dashboard__user-name fw-bold">Admin Supervisor</span>
-              <i class="fas fa-chevron-down text-xs text-muted"></i>
             </div>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
-              <li><a class="dropdown-item text-sm" href="/admin/settings.html"><i class="fas fa-gear me-2 text-primary"></i> System Settings</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item text-sm text-danger" href="/auth/login.html" data-logout-btn><i class="fas fa-right-from-bracket me-2"></i> Exit Admin</a></li>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 mt-2 py-2" style="min-width: 230px;">
+              <li class="px-3 py-2 d-flex align-items-center gap-2">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=admin" class="rounded-circle border" style="width: 38px; height: 38px;" alt="Admin Avatar" />
+                <div>
+                  <strong class="d-block text-dark fw-bold admin-user-fullname" style="font-size: 0.9rem;">MR Admin</strong>
+                  <span class="text-xs text-muted admin-user-email" style="font-size: 0.75rem;">admin@website.com</span>
+                </div>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li>
+                <a class="dropdown-item py-2 px-3 text-sm d-flex align-items-center text-dark" href="/admin/settings.html">
+                  <i class="fas fa-user-gear me-2 text-muted"></i> Profile & account
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li>
+                <a class="dropdown-item py-2 px-3 text-sm d-flex align-items-center text-danger" href="/auth/login.html" data-logout-btn>
+                  <i class="fas fa-right-from-bracket me-2"></i> Sign out
+                </a>
+              </li>
             </ul>
           </div>
         </div>
