@@ -12,7 +12,7 @@ export const articles = [
     categoryName: 'Agronomy Tech',
     date: 'Aug 03, 2026',
     readTime: '5 min read',
-    image: '/images/about-vision-rice.png',
+    image: 'https://images.unsplash.com/photo-1536657464919-892534f60d6e?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Smart Farming & Rice Cultivation',
     author: {
       name: 'Dr. Aris Thorne',
@@ -52,12 +52,12 @@ export const articles = [
     categoryName: 'Field Telemetry',
     date: 'Jul 28, 2026',
     readTime: '6 min read',
-    image: '/images/farm-telemetry.png',
+    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'IoT Soil Sensors and Telemetry',
     author: {
       name: 'Elena Rostova',
       role: 'Head of Agritech Hardware',
-      avatar: '/images/team-elena.png',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
       bio: 'Elena specializes in micro-sensor networks and satellite spectral imaging, with over 12 years experience deploying IoT telemetry across commercial farms globally.'
     },
     lead: 'Precision agriculture tools give agronomists real-time visibility into moisture, temperature, and nutrient levels across every hectare, transforming how water and fertilizers are allocated.',
@@ -88,12 +88,12 @@ export const articles = [
     categoryName: 'Market Analysis',
     date: 'Jul 20, 2026',
     readTime: '7 min read',
-    image: '/images/pool-cattle.png',
+    image: 'https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Grass-Fed Livestock Field',
     author: {
       name: 'Marcus Vance',
       role: 'VP of Quantitative Risk',
-      avatar: '/images/team-marcus.png',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
       bio: 'Marcus leads agricultural risk modeling at FarmVest, drawing from 15 years in commodity futures and hedge fund portfolio risk management.'
     },
     lead: 'A data-driven look at how diversified agricultural pools balance seasonal commodity volatility against consistent, insured yields to maximize risk-adjusted investor returns.',
@@ -121,12 +121,12 @@ export const articles = [
     categoryName: 'Greenhouse Tech',
     date: 'Jul 12, 2026',
     readTime: '5 min read',
-    image: '/images/organic-greenhouse.png',
+    image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Hydroponic Greenhouse Facilities',
     author: {
       name: 'Sarah Jenkins',
       role: 'Director of Controlled Environment Ag',
-      avatar: '/images/team-sarah.png',
+      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
       bio: 'Sarah has engineered over 200,000 sq. ft. of automated glasshouse facilities optimizing light spectrums and nutrient dosing.'
     },
     lead: 'Climate-controlled greenhouses compress growing seasons and eliminate weather dependence, unlocking up to four harvest cycles per year for premium produce.',
@@ -155,12 +155,12 @@ export const articles = [
     categoryName: 'Livestock',
     date: 'Jul 05, 2026',
     readTime: '6 min read',
-    image: '/images/pool-tomato.png',
+    image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Pasture and Livestock Operations',
     author: {
       name: 'David Sterling',
       role: 'Senior Livestock Agronomist',
-      avatar: '/images/team-david.png',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
       bio: 'David manages cattle genetics, rotational grazing telemetry, and veterinary protocols across FarmVest\'s partner ranches.'
     },
     lead: 'We break down the full 18-month lifecycle of a livestock pool, including rotational grazing, RFID telemetry, health insurance, and off-take supply agreements.',
@@ -188,7 +188,7 @@ export const articles = [
     categoryName: 'Sustainability',
     date: 'Jun 29, 2026',
     readTime: '5 min read',
-    image: '/images/farmer-green-harvest.png',
+    image: 'https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Regenerative Farming Field',
     author: {
       name: 'Dr. Aris Thorne',
@@ -222,12 +222,12 @@ export const articles = [
     categoryName: 'Agronomy Tech',
     date: 'Jun 21, 2026',
     readTime: '4 min read',
-    image: '/images/pool-citrus.png',
+    image: 'https://images.unsplash.com/photo-1582979512210-99b6a53386f9?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Solar Irrigation Systems',
     author: {
       name: 'Elena Rostova',
       role: 'Head of Agritech Hardware',
-      avatar: '/images/team-elena.png',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
       bio: 'Elena specializes in off-grid solar energy systems and smart irrigation controllers for agricultural projects.'
     },
     lead: 'Autonomous solar pump arrays deliver target hydration directly to root zones, eliminating fuel expenses and maximizing water efficiency.',
@@ -248,12 +248,12 @@ export const articles = [
     categoryName: 'Market Analysis',
     date: 'Jun 14, 2026',
     readTime: '6 min read',
-    image: '/images/pool-wheat.png',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Wheat Fields and Harvest',
     author: {
       name: 'Marcus Vance',
       role: 'VP of Quantitative Risk',
-      avatar: '/images/team-marcus.png',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
       bio: 'Marcus models commodity market movements and yield analytics using machine learning.'
     },
     lead: 'Machine learning models analyze historical weather data and orbital vegetation indices to lock in wholesale off-take pricing months before harvest.',
@@ -271,12 +271,12 @@ export const articles = [
     categoryName: 'Field Telemetry',
     date: 'Jun 08, 2026',
     readTime: '5 min read',
-    image: '/images/pool-berry.png',
+    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Drone Surveying Fields',
     author: {
       name: 'Elena Rostova',
       role: 'Head of Agritech Hardware',
-      avatar: '/images/team-elena.png',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
       bio: 'Elena leads drone telemetry mapping initiatives for high-yield fruit and berry acreage.'
     },
     lead: 'Automated drone flights generate NIR heatmaps identifying plant stress and nitrogen shortfalls days before visual signs appear on the ground.',
@@ -294,12 +294,12 @@ export const articles = [
     categoryName: 'Greenhouse Tech',
     date: 'Jun 01, 2026',
     readTime: '6 min read',
-    image: '/images/pool-vanilla.png',
+    image: 'https://images.unsplash.com/photo-1603569283847-aa295f0d016a?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Vanilla Greenhouse Farming',
     author: {
       name: 'Sarah Jenkins',
       role: 'Director of Controlled Environment Ag',
-      avatar: '/images/team-sarah.png',
+      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
       bio: 'Sarah specializes in exotic high-value botanical crops and indoor climate optimization.'
     },
     lead: 'Climate-controlled solar glasshouses make high-grade vanilla orchid farming predictable and highly profitable.',
@@ -317,12 +317,12 @@ export const articles = [
     categoryName: 'Livestock',
     date: 'May 25, 2026',
     readTime: '5 min read',
-    image: '/images/pool-poultry.png',
+    image: 'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Organic Poultry Operations',
     author: {
       name: 'David Sterling',
       role: 'Senior Livestock Agronomist',
-      avatar: '/images/team-david.png',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
       bio: 'David oversees automated feeding systems and free-range poultry welfare metrics.'
     },
     lead: 'Real-time IoT sensors monitor poultry health, feed conversion ratios, and welfare standards on modern farms.',
@@ -340,7 +340,7 @@ export const articles = [
     categoryName: 'Sustainability',
     date: 'May 18, 2026',
     readTime: '5 min read',
-    image: '/images/pool-coffee.png',
+    image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Sustainable Farm Coffee Plantation',
     author: {
       name: 'Dr. Aris Thorne',
