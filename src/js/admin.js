@@ -42,8 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hydrate Supervisor details
   if (currentUser) {
-    document.querySelectorAll('.dashboard__user-name').forEach(el => {
-      el.textContent = currentUser.fullName || 'Admin Supervisor';
+    document.querySelectorAll('.dashboard__user-name, .admin-user-fullname').forEach(el => {
+      el.textContent = currentUser.fullName || 'MR Admin';
+    });
+    document.querySelectorAll('.admin-user-email').forEach(el => {
+      el.textContent = currentUser.email || 'admin@website.com';
     });
   }
 
@@ -457,7 +460,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const chartLabels = ['23-Jul', '25-Jul', '27-Jul', '29-Jul', '31-Jul', '02-Aug', '04-Aug', '06-Aug'];
 
-  // 1. Deposit & Withdraw Bar Chart (Index Page)
+  // 0. Cache Clear Handler
+  document.querySelectorAll('[data-cache-clear]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('success', 'Application & Database Cache Flushed Successfully!');
+    });
+  });
+
+  // 1. Product Sales Bar Chart (AgriWealth Parity)
+  const ctxProductSales = document.getElementById('chartProductSales');
+  if (ctxProductSales) {
+    new Chart(ctxProductSales, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+        datasets: [{
+          label: 'Product Sales ($)',
+          data: [150, 280, 420, 310, 590, 840, 1420, 2177],
+          backgroundColor: primaryColor,
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: v => `$${v}` } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  // 2. This Month Investment Comparison Multi-Bar Chart (AgriWealth Parity)
+  const ctxMonthlyInvestment = document.getElementById('chartMonthlyInvestment');
+  if (ctxMonthlyInvestment) {
+    new Chart(ctxMonthlyInvestment, {
+      type: 'bar',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [
+          {
+            label: 'Plan Invest ($)',
+            data: [65000, 72000, 58000, 66596],
+            backgroundColor: '#3B82F6',
+            borderRadius: 6
+          },
+          {
+            label: 'Project Invest ($)',
+            data: [50000, 85000, 62000, 63800],
+            backgroundColor: primaryColor,
+            borderRadius: 6
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom' }
+        },
+        scales: {
+          y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { callback: v => `$${Math.round(v/1000)}k` } },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  // 3. Deposit & Withdraw Bar Chart (Index Page)
   const ctxDepositWithdraw = document.getElementById('chartDepositWithdraw');
   if (ctxDepositWithdraw) {
     new Chart(ctxDepositWithdraw, {

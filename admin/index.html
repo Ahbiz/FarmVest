@@ -3,18 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin Dashboard — FarmVest Control Panel</title>
-  <meta name="description" content="Administrative control panel for managing users, farm pools, deposits, withdrawals, and system reports." />
-
-  <!-- Favicon -->
+  <title>Admin Dashboard — FarmVest Agricultural Syndicate</title>
+  <meta name="description" content="FarmVest Administrative Command Center: Real-time portfolio analytics, investor oversight, project pools, and system telemetry." />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
-
-  <!-- Scripts & Stylesheet -->
   <script type="module" src="/src/js/admin.js"></script>
   <link rel="stylesheet" href="/src/css/style.css" />
 </head>
@@ -22,36 +16,100 @@
 
   <div class="dashboard">
 
-    <!-- ADMIN SIDEBAR — Unified Dark Command Shell -->
+    <!-- ADMIN SIDEBAR -->
     <aside class="dashboard__sidebar admin-sidebar">
       <div class="dashboard__brand">
         <a href="/admin/index.html"><img src="/images/logo-white.svg" alt="FarmVest Admin" /></a>
       </div>
 
       <nav class="dashboard__nav">
+        <a href="/admin/index.html" class="dashboard__nav-item active"><i class="fas fa-gauge-high"></i> Dashboard</a>
+
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">Overview</p>
-          <a href="/admin/index.html" class="dashboard__nav-item active"><i class="fas fa-gauge-high"></i> Admin Dashboard</a>
-          <a href="/admin/reports.html" class="dashboard__nav-item"><i class="fas fa-chart-column"></i> Reports & Analytics</a>
+          <p class="dashboard__nav-section-title">MANAGE PLAN</p>
+          <a href="/admin/plans.html" class="dashboard__nav-item"><i class="fas fa-cubes"></i> Investment Plan</a>
+          <a href="/admin/plan-invest-history.html" class="dashboard__nav-item"><i class="fas fa-clock-rotate-left"></i> Plan Invest History</a>
         </div>
 
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">Management</p>
-          <a href="/admin/projects.html" class="dashboard__nav-item"><i class="fas fa-layer-group"></i> Manage Pools</a>
-          <a href="/admin/users.html" class="dashboard__nav-item"><i class="fas fa-users"></i> Manage Users <span class="admin-badge">57</span></a>
-          <a href="/admin/transactions.html" class="dashboard__nav-item"><i class="fas fa-money-bill-transfer"></i> Transactions <span class="admin-badge admin-badge--warn">24</span></a>
+          <p class="dashboard__nav-section-title">MANAGE PROJECT</p>
+          <a href="/admin/projects.html" class="dashboard__nav-item"><i class="fas fa-seedling"></i> Projects</a>
+          <a href="/admin/project-invest-history.html" class="dashboard__nav-item"><i class="fas fa-layer-group"></i> Project Invest History</a>
         </div>
 
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">Marketplace Management</p>
-          <a href="/admin/products.html" class="dashboard__nav-item"><i class="fas fa-boxes-stacked"></i> Produce Inventory</a>
-          <a href="/admin/orders.html" class="dashboard__nav-item"><i class="fas fa-truck-fast"></i> Store Orders <span class="admin-badge admin-badge--warn">1</span></a>
+          <p class="dashboard__nav-section-title">PRODUCT SETTING</p>
+          <a href="/admin/products.html" class="dashboard__nav-item"><i class="fas fa-boxes-stacked"></i> Product Setting</a>
         </div>
 
         <div class="dashboard__nav-section">
-          <p class="dashboard__nav-section-title">System & Config</p>
-          <a href="/admin/settings.html" class="dashboard__nav-item"><i class="fas fa-gear"></i> System Settings</a>
-          <a href="/index.html" class="dashboard__nav-item"><i class="fas fa-globe"></i> View Live Site</a>
+          <p class="dashboard__nav-section-title">SHIPPING CONTROL</p>
+          <a href="/admin/shipping-areas.html" class="dashboard__nav-item"><i class="fas fa-map-location-dot"></i> Areas</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">ORDERS</p>
+          <a href="/admin/orders.html" class="dashboard__nav-item"><i class="fas fa-truck-fast"></i> Orders <span class="admin-badge admin-badge--warn">3</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">MANAGE RANKING</p>
+          <a href="/admin/user-ranking.html" class="dashboard__nav-item"><i class="fas fa-trophy"></i> User Ranking</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">MANAGE COMMISSION</p>
+          <a href="/admin/referrals.html" class="dashboard__nav-item"><i class="fas fa-users-rays"></i> Referral</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">TRANSACTIONS</p>
+          <a href="/admin/transactions.html" class="dashboard__nav-item"><i class="fas fa-file-invoice-dollar"></i> Transaction</a>
+          <a href="/admin/commissions.html" class="dashboard__nav-item"><i class="fas fa-hand-holding-dollar"></i> Commissions</a>
+          <a href="/admin/withdraw-log.html" class="dashboard__nav-item"><i class="fas fa-money-bill-transfer"></i> Withdraw Log</a>
+          <a href="/admin/payment-log.html" class="dashboard__nav-item"><i class="fas fa-receipt"></i> Payment Log</a>
+          <a href="/admin/payment-requests.html" class="dashboard__nav-item"><i class="fas fa-clock"></i> Payment Request <span class="admin-badge admin-badge--warn">4</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">TICKET PANEL</p>
+          <a href="/admin/support-tickets.html" class="dashboard__nav-item"><i class="fas fa-headset"></i> Support Ticket <span class="admin-badge admin-badge--warn">6</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">KYC MANAGEMENT</p>
+          <a href="/admin/kyc-settings.html" class="dashboard__nav-item"><i class="fas fa-user-shield"></i> KYC Setting</a>
+          <a href="/admin/kyc-requests.html" class="dashboard__nav-item"><i class="fas fa-id-card-clip"></i> KYC Request <span class="admin-badge admin-badge--warn">1</span></a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">USER INFO</p>
+          <a href="/admin/users.html" class="dashboard__nav-item"><i class="fas fa-users-gear"></i> User Management</a>
+          <a href="/admin/investors.html" class="dashboard__nav-item"><i class="fas fa-user-tie"></i> Investors</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">SETTINGS & SETUP</p>
+          <a href="/admin/settings.html" class="dashboard__nav-item"><i class="fas fa-sliders"></i> Control Panel</a>
+          <a href="/admin/payment-gateways.html" class="dashboard__nav-item"><i class="fas fa-credit-card"></i> Payment Setting</a>
+          <a href="/admin/withdraw-settings.html" class="dashboard__nav-item"><i class="fas fa-wallet"></i> Withdraw Setting</a>
+          <a href="/admin/reports.html" class="dashboard__nav-item"><i class="fas fa-chart-pie"></i> Reports & Analytics</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">FRONTEND SETTINGS</p>
+          <a href="/admin/pages.html" class="dashboard__nav-item"><i class="fas fa-file-code"></i> Pages</a>
+          <a href="/admin/media.html" class="dashboard__nav-item"><i class="fas fa-photo-film"></i> Manage Media</a>
+          <a href="/admin/content.html" class="dashboard__nav-item"><i class="fas fa-pen-to-square"></i> Manage Content</a>
+          <a href="/admin/blog.html" class="dashboard__nav-item"><i class="fas fa-newspaper"></i> Manage Blog</a>
+        </div>
+
+        <div class="dashboard__nav-section">
+          <p class="dashboard__nav-section-title">APPLICATION PANEL</p>
+          <button type="button" class="dashboard__nav-item text-warning border-0 bg-transparent w-100 text-start" data-cache-clear>
+            <i class="fas fa-broom"></i> Cache Clear
+          </button>
+          <a href="/index.html" target="_blank" class="dashboard__nav-item"><i class="fas fa-globe"></i> View Live Site</a>
         </div>
       </nav>
 
@@ -69,91 +127,77 @@
     <!-- ADMIN MAIN CONTENT -->
     <div class="dashboard__main">
 
-      <!-- ADMIN TOPBAR -->
+      <!-- TOPBAR -->
       <header class="dashboard__topbar">
         <div class="dashboard__topbar-left">
           <button class="dashboard__menu-toggle" data-sidebar-toggle aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></button>
           <div class="dashboard__search">
             <i class="fas fa-search"></i>
-            <input type="search" placeholder="Search users, pools, transactions… Ctrl + K" aria-label="Search admin portal" />
+            <input type="search" placeholder="Search investors, pools, transactions, telemetry… Ctrl + K" aria-label="Search admin portal" />
           </div>
         </div>
 
         <div class="dashboard__topbar-right">
-          <!-- Dark / Light Mode Toggle Button -->
-          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode" title="Toggle Dark/Light Mode">
-            <i class="fas fa-moon"></i>
-          </button>
-
-          <!-- Notifications Dropdown -->
+          <!-- Notification Dropdown -->
           <div class="dropdown">
-            <button class="dashboard__topbar-btn" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications">
+            <button class="dashboard__topbar-btn position-relative" data-bs-toggle="dropdown" aria-expanded="false" aria-label="System notifications">
               <i class="fas fa-bell"></i>
-              <span class="dashboard__topbar-btn__badge"></span>
+              <span class="admin-badge admin-badge--warn position-absolute top-0 end-0 translate-middle p-1">5</span>
             </button>
-            <div class="dropdown-menu dropdown-menu-end notification-dropdown-menu">
-              <div class="notification-dropdown-menu__header">
-                <strong class="text-sm fw-bold">Admin Notifications</strong>
-                <a href="#" class="text-xs text-success text-decoration-none fw-semibold">Mark all read</a>
-              </div>
-              <div class="notification-dropdown-menu__body">
-                <a class="notification-dropdown-menu__item is-unread" href="/admin/transactions.html">
-                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--amber"><i class="fas fa-clock"></i></div>
-                  <div>
-                    <strong class="text-sm d-block text-dark">24 Pending Withdrawals</strong>
-                    <span class="text-xs text-muted">$1.24M queued for supervisor approval</span>
-                    <span class="text-xs text-muted d-block mt-1">2 min ago</span>
+            <div class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 p-3" style="width: 320px;">
+              <h6 class="fw-bold mb-3 d-flex justify-content-between align-items-center">
+                Notifications <span class="badge bg-danger-subtle text-danger rounded-pill">5 New</span>
+              </h6>
+              <div class="list-group list-group-flush text-xs">
+                <a href="/admin/payment-requests.html" class="list-group-item list-group-item-action border-0 px-0 py-2">
+                  <div class="d-flex w-100 justify-content-between">
+                    <strong class="text-dark">New Payment Request</strong>
+                    <small class="text-muted">25m ago</small>
                   </div>
+                  <p class="mb-0 text-muted">Karim Halim submitted $25,000.00 wire transfer.</p>
                 </a>
-                <a class="notification-dropdown-menu__item is-unread" href="/admin/users.html">
-                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--blue"><i class="fas fa-id-card"></i></div>
-                  <div>
-                    <strong class="text-sm d-block text-dark">New KYC Submission</strong>
-                    <span class="text-xs text-muted">Liam Chen submitted verification docs</span>
-                    <span class="text-xs text-muted d-block mt-1">18 min ago</span>
+                <a href="/admin/kyc-requests.html" class="list-group-item list-group-item-action border-0 px-0 py-2">
+                  <div class="d-flex w-100 justify-content-between">
+                    <strong class="text-dark">KYC Verification</strong>
+                    <small class="text-muted">18m ago</small>
                   </div>
-                </a>
-                <a class="notification-dropdown-menu__item" href="/admin/projects.html">
-                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--success"><i class="fas fa-circle-check"></i></div>
-                  <div>
-                    <strong class="text-sm d-block text-dark">Greenhouse Pool Fully Funded</strong>
-                    <span class="text-xs text-muted">Reached $800K target — ready for yield cycle</span>
-                    <span class="text-xs text-muted d-block mt-1">1 hour ago</span>
-                  </div>
-                </a>
-                <a class="notification-dropdown-menu__item" href="/admin/reports.html">
-                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--success"><i class="fas fa-chart-line"></i></div>
-                  <div>
-                    <strong class="text-sm d-block text-dark">Weekly Performance Digest</strong>
-                    <span class="text-xs text-muted">Platform financial report generated</span>
-                    <span class="text-xs text-muted d-block mt-1">3 hours ago</span>
-                  </div>
-                </a>
-                <a class="notification-dropdown-menu__item" href="/admin/transactions.html">
-                  <div class="notification-dropdown-menu__icon notification-dropdown-menu__icon--amber"><i class="fas fa-shield-cat"></i></div>
-                  <div>
-                    <strong class="text-sm d-block text-dark">Large Withdrawal Flagged</strong>
-                    <span class="text-xs text-muted">Sofia Martinez — $12,500 exceeds auto threshold</span>
-                    <span class="text-xs text-muted d-block mt-1">5 hours ago</span>
-                  </div>
+                  <p class="mb-0 text-muted">Liam Chen uploaded International Passport.</p>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- User Menu -->
+          <a href="/index.html" target="_blank" class="dashboard__topbar-btn text-muted" title="View Live Website"><i class="fas fa-globe"></i></a>
+          <button class="dashboard__topbar-btn" data-theme-toggle aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+
+          <!-- User Profile -->
           <div class="dropdown">
-            <div class="dashboard__user-menu" data-bs-toggle="dropdown" aria-expanded="false">
-              <div class="dashboard__user-avatar bg-dark text-white d-flex align-items-center justify-content-center">
-                <i class="fas fa-user-shield"></i>
+            <div class="d-flex align-items-center gap-2 position-relative" data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+              <div class="position-relative">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=admin" class="rounded-circle border border-2 border-primary-subtle" style="width: 38px; height: 38px;" alt="Admin" />
+                <span class="position-absolute bottom-0 end-0 bg-success border border-white rounded-circle" style="width: 10px; height: 10px;"></span>
               </div>
-              <span class="dashboard__user-name fw-bold">Admin Supervisor</span>
-              <i class="fas fa-chevron-down text-xs text-muted"></i>
             </div>
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 mt-2">
-              <li><a class="dropdown-item text-sm" href="/admin/settings.html"><i class="fas fa-gear me-2 text-primary"></i> System Settings</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item text-sm text-danger" href="/auth/login.html" data-logout-btn><i class="fas fa-right-from-bracket me-2"></i> Exit Admin</a></li>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 mt-2 py-2" style="min-width: 230px;">
+              <li class="px-3 py-2 d-flex align-items-center gap-2">
+                <img src="https://api.dicebear.com/7.x/bottts/svg?seed=admin" class="rounded-circle border" style="width: 38px; height: 38px;" alt="Admin Avatar" />
+                <div>
+                  <strong class="d-block text-dark fw-bold admin-user-fullname" style="font-size: 0.9rem;">MR Admin</strong>
+                  <span class="text-xs text-muted admin-user-email" style="font-size: 0.75rem;">admin@website.com</span>
+                </div>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li>
+                <a class="dropdown-item py-2 px-3 text-sm d-flex align-items-center text-dark" href="/admin/settings.html">
+                  <i class="fas fa-user-gear me-2 text-muted"></i> Profile & account
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li>
+                <a class="dropdown-item py-2 px-3 text-sm d-flex align-items-center text-danger" href="/auth/login.html" data-logout-btn>
+                  <i class="fas fa-right-from-bracket me-2"></i> Sign out
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -162,17 +206,20 @@
       <!-- BODY CONTENT -->
       <main class="dashboard__content">
 
-        <!-- Page Header -->
-        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 fv-fade-in-up">
-          <div>
-            <h1 class="dashboard__page-title mb-1">Admin Command Dashboard</h1>
-            <p class="dashboard__page-desc mb-0">System metrics, real-time user statistics, financial flow, and operational telemetry.</p>
+        <!-- Push Notification Alert Banner -->
+        <div class="alert alert-warning border-0 rounded-4 shadow-sm p-3 mb-4 d-flex flex-wrap align-items-center justify-content-between gap-3">
+          <div class="d-flex align-items-center gap-3">
+            <div class="icon-box-circle icon-box-circle--amber" style="width:40px;height:40px;">
+              <i class="fas fa-bell"></i>
+            </div>
+            <div>
+              <strong class="text-dark d-block">Enable Push Notification</strong>
+              <small class="text-muted">Please allow your browser to receive instant admin alerts for deposits, orders, and tickets.</small>
+            </div>
           </div>
-          <div>
-            <button type="button" class="btn btn-success rounded-pill px-4 btn-sm font-weight-bold shadow-sm" data-bs-toggle="modal" data-bs-target="#createPoolModal">
-              <i class="fas fa-plus me-1"></i> Create New Pool
-            </button>
-          </div>
+          <button class="btn btn-warning rounded-pill px-4 btn-sm fw-bold text-dark shadow-sm" onclick="this.closest('.alert').remove();">
+            Allow Notification
+          </button>
         </div>
 
         <!-- 1. USERS OVERVIEW METRICS (Bento Cards with Soft Pastels) -->
@@ -185,7 +232,7 @@
                   <i class="fas fa-users"></i>
                 </div>
               </div>
-              <h3 class="h2 font-mono fw-extrabold text-dark mb-0" data-counter-target="716">0</h3>
+              <h3 class="h2 font-mono fw-extrabold text-dark mb-0" data-counter-target="716">716</h3>
               <span class="text-xs text-success mt-1 d-block"><i class="fas fa-arrow-up me-1"></i>+48 this month</span>
             </div>
           </div>
@@ -198,7 +245,7 @@
                   <i class="fas fa-user-check"></i>
                 </div>
               </div>
-              <h3 class="h2 font-mono fw-extrabold text-success mb-0" data-counter-target="669">0</h3>
+              <h3 class="h2 font-mono fw-extrabold text-success mb-0" data-counter-target="669">669</h3>
               <span class="text-xs text-muted mt-1 d-block">93.4% activity rate</span>
             </div>
           </div>
@@ -211,7 +258,7 @@
                   <i class="fas fa-envelope"></i>
                 </div>
               </div>
-              <h3 class="h2 font-mono fw-extrabold text-warning mb-0" data-counter-target="47">0</h3>
+              <h3 class="h2 font-mono fw-extrabold text-warning mb-0" data-counter-target="47">47</h3>
               <span class="text-xs text-muted mt-1 d-block">Pending link confirmation</span>
             </div>
           </div>
@@ -224,154 +271,224 @@
                   <i class="fas fa-id-card"></i>
                 </div>
               </div>
-              <h3 class="h2 font-mono fw-extrabold text-rose mb-0" style="color:#E11D48;" data-counter-target="12">0</h3>
-              <span class="text-xs text-danger mt-1 d-block"><i class="fas fa-clock me-1"></i>Awaiting document review</span>
+              <h3 class="h2 font-mono fw-extrabold text-rose mb-0" style="color:#E11D48;" data-counter-target="1">1</h3>
+              <span class="text-xs text-danger mt-1 d-block"><i class="fas fa-clock me-1"></i>Awaiting review</span>
             </div>
           </div>
         </div>
 
-        <!-- 2. DEPOSITS & WITHDRAWALS METRIC BREAKDOWN GRID -->
+        <!-- 2. PRODUCT SALES & MONTHLY INVESTMENT DUAL SECTION (AgriWealth Parity) -->
         <div class="row g-4 mb-4 fv-fade-in-up" style="animation-delay: 0.2s;">
-          <!-- Deposits Card Block -->
+          <!-- Product Sales Bar Chart -->
           <div class="col-lg-6">
-            <div class="bento-card p-4">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <h2 class="h6 font-serif fw-bold text-dark mb-0">
-                  <i class="fas fa-arrow-down-left text-success me-2"></i> Deposits Metric Breakdown
-                </h2>
-                <span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 font-mono text-xs">Live Flow</span>
+            <div class="bento-card p-4 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
+                <div>
+                  <h6 class="font-serif fw-bold text-dark mb-0"><i class="fas fa-boxes-stacked text-success me-2"></i>Product Sales</h6>
+                  <span class="text-xs text-muted">Total Sales: <strong class="text-success font-mono">$2,177.00</strong> &bull; Total Orders: <strong class="text-dark font-mono">3</strong></span>
+                </div>
+                <span class="badge bg-light text-muted font-mono text-xs border">2026 Monthly</span>
               </div>
-              <div class="row g-3">
-                <div class="col-6">
-                  <div class="p-3 bg-light rounded-3 border">
-                    <span class="text-xs text-muted d-block mb-1">Total Deposited</span>
-                    <strong class="font-mono h5 text-success fw-bold mb-0" data-counter-target="142880.39" data-counter-prefix="$" data-counter-decimals="2">$0.00</strong>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="p-3 bg-light rounded-3 border">
-                    <span class="text-xs text-muted d-block mb-1">Pending Deposits</span>
-                    <strong class="font-mono h5 text-warning fw-bold mb-0" data-counter-target="43" data-counter-suffix=" Requests">0</strong>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="p-3 bg-light rounded-3 border">
-                    <span class="text-xs text-muted d-block mb-1">Rejected Deposits</span>
-                    <strong class="font-mono h5 text-muted fw-bold mb-0" data-counter-target="0">0</strong>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="p-3 bg-light rounded-3 border">
-                    <span class="text-xs text-muted d-block mb-1">Deposit Charges Collected</span>
-                    <strong class="font-mono h5 text-dark fw-bold mb-0" data-counter-target="1454.80" data-counter-prefix="$" data-counter-decimals="2">$0.00</strong>
-                  </div>
-                </div>
+              <div style="height: 260px;">
+                <canvas id="chartProductSales"></canvas>
               </div>
             </div>
           </div>
 
-          <!-- Withdrawals Card Block -->
+          <!-- This Month Investment Multi-Bar Chart -->
           <div class="col-lg-6">
-            <div class="bento-card p-4">
-              <div class="d-flex align-items-center justify-content-between mb-3">
-                <h2 class="h6 font-serif fw-bold text-dark mb-0">
-                  <i class="fas fa-arrow-up-right text-danger me-2"></i> Withdrawals Metric Breakdown
-                </h2>
-                <span class="badge bg-warning-subtle text-warning rounded-pill px-3 py-1 font-mono text-xs">7 Queued</span>
+            <div class="bento-card p-4 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
+                <div>
+                  <h6 class="font-serif fw-bold text-dark mb-0"><i class="fas fa-seedling text-primary me-2"></i>This Month Investment</h6>
+                  <span class="text-xs text-muted">Plan: <strong class="text-primary font-mono">$261,596.00</strong> &bull; Project: <strong class="text-success font-mono">$260,800.00</strong></span>
+                </div>
+                <span class="badge bg-light text-muted font-mono text-xs border">Comparison</span>
               </div>
-              <div class="row g-3">
-                <div class="col-6">
-                  <div class="p-3 bg-light rounded-3 border">
-                    <span class="text-xs text-muted d-block mb-1">Total Withdrawn</span>
-                    <strong class="font-mono h5 text-danger fw-bold mb-0" data-counter-target="350.00" data-counter-prefix="$" data-counter-decimals="2">$0.00</strong>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="p-3 bg-light rounded-3 border">
-                    <span class="text-xs text-muted d-block mb-1">Pending Withdrawals</span>
-                    <strong class="font-mono h5 text-warning fw-bold mb-0" data-counter-target="7" data-counter-suffix=" Requests">0</strong>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="p-3 bg-light rounded-3 border">
-                    <span class="text-xs text-muted d-block mb-1">Rejected Withdrawals</span>
-                    <strong class="font-mono h5 text-muted fw-bold mb-0" data-counter-target="1">0</strong>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="p-3 bg-light rounded-3 border">
-                    <span class="text-xs text-muted d-block mb-1">Withdrawal Charges</span>
-                    <strong class="font-mono h5 text-dark fw-bold mb-0" data-counter-target="9.00" data-counter-prefix="$" data-counter-decimals="2">$0.00</strong>
-                  </div>
-                </div>
+              <div style="height: 260px;">
+                <canvas id="chartMonthlyInvestment"></canvas>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 3. INVESTMENTS OVERVIEW GRID -->
-        <div class="row g-3 mb-5 fv-fade-in-up" style="animation-delay: 0.3s;">
-          <div class="col-md-6 col-xl-3">
-            <div class="stat-card p-3">
-              <span class="text-xs text-uppercase font-weight-bold text-muted d-block mb-1">Total Pool Investments</span>
-              <h3 class="h3 font-mono fw-bold text-primary mb-0" data-counter-target="243757.48" data-counter-prefix="$" data-counter-decimals="2">$0.00</h3>
+        <!-- 3. TOP PROJECTS & TOP PLANS BENCHMARK TABLES -->
+        <div class="row g-4 mb-4 fv-fade-in-up" style="animation-delay: 0.3s;">
+          <!-- Top Projects Table -->
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+              <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
+                <h6 class="fw-bold text-dark mb-0"><i class="fas fa-trophy text-warning me-2"></i>Top Farm Projects</h6>
+                <a href="/admin/projects.html" class="text-xs text-success text-decoration-none fw-bold">View All</a>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 text-sm">
+                  <thead class="bg-light text-xs text-muted font-mono">
+                    <tr>
+                      <th class="ps-4">Project Name</th>
+                      <th>Invest Amount</th>
+                      <th class="text-end pe-4">Backers</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="ps-4">
+                        <strong class="text-dark d-block">Texas Mega Corn Pool</strong>
+                        <span class="text-xs text-muted">Grain & Biofuels</span>
+                      </td>
+                      <td class="font-mono fw-bold text-success">$160,800.00</td>
+                      <td class="text-end pe-4 font-mono text-muted">142</td>
+                    </tr>
+                    <tr>
+                      <td class="ps-4">
+                        <strong class="text-dark d-block">Avocado Super Orchard</strong>
+                        <span class="text-xs text-muted">Hass Export Crop</span>
+                      </td>
+                      <td class="font-mono fw-bold text-success">$75,000.00</td>
+                      <td class="text-end pe-4 font-mono text-muted">88</td>
+                    </tr>
+                    <tr>
+                      <td class="ps-4">
+                        <strong class="text-dark d-block">Organic Basmati Rice</strong>
+                        <span class="text-xs text-muted">Indus Valley</span>
+                      </td>
+                      <td class="font-mono fw-bold text-success">$25,000.00</td>
+                      <td class="text-end pe-4 font-mono text-muted">45</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="stat-card p-3">
-              <span class="text-xs text-uppercase font-weight-bold text-muted d-block mb-1">Total Interests Paid</span>
-              <h3 class="h3 font-mono fw-bold text-success mb-0" data-counter-target="1225.59" data-counter-prefix="$" data-counter-decimals="2">$0.00</h3>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="stat-card p-3">
-              <span class="text-xs text-uppercase font-weight-bold text-muted d-block mb-1">Live Active Investments</span>
-              <h3 class="h3 font-mono fw-bold text-info mb-0" data-counter-target="91908.96" data-counter-prefix="$" data-counter-decimals="2">$0.00</h3>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <div class="stat-card p-3">
-              <span class="text-xs text-uppercase font-weight-bold text-muted d-block mb-1">Completed Investments</span>
-              <h3 class="h3 font-mono fw-bold text-dark mb-0" data-counter-target="1225.00" data-counter-prefix="$" data-counter-decimals="2">$0.00</h3>
+
+          <!-- Top Investment Plans Table -->
+          <div class="col-lg-6">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+              <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
+                <h6 class="fw-bold text-dark mb-0"><i class="fas fa-cubes text-info me-2"></i>Top Investment Plans</h6>
+                <a href="/admin/plans.html" class="text-xs text-success text-decoration-none fw-bold">View All</a>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 text-sm">
+                  <thead class="bg-light text-xs text-muted font-mono">
+                    <tr>
+                      <th class="ps-4">Plan Name</th>
+                      <th>Invest Amount</th>
+                      <th class="text-end pe-4">Subscribers</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="ps-4">
+                        <strong class="text-dark d-block">Platinum Yield Tier</strong>
+                        <span class="text-xs text-muted">22.5% Fixed Annual</span>
+                      </td>
+                      <td class="font-mono fw-bold text-primary">$180,000.00</td>
+                      <td class="text-end pe-4 font-mono text-muted">64</td>
+                    </tr>
+                    <tr>
+                      <td class="ps-4">
+                        <strong class="text-dark d-block">Growth Compounding Plus</strong>
+                        <span class="text-xs text-muted">18.0% Bi-Monthly</span>
+                      </td>
+                      <td class="font-mono fw-bold text-primary">$51,596.00</td>
+                      <td class="text-end pe-4 font-mono text-muted">112</td>
+                    </tr>
+                    <tr>
+                      <td class="ps-4">
+                        <strong class="text-dark d-block">Starter Seedling Pool</strong>
+                        <span class="text-xs text-muted">12.0% Quarterly</span>
+                      </td>
+                      <td class="font-mono fw-bold text-primary">$30,000.00</td>
+                      <td class="text-end pe-4 font-mono text-muted">280</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- 4. MAIN ANALYTICS CHARTS SECTION -->
-        <div class="row g-4 mb-5 fv-fade-in-up" style="animation-delay: 0.4s;">
-          <!-- Chart 1: Deposit & Withdraw Report -->
-          <div class="col-lg-6">
-            <div class="bento-card p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 font-serif fw-bold text-dark mb-0"><i class="fas fa-chart-bar text-primary me-2"></i>Deposit & Withdraw Report</h3>
-                <span class="badge bg-light text-muted font-mono text-xs border">Last 30 Days</span>
+        <!-- 4. TOTAL REFERRAL BONUS METRIC & TOP INVESTORS LEADERBOARD -->
+        <div class="row g-4 mb-4 fv-fade-in-up" style="animation-delay: 0.4s;">
+          <div class="col-12">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+              <div class="card-header bg-white py-3 px-4 d-flex align-items-center justify-content-between border-bottom">
+                <div>
+                  <h6 class="fw-bold text-dark mb-0"><i class="fas fa-user-tie text-success me-2"></i>Top Investors Leaderboard</h6>
+                  <span class="text-xs text-muted">Total Referral Bonus Distributed: <strong class="text-success font-mono">$13,883.28</strong></span>
+                </div>
+                <a href="/admin/investors.html" class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-xs fw-bold">View Full Directory</a>
               </div>
-              <div style="height: 280px;">
-                <canvas id="chartDepositWithdraw"></canvas>
-              </div>
-            </div>
-          </div>
-
-          <!-- Chart 2: Transactions Report -->
-          <div class="col-lg-6">
-            <div class="bento-card p-4">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 font-serif fw-bold text-dark mb-0"><i class="fas fa-chart-line text-success me-2"></i>Transactions Velocity</h3>
-                <span class="badge bg-light text-muted font-mono text-xs border">Last 30 Days</span>
-              </div>
-              <div style="height: 280px;">
-                <canvas id="chartTransactions"></canvas>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 text-sm">
+                  <thead class="bg-light text-xs text-muted text-uppercase font-mono">
+                    <tr>
+                      <th class="ps-4">Full Name</th>
+                      <th>Email / Phone</th>
+                      <th>Wallet Balance</th>
+                      <th>Profit Balance</th>
+                      <th>Total Invested</th>
+                      <th>Status</th>
+                      <th class="text-end pe-4">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="ps-4">
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="rounded-circle bg-success text-white fw-bold d-flex align-items-center justify-content-center text-xs" style="width: 32px; height: 32px;">
+                            KH
+                          </div>
+                          <div>
+                            <strong class="text-dark d-block">Karim Halim</strong>
+                            <span class="text-xs text-muted font-mono">@kariminvest</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="text-xs text-dark">karim.usman@gmail.com</span></td>
+                      <td class="font-mono fw-bold text-dark">$21,469,653.21</td>
+                      <td class="font-mono fw-bold text-success">$70.55</td>
+                      <td class="font-mono fw-bold text-success fs-6">$1,541,050.60</td>
+                      <td><span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">Active</span></td>
+                      <td class="text-end pe-4">
+                        <button class="btn btn-outline-secondary btn-sm rounded-circle" style="width:30px;height:30px;padding:0;"><i class="fas fa-pen text-xs"></i></button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="ps-4">
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="rounded-circle bg-primary text-white fw-bold d-flex align-items-center justify-content-center text-xs" style="width: 32px; height: 32px;">
+                            II
+                          </div>
+                          <div>
+                            <strong class="text-dark d-block">Ishtiaq Iqbal</strong>
+                            <span class="text-xs text-muted font-mono">@iiqbal</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="text-xs text-dark">iiqbal@test.com</span></td>
+                      <td class="font-mono fw-bold text-dark">$832,713.67</td>
+                      <td class="font-mono text-muted">$0.00</td>
+                      <td class="font-mono fw-bold text-success fs-6">$100,000.00</td>
+                      <td><span class="badge bg-success-subtle text-success rounded-pill px-3 py-1 text-xs">Active</span></td>
+                      <td class="text-end pe-4">
+                        <button class="btn btn-outline-secondary btn-sm rounded-circle" style="width:30px;height:30px;padding:0;"><i class="fas fa-pen text-xs"></i></button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
         </div>
 
         <!-- 5. SYSTEM TELEMETRY DOUGHNUT CHARTS SECTION -->
-        <div class="row g-4 mb-5 fv-fade-in-up" style="animation-delay: 0.5s;">
+        <div class="row g-4 mb-4 fv-fade-in-up" style="animation-delay: 0.5s;">
           <div class="col-md-4">
             <div class="bento-card p-4 text-center">
               <h4 class="h6 font-serif fw-bold text-dark mb-3"><i class="fas fa-globe text-primary me-2"></i>Login By Browser</h4>
-              <div style="height: 220px;" class="d-flex align-items-center justify-content-center">
+              <div style="height: 200px;" class="d-flex align-items-center justify-content-center">
                 <canvas id="chartBrowser"></canvas>
               </div>
             </div>
@@ -380,7 +497,7 @@
           <div class="col-md-4">
             <div class="bento-card p-4 text-center">
               <h4 class="h6 font-serif fw-bold text-dark mb-3"><i class="fas fa-laptop text-danger me-2"></i>Login By OS</h4>
-              <div style="height: 220px;" class="d-flex align-items-center justify-content-center">
+              <div style="height: 200px;" class="d-flex align-items-center justify-content-center">
                 <canvas id="chartOS"></canvas>
               </div>
             </div>
@@ -388,8 +505,8 @@
 
           <div class="col-md-4">
             <div class="bento-card p-4 text-center">
-              <h4 class="h6 font-serif fw-bold text-dark mb-3"><i class="fas fa-flag text-warning me-2"></i>Login By Country</h4>
-              <div style="height: 220px;" class="d-flex align-items-center justify-content-center">
+              <h4 class="h6 font-serif fw-bold text-dark mb-3"><i class="fas fa-mobile-screen text-warning me-2"></i>Login By Device</h4>
+              <div style="height: 200px;" class="d-flex align-items-center justify-content-center">
                 <canvas id="chartCountry"></canvas>
               </div>
             </div>
