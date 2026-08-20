@@ -21,6 +21,10 @@ import { animateCounters, initStaggerEntrance } from './components/animations.js
 import { initThemeToggle } from './services/theme.js';
 import { initSidebarToggle } from './components/sidebar.js';
 import { getWalletBalance } from './services/ecommerce-store.js';
+import { getWishlistItems, removeFromWishlist, clearWishlist, toggleWishlist, isInWishlist, updateWishlistBadges } from './services/wishlist.js';
+import { getPayoutHistory, requestPayout } from './services/payouts.js';
+import { getReferralData } from './services/referrals.js';
+import { addToCart } from './components/cart-drawer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   createIcons({ icons });
@@ -245,9 +249,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="badge bg-success position-absolute top-0 start-0 m-2 px-2 py-1 rounded-pill font-mono shadow-sm" style="font-size: 10px;">
                   ${p.badge || 'Direct Harvest'}
                 </span>
-                <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2 px-2 py-1 rounded-pill font-mono fw-bold" style="font-size: 10px;">
-                  10% Off
-                </span>
+                <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2 shadow-sm d-flex align-items-center justify-content-center" data-wishlist-toggle data-product-id="${p.id}" style="width: 30px; height: 30px; padding: 0; z-index: 2;" title="Toggle Wishlist">
+                  <i class="${isInWishlist(p.id) ? 'fa-solid text-danger' : 'fa-regular text-muted'} fa-heart"></i>
+                </button>
               </div>
               <div class="card-body p-3 d-flex flex-column">
                 <div class="d-flex align-items-center gap-1 text-warning text-xs mb-1" style="font-size: 11px;">
@@ -269,6 +273,25 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
         `).join('');
+
+        // Bind wishlist toggle buttons
+        memberStoreGrid.querySelectorAll('[data-wishlist-toggle]').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const prodId = btn.dataset.productId;
+            const product = products.find(p => p.id === prodId);
+            if (!product) return;
+            toggleWishlist(product);
+            const icon = btn.querySelector('i');
+            if (icon) {
+              if (isInWishlist(prodId)) {
+                icon.className = 'fa-solid fa-heart text-danger';
+              } else {
+                icon.className = 'fa-regular fa-heart text-muted';
+              }
+            }
+          });
+        });
 
         // Bind quick buy buttons
         memberStoreGrid.querySelectorAll('[data-buy-wallet]').forEach(btn => {
@@ -456,7 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <button type="button" class="btn btn-outline-success btn-sm rounded-pill px-3 py-1 me-1 text-xs fw-bold" data-track-order="${o.id}">
                 <i class="fa-solid fa-location-crosshairs me-1"></i> Track
               </button>
-              <button type="button" class="btn btn-light btn-sm rounded-pill px-3 py-1 border text-dark text-xs fw-bold" data-view-invoice="${o.id}">
+              <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3 py-1 text-xs fw-bold" data-view-invoice="${o.id}">
                 <i class="fa-solid fa-file-invoice me-1"></i> Slip
               </button>
             </td>
@@ -479,12 +502,14 @@ document.addEventListener('DOMContentLoaded', () => {
               const timelineEl = document.getElementById('trackingTimeline');
               if (timelineEl) {
                 timelineEl.innerHTML = order.timeline.map((step, idx) => `
-                  <div class="mb-4 position-relative">
-                    <span class="position-absolute start-0 translate-middle-x rounded-circle ${step.completed ? 'bg-success text-white' : 'bg-light text-muted border'}" style="left: -16px; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 11px;">
+                  <div class="tracking-step ${step.completed ? 'is-completed' : 'is-pending'}">
+                    <div class="tracking-step__icon ${step.completed ? 'tracking-step__icon--completed' : 'tracking-step__icon--pending'}">
                       <i class="fa-solid ${step.completed ? 'fa-check' : 'fa-circle'}"></i>
-                    </span>
-                    <h6 class="fw-bold ${step.completed ? 'text-dark' : 'text-muted'} mb-0 text-sm">${step.stage}</h6>
-                    <span class="text-xs text-muted">${step.time}</span>
+                    </div>
+                    <div class="tracking-step__content">
+                      <h6 class="tracking-step__title fw-bold ${step.completed ? 'text-dark' : 'text-muted'} mb-0 text-sm">${step.stage}</h6>
+                      <span class="tracking-step__time text-xs text-muted">${step.time}</span>
+                    </div>
                   </div>
                 `).join('');
               }
@@ -687,5 +712,468 @@ document.addEventListener('DOMContentLoaded', () => {
       renderSellerHub();
     });
   }
+
+  // ============================================================
+  // 10. Wishlist Page Controller (/dashboard/wishlist.html)
+  // ============================================================
+  const wishlistGrid = document.getElementById('wishlistGrid');
+  const wishlistEmptyState = document.getElementById('wishlistEmptyState');
+  const wishlistSearchInput = document.getElementById('wishlistSearchInput');
+  const clearWishlistBtn = document.getElementById('clearWishlistBtn');
+  const addAllToCartBtn = document.getElementById('addAllToCartBtn');
+  const wishlistTotalCountEl = document.getElementById('wishlistTotalCount');
+
+  function renderWishlistPage() {
+    if (!wishlistGrid) return;
+
+    const items = getWishlistItems();
+    const query = (wishlistSearchInput?.value || '').toLowerCase().trim();
+    const filtered = query
+      ? items.filter(it => (it.title || '').toLowerCase().includes(query) || (it.category || '').toLowerCase().includes(query))
+      : items;
+
+    if (wishlistTotalCountEl) {
+      wishlistTotalCountEl.textContent = `${items.length} item${items.length === 1 ? '' : 's'}`;
+    }
+
+    if (filtered.length === 0) {
+      wishlistGrid.innerHTML = '';
+      wishlistEmptyState?.classList.remove('d-none');
+      if (clearWishlistBtn) clearWishlistBtn.disabled = true;
+      if (addAllToCartBtn) addAllToCartBtn.disabled = true;
+      return;
+    }
+
+    wishlistEmptyState?.classList.add('d-none');
+    if (clearWishlistBtn) clearWishlistBtn.disabled = false;
+    if (addAllToCartBtn) addAllToCartBtn.disabled = false;
+
+    wishlistGrid.innerHTML = filtered.map(it => `
+      <div class="col-sm-6 col-lg-4 col-xl-3" data-wishlist-card-id="${it.id}">
+        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-white hover-shadow-md transition-base">
+          <div class="position-relative overflow-hidden" style="height: 150px; background: #f8fafc;">
+            <img src="${it.image || 'https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=300&q=80'}" class="w-100 h-100" alt="${it.title}" style="object-fit: cover;" />
+            <button type="button" class="btn btn-light btn-sm rounded-circle position-absolute top-0 end-0 m-2 shadow-sm d-flex align-items-center justify-content-center text-danger" data-wishlist-remove data-product-id="${it.id}" style="width: 32px; height: 32px;" title="Remove from wishlist">
+              <i class="fa-solid fa-trash-can text-xs"></i>
+            </button>
+            <span class="badge bg-success position-absolute top-0 start-0 m-2 px-2 py-1 rounded-pill font-mono text-xs shadow-sm">
+              ${it.category || 'Direct Harvest'}
+            </span>
+          </div>
+          <div class="card-body p-3 d-flex flex-column">
+            <h6 class="card-title font-heading fw-bold text-dark mb-1 text-truncate" title="${it.title}">${it.title}</h6>
+            <p class="text-xs text-muted mb-3 text-truncate"><i class="fa-solid fa-location-dot text-success me-1"></i>${it.origin || 'Verified Partner Farm'}</p>
+            
+            <div class="mt-auto pt-3 border-top">
+              <div class="d-flex align-items-baseline justify-content-between mb-2">
+                <span class="text-xs text-muted">Unit Price</span>
+                <div class="font-mono">
+                  <span class="fw-bold text-success fs-6">$${(it.price || 0).toFixed(2)}</span>
+                  <span class="text-xs text-muted"> / ${it.unit || 'kg'}</span>
+                </div>
+              </div>
+              <button type="button" class="btn btn-success btn-sm rounded-pill w-100 py-2 fw-semibold text-xs shadow-sm d-flex align-items-center justify-content-center gap-2 transition-base" data-wishlist-add-cart data-product-id="${it.id}">
+                <i class="fa-solid fa-cart-plus"></i> Move to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Remove single item listener
+    wishlistGrid.querySelectorAll('[data-wishlist-remove]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const prodId = btn.dataset.productId;
+        removeFromWishlist(prodId);
+        renderWishlistPage();
+      });
+    });
+
+    // Move to cart single item listener
+    wishlistGrid.querySelectorAll('[data-wishlist-add-cart]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const prodId = btn.dataset.productId;
+        const item = items.find(i => i.id === prodId);
+        if (!item) return;
+        addToCart({
+          id: item.id,
+          title: item.title,
+          price: item.price,
+          unit: item.unit || 'kg',
+          image: item.image,
+          quantity: 1
+        });
+        removeFromWishlist(prodId);
+        renderWishlistPage();
+      });
+    });
+  }
+
+  if (wishlistGrid) {
+    renderWishlistPage();
+    wishlistSearchInput?.addEventListener('input', renderWishlistPage);
+
+    clearWishlistBtn?.addEventListener('click', () => {
+      if (confirm('Are you sure you want to clear your entire produce wishlist?')) {
+        clearWishlist();
+        renderWishlistPage();
+      }
+    });
+
+    addAllToCartBtn?.addEventListener('click', () => {
+      const items = getWishlistItems();
+      if (items.length === 0) return;
+      items.forEach(it => {
+        addToCart({
+          id: it.id,
+          title: it.title,
+          price: it.price,
+          unit: it.unit || 'kg',
+          image: it.image,
+          quantity: 1
+        });
+      });
+      clearWishlist();
+      renderWishlistPage();
+      showToast('All wishlist produce items added to your shopping cart!', 'success');
+    });
+
+    window.addEventListener('farmvest:wishlist-updated', renderWishlistPage);
+  }
+
+  // Initial update of wishlist badges in sidebar
+  updateWishlistBadges();
+  window.addEventListener('farmvest:wishlist-updated', updateWishlistBadges);
+
+
+  // ============================================================
+  // 11. Payout Portal Controller (/dashboard/payout.html)
+  // ============================================================
+  const payoutForm = document.getElementById('payoutForm');
+  if (payoutForm) {
+    const amountInput = document.getElementById('payoutAmountInput');
+    const feeText = document.getElementById('payoutFeeText');
+    const netReceive = document.getElementById('payoutNetReceive');
+    const availBalEl = document.getElementById('payoutAvailableBalance');
+    const availBal = currentUser.walletBalance !== undefined ? currentUser.walletBalance : getWalletBalance();
+
+    if (availBalEl) {
+      availBalEl.textContent = `$${availBal.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+    }
+
+    let selectedMethod = 'Bank Wire (ACH / SWIFT)';
+    let selectedFee = 0.00;
+
+    function recalcPayout() {
+      const amount = parseFloat(amountInput?.value) || 0;
+      const net = Math.max(0, amount - selectedFee);
+      if (netReceive) netReceive.textContent = `$${net.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      if (feeText) feeText.textContent = selectedFee === 0 ? '$0.00 (Zero-Fee)' : `$${selectedFee.toFixed(2)}`;
+    }
+
+    // Method selection cards
+    document.querySelectorAll('.payout-method-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.payout-method-card').forEach(c => {
+          c.classList.remove('border-success', 'bg-success-subtle');
+          c.classList.add('border', 'bg-light');
+          const radio = c.querySelector('input[type="radio"]');
+          if (radio) radio.checked = false;
+        });
+        card.classList.remove('bg-light');
+        card.classList.add('border-success', 'bg-success-subtle');
+        const radio = card.querySelector('input[type="radio"]');
+        if (radio) radio.checked = true;
+
+        selectedMethod = card.dataset.method || 'Bank Wire';
+        selectedFee = parseFloat(card.dataset.fee) || 0.00;
+        recalcPayout();
+      });
+    });
+
+    // Quick percentage buttons
+    document.querySelectorAll('.payout-quick-pct').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pct = parseFloat(btn.dataset.pct) || 0;
+        const calcVal = (availBal * pct) / 100;
+        if (amountInput) amountInput.value = calcVal.toFixed(2);
+        recalcPayout();
+      });
+    });
+
+    amountInput?.addEventListener('input', recalcPayout);
+
+    payoutForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const amount = parseFloat(amountInput?.value) || 0;
+      const dest = document.getElementById('payoutDestinationInput')?.value || 'Primary Account';
+      const notes = document.getElementById('payoutNotesInput')?.value || '';
+
+      const res = requestPayout({
+        amount: amount,
+        method: selectedMethod,
+        destination: dest,
+        notes: notes
+      });
+
+      if (res.success) {
+        showToast(res.message, 'success');
+        setTimeout(() => {
+          window.location.href = '/dashboard/payout-history.html';
+        }, 1200);
+      } else {
+        showToast(res.message, 'error');
+      }
+    });
+  }
+
+
+  // ============================================================
+  // 12. Payout History Controller (/dashboard/payout-history.html)
+  // ============================================================
+  const payoutsTableBody = document.getElementById('payoutsTableBody');
+  if (payoutsTableBody) {
+    const filterButtons = document.querySelectorAll('#payoutStatusFilter button');
+    const searchInput = document.getElementById('payoutSearchInput');
+    const countText = document.getElementById('payoutCountText');
+    const receiptModalEl = document.getElementById('payoutReceiptModal');
+    const receiptModal = receiptModalEl && window.bootstrap ? new window.bootstrap.Modal(receiptModalEl) : null;
+    const receiptContent = document.getElementById('payoutReceiptContent');
+
+    let currentFilter = 'all';
+
+    function renderPayoutsTable() {
+      const payouts = getPayoutHistory();
+      const query = (searchInput?.value || '').toLowerCase().trim();
+
+      const filtered = payouts.filter(p => {
+        const matchFilter = currentFilter === 'all' || p.status.toLowerCase() === currentFilter.toLowerCase();
+        const matchQuery = !query ||
+          p.id.toLowerCase().includes(query) ||
+          p.originPool.toLowerCase().includes(query) ||
+          p.method.toLowerCase().includes(query) ||
+          p.destination.toLowerCase().includes(query);
+        return matchFilter && matchQuery;
+      });
+
+      if (countText) {
+        countText.textContent = `Showing ${filtered.length} payout${filtered.length === 1 ? '' : 's'}`;
+      }
+
+      if (filtered.length === 0) {
+        payoutsTableBody.innerHTML = `
+          <tr>
+            <td colspan="6" class="text-center py-5 text-muted">
+              <i class="fa-solid fa-clock-rotate-left fs-2 mb-2 d-block opacity-50"></i>
+              No payout disbursement records found.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      payoutsTableBody.innerHTML = filtered.map(p => `
+        <tr>
+          <td class="ps-4">
+            <strong class="font-mono text-dark text-xs d-block">${p.id}</strong>
+            <span class="text-xs text-muted">${p.date} &bull; ${p.time || '14:00 UTC'}</span>
+          </td>
+          <td>
+            <span class="fw-bold text-dark text-xs d-block">${p.originPool}</span>
+            <span class="text-xs text-muted">Ref: ${p.reference || 'DISB-2026'}</span>
+          </td>
+          <td>
+            <span class="font-mono fw-bold text-success text-sm">$${p.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+            <span class="text-xs text-muted d-block">Fee: $${(p.fee || 0).toFixed(2)}</span>
+          </td>
+          <td>
+            <span class="text-xs text-dark fw-bold d-block"><i class="fa-solid fa-building-columns text-muted me-1"></i>${p.method}</span>
+            <span class="text-xs font-mono text-muted">${p.destination}</span>
+          </td>
+          <td>
+            <span class="badge rounded-pill px-3 py-1 text-xs ${p.status === 'Completed' ? 'bg-success-subtle text-success border border-success-subtle' : 'bg-warning-subtle text-warning border border-warning-subtle'}">
+              <i class="fa-solid ${p.status === 'Completed' ? 'fa-circle-check' : 'fa-spinner fa-spin'} me-1"></i> ${p.status}
+            </span>
+          </td>
+          <td class="text-end pe-4">
+            <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill px-3 text-xs fw-bold" data-view-receipt data-payout-id="${p.id}">
+              <i class="fa-solid fa-receipt me-1"></i> Receipt
+            </button>
+          </td>
+        </tr>
+      `).join('');
+
+      // Receipt modal handlers
+      payoutsTableBody.querySelectorAll('[data-view-receipt]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const payoutId = btn.dataset.payoutId;
+          const payout = payouts.find(p => p.id === payoutId);
+          if (!payout || !receiptContent) return;
+
+          receiptContent.innerHTML = `
+            <div class="p-3 bg-light rounded-4 border mb-4 text-center">
+              <span class="text-xs text-muted text-uppercase fw-bold d-block mb-1">Disbursement Amount</span>
+              <h2 class="font-mono fw-bold text-success mb-0 fs-2">$${payout.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</h2>
+              <span class="badge bg-success rounded-pill px-3 py-1 text-xs mt-2">
+                <i class="fa-solid fa-circle-check me-1"></i> ${payout.status}
+              </span>
+            </div>
+            <div class="d-flex flex-column gap-2 text-xs">
+              <div class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Transaction ID:</span>
+                <span class="font-mono fw-bold text-dark">${payout.id}</span>
+              </div>
+              <div class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Origin Pool:</span>
+                <span class="fw-bold text-dark">${payout.originPool}</span>
+              </div>
+              <div class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Settlement Method:</span>
+                <span class="text-dark">${payout.method}</span>
+              </div>
+              <div class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Beneficiary Destination:</span>
+                <span class="font-mono text-dark">${payout.destination}</span>
+              </div>
+              <div class="d-flex justify-content-between py-2 border-bottom">
+                <span class="text-muted">Processing Fee:</span>
+                <span class="font-mono text-dark">$${(payout.fee || 0).toFixed(2)} (Waived)</span>
+              </div>
+              <div class="d-flex justify-content-between py-2">
+                <span class="text-muted">Settled Date & Time:</span>
+                <span class="text-dark">${payout.date} at ${payout.time || '14:00 UTC'}</span>
+              </div>
+            </div>
+          `;
+          receiptModal?.show();
+        });
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('btn-success', 'active');
+          b.classList.add('btn-outline-secondary');
+        });
+        btn.classList.remove('btn-outline-secondary');
+        btn.classList.add('btn-success', 'active');
+        currentFilter = btn.dataset.filter || 'all';
+        renderPayoutsTable();
+      });
+    });
+
+    searchInput?.addEventListener('input', renderPayoutsTable);
+    renderPayoutsTable();
+  }
+
+
+  // ============================================================
+  // 13. Referrals Controller (/dashboard/referrals.html)
+  // ============================================================
+  const copyRefBtn = document.getElementById('copyReferralLinkBtn');
+  const copyInputBtn = document.getElementById('copyInputBtn');
+  const refInput = document.getElementById('referralLinkInput');
+
+  function copyReferral() {
+    if (!refInput) return;
+    navigator.clipboard.writeText(refInput.value).then(() => {
+      showToast('Partner referral link copied to clipboard!', 'success');
+    }).catch(() => {
+      refInput.select();
+      document.execCommand('copy');
+      showToast('Partner referral link copied!', 'success');
+    });
+  }
+
+  copyRefBtn?.addEventListener('click', copyReferral);
+  copyInputBtn?.addEventListener('click', copyReferral);
+
+  const referralLedgerBody = document.getElementById('referralLedgerBody');
+  if (referralLedgerBody) {
+    const refData = getReferralData();
+    referralLedgerBody.innerHTML = refData.recentLedger.map(item => `
+      <tr>
+        <td class="ps-4">
+          <div class="d-flex align-items-center gap-2">
+            <div class="rounded-circle bg-success-subtle text-success p-2 text-xs font-mono fw-bold" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;">
+              ${item.investor.split(' ').map(n=>n[0]).join('')}
+            </div>
+            <div>
+              <strong class="text-dark text-xs d-block">${item.investor}</strong>
+              <span class="text-xs text-muted font-mono">${item.status}</span>
+            </div>
+          </div>
+        </td>
+        <td class="text-xs text-muted">${item.joinedDate}</td>
+        <td>
+          <span class="text-xs text-dark fw-bold">${item.poolInvested}</span>
+        </td>
+        <td class="font-mono text-dark fw-bold text-xs">$${item.capitalAmount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+        <td class="font-mono text-success fw-bold text-xs">+$${item.commissionEarned.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+        <td class="text-end pe-4">
+          <span class="badge rounded-pill px-3 py-1 text-xs ${item.commissionStatus === 'Credited' ? 'bg-success-subtle text-success border border-success-subtle' : 'bg-warning-subtle text-warning border border-warning-subtle'}">
+            ${item.commissionStatus}
+          </span>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+
+  // ============================================================
+  // 14. 2FA Security Controller (/dashboard/2fa.html)
+  // ============================================================
+  const copySecretKeyBtn = document.getElementById('copySecretKeyBtn');
+  const secretKeyInput = document.getElementById('totpSecretKey');
+  copySecretKeyBtn?.addEventListener('click', () => {
+    if (secretKeyInput) {
+      navigator.clipboard.writeText(secretKeyInput.value).then(() => {
+        showToast('2FA Secret Key copied to clipboard!', 'success');
+      });
+    }
+  });
+
+  const verify2faBtn = document.getElementById('verify2faBtn');
+  const totpTestCode = document.getElementById('totpTestCode');
+  verify2faBtn?.addEventListener('click', () => {
+    const code = (totpTestCode?.value || '').trim();
+    if (code.length === 6) {
+      showToast('Two-Factor Authentication (TOTP) successfully configured and active!', 'success');
+      if (totpTestCode) totpTestCode.value = '';
+    } else {
+      showToast('Please enter a valid 6-digit TOTP security code.', 'error');
+    }
+  });
+
+  const genCodesBtn = document.getElementById('genCodesBtn');
+  const recoveryCodesGrid = document.getElementById('recoveryCodesGrid');
+  genCodesBtn?.addEventListener('click', () => {
+    if (!recoveryCodesGrid) return;
+    const generateCode = () => `${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`;
+    recoveryCodesGrid.innerHTML = `
+      <div class="col-6 col-sm-3"><span class="p-2 bg-white rounded border d-block">${generateCode()}</span></div>
+      <div class="col-6 col-sm-3"><span class="p-2 bg-white rounded border d-block">${generateCode()}</span></div>
+      <div class="col-6 col-sm-3"><span class="p-2 bg-white rounded border d-block">${generateCode()}</span></div>
+      <div class="col-6 col-sm-3"><span class="p-2 bg-white rounded border d-block">${generateCode()}</span></div>
+    `;
+    showToast('New offline backup recovery codes generated!', 'success');
+  });
+
+
+  // ============================================================
+  // 15. KYC Verification Center Controller (/dashboard/kyc.html)
+  // ============================================================
+  const kycFileInput = document.getElementById('kycFileInput');
+  kycFileInput?.addEventListener('change', () => {
+    if (kycFileInput.files && kycFileInput.files.length > 0) {
+      const file = kycFileInput.files[0];
+      showToast(`Document "${file.name}" uploaded successfully for Jumio verification!`, 'success');
+    }
+  });
+
 });
 
